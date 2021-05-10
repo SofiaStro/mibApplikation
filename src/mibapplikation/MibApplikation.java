@@ -26,5 +26,8 @@ public class MibApplikation {
             Logger.getLogger(MibApplikation.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    public void test()
+    {
+        System.out.println("hej");
+    }
 }
