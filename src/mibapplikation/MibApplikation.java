@@ -29,5 +29,6 @@ public class MibApplikation {
     public void test()
     {
         System.out.println("hej Sofia!");
+        System.out.println("Hejhej GitGit");
     }
 }
