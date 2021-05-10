@@ -12,7 +12,7 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class MibApplikation {
+public class StartClass {
     private static InfDB idb;
     /**
      * @param args the command line arguments
@@ -23,8 +23,10 @@ public class MibApplikation {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
         }
         catch(InfException ex){
-            Logger.getLogger(MibApplikation.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StartClass.class.getName()).log(Level.SEVERE, null, ex);
         }
+        new MainWindowLogin().setVisible(true);
+       
     }
     public void test()
     {
