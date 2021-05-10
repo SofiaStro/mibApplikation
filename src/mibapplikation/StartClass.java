@@ -13,7 +13,9 @@ import oru.inf.InfException;
  * @author strom
  */
 public class StartClass {
+    
     private static InfDB idb;
+    
     /**
      * @param args the command line arguments
      */
@@ -25,7 +27,7 @@ public class StartClass {
         catch(InfException ex){
             Logger.getLogger(StartClass.class.getName()).log(Level.SEVERE, null, ex);
         }
-        new MainWindowLogin().setVisible(true);
+        new MainWindowLogin(idb).setVisible(true);
        
     }
     public void test()

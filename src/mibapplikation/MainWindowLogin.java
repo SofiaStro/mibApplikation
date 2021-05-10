@@ -4,18 +4,23 @@
  * and open the template in the editor.
  */
 package mibapplikation;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
  * @author Blazl
  */
 public class MainWindowLogin extends javax.swing.JFrame {
-
+    
+    private InfDB idb;
     /**
      * Creates new form MainWindowLogin
      */
-    public MainWindowLogin() {
+    public MainWindowLogin(InfDB idb) {
         initComponents();
+        this.idb = idb; 
+        
     }
 
     /**
@@ -110,30 +115,60 @@ public class MainWindowLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // Om användarnamn och lösenord stämmer och finns i databasen ska man loggas in till den sidan som finns för sin användartyp.
-        if (txtfUsername.getText().equals("Agent")){
+        String query = "SELECT namn FROM agent WHERE agent_id = 1";
+//        
+        try{
+        
+            String hej = idb.fetchSingle(query);
             
-            setVisible(false);
-            new MainWindowAgent().setVisible(true);
+            lblUsername.setText(hej);
+            
+        } catch (InfException ex){
+            System.out.println("Databasfel");
         }
-        else if (txtfUsername.getText().equals("Alien")){
-            
-            setVisible(false);
-            new MainWindowAlien().setVisible(true);
-        }
-        else if (txtfUsername.getText().equals("Admin")){
-            
-            setVisible(false);
-            new MainWindowAdmin().setVisible(true);
+        catch (Exception ex){
+        
+            System.out.println("Random fel" + ex.getMessage());
         }
         
         
+//        try{
+//            String hejhej = idb.fetchSingle(query);
+//        
+//             if (txtfUsername.getText().equals("Agent")){
+//            
+//                setVisible(false);
+//                 new MainWindowAgent().setVisible(true);
+//                }
+//             else if (txtfUsername.getText().equals("Alien")){
+//            
+//                setVisible(false);
+//                 new MainWindowAlien().setVisible(true);
+//                }
+//                // Finns agenten i databasen och har admin privilegier så logga hen in.
+//       
+//             else if (txtfUsername.getText().equals(hejhej)){
+//            
+//                setVisible(false);
+//                new MainWindowAdmin().setVisible(true);
+//                }
+//        } catch (InfException ex) {
+//        
+//            System.out.println("datbas feeeeeel");
+//        }
+//        catch (Exception ex) {
+//        
+//            System.out.println("random fel");
+//        }
+        
+    
         
        
     }//GEN-LAST:event_btnLoginActionPerformed
 
    
     
-
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JPanel jPanel1;
