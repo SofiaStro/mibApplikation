@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package mibapplikation;
+
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -43,11 +44,6 @@ public class MainWindowLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txtfUsername.setColumns(4);
-        txtfUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtfUsernameActionPerformed(evt);
-            }
-        });
 
         lblUsername.setText("Användarnamn");
 
@@ -138,15 +134,21 @@ public class MainWindowLogin extends javax.swing.JFrame {
             String qIdOnName = "SELECT agent_id FROM agent WHERE namn = " + "'" + username + "'";
             
             String resultName = idb.fetchSingle(qIdOnName);
-            System.out.println(resultName);
+            System.out.println("ID namn = " + resultName);
             
             char[] pwArray = pwPassword.getPassword();
             String password = new String(pwArray);
             String qIdOnPassword = "SELECT agent_id FROM agent WHERE losenord = " + "'" + password + "'";
             String resultPassword = idb.fetchSingle(qIdOnPassword);
-            System.out.println(resultPassword);
+            System.out.println("ID lösenord = " + resultPassword);
+            
+            System.out.println("pwArray är nu");
             System.out.println(pwArray);
-//            to do töm array
+            pwArray = null;
+            System.out.println("pwArray är nu " + pwArray);
+            
+            
+            
             if (resultName.equals(resultPassword)){
                 
                 setVisible(false);
@@ -156,6 +158,7 @@ public class MainWindowLogin extends javax.swing.JFrame {
                 lblMessage.setText("Fel användarnamn eller lösenord");
                 
             }
+            
             
             
         } catch (InfException ex){
@@ -206,11 +209,6 @@ public class MainWindowLogin extends javax.swing.JFrame {
         
        
     }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void txtfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfUsernameActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txtfUsernameActionPerformed
 
    
     
