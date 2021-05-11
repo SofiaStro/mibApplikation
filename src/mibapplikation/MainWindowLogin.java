@@ -56,8 +56,6 @@ public class MainWindowLogin extends javax.swing.JFrame {
             }
         });
 
-        pwPassword.setText("jPasswordField1");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -107,7 +105,7 @@ public class MainWindowLogin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(147, 147, 147)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(249, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,91 +121,43 @@ public class MainWindowLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // Om användarnamn och lösenord stämmer och finns i databasen ska man loggas in till den sidan som finns för sin användartyp.
         
-        
-        
-//        
-        try{
-        
-              
-            
+        try{        
             String username = txtfUsername.getText();
-            String qIdOnName = "SELECT agent_id FROM agent WHERE namn = " + "'" + username + "'";
-            
-            String resultName = idb.fetchSingle(qIdOnName);
-            System.out.println("ID namn = " + resultName);
-            
             char[] pwArray = pwPassword.getPassword();
             String password = new String(pwArray);
-            String qIdOnPassword = "SELECT agent_id FROM agent WHERE losenord = " + "'" + password + "'";
-            String resultPassword = idb.fetchSingle(qIdOnPassword);
-            System.out.println("ID lösenord = " + resultPassword);
-            
-            System.out.println("pwArray är nu");
-            System.out.println(pwArray);
-            pwArray = null;
-            System.out.println("pwArray är nu " + pwArray);
-            
-            
-            
-            if (resultName.equals(resultPassword)){
-                
-                setVisible(false);
-                new MainWindowAgent().setVisible(true);
+           
+            String queryAgent = "SELECT administrator FROM agent WHERE namn = " + "'" + username + "'" + "AND losenord = " + "'" + password + "'";
+            String resultAgent = idb.fetchSingle(queryAgent);
+        
+            String queryAlien = "SELECT alien_id FROM alien WHERE namn = " + "'" + username + "'" + "AND losenord = " + "'" + password + "'";
+            String resultAlien = idb.fetchSingle(queryAlien);
+           
+            if (resultAgent != null) {
+                if(resultAgent.equals("J")){
+                    setVisible(false);
+                    new MainWindowAdmin().setVisible(true);
+                }
+                else{
+                    setVisible(false);
+                    new MainWindowAgent().setVisible(true);
+                }                
             }
+            else if (resultAlien != null) {
+                setVisible(false);
+                new MainWindowAlien().setVisible(true);
+            } 
             else {
                 lblMessage.setText("Fel användarnamn eller lösenord");
-                
             }
             
-            
-            
-        } catch (InfException ex){
+            pwArray = null;
+        } 
+        catch (InfException ex){
             System.out.println("Databasfel" + ex.getMessage());
         }
         catch (Exception ex){
-        
             System.out.println("Random fel" + ex.getMessage());
         }
-            
-            
-            
-            
-            
-            
-        
-        
-//        try{
-//            String hejhej = idb.fetchSingle(query);
-//        
-//             if (txtfUsername.getText().equals("Agent")){
-//            
-//                setVisible(false);
-//                 new MainWindowAgent().setVisible(true);
-//                }
-//             else if (txtfUsername.getText().equals("Alien")){
-//            
-//                setVisible(false);
-//                 new MainWindowAlien().setVisible(true);
-//                }
-//                // Finns agenten i databasen och har admin privilegier så logga hen in.
-//       
-//             else if (txtfUsername.getText().equals(hejhej)){
-//            
-//                setVisible(false);
-//                new MainWindowAdmin().setVisible(true);
-//                }
-//        } catch (InfException ex) {
-//        
-//            System.out.println("datbas feeeeeel");
-//        }
-//        catch (Exception ex) {
-//        
-//            System.out.println("random fel");
-//        }
-        
-    
-        
-       
     }//GEN-LAST:event_btnLoginActionPerformed
 
    
