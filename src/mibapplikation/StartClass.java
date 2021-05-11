@@ -27,6 +27,7 @@ public class StartClass {
         catch(InfException ex){
             Logger.getLogger(StartClass.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         //new MainWindowLogin(idb).setVisible(true);
         new MainWindow().setVisible(true);
         
