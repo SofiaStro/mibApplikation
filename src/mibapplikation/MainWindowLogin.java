@@ -185,9 +185,13 @@ public class MainWindowLogin extends javax.swing.JFrame {
             } 
             else {
                 lblMessage.setText("Fel användarnamn eller lösenord");
+                pwPassword.setText("");
+                pwPassword.requestFocus();
             }
             
+            password = "";
             pwArray = null;
+            
         } 
         catch (InfException ex){
             System.out.println("Databasfel" + ex.getMessage());
