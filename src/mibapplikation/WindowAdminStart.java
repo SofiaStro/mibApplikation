@@ -9,15 +9,17 @@ package mibapplikation;
  *
  * @author Blazl
  */
-public class MainWindow extends javax.swing.JFrame {
+public class WindowAdminStart extends javax.swing.JFrame {
+    
+    
 
     /**
      * Creates new form MainWindow
      */
-    public MainWindow() {
+    public WindowAdminStart() {
         initComponents();
-//        MainPanelAdmin test = new MainPanelAdmin();
-//        background.(test);
+        
+        
     }
 
     /**
@@ -35,11 +37,11 @@ public class MainWindow extends javax.swing.JFrame {
         btn2 = new javax.swing.JButton();
         btn = new javax.swing.JButton();
         btn4 = new javax.swing.JButton();
+        lblMenu = new javax.swing.JLabel();
+        btnChangePw = new javax.swing.JButton();
         topPanel = new javax.swing.JPanel();
+        lblWelcome = new javax.swing.JLabel();
         taskPanel = new javax.swing.JPanel();
-        btnHide = new javax.swing.JButton();
-        btnShow = new javax.swing.JButton();
-        lblTest = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Galaxal");
@@ -53,25 +55,22 @@ public class MainWindow extends javax.swing.JFrame {
 
         btn1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn1.setText("jButton1");
-        btn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn1ActionPerformed(evt);
-            }
-        });
 
         btn2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn2.setText("jButton2");
-        btn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn2ActionPerformed(evt);
-            }
-        });
 
         btn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn.setText("jButton3");
 
         btn4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn4.setText("jButton4");
+
+        lblMenu.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblMenu.setForeground(new java.awt.Color(255, 255, 255));
+        lblMenu.setText("Meny");
+
+        btnChangePw.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnChangePw.setText("Ändra Lösenord");
 
         javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
         sidePanel.setLayout(sidePanelLayout);
@@ -83,13 +82,20 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(btn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                    .addComponent(btn4, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addComponent(btn4, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                    .addComponent(btnChangePw, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sidePanelLayout.createSequentialGroup()
+                .addContainerGap(92, Short.MAX_VALUE)
+                .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
         );
         sidePanelLayout.setVerticalGroup(
             sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sidePanelLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
+                .addGap(23, 23, 23)
+                .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
                 .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -97,54 +103,41 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(btn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(641, Short.MAX_VALUE))
+                .addGap(212, 212, 212)
+                .addComponent(btnChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(447, Short.MAX_VALUE))
         );
 
         background.add(sidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         topPanel.setBackground(new java.awt.Color(79, 79, 79));
 
+        lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
+        lblWelcome.setText("Välkommen Administratör!");
+
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1006, Short.MAX_VALUE)
+            .addGroup(topPanelLayout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(507, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 90, Short.MAX_VALUE)
+            .addGroup(topPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         background.add(topPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, -1, 90));
 
         taskPanel.setBackground(new java.awt.Color(255, 255, 255));
         taskPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnHide.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnHide.setText("Hide sidePanel");
-        btnHide.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHideActionPerformed(evt);
-            }
-        });
-        taskPanel.add(btnHide, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 227, 57));
-
-        btnShow.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnShow.setText("Show sidePanel");
-        btnShow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnShowActionPerformed(evt);
-            }
-        });
-        taskPanel.add(btnShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 227, 57));
-
-        lblTest.setBackground(new java.awt.Color(0, 0, 0));
-        lblTest.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTest.setForeground(new java.awt.Color(0, 0, 0));
-        lblTest.setBorder(new javax.swing.border.MatteBorder(null));
-        taskPanel.add(lblTest, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 160, 30));
-
-        background.add(taskPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 970, 670));
+        background.add(taskPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 880, 550));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,26 +153,6 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnHideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHideActionPerformed
-        // TODO add your handling code here:
-        sidePanel.setVisible(false);
-    }//GEN-LAST:event_btnHideActionPerformed
-
-    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
-        // TODO add your handling code here:
-        sidePanel.setVisible(true);
-    }//GEN-LAST:event_btnShowActionPerformed
-
-    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        // TODO add your handling code here:
-        lblTest.setText("Knapp 1");
-    }//GEN-LAST:event_btn1ActionPerformed
-
-    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-        // TODO add your handling code here:
-        lblTest.setText("Knapp 2");
-    }//GEN-LAST:event_btn2ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -192,9 +165,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn4;
-    private javax.swing.JButton btnHide;
-    private javax.swing.JButton btnShow;
-    private javax.swing.JLabel lblTest;
+    private javax.swing.JButton btnChangePw;
+    private javax.swing.JLabel lblMenu;
+    private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel sidePanel;
     private javax.swing.JPanel taskPanel;
     private javax.swing.JPanel topPanel;

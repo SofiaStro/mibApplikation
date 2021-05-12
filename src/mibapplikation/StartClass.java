@@ -28,8 +28,8 @@ public class StartClass {
             Logger.getLogger(StartClass.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        //new MainWindowLogin(idb).setVisible(true);
-        new MainWindow().setVisible(true);
+        new MainWindowLogin(idb).setVisible(true);
+        
         
         
        
