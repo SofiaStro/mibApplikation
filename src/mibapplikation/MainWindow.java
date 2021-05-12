@@ -16,6 +16,8 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() {
         initComponents();
+//        MainPanelAdmin test = new MainPanelAdmin();
+//        background.(test);
     }
 
     /**

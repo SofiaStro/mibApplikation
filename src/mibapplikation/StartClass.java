@@ -31,16 +31,8 @@ public class StartClass {
         //new MainWindowLogin(idb).setVisible(true);
         new MainWindow().setVisible(true);
         
+        
        
     }
-    
-    
-    
-    
-    
-    public void test()
-    {
-        System.out.println("hej Sofia!");
-        System.out.println("Hejhej GitGit");
-    }
+
 }
