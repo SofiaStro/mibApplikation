@@ -12,11 +12,8 @@ package mibapplikation;
  * @author Blazl
  */
 public class SqlQueries {
-    
-    
 
 
-   
-    
+
 }
 

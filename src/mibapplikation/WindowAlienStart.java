@@ -13,14 +13,19 @@ import oru.inf.InfDB;
  */
 public class WindowAlienStart extends javax.swing.JFrame {
 
-    private static InfDB idb;
+    private InfDB idb;
+    private String alienId;
+    private String username;
 
     /**
      * Creates new form MainWindow
      */
-    public WindowAlienStart(InfDB idb) {
+    public WindowAlienStart(InfDB idb, String alienId, String username) {
         initComponents();
         this.idb = idb;
+        this.alienId = alienId;
+        this.username = username;
+        lblUsername.setText(username);
     }
 
     /**
@@ -33,13 +38,14 @@ public class WindowAlienStart extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
-        lblWelcome = new javax.swing.JLabel();
-        btn7 = new javax.swing.JButton();
-        btn6 = new javax.swing.JButton();
+        lblUsername = new javax.swing.JLabel();
+        btnChangePw = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         btn2 = new javax.swing.JButton();
         btn1 = new javax.swing.JButton();
         lblMenu = new javax.swing.JLabel();
         btn3 = new javax.swing.JButton();
+        lblWelcome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Galaxal");
@@ -50,23 +56,28 @@ public class WindowAlienStart extends javax.swing.JFrame {
         background.setPreferredSize(new java.awt.Dimension(100, 500));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
-        lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
-        lblWelcome.setText("Välkommen Alien!");
-        background.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 263, -1));
+        lblUsername.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsername.setText("Alien");
+        background.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 100, -1));
 
-        btn7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn7.setText("Byt lösenord");
-        background.add(btn7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 190, -1));
-
-        btn6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn6.setText("Logga ut");
-        btn6.addActionListener(new java.awt.event.ActionListener() {
+        btnChangePw.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnChangePw.setText("Byt lösenord");
+        btnChangePw.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn6ActionPerformed(evt);
+                btnChangePwActionPerformed(evt);
             }
         });
-        background.add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 190, -1));
+        background.add(btnChangePw, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 190, -1));
+
+        btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnLogout.setText("Logga ut");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        background.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 190, -1));
 
         btn2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn2.setText("jButton1");
@@ -85,6 +96,11 @@ public class WindowAlienStart extends javax.swing.JFrame {
         btn3.setText("jButton1");
         background.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 190, -1));
 
+        lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
+        lblWelcome.setText("Välkommen ");
+        background.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 250, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,11 +117,19 @@ public class WindowAlienStart extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
+        alienId = "";
         setVisible(false);
         new MainWindowLogin(idb).setVisible(true);
-    }//GEN-LAST:event_btn6ActionPerformed
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed
+        // TODO add your handling code here:
+        new WindowAlienChangePw(idb, alienId).setVisible(true);
+        
+        
+    }//GEN-LAST:event_btnChangePwActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,9 +142,10 @@ public class WindowAlienStart extends javax.swing.JFrame {
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn3;
-    private javax.swing.JButton btn6;
-    private javax.swing.JButton btn7;
+    private javax.swing.JButton btnChangePw;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JLabel lblMenu;
+    private javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblWelcome;
     // End of variables declaration//GEN-END:variables
 }

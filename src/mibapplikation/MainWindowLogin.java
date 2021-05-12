@@ -21,7 +21,6 @@ public class MainWindowLogin extends javax.swing.JFrame {
     public MainWindowLogin(InfDB idb) {
         initComponents();
         this.idb = idb; 
-        
     }
 
     /**
@@ -161,14 +160,17 @@ public class MainWindowLogin extends javax.swing.JFrame {
             char[] pwArray = pwPassword.getPassword();
             String password = new String(pwArray);
            
-            String queryAgent = "SELECT administrator FROM agent WHERE namn = " + "'" + username + "'" + "AND losenord = " + "'" + password + "'";
+            String queryAgent = "SELECT agent_id FROM agent WHERE namn = " + "'" + username + "'" + "AND losenord = " + "'" + password + "'";
             String resultAgent = idb.fetchSingle(queryAgent);
         
+            String queryAdmin = "SELECT administrator FROM agent WHERE agent_id = " + "'" + resultAgent + "'";
+            String resultAdmin = idb.fetchSingle(queryAdmin);
+            
             String queryAlien = "SELECT alien_id FROM alien WHERE namn = " + "'" + username + "'" + "AND losenord = " + "'" + password + "'";
             String resultAlien = idb.fetchSingle(queryAlien);
            
             if (resultAgent != null) {
-                if(resultAgent.equals("J")){
+                if(resultAdmin.equals("J")){
                     setVisible(false);
                     new WindowAdminStart().setVisible(true);
                 }
@@ -179,7 +181,7 @@ public class MainWindowLogin extends javax.swing.JFrame {
             }
             else if (resultAlien != null) {
                 setVisible(false);
-                new WindowAlienStart(idb).setVisible(true);
+                new WindowAlienStart(idb, resultAlien, username).setVisible(true);
             } 
             else {
                 lblMessage.setText("Fel användarnamn eller lösenord");

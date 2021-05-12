@@ -11,7 +11,6 @@ package mibapplikation;
  */
 public class Validation {
     
-    
-    
+
     
 }
