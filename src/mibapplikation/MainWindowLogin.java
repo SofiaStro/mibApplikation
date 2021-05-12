@@ -236,7 +236,4 @@ public class MainWindowLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtfUsername;
     // End of variables declaration//GEN-END:variables
 
-    private void actionPerformed() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
