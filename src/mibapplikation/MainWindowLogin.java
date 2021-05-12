@@ -179,7 +179,7 @@ public class MainWindowLogin extends javax.swing.JFrame {
             }
             else if (resultAlien != null) {
                 setVisible(false);
-                new WindowAlienStart().setVisible(true);
+                new WindowAlienStart(idb).setVisible(true);
             } 
             else {
                 lblMessage.setText("Fel användarnamn eller lösenord");
