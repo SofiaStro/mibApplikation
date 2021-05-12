@@ -34,11 +34,18 @@ public class WindowAlienStart extends javax.swing.JFrame {
         background = new javax.swing.JPanel();
         sidePanel = new javax.swing.JPanel();
         btn1 = new javax.swing.JButton();
-        btn2 = new javax.swing.JButton();
-        btn = new javax.swing.JButton();
-        btn4 = new javax.swing.JButton();
         lblMenu = new javax.swing.JLabel();
-        btnChangePw = new javax.swing.JButton();
+        btn2 = new javax.swing.JButton();
+        btn3 = new javax.swing.JButton();
+        btn4 = new javax.swing.JButton();
+        btn5 = new javax.swing.JButton();
+        btn6 = new javax.swing.JButton();
+        btn7 = new javax.swing.JButton();
+        btn8 = new javax.swing.JButton();
+        btn9 = new javax.swing.JButton();
+        btn10 = new javax.swing.JButton();
+        btn11 = new javax.swing.JButton();
+        btn12 = new javax.swing.JButton();
         topPanel = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
         taskPanel = new javax.swing.JPanel();
@@ -46,6 +53,7 @@ public class WindowAlienStart extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Galaxal");
         setLocationByPlatform(true);
+        setResizable(false);
 
         background.setBackground(new java.awt.Color(224, 224, 224));
         background.setPreferredSize(new java.awt.Dimension(100, 500));
@@ -56,21 +64,42 @@ public class WindowAlienStart extends javax.swing.JFrame {
         btn1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn1.setText("jButton1");
 
-        btn2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn2.setText("jButton2");
-
-        btn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn.setText("jButton3");
-
-        btn4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn4.setText("jButton4");
-
-        lblMenu.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblMenu.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         lblMenu.setForeground(new java.awt.Color(255, 255, 255));
         lblMenu.setText("Meny");
 
-        btnChangePw.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnChangePw.setText("Ändra Lösenord");
+        btn2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn2.setText("jButton1");
+
+        btn3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn3.setText("jButton1");
+
+        btn4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn4.setText("jButton1");
+
+        btn5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn5.setText("jButton1");
+
+        btn6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn6.setText("Logga ut");
+
+        btn7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn7.setText("Byt lösenord");
+
+        btn8.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn8.setText("jButton1");
+
+        btn9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn9.setText("jButton1");
+
+        btn10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn10.setText("jButton1");
+
+        btn11.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn11.setText("jButton1");
+
+        btn12.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn12.setText("jButton1");
 
         javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
         sidePanel.setLayout(sidePanelLayout);
@@ -78,41 +107,59 @@ public class WindowAlienStart extends javax.swing.JFrame {
             sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sidePanelLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                    .addComponent(btn4, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                    .addComponent(btnChangePw, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sidePanelLayout.createSequentialGroup()
-                .addContainerGap(92, Short.MAX_VALUE)
-                .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71))
+                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         sidePanelLayout.setVerticalGroup(
             sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sidePanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(66, 66, 66)
                 .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(212, 212, 212)
-                .addComponent(btnChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(447, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(btn7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn6)
+                .addGap(15, 15, 15))
         );
 
-        background.add(sidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        background.add(sidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 660));
 
         topPanel.setBackground(new java.awt.Color(79, 79, 79));
 
-        lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setText("Välkommen Alien!");
 
@@ -121,33 +168,33 @@ public class WindowAlienStart extends javax.swing.JFrame {
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(561, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(677, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(22, 22, 22)
                 .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        background.add(topPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, -1, 90));
+        background.add(topPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 0, 1040, 90));
 
         taskPanel.setBackground(new java.awt.Color(255, 255, 255));
         taskPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        background.add(taskPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 880, 550));
+        background.add(taskPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 910, 550));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 1286, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 1182, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -161,11 +208,18 @@ public class WindowAlienStart extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JButton btn;
     private javax.swing.JButton btn1;
+    private javax.swing.JButton btn10;
+    private javax.swing.JButton btn11;
+    private javax.swing.JButton btn12;
     private javax.swing.JButton btn2;
+    private javax.swing.JButton btn3;
     private javax.swing.JButton btn4;
-    private javax.swing.JButton btnChangePw;
+    private javax.swing.JButton btn5;
+    private javax.swing.JButton btn6;
+    private javax.swing.JButton btn7;
+    private javax.swing.JButton btn8;
+    private javax.swing.JButton btn9;
     private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel sidePanel;

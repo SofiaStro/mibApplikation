@@ -31,7 +31,7 @@ public class StartClass {
         new MainWindowLogin(idb).setVisible(true);
         
         
-        
+       // new WindowTemplate().setVisible(true);
        
     }
 
