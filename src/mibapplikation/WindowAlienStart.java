@@ -25,7 +25,7 @@ public class WindowAlienStart extends javax.swing.JFrame {
         this.idb = idb;
         this.alienId = alienId;
         this.username = username;
-        lblUsername.setText(username);
+        lblUsername.setText(username + "!");
     }
 
     /**
@@ -58,7 +58,7 @@ public class WindowAlienStart extends javax.swing.JFrame {
 
         lblUsername.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         lblUsername.setForeground(new java.awt.Color(255, 255, 255));
-        lblUsername.setText("Alien");
+        lblUsername.setText("\"Alien\"");
         background.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 100, -1));
 
         btnChangePw.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N

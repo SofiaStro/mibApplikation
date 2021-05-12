@@ -5,6 +5,7 @@
  */
 package mibapplikation;
 
+import org.apache.commons.lang3.StringUtils;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -20,9 +21,9 @@ public class MainWindowLogin extends javax.swing.JFrame {
      */
     public MainWindowLogin(InfDB idb) {
         initComponents();
-        this.idb = idb; 
+        this.idb = idb;
     }
-
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -62,6 +63,12 @@ public class MainWindowLogin extends javax.swing.JFrame {
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
+            }
+        });
+
+        pwPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pwPasswordActionPerformed(evt);
             }
         });
 
@@ -181,6 +188,8 @@ public class MainWindowLogin extends javax.swing.JFrame {
             }
             else if (resultAlien != null) {
                 setVisible(false);
+                //Gör om första bokstaven till versal.
+                username = StringUtils.capitalize(username);
                 new WindowAlienStart(idb, resultAlien, username).setVisible(true);
             } 
             else {
@@ -200,7 +209,18 @@ public class MainWindowLogin extends javax.swing.JFrame {
             System.out.println("Random fel" + ex.getMessage());
         }
     }//GEN-LAST:event_btnLoginActionPerformed
-
+    /**
+     * Metod för att kunna trycka på enter i lösenordsfältet.
+     * 
+     * Standard actionTrigger för JPasswordfield är att trycka på enter.
+     * När pwPassword är i fokus och enter tangenten trycks ner kallas metoden doClick().
+     * doClick() agerar som ett musklick på det objekt den kallas på.
+     */
+    private void pwPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwPasswordActionPerformed
+        // TODO add your handling code here:
+        btnLogin.doClick();
+    }//GEN-LAST:event_pwPasswordActionPerformed
+    
    
     
         
@@ -215,4 +235,8 @@ public class MainWindowLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField pwPassword;
     private javax.swing.JTextField txtfUsername;
     // End of variables declaration//GEN-END:variables
+
+    private void actionPerformed() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

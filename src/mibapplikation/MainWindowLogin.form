@@ -161,6 +161,9 @@
               </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="pwPassword">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pwPasswordActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblMessage">
               <Properties>
