@@ -5,7 +5,7 @@
  */
 package mibapplikation;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.WordUtils;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -184,14 +184,14 @@ public class MainWindowLogin extends javax.swing.JFrame {
                 }
                 else{
                     setVisible(false);
-                    username = StringUtils.capitalize(username);
+                    username = WordUtils.capitalize(username);
                     new WindowAgentStart(idb, resultAgent, username).setVisible(true);
                 }                
             }
             else if (resultAlien != null) {
                 setVisible(false);
                 //Gör om första bokstaven till versal.
-                username = StringUtils.capitalize(username);
+                username = WordUtils.capitalize(username);
                 new WindowAlienStart(idb, resultAlien, username).setVisible(true);
             } 
             else {

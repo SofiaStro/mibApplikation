@@ -5,7 +5,9 @@
  */
 package mibapplikation;
 
+import java.util.ArrayList;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
@@ -41,14 +43,14 @@ public class WindowAgentStart extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
-        btn1 = new javax.swing.JButton();
+        btnEquipment = new javax.swing.JButton();
         lblMenu = new javax.swing.JLabel();
         btn2 = new javax.swing.JButton();
         btn3 = new javax.swing.JButton();
         btn4 = new javax.swing.JButton();
         btn5 = new javax.swing.JButton();
-        btn6 = new javax.swing.JButton();
-        btn7 = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        btnChangePw = new javax.swing.JButton();
         btn8 = new javax.swing.JButton();
         btn9 = new javax.swing.JButton();
         btn10 = new javax.swing.JButton();
@@ -64,39 +66,59 @@ public class WindowAgentStart extends javax.swing.JFrame {
 
         background.setBackground(new java.awt.Color(40, 40, 40));
 
-        btn1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn1.setText("jButton1");
+        btnEquipment.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnEquipment.setText("Utrustning");
+        btnEquipment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEquipmentActionPerformed(evt);
+            }
+        });
 
         lblMenu.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         lblMenu.setForeground(new java.awt.Color(255, 255, 255));
         lblMenu.setText("Meny");
 
         btn2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn2.setText("jButton1");
+        btn2.setText("Sök områdeschef");
 
         btn3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn3.setText("jButton1");
+        btn3.setText("Registrera alien");
 
         btn4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn4.setText("jButton1");
+        btn4.setText("Ändra info om alien");
 
         btn5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn5.setText("jButton1");
+        btn5.setText("Se info om alien");
 
-        btn6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn6.setText("Logga ut");
+        btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnLogout.setText("Logga ut");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
-        btn7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn7.setText("Byt lösenord");
+        btnChangePw.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnChangePw.setText("Byt lösenord");
+        btnChangePw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChangePwActionPerformed(evt);
+            }
+        });
 
         btn8.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn8.setText("jButton1");
+        btn8.setText("Lista aliens på plats");
 
         btn9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn9.setText("jButton1");
+        btn9.setText("Lista aliens på ras");
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
 
         btn10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn10.setText("jButton1");
+        btn10.setText("Lista aliens registrering");
 
         btn11.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn11.setText("jButton1");
@@ -124,10 +146,10 @@ public class WindowAgentStart extends javax.swing.JFrame {
                     .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,7 +170,7 @@ public class WindowAgentStart extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn1)
+                .addComponent(btnEquipment)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -168,9 +190,9 @@ public class WindowAgentStart extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(btn7)
+                .addComponent(btnChangePw)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn6)
+                .addComponent(btnLogout)
                 .addGap(21, 21, 21))
         );
 
@@ -191,6 +213,44 @@ public class WindowAgentStart extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        agentId = "";
+        setVisible(false);
+        new MainWindowLogin(idb).setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed
+        // TODO add your handling code here:
+        new WindowAgentChangePw(idb, agentId).setVisible(true);
+    }//GEN-LAST:event_btnChangePwActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn9ActionPerformed
+
+    private void btnEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquipmentActionPerformed
+        // TODO add your handling code here:
+        try{
+            String query = 
+                    "SELECT benamning\n" +
+                    "FROM utrustning\n" +
+                    "JOIN innehar_utrustning USING (utrustnings_id)\n" +
+                    "JOIN agent USING (agent_id)\n" +
+                    "WHERE agent_id = " + "'" + agentId + "'";
+            
+            ArrayList<String> result = idb.fetchColumn(query);
+
+            new WindowAgentEquipment(idb, agentId, result).setVisible(true);
+         } 
+        catch (InfException ex){
+            System.out.println("Databasfel" + ex.getMessage());
+        }
+        catch (Exception ex){
+            System.out.println("Random fel" + ex.getMessage());
+        }
+    }//GEN-LAST:event_btnEquipmentActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -199,7 +259,6 @@ public class WindowAgentStart extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JButton btn1;
     private javax.swing.JButton btn10;
     private javax.swing.JButton btn11;
     private javax.swing.JButton btn12;
@@ -207,10 +266,11 @@ public class WindowAgentStart extends javax.swing.JFrame {
     private javax.swing.JButton btn3;
     private javax.swing.JButton btn4;
     private javax.swing.JButton btn5;
-    private javax.swing.JButton btn6;
-    private javax.swing.JButton btn7;
     private javax.swing.JButton btn8;
     private javax.swing.JButton btn9;
+    private javax.swing.JButton btnChangePw;
+    private javax.swing.JButton btnEquipment;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblWelcome;

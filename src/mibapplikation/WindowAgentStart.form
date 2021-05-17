@@ -58,10 +58,10 @@
                       <Component id="btn10" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btn9" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btn8" min="-2" pref="190" max="-2" attributes="0"/>
-                      <Component id="btn7" min="-2" pref="190" max="-2" attributes="0"/>
-                      <Component id="btn6" min="-2" pref="190" max="-2" attributes="0"/>
+                      <Component id="btnChangePw" min="-2" pref="190" max="-2" attributes="0"/>
+                      <Component id="btnLogout" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="lblMenu" min="-2" pref="117" max="-2" attributes="0"/>
-                      <Component id="btn1" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                      <Component id="btnEquipment" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btn2" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btn3" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btn4" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
@@ -87,7 +87,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblMenu" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btn1" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEquipment" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btn2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -107,22 +107,25 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btn12" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="73" max="32767" attributes="0"/>
-                  <Component id="btn7" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnChangePw" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btn6" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btn1">
+        <Component class="javax.swing.JButton" name="btnEquipment">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="Utrustning"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEquipmentActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblMenu">
           <Properties>
@@ -140,7 +143,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="S&#xf6;k omr&#xe5;deschef"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn3">
@@ -148,7 +151,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="Registrera alien"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn4">
@@ -156,7 +159,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="&#xc4;ndra info om alien"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn5">
@@ -164,31 +167,37 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="Se info om alien"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn6">
+        <Component class="javax.swing.JButton" name="btnLogout">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Logga ut"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogoutActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btn7">
+        <Component class="javax.swing.JButton" name="btnChangePw">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Byt l&#xf6;senord"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangePwActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn8">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="Lista aliens p&#xe5; plats"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn9">
@@ -196,15 +205,18 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="Lista aliens p&#xe5; ras"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn9ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn10">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="Lista aliens registrering"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn11">
