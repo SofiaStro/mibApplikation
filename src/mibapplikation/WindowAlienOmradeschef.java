@@ -5,6 +5,10 @@
  */
 package mibapplikation;
 
+import java.util.HashMap;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 
 /**
  *
@@ -12,18 +16,45 @@ package mibapplikation;
  */
 public class WindowAlienOmradeschef extends javax.swing.JFrame {
 
+    private InfDB idb;
+    private String alienId;
+
 
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAlienOmradeschef(String agentName, String agentPhone, String areaName) {
+    public WindowAlienOmradeschef(InfDB idb, String alienId) {
         initComponents();
-        lblAgentName.setText("Namn: " + agentName);
-        lblAgentPhone.setText("Telefon: " + agentPhone);
-        lblAreaName.setText(areaName);
-                        
+        this.idb = idb;
+        this.alienId = alienId;
+        getAreaChief();
+              
     }
+    private void getAreaChief() {
+        try {
+            String query
+                    = "SELECT ag.Namn, ag.Telefon, o.Benamning\n"
+                    + "FROM alien al\n"
+                    + "JOIN plats p ON al.plats = p.plats_id\n"
+                    + "JOIN omrade o ON p.finns_i = o.omrades_id\n"
+                    + "JOIN omradeschef oc ON o.Omrades_ID = oc.Omrade\n"
+                    + "JOIN agent ag ON oc.Agent_ID = ag.Agent_ID\n"
+                    + "WHERE Alien_ID = " + "'" + alienId + "'";
+            HashMap<String, String> result = idb.fetchRow(query);
+            String agentName = result.get("Namn");
+            String agentPhone = result.get("Telefon");
+            String areaName = result.get("Benamning");
 
+            lblAgentName.setText("Namn: " + agentName);
+            lblAgentPhone.setText("Telefon: " + agentPhone);
+            lblAreaName.setText(areaName);
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

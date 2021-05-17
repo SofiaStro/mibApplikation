@@ -5,9 +5,7 @@
  */
 package mibapplikation;
 
-import java.util.HashMap;
 import oru.inf.InfDB;
-import oru.inf.InfException;
 
 /**
  *
@@ -140,27 +138,7 @@ public class WindowAlienStart extends javax.swing.JFrame {
 
     private void btnAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreaChiefActionPerformed
         // TODO add your handling code here:
-        try{
-            String query = 
-                        "SELECT ag.Namn, ag.Telefon, o.Benamning\n" +
-                        "FROM alien al\n" +
-                        "JOIN plats p ON al.plats = p.plats_id\n" +
-                        "JOIN omrade o ON p.finns_i = o.omrades_id\n" +
-                        "JOIN omradeschef oc ON o.Omrades_ID = oc.Omrade\n" +
-                        "JOIN agent ag ON oc.Agent_ID = ag.Agent_ID\n" +
-                        "WHERE Alien_ID = " + "'" + alienId + "'";
-            HashMap <String, String> result = idb.fetchRow(query);
-            String agentName = result.get("Namn");
-            String agentPhone = result.get("Telefon");
-            String areaName = result.get("Benamning");
-            new WindowAlienOmradeschef(agentName, agentPhone, areaName).setVisible(true);
-         } 
-        catch (InfException ex){
-            System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
-            System.out.println("Random fel" + ex.getMessage());
-        }
+        new WindowAlienOmradeschef(idb, alienId).setVisible(true);
         
     }//GEN-LAST:event_btnAreaChiefActionPerformed
 
