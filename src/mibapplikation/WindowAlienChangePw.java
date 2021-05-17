@@ -170,7 +170,7 @@ public class WindowAlienChangePw extends javax.swing.JFrame {
                 String qSetPassword = "UPDATE alien SET losenord =" + "'" + newPassword + "'" + "WHERE alien_id = " + "'" + alienId + "'";
                 idb.update(qSetPassword);
                 lblMessage.setForeground(Color.GREEN);
-                lblMessage.setText("Detta lösenord är ändrat!");
+                lblMessage.setText("Ditt lösenord är nu ändrat!");
             }
             else{
                 pwOldPw.requestFocus();
