@@ -5,7 +5,9 @@
  */
 package mibapplikation;
 
+import java.util.HashMap;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
@@ -42,7 +44,7 @@ public class WindowAlienStart extends javax.swing.JFrame {
         btnChangePw = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btn2 = new javax.swing.JButton();
-        btn1 = new javax.swing.JButton();
+        btnAreaChief = new javax.swing.JButton();
         lblMenu = new javax.swing.JLabel();
         btn3 = new javax.swing.JButton();
         lblWelcome = new javax.swing.JLabel();
@@ -83,9 +85,14 @@ public class WindowAlienStart extends javax.swing.JFrame {
         btn2.setText("jButton1");
         background.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 190, -1));
 
-        btn1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn1.setText("Se områdeschef");
-        background.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 190, -1));
+        btnAreaChief.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnAreaChief.setText("Se områdeschef");
+        btnAreaChief.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAreaChiefActionPerformed(evt);
+            }
+        });
+        background.add(btnAreaChief, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 190, -1));
 
         lblMenu.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         lblMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,6 +138,32 @@ public class WindowAlienStart extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnChangePwActionPerformed
 
+    private void btnAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreaChiefActionPerformed
+        // TODO add your handling code here:
+        try{
+            String query = 
+                        "SELECT ag.Namn, ag.Telefon, o.Benamning\n" +
+                        "FROM alien al\n" +
+                        "JOIN plats p ON al.plats = p.plats_id\n" +
+                        "JOIN omrade o ON p.finns_i = o.omrades_id\n" +
+                        "JOIN omradeschef oc ON o.Omrades_ID = oc.Omrade\n" +
+                        "JOIN agent ag ON oc.Agent_ID = ag.Agent_ID\n" +
+                        "WHERE Alien_ID = " + "'" + alienId + "'";
+            HashMap <String, String> result = idb.fetchRow(query);
+            String agentName = result.get("Namn");
+            String agentPhone = result.get("Telefon");
+            String areaName = result.get("Benamning");
+            new WindowAlienOmradeschef(agentName, agentPhone, areaName).setVisible(true);
+         } 
+        catch (InfException ex){
+            System.out.println("Databasfel" + ex.getMessage());
+        }
+        catch (Exception ex){
+            System.out.println("Random fel" + ex.getMessage());
+        }
+        
+    }//GEN-LAST:event_btnAreaChiefActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -139,9 +172,9 @@ public class WindowAlienStart extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn3;
+    private javax.swing.JButton btnAreaChief;
     private javax.swing.JButton btnChangePw;
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel lblMenu;

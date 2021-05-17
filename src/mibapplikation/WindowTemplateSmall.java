@@ -5,7 +5,7 @@
  */
 package mibapplikation;
 
-import java.awt.Color;
+
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -13,7 +13,7 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAlienChangePw extends javax.swing.JFrame {
+public class WindowTemplateSmall extends javax.swing.JFrame {
 
     private String alienId;
     private InfDB idb;
@@ -21,10 +21,9 @@ public class WindowAlienChangePw extends javax.swing.JFrame {
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAlienChangePw(InfDB idb, String alienId) {
+    public WindowTemplateSmall(InfDB idb) {
         initComponents();
-        this.idb = idb;
-        this.alienId = alienId;
+
     }
 
     /**
@@ -38,10 +37,6 @@ public class WindowAlienChangePw extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblChangePw = new javax.swing.JLabel();
-        lblOldPw = new javax.swing.JLabel();
-        lblNewPw = new javax.swing.JLabel();
-        pwOldPw = new javax.swing.JPasswordField();
-        pwNewPw = new javax.swing.JPasswordField();
         lblMessage = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
@@ -55,19 +50,7 @@ public class WindowAlienChangePw extends javax.swing.JFrame {
 
         lblChangePw.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         lblChangePw.setForeground(new java.awt.Color(255, 255, 255));
-        lblChangePw.setText("Byt lösenord");
-
-        lblOldPw.setForeground(new java.awt.Color(255, 255, 255));
-        lblOldPw.setText("Nuvarande lösenord:");
-
-        lblNewPw.setForeground(new java.awt.Color(255, 255, 255));
-        lblNewPw.setText("Nytt lösenord:");
-
-        pwNewPw.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pwNewPwActionPerformed(evt);
-            }
-        });
+        lblChangePw.setText("Template");
 
         lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblMessage.setForeground(new java.awt.Color(255, 96, 96));
@@ -95,25 +78,17 @@ public class WindowAlienChangePw extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblNewPw, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblOldPw, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(pwOldPw, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pwNewPw, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnMenu))
+                        .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(77, 77, 77)
-                        .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(btnSave))
+                            .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(btnMenu)))
                 .addContainerGap(109, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -121,15 +96,7 @@ public class WindowAlienChangePw extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblOldPw)
-                    .addComponent(pwOldPw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNewPw)
-                    .addComponent(pwNewPw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(103, 103, 103)
                 .addComponent(btnSave)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblMessage)
@@ -153,41 +120,15 @@ public class WindowAlienChangePw extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // Om ID stämmer med old lösenord
-        // Byt till nya lösenordet
 
-        try{
-            char[] pwOldArray = pwOldPw.getPassword();
-            String oldPassword = new String(pwOldArray);
-            
-            char[] pwNewArray = pwNewPw.getPassword();
-            String newPassword = new String(pwNewArray);
-            
-            String query = "SELECT losenord FROM alien WHERE alien_id =" + "'" + alienId + "'";
-            String result = idb.fetchSingle(query);
-            
-            if(oldPassword.equals(result)){
-                String qSetPassword = "UPDATE alien SET losenord =" + "'" + newPassword + "'" + "WHERE alien_id = " + "'" + alienId + "'";
-                idb.update(qSetPassword);
-                lblMessage.setForeground(Color.GREEN);
-                lblMessage.setText("Detta lösenord är ändrat!");
-            }
-            else{
-                pwOldPw.requestFocus();
-                lblMessage.setForeground(Color.RED);
-                lblMessage.setText("Nuvarande lösenord är felaktigt!");
-            }
-            pwOldPw.setText("");
-            pwNewPw.setText("");
-            pwOldArray = null;
-            pwNewArray = null;
-        }
-        catch (InfException ex){
-            System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
-            System.out.println("Random fel" + ex.getMessage());
-        }
+//        try{
+//
+//        catch (InfException ex){
+//            System.out.println("Databasfel" + ex.getMessage());
+//        }
+//        catch (Exception ex){
+//            System.out.println("Random fel" + ex.getMessage());
+//        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
@@ -196,11 +137,6 @@ public class WindowAlienChangePw extends javax.swing.JFrame {
         //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
-    private void pwNewPwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwNewPwActionPerformed
-        // TODO add your handling code here:
-        btnSave.doClick();
-    }//GEN-LAST:event_pwNewPwActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMenu;
@@ -208,9 +144,5 @@ public class WindowAlienChangePw extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblChangePw;
     private javax.swing.JLabel lblMessage;
-    private javax.swing.JLabel lblNewPw;
-    private javax.swing.JLabel lblOldPw;
-    private javax.swing.JPasswordField pwNewPw;
-    private javax.swing.JPasswordField pwOldPw;
     // End of variables declaration//GEN-END:variables
 }
