@@ -6,6 +6,7 @@
 package mibapplikation;
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -18,25 +19,91 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
 
     private String agentId;
     private InfDB idb;
-    private ArrayList<String> myEquipment;
 
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAgentEquipment(InfDB idb, String agentId, ArrayList<String> myEquipment) {
+    public WindowAgentEquipment(InfDB idb, String agentId) {
         initComponents();
         this.idb = idb;
         this.agentId = agentId;
-        this.myEquipment = myEquipment; 
+        listMyEquipment();
+        setWeapons();
+        setComms();
+        setTech();
+    }
+   
+    public void listMyEquipment() {
+        try {
+            txtMyEquipment.setText("");
+            String query
+                    = "SELECT benamning\n"
+                    + "FROM utrustning\n"
+                    + "JOIN innehar_utrustning USING (utrustnings_id)\n"
+                    + "JOIN agent USING (agent_id)\n"
+                    + "WHERE agent_id = " + "'" + agentId + "'";
+
+            ArrayList<String> result = idb.fetchColumn(query);
+
+            for (String element : result) {
+                txtMyEquipment.append("• " + element + "\n");
+            }
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+
+    }
+    private void setWeapons(){
+        try{
+            String query = "SELECT benamning FROM utrustning JOIN vapen USING (utrustnings_id)";
+            ArrayList<String> result = idb.fetchColumn(query);
+            for(String element : result){
+                cbWeapons.addItem(element);
+            }
+        }
+        catch (InfException ex){
+            System.out.println("Databasfel" + ex.getMessage());
+        }
+        catch (Exception ex){
+            System.out.println("Random fel" + ex.getMessage());
+        }
         listMyEquipment();
     }
     
-    public void listMyEquipment(){
-        
-        for(String element : myEquipment){
-            txtMyEquipment.setText("• " + element + "\n");
+    private void setComms(){
+        try{
+            String query = "SELECT benamning FROM utrustning JOIN kommunikation USING (utrustnings_id)";
+            ArrayList<String> result = idb.fetchColumn(query);
+            for(String element : result){
+                cbComms.addItem(element);
+            }
+        }
+        catch (InfException ex){
+            System.out.println("Databasfel" + ex.getMessage());
+        }
+        catch (Exception ex){
+            System.out.println("Random fel" + ex.getMessage());
         }
     }
+        
+    private void setTech(){
+        try{
+            String query = "SELECT benamning FROM utrustning JOIN teknik USING (utrustnings_id)";
+            ArrayList<String> result = idb.fetchColumn(query);
+            for(String element : result){
+                cbTech.addItem(element);
+            }
+        }
+        catch (InfException ex){
+            System.out.println("Databasfel" + ex.getMessage());
+        }
+        catch (Exception ex){
+            System.out.println("Random fel" + ex.getMessage());
+        }
+    }
+            
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,11 +115,20 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblChangePw = new javax.swing.JLabel();
-        btnSave = new javax.swing.JButton();
+        lblName = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtMyEquipment = new javax.swing.JTextArea();
+        cbWeapons = new javax.swing.JComboBox<>();
+        cbComms = new javax.swing.JComboBox<>();
+        cbTech = new javax.swing.JComboBox<>();
+        cbVehicle = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lblMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
@@ -61,14 +137,14 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(40, 40, 40));
 
-        lblChangePw.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        lblChangePw.setForeground(new java.awt.Color(255, 255, 255));
-        lblChangePw.setText("Utrustning");
+        lblName.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lblName.setForeground(new java.awt.Color(255, 255, 255));
+        lblName.setText("Utrustning");
 
-        btnSave.setText("SPARA");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setText("LÄGG TILL");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
@@ -88,6 +164,31 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
         txtMyEquipment.setFocusable(false);
         jScrollPane1.setViewportView(txtMyEquipment);
 
+        cbWeapons.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
+        cbWeapons.setName(""); // NOI18N
+
+        cbComms.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
+
+        cbTech.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
+
+        cbVehicle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Vapen");
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Kommunikation");
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Teknik");
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Fordon");
+
+        lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        lblMessage.setForeground(new java.awt.Color(255, 96, 96));
+        lblMessage.setText(" ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -95,30 +196,62 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnMenu))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(38, 38, 38))
+                                .addGap(36, 36, 36)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(51, 51, 51)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                                            .addComponent(cbWeapons, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cbComms, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cbTech, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cbVehicle, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btnMenu)))
+                        .addGap(0, 58, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnSave)))
-                .addGap(62, 62, 62)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(cbWeapons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addGap(3, 3, 3)
+                        .addComponent(cbComms, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addGap(2, 2, 2)
+                        .addComponent(cbTech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(cbVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addComponent(btnAdd))
+                    .addComponent(jScrollPane1))
+                .addGap(28, 28, 28)
+                .addComponent(lblMessage)
+                .addGap(19, 19, 19)
                 .addComponent(btnMenu)
                 .addGap(21, 21, 21))
         );
@@ -137,17 +270,62 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        //LAGGAS TILL FÖR AGENT_ID
+        //KONTROLLERA VILKA BOXAR SOM ÄR VALDA
+        //REGISTERA DAGEN
+        try{
+            LocalDate getDate = LocalDate.now();
+                String date = getDate.toString();
+            if(cbWeapons.getSelectedItem().equals("-----") && 
+               cbComms.getSelectedItem().equals("-----") && 
+               cbTech.getSelectedItem().equals("-----")){
+                lblMessage.setText("Du måste välja minst 1 utrustning");
+            }
+            else{
+                if(!cbWeapons.getSelectedItem().equals("-----")){
 
-//        try{
-//
-//        catch (InfException ex){
-//            System.out.println("Databasfel" + ex.getMessage());
-//        }
-//        catch (Exception ex){
-//            System.out.println("Random fel" + ex.getMessage());
-//        }
-    }//GEN-LAST:event_btnSaveActionPerformed
+                    String qEquipId = "SELECT utrustnings_id FROM utrustning WHERE benamning = '" + cbWeapons.getSelectedItem() + "'";
+                    String utrustningsId = idb.fetchSingle(qEquipId);
+
+                    String qAddEquip = 
+                                "INSERT INTO innehar_utrustning(agent_id, utrustnings_id, utkvitteringsdatum)\n" +
+                                "VALUES (" + agentId + "," + utrustningsId + ",'" + date + "')";
+                    idb.insert(qAddEquip);
+                }
+                if(!cbComms.getSelectedItem().equals("-----")){
+
+                    String qEquipId = "SELECT utrustnings_id FROM utrustning WHERE benamning = '" + cbComms.getSelectedItem() + "'";
+                    String utrustningsId = idb.fetchSingle(qEquipId);
+
+                    String qAddEquip = 
+                                "INSERT INTO innehar_utrustning(agent_id, utrustnings_id, utkvitteringsdatum)\n" +
+                                "VALUES (" + agentId + "," + utrustningsId + ",'" + date + "')";
+                    idb.insert(qAddEquip);
+                }
+                if(!cbTech.getSelectedItem().equals("-----")){
+
+                    String qEquipId = "SELECT utrustnings_id FROM utrustning WHERE benamning = '" + cbTech.getSelectedItem() + "'";
+                    String utrustningsId = idb.fetchSingle(qEquipId);
+
+                    String qAddEquip = 
+                                "INSERT INTO innehar_utrustning(agent_id, utrustnings_id, utkvitteringsdatum)\n" +
+                                "VALUES (" + agentId + "," + utrustningsId + ",'" + date + "')";
+                    idb.insert(qAddEquip);
+                }
+            }
+            
+        }
+
+        catch (InfException ex){
+            System.out.println("Databasfel" + ex.getMessage());
+            lblMessage.setText("Du kan ej låna 2 av samma sort");
+        }
+        catch (Exception ex){
+            System.out.println("Random fel" + ex.getMessage());
+        }
+        listMyEquipment();
+    }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
@@ -157,11 +335,20 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnMenu;
-    private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox<String> cbComms;
+    private javax.swing.JComboBox<String> cbTech;
+    private javax.swing.JComboBox<String> cbVehicle;
+    private javax.swing.JComboBox<String> cbWeapons;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblChangePw;
+    private javax.swing.JLabel lblMessage;
+    private javax.swing.JLabel lblName;
     private javax.swing.JTextArea txtMyEquipment;
     // End of variables declaration//GEN-END:variables
 }

@@ -231,25 +231,11 @@ public class WindowAgentStart extends javax.swing.JFrame {
 
     private void btnEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquipmentActionPerformed
         // TODO add your handling code here:
-        try{
-            String query = 
-                    "SELECT benamning\n" +
-                    "FROM utrustning\n" +
-                    "JOIN innehar_utrustning USING (utrustnings_id)\n" +
-                    "JOIN agent USING (agent_id)\n" +
-                    "WHERE agent_id = " + "'" + agentId + "'";
-            
-            ArrayList<String> result = idb.fetchColumn(query);
+ 
+        new WindowAgentEquipment(idb, agentId).setVisible(true);
 
-            new WindowAgentEquipment(idb, agentId, result).setVisible(true);
-         } 
-        catch (InfException ex){
-            System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
-            System.out.println("Random fel" + ex.getMessage());
-        }
     }//GEN-LAST:event_btnEquipmentActionPerformed
+
 
     /**
      * @param args the command line arguments
