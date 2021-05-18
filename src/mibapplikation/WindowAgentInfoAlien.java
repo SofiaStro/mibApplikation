@@ -150,39 +150,66 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         txtaPrintAlienInfo.setText("");
         lblMessage.setText(" ");
-        try{
-            String qAlien = 
-                    "SELECT alien_id, namn, telefon, registreringsdatum, benamning\n" +
-                    "FROM alien al\n" +
-                    "JOIN plats p ON al.plats = p.plats_id\n" +
-                    "WHERE namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";
-            String qAgent = 
-                    "SELECT ag.namn\n" +
-                    "FROM alien al\n" +
-                    "JOIN agent ag ON al.ansvarig_agent = ag.agent_id\n" +
-                    "WHERE al.namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";
-                    
-            HashMap<String,String> resultAlien = idb.fetchRow(qAlien);
-            HashMap<String,String> resultAgent = idb.fetchRow(qAgent);
-            
-            if(resultAlien.get("alien_id") == null){
-                lblMessage.setText("Alien namet finns inte registrerat");
-            }
-            else{
-                txtaPrintAlienInfo.setText("Alien ID:\t" + resultAlien.get("alien_id") + "\n" +
-                                           "Namn:\t" + resultAlien.get("namn") + "\n" +
-                                           "Telefon:\t" + resultAlien.get("telefon") + "\n" +
-                                           "Registrerad:\t" + resultAlien.get("registreringsdatum") + "\n" +
-                                           "Befinner sig:\t" + resultAlien.get("benamning") + "\n" +
-                                           "Kontakt:\t" + resultAgent.get("namn") + "\n");
-            }
-        }
+        if(Validation.validationTxt(txtfAlienInput, lblMessage)){
+            try {
+                String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";
+                String alienId = idb.fetchSingle(qAlienId);
+                if(alienId == null){
+                    lblMessage.setText("Alien namet finns inte registrerat");
+                }
+                else{
+                    String qAlienInfo = "SELECT namn, telefon, registreringsdatum FROM alien WHERE alien_id = '" + alienId + "'";
+                    HashMap<String,String> alienInfo = idb.fetchRow(qAlienInfo);
 
-        catch (InfException ex){
-            System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
-            System.out.println("Random fel" + ex.getMessage());
+                    String qAlienPlats = "SELECT benamning FROM plats p JOIN alien a ON p.plats_id = a.plats WHERE alien_id = '" + alienId + "'";
+                    String alienPlats = idb.fetchSingle(qAlienPlats);
+
+                    String qAlienOmrade = "SELECT o.benamning FROM omrade o JOIN plats p ON o.omrades_id = p.finns_i WHERE p.benamning = '" + alienPlats + "'";
+                    String alienOmrade = idb.fetchSingle(qAlienOmrade);
+
+                    String qAlienKontakt = "SELECT ag.namn FROM agent ag JOIN alien al ON ag.agent_id = al.ansvarig_agent WHERE alien_id = '" + alienId + "'";
+                    String alienKontakt = idb.fetchSingle(qAlienKontakt);
+
+                    txtaPrintAlienInfo.append("Alien id:\t" + alienId + "\n");
+                    txtaPrintAlienInfo.append("Namn:\t" + alienInfo.get("namn") + "\n");
+                    txtaPrintAlienInfo.append("Telefon:\t" + alienInfo.get("telefon") + "\n");
+                    txtaPrintAlienInfo.append("Registrerad:\t" + alienInfo.get("registreringsdatum") + "\n");
+                    txtaPrintAlienInfo.append("Befinner sig:\t" + alienPlats + " (" + alienOmrade + ")" + "\n");
+                    txtaPrintAlienInfo.append("Kontakt:\t" + alienKontakt + "\n");
+
+                    String qAlienSquid = "SELECT antal_armar FROM squid WHERE alien_id = '" + alienId + "'";
+                    String alienSquid = idb.fetchSingle(qAlienSquid);
+
+                    String qAlienBoglodite = "SELECT antal_boogies FROM boglodite WHERE alien_id = '" + alienId + "'";
+                    String alienBoglodite = idb.fetchSingle(qAlienBoglodite);
+
+                    String qAlienWorm = "SELECT alien_id FROM worm WHERE alien_id = '" + alienId + "'";
+                    String alienWorm = idb.fetchSingle(qAlienWorm);
+
+
+                    String ras = "";
+                    if(alienSquid != null){
+                        ras = "Squid";
+                        txtaPrintAlienInfo.append("Ras:\t" + ras + "\n");
+                        txtaPrintAlienInfo.append("Ras egenskap:\t" + alienSquid + " st armar\n");
+                    }
+                    else if (alienBoglodite != null){
+                        ras = "Boglodite";
+                        txtaPrintAlienInfo.append("Ras:\t" + ras + "\n");
+                        txtaPrintAlienInfo.append("Ras egenskap:\t" + alienBoglodite + " st boogies\n");
+                    }
+                    else if(alienWorm != null){
+                        ras = "Worm";
+                        txtaPrintAlienInfo.append("Ras:\t" + ras + "\n");
+                    }
+                }
+            }
+            catch (InfException ex){
+                System.out.println("Databasfel" + ex.getMessage());
+            }
+            catch (Exception ex){
+                System.out.println("Random fel" + ex.getMessage());
+            }
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
