@@ -32,6 +32,8 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         setRace();
         setLocation();
         setAgentInCharge();
+        txtRaceSpecial.setVisible(false);
+        lblRaceSpecial.setVisible(false);
 
     }
     
@@ -99,7 +101,7 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         cbRace = new javax.swing.JComboBox<>();
         txtPhone = new javax.swing.JTextField();
         spMessageBox = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtaMessage = new javax.swing.JTextArea();
         lblName = new javax.swing.JLabel();
         lblRace = new javax.swing.JLabel();
         lblPhone = new javax.swing.JLabel();
@@ -147,13 +149,13 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         spMessageBox.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         spMessageBox.setPreferredSize(new java.awt.Dimension(178, 86));
 
-        jTextArea1.setBackground(new java.awt.Color(79, 79, 79));
-        jTextArea1.setColumns(10);
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Registrering slutförd!\nSkriv ner informationen nedan.\n------------------------------------------\nID: asdasf\nLösenord: asadafsa");
-        jTextArea1.setFocusable(false);
-        spMessageBox.setViewportView(jTextArea1);
+        txtaMessage.setBackground(new java.awt.Color(79, 79, 79));
+        txtaMessage.setColumns(10);
+        txtaMessage.setForeground(new java.awt.Color(255, 255, 255));
+        txtaMessage.setRows(5);
+        txtaMessage.setText("Registrering slutförd!\nSkriv ner informationen nedan.\n------------------------------------------\nID: asdasf\nLösenord: asadafsa");
+        txtaMessage.setFocusable(false);
+        spMessageBox.setViewportView(txtaMessage);
 
         lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("Namn:");
@@ -324,7 +326,6 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbAgentInCharge;
     private javax.swing.JComboBox<String> cbLocation;
     private javax.swing.JComboBox<String> cbRace;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel jpBackground;
     private javax.swing.JLabel lblAgentInCharge;
     private javax.swing.JLabel lblLocation;
@@ -337,5 +338,6 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtRaceSpecial;
+    private javax.swing.JTextArea txtaMessage;
     // End of variables declaration//GEN-END:variables
 }
