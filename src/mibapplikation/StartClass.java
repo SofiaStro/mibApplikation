@@ -29,6 +29,7 @@ public class StartClass {
         }
         
         new MainWindowLogin(idb).setVisible(true);
+        //new WindowAgentRegAlien(idb).setVisible(true);
         
         
        // new WindowTemplate().setVisible(true);
