@@ -41,7 +41,7 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
         lblMessage = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
-        txtfAlienName = new javax.swing.JTextField();
+        txtfAlienInput = new javax.swing.JTextField();
         lblAlienName = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtaPrintAlienInfo = new javax.swing.JTextArea();
@@ -75,10 +75,10 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
             }
         });
 
-        txtfAlienName.setColumns(6);
+        txtfAlienInput.setColumns(6);
 
         lblAlienName.setForeground(new java.awt.Color(255, 255, 255));
-        lblAlienName.setText("Ange aliens namn:");
+        lblAlienName.setText("Ange aliens namn eller id:");
 
         jScrollPane1.setRequestFocusEnabled(false);
 
@@ -102,18 +102,16 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblAlienName, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtfAlienName, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                .addGap(38, 38, 38)))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(lblAlienName, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtfAlienInput, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,11 +120,11 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtfAlienName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtfAlienInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAlienName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSave)
                 .addGap(10, 10, 10)
+                .addComponent(btnSave)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblMessage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,28 +151,21 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
         txtaPrintAlienInfo.setText("");
         lblMessage.setText(" ");
         try{
-            
-//            "SELECT alien_id, al.namn, al.telefon, registreringsdatum, benamning, ag.namn\n" +
-//            "FROM alien al\n" +
-//            "JOIN plats p ON al.plats = p.plats_id\n" +
-//            "JOIN agent ag ON al.ansvarig_agent = ag.agent_id\n" 
-//            "WHERE al.namn = '" + txtfAlienName.getText() + "'";
-
             String qAlien = 
                     "SELECT alien_id, namn, telefon, registreringsdatum, benamning\n" +
                     "FROM alien al\n" +
                     "JOIN plats p ON al.plats = p.plats_id\n" +
-                    "WHERE namn = '" + txtfAlienName.getText() + "'";
+                    "WHERE namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";
             String qAgent = 
                     "SELECT ag.namn\n" +
                     "FROM alien al\n" +
                     "JOIN agent ag ON al.ansvarig_agent = ag.agent_id\n" +
-                    "WHERE al.namn = '" + txtfAlienName.getText() + "'";
+                    "WHERE al.namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";
                     
             HashMap<String,String> resultAlien = idb.fetchRow(qAlien);
             HashMap<String,String> resultAgent = idb.fetchRow(qAgent);
             
-            if(resultAlien.get("namn") == null){
+            if(resultAlien.get("alien_id") == null){
                 lblMessage.setText("Alien namet finns inte registrerat");
             }
             else{
@@ -211,6 +202,6 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextArea txtaPrintAlienInfo;
-    private javax.swing.JTextField txtfAlienName;
+    private javax.swing.JTextField txtfAlienInput;
     // End of variables declaration//GEN-END:variables
 }
