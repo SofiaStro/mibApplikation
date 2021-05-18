@@ -6,6 +6,7 @@
 package mibapplikation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -67,13 +68,16 @@ public class WindowAgentOmradeschef extends javax.swing.JFrame {
             }
         });
 
+        cbListAreas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
         cbListAreas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbListAreasActionPerformed(evt);
             }
         });
 
+        txtShowAreaChief.setBackground(new java.awt.Color(79, 79, 79));
         txtShowAreaChief.setColumns(20);
+        txtShowAreaChief.setForeground(new java.awt.Color(255, 255, 255));
         txtShowAreaChief.setRows(5);
         txtShowAreaChief.setAutoscrolls(false);
         jScrollPane1.setViewportView(txtShowAreaChief);
@@ -166,18 +170,20 @@ public class WindowAgentOmradeschef extends javax.swing.JFrame {
     private void cbListAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListAreasActionPerformed
        txtShowAreaChief.setText("");
        
-              String area = String.valueOf(cbListAreas.getSelectedItem());
+            String area = String.valueOf(cbListAreas.getSelectedItem());
 
         try {
-            String query = "SELECT namn FROM Agent \n"
+            String query = "SELECT namn, telefon FROM Agent \n"
                     + "JOIN omradeschef oc USING (Agent_ID) \n"
                     + "JOIN Omrade o ON oc.Omrade = o.Omrades_ID \n"
                     + "WHERE o.Benamning = " + "'" + area + "'";
 
-            String areaChief = idb.fetchSingle(query);
+           HashMap<String,String> areaChief = idb.fetchRow(query);
+            String namn = areaChief.get("namn");
+            String telefon = areaChief.get("telefon");
             
-            txtShowAreaChief.setText("Det är " + areaChief + " som är områdeschef \n"
-                    + "för området " + area);
+            txtShowAreaChief.setText("Områdeschef:\t" + namn + "\n" 
+                                    + "Telefon:\t" + telefon);
 
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
@@ -198,4 +204,5 @@ public class WindowAgentOmradeschef extends javax.swing.JFrame {
     private javax.swing.JLabel lblName;
     private javax.swing.JTextArea txtShowAreaChief;
     // End of variables declaration//GEN-END:variables
+
 }

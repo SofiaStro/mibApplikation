@@ -67,6 +67,7 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
             }
         });
 
+        cbListLocations.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
         cbListLocations.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbListLocationsActionPerformed(evt);
@@ -76,7 +77,9 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
         lblSelectLocation.setForeground(new java.awt.Color(255, 255, 255));
         lblSelectLocation.setText("Välj en plats:");
 
+        txtShowAliens.setBackground(new java.awt.Color(79, 79, 79));
         txtShowAliens.setColumns(20);
+        txtShowAliens.setForeground(new java.awt.Color(255, 255, 255));
         txtShowAliens.setRows(5);
         jScrollPane1.setViewportView(txtShowAliens);
 
