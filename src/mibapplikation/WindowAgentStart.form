@@ -61,18 +61,18 @@
                       <Component id="btnChangePw" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btnLogout" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="lblMenu" min="-2" pref="117" max="-2" attributes="0"/>
-                      <Component id="btnEquipment" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btnAreaChief" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btnRegAlien" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btn4" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btnInfoAlien" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblWelcome" min="-2" pref="167" max="-2" attributes="0"/>
+                      <Component id="btnEquipment" min="-2" pref="190" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="lblWelcome" min="-2" pref="178" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblUsername" min="-2" pref="179" max="-2" attributes="0"/>
+                          <Component id="lblUsername" min="-2" pref="197" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="42" max="32767" attributes="0"/>
+                  <EmptySpace pref="116" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -208,6 +208,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Lista aliens p&#xe5; plats"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn8ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn9">
           <Properties>
