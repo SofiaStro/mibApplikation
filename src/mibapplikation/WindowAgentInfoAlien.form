@@ -62,7 +62,7 @@
                                       <Component id="lblAlienName" min="-2" pref="153" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="btnSave" min="-2" pref="108" max="-2" attributes="0"/>
+                                          <Component id="btnShowInfo" min="-2" pref="108" max="-2" attributes="0"/>
                                           <Component id="txtfAlienInput" min="-2" pref="134" max="-2" attributes="0"/>
                                           <Component id="lblMessage" min="-2" pref="179" max="-2" attributes="0"/>
                                       </Group>
@@ -86,7 +86,7 @@
                       <Component id="lblAlienName" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="btnSave" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnShowInfo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblMessage" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -121,12 +121,12 @@
             <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnSave">
+        <Component class="javax.swing.JButton" name="btnShowInfo">
           <Properties>
             <Property name="text" type="java.lang.String" value="VISA INFO"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnShowInfoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnMenu">
@@ -141,6 +141,9 @@
           <Properties>
             <Property name="columns" type="int" value="6"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtfAlienInputActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblAlienName">
           <Properties>
@@ -152,6 +155,9 @@
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
@@ -170,7 +176,13 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="rows" type="int" value="5"/>
+                <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="enabled" type="boolean" value="false"/>
+                <Property name="selectedTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>

@@ -155,38 +155,39 @@ public class WindowAgentChangePw extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // Om ID stämmer med old lösenord
         // Byt till nya lösenordet
+        if(Validation.validationTxt(pwOldPw, lblMessage) && Validation.validationTxt(pwNewPw, lblMessage)){
+            try{
+                char[] pwOldArray = pwOldPw.getPassword();
+                String oldPassword = new String(pwOldArray);
 
-        try{
-            char[] pwOldArray = pwOldPw.getPassword();
-            String oldPassword = new String(pwOldArray);
-            
-            char[] pwNewArray = pwNewPw.getPassword();
-            String newPassword = new String(pwNewArray);
-            
-            String query = "SELECT losenord FROM agent WHERE agent_id =" + "'" + agentId + "'";
-            String result = idb.fetchSingle(query);
-            
-            if(oldPassword.equals(result)){
-                String qSetPassword = "UPDATE agent SET losenord =" + "'" + newPassword + "'" + "WHERE agent_id = " + "'" + agentId + "'";
-                idb.update(qSetPassword);
-                lblMessage.setForeground(Color.GREEN);
-                lblMessage.setText("Detta lösenord är ändrat!");
+                char[] pwNewArray = pwNewPw.getPassword();
+                String newPassword = new String(pwNewArray);
+
+                String query = "SELECT losenord FROM agent WHERE agent_id =" + "'" + agentId + "'";
+                String result = idb.fetchSingle(query);
+
+                if(oldPassword.equals(result)){
+                    String qSetPassword = "UPDATE agent SET losenord =" + "'" + newPassword + "'" + "WHERE agent_id = " + "'" + agentId + "'";
+                    idb.update(qSetPassword);
+                    lblMessage.setForeground(Color.GREEN);
+                    lblMessage.setText("Detta lösenord är ändrat!");
+                }
+                else{
+                    pwOldPw.requestFocus();
+                    lblMessage.setForeground(Color.RED);
+                    lblMessage.setText("Nuvarande lösenord är felaktigt!");
+                }
+                pwOldPw.setText("");
+                pwNewPw.setText("");
+                pwOldArray = null;
+                pwNewArray = null;
             }
-            else{
-                pwOldPw.requestFocus();
-                lblMessage.setForeground(Color.RED);
-                lblMessage.setText("Nuvarande lösenord är felaktigt!");
+            catch (InfException ex){
+                System.out.println("Databasfel" + ex.getMessage());
             }
-            pwOldPw.setText("");
-            pwNewPw.setText("");
-            pwOldArray = null;
-            pwNewArray = null;
-        }
-        catch (InfException ex){
-            System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
-            System.out.println("Random fel" + ex.getMessage());
+            catch (Exception ex){
+                System.out.println("Random fel" + ex.getMessage());
+            }
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 

@@ -39,7 +39,7 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblMessage = new javax.swing.JLabel();
-        btnSave = new javax.swing.JButton();
+        btnShowInfo = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
         txtfAlienInput = new javax.swing.JTextField();
         lblAlienName = new javax.swing.JLabel();
@@ -61,10 +61,10 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
         lblMessage.setForeground(new java.awt.Color(255, 96, 96));
         lblMessage.setText(" ");
 
-        btnSave.setText("VISA INFO");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnShowInfo.setText("VISA INFO");
+        btnShowInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnShowInfoActionPerformed(evt);
             }
         });
 
@@ -76,17 +76,25 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
         });
 
         txtfAlienInput.setColumns(6);
+        txtfAlienInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfAlienInputActionPerformed(evt);
+            }
+        });
 
         lblAlienName.setForeground(new java.awt.Color(255, 255, 255));
         lblAlienName.setText("Ange aliens namn eller id:");
 
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setRequestFocusEnabled(false);
 
         txtaPrintAlienInfo.setBackground(new java.awt.Color(79, 79, 79));
         txtaPrintAlienInfo.setColumns(20);
         txtaPrintAlienInfo.setForeground(new java.awt.Color(255, 255, 255));
         txtaPrintAlienInfo.setRows(5);
+        txtaPrintAlienInfo.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         txtaPrintAlienInfo.setEnabled(false);
+        txtaPrintAlienInfo.setSelectedTextColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(txtaPrintAlienInfo);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -108,7 +116,7 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
                                     .addComponent(lblAlienName, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnShowInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtfAlienInput, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(79, Short.MAX_VALUE))
@@ -123,7 +131,7 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
                     .addComponent(txtfAlienInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAlienName))
                 .addGap(10, 10, 10)
-                .addComponent(btnSave)
+                .addComponent(btnShowInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblMessage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -147,7 +155,7 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnShowInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowInfoActionPerformed
         txtaPrintAlienInfo.setText("");
         lblMessage.setText(" ");
         if(Validation.validationTxt(txtfAlienInput, lblMessage)){
@@ -211,7 +219,7 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
                 System.out.println("Random fel" + ex.getMessage());
             }
         }
-    }//GEN-LAST:event_btnSaveActionPerformed
+    }//GEN-LAST:event_btnShowInfoActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
@@ -219,10 +227,15 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
         //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
+    private void txtfAlienInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfAlienInputActionPerformed
+        // TODO add your handling code here:
+        btnShowInfo.doClick();
+    }//GEN-LAST:event_txtfAlienInputActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMenu;
-    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnShowInfo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAlienName;
