@@ -5,7 +5,6 @@
  */
 package mibapplikation;
 
-
 import java.util.ArrayList;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -15,6 +14,7 @@ import oru.inf.InfException;
  * @author strom
  */
 public class WindowAgentListAlienLocation extends javax.swing.JFrame {
+
     private InfDB idb;
 
     /**
@@ -39,7 +39,6 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblChangePw = new javax.swing.JLabel();
         lblMessage = new javax.swing.JLabel();
-        btnSave = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
         cbListLocations = new javax.swing.JComboBox<>();
         lblSelectLocation = new javax.swing.JLabel();
@@ -61,13 +60,6 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
         lblMessage.setForeground(new java.awt.Color(255, 96, 96));
         lblMessage.setText(" ");
 
-        btnSave.setText("SPARA");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
-            }
-        });
-
         btnMenu.setText("MENY");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +73,7 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
             }
         });
 
+        lblSelectLocation.setForeground(new java.awt.Color(255, 255, 255));
         lblSelectLocation.setText("Välj en plats:");
 
         txtShowAliens.setColumns(20);
@@ -96,9 +89,7 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(btnMenu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSave)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(90, 90, 90)
                         .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
@@ -128,9 +119,7 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnMenu)
-                            .addComponent(btnSave))
+                        .addComponent(btnMenu)
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(lblMessage)
@@ -151,39 +140,23 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void listAllLocations (){
-    
-        
-        try{
-        String query = "SELECT benamning FROM plats";
-        ArrayList<String> listLocations = idb.fetchColumn(query);
-        
-        for(String element: listLocations){
-           
-        cbListLocations.addItem(element);
-        
-                }
-        }
-        
-        catch (InfException ex){
+    private void listAllLocations() {
+
+        try {
+            String query = "SELECT benamning FROM plats";
+            ArrayList<String> listLocations = idb.fetchColumn(query);
+
+            for (String element : listLocations) {
+
+                cbListLocations.addItem(element);
+
+            }
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
-    
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-
-//        try{
-//
-//        catch (InfException ex){
-//            System.out.println("Databasfel" + ex.getMessage());
-//        }
-//        catch (Exception ex){
-//            System.out.println("Random fel" + ex.getMessage());
-//        }
-    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
@@ -192,26 +165,24 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void cbListLocationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListLocationsActionPerformed
-       
+
         txtShowAliens.setText("");
-        
-     
-        
-        Object objectLocation = cbListLocations.getSelectedItem();
-        String location = String.valueOf(objectLocation);
-        
-        try{
-        
+
+        String location = String.valueOf(cbListLocations.getSelectedItem());
+
+        try {
+
             String query = "SELECT namn from Alien \n"
-                           +"JOIN plats ON Alien.plats = plats.plats_ID\n"
-                           +"WHERE benamning =" + "'" + location + "'";
+                         + "JOIN plats ON Alien.plats = plats.plats_ID\n"
+                         + "WHERE benamning =" + "'" + location + "'";
+
             ArrayList<String> alienLocation = idb.fetchColumn(query);
-            
-            for(String element: alienLocation){
-            txtShowAliens.append("•" + element + "\n");
+
+            for (String element : alienLocation) {
+                txtShowAliens.append("•" + element + "\n");
             }
-        }
-        catch (InfException ex) {
+
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
@@ -221,7 +192,6 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMenu;
-    private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> cbListLocations;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
