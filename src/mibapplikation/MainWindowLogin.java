@@ -162,7 +162,7 @@ public class MainWindowLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // Om användarnamn och lösenord stämmer och finns i databasen ska man loggas in till den sidan som finns för sin användartyp.
-        if(Validation.validationMainTxt(txtfUsername, lblMessage) && Validation.validationMainPw(pwPassword, lblMessage)){
+        if(Validation.validationTxt(txtfUsername, lblMessage) && Validation.validationPw(pwPassword, lblMessage)){
             try{        
                 String username = txtfUsername.getText();
                 char[] pwArray = pwPassword.getPassword();
