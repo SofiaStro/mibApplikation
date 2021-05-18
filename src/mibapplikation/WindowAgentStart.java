@@ -251,9 +251,7 @@ public class WindowAgentStart extends javax.swing.JFrame {
 
     private void btnEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquipmentActionPerformed
         // TODO add your handling code here:
- 
         new WindowAgentEquipment(idb, agentId).setVisible(true);
-
     }//GEN-LAST:event_btnEquipmentActionPerformed
 
     private void btnAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreaChiefActionPerformed
@@ -268,7 +266,7 @@ public class WindowAgentStart extends javax.swing.JFrame {
 
     private void btnInfoAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoAlienActionPerformed
         // TODO add your handling code here:
-        new WindowAgentInfoAlien(idb, agentId).setVisible(true);
+        new WindowAgentInfoAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnInfoAlienActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
