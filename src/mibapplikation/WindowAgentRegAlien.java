@@ -25,7 +25,7 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAgentRegAlien(InfDB idb) {
+    public WindowAgentRegAlien(InfDB idb, String agentId) {
         initComponents();
         this.idb = idb;
         this.agentId = agentId;
