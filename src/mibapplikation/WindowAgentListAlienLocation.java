@@ -6,6 +6,7 @@
 package mibapplikation;
 
 
+import java.util.ArrayList;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -14,8 +15,6 @@ import oru.inf.InfException;
  * @author strom
  */
 public class WindowAgentListAlienLocation extends javax.swing.JFrame {
-
-    private String alienId;
     private InfDB idb;
 
     /**
@@ -23,6 +22,8 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
      */
     public WindowAgentListAlienLocation(InfDB idb) {
         initComponents();
+        this.idb = idb;
+        listAllLocations();
 
     }
 
@@ -40,6 +41,10 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
         lblMessage = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
+        cbListLocations = new javax.swing.JComboBox<>();
+        lblSelectLocation = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtShowAliens = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
@@ -50,7 +55,7 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
 
         lblChangePw.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         lblChangePw.setForeground(new java.awt.Color(255, 255, 255));
-        lblChangePw.setText("Template");
+        lblChangePw.setText("Lista alla aliens på en plats");
 
         lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblMessage.setForeground(new java.awt.Color(255, 96, 96));
@@ -70,6 +75,18 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
             }
         });
 
+        cbListLocations.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbListLocationsActionPerformed(evt);
+            }
+        });
+
+        lblSelectLocation.setText("Välj en plats:");
+
+        txtShowAliens.setColumns(20);
+        txtShowAliens.setRows(5);
+        jScrollPane1.setViewportView(txtShowAliens);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -77,32 +94,47 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addComponent(btnMenu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSave)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
+                        .addGap(32, 32, 32)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(btnSave))
-                            .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnMenu)))
-                .addContainerGap(109, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(lblSelectLocation)
+                                    .addGap(26, 26, 26)
+                                    .addComponent(cbListLocations, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(17, 17, 17)
                 .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(103, 103, 103)
-                .addComponent(btnSave)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblMessage)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(btnMenu)
-                .addGap(21, 21, 21))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSelectLocation)
+                    .addComponent(cbListLocations, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnMenu)
+                            .addComponent(btnSave))
+                        .addGap(21, 21, 21))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblMessage)
+                        .addGap(15, 15, 15))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,6 +151,28 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void listAllLocations (){
+    
+        
+        try{
+        String query = "SELECT benamning FROM plats";
+        ArrayList<String> listLocations = idb.fetchColumn(query);
+        
+        for(String element: listLocations){
+           
+        cbListLocations.addItem(element);
+        
+                }
+        }
+        
+        catch (InfException ex){
+            System.out.println("Databasfel" + ex.getMessage());
+        }
+        catch (Exception ex){
+            System.out.println("Random fel" + ex.getMessage());
+        }
+    }
+    
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
 //        try{
@@ -137,12 +191,43 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
         //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
+    private void cbListLocationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListLocationsActionPerformed
+       
+        txtShowAliens.setText("");
+        
+     
+        
+        Object objectLocation = cbListLocations.getSelectedItem();
+        String location = String.valueOf(objectLocation);
+        
+        try{
+        
+            String query = "SELECT namn from Alien \n"
+                           +"JOIN plats ON Alien.plats = plats.plats_ID\n"
+                           +"WHERE benamning =" + "'" + location + "'";
+            ArrayList<String> alienLocation = idb.fetchColumn(query);
+            
+            for(String element: alienLocation){
+            txtShowAliens.append("•" + element + "\n");
+            }
+        }
+        catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+    }//GEN-LAST:event_cbListLocationsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox<String> cbListLocations;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblChangePw;
     private javax.swing.JLabel lblMessage;
+    private javax.swing.JLabel lblSelectLocation;
+    private javax.swing.JTextArea txtShowAliens;
     // End of variables declaration//GEN-END:variables
 }
