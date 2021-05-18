@@ -5,7 +5,10 @@
  */
 package mibapplikation;
 
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -14,10 +17,45 @@ import javax.swing.JTextField;
  */
 public class Validation {
     
-    public static boolean textFaltHarVarde(JTextField fieldToValidate, JLabel message)
+    public static boolean validationTxt(JTextField fieldToValidate, JLabel message)
     {
         boolean resultat = true;        
         if(fieldToValidate.getText().isEmpty()){
+            message.setText("En eller flera rutor är tomma!");
+            resultat = false;
+            fieldToValidate.requestFocus();
+        }       
+        return resultat;
+    }
+    
+    
+    
+    public static boolean validationTxt(JTextField fieldToValidate, JTextArea message)
+    {
+        boolean resultat = true;        
+        if(fieldToValidate.getText().isEmpty()){
+            message.setText("En eller flera rutor är tomma!");
+            resultat = false;
+            fieldToValidate.requestFocus();
+        }       
+        return resultat;
+    }
+    
+    public static boolean validationPw(JPasswordField fieldToValidate, JLabel message)
+    {
+        boolean resultat = true;        
+        if(fieldToValidate.getText().isEmpty()){
+            message.setText("En eller flera rutor är tomma!");
+            resultat = false;
+            fieldToValidate.requestFocus();
+        }       
+        return resultat;
+    }
+    
+    public static boolean validationCb(JComboBox fieldToValidate, JLabel message)
+    {
+        boolean resultat = true;        
+        if(fieldToValidate.getSelectedItem().equals("-----")){
             message.setText("En eller flera rutor är tomma!");
             resultat = false;
             fieldToValidate.requestFocus();

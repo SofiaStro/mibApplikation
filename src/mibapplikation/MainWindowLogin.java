@@ -162,54 +162,55 @@ public class MainWindowLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // Om användarnamn och lösenord stämmer och finns i databasen ska man loggas in till den sidan som finns för sin användartyp.
-        
-        try{        
-            String username = txtfUsername.getText();
-            char[] pwArray = pwPassword.getPassword();
-            String password = new String(pwArray);
-           
-            String queryAgent = "SELECT agent_id FROM agent WHERE namn = " + "'" + username + "'" + "AND losenord = " + "'" + password + "'";
-            String resultAgent = idb.fetchSingle(queryAgent);
-        
-            String queryAdmin = "SELECT administrator FROM agent WHERE agent_id = " + "'" + resultAgent + "'";
-            String resultAdmin = idb.fetchSingle(queryAdmin);
-            
-            String queryAlien = "SELECT alien_id FROM alien WHERE namn = " + "'" + username + "'" + "AND losenord = " + "'" + password + "'";
-            String resultAlien = idb.fetchSingle(queryAlien);
-           
-            if (resultAgent != null) {
-                if(resultAdmin.equals("J")){
-                    setVisible(false);
-                    //username = WordUtils.capitalize(username);
-                    //new WindowAdminStart(idb, resultAdmin, username).setVisible(true);
+        if(Validation.validationTxt(txtfUsername, lblMessage) && Validation.validationPw(pwPassword, lblMessage)){
+            try{        
+                String username = txtfUsername.getText();
+                char[] pwArray = pwPassword.getPassword();
+                String password = new String(pwArray);
+
+                String queryAgent = "SELECT agent_id FROM agent WHERE namn = " + "'" + username + "'" + "AND losenord = " + "'" + password + "'";
+                String resultAgent = idb.fetchSingle(queryAgent);
+
+                String queryAdmin = "SELECT administrator FROM agent WHERE agent_id = " + "'" + resultAgent + "'";
+                String resultAdmin = idb.fetchSingle(queryAdmin);
+
+                String queryAlien = "SELECT alien_id FROM alien WHERE namn = " + "'" + username + "'" + "AND losenord = " + "'" + password + "'";
+                String resultAlien = idb.fetchSingle(queryAlien);
+
+                if (resultAgent != null) {
+                    if(resultAdmin.equals("J")){
+                        setVisible(false);
+                        //username = WordUtils.capitalize(username);
+                        //new WindowAdminStart(idb, resultAdmin, username).setVisible(true);
+                    }
+                    else{
+                        setVisible(false);
+                        username = WordUtils.capitalize(username);
+                        new WindowAgentStart(idb, resultAgent, username).setVisible(true);
+                    }                
                 }
-                else{
+                else if (resultAlien != null) {
                     setVisible(false);
+                    //Gör om första bokstaven till versal.
                     username = WordUtils.capitalize(username);
-                    new WindowAgentStart(idb, resultAgent, username).setVisible(true);
-                }                
-            }
-            else if (resultAlien != null) {
-                setVisible(false);
-                //Gör om första bokstaven till versal.
-                username = WordUtils.capitalize(username);
-                new WindowAlienStart(idb, resultAlien, username).setVisible(true);
+                    new WindowAlienStart(idb, resultAlien, username).setVisible(true);
+                } 
+                else {
+                    lblMessage.setText("Fel användarnamn eller lösenord");
+                    pwPassword.setText("");
+                    pwPassword.requestFocus();
+                }
+
+                password = "";
+                pwArray = null;
+
             } 
-            else {
-                lblMessage.setText("Fel användarnamn eller lösenord");
-                pwPassword.setText("");
-                pwPassword.requestFocus();
+            catch (InfException ex){
+                System.out.println("Databasfel" + ex.getMessage());
             }
-            
-            password = "";
-            pwArray = null;
-            
-        } 
-        catch (InfException ex){
-            System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
-            System.out.println("Random fel" + ex.getMessage());
+            catch (Exception ex){
+                System.out.println("Random fel" + ex.getMessage());
+            }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
     /**
