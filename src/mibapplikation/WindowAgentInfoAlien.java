@@ -210,6 +210,7 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
                         ras = "Worm";
                         txtaPrintAlienInfo.append("Ras:\t" + ras + "\n");
                     }
+                    
                 }
             }
             catch (InfException ex){

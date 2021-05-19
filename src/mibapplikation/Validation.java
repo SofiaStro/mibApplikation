@@ -41,16 +41,16 @@ public class Validation {
         return resultat;
     }
     
-    public static boolean validationPw(JPasswordField fieldToValidate, JLabel message)
-    {
-        boolean resultat = true;        
-        if(fieldToValidate.getText().isEmpty()){
-            message.setText("En eller flera rutor är tomma!");
-            resultat = false;
-            fieldToValidate.requestFocus();
-        }       
-        return resultat;
-    }
+//    public static boolean validationPw(JPasswordField fieldToValidate, JLabel message)
+//    {
+//        boolean resultat = true;        
+//        if(fieldToValidate.getText().isEmpty()){
+//            message.setText("En eller flera rutor är tomma!");
+//            resultat = false;
+//            fieldToValidate.requestFocus();
+//        }       
+//        return resultat;
+//    }
     
     public static boolean validationCb(JComboBox fieldToValidate, JLabel message)
     {

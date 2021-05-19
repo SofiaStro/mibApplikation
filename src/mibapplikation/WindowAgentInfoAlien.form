@@ -56,16 +56,14 @@
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblTitle" min="-2" pref="182" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblAlienName" min="-2" pref="153" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="btnShowInfo" min="-2" pref="108" max="-2" attributes="0"/>
-                                          <Component id="txtfAlienInput" min="-2" pref="134" max="-2" attributes="0"/>
-                                          <Component id="lblMessage" min="-2" pref="179" max="-2" attributes="0"/>
-                                      </Group>
+                              <Component id="lblTitle" min="-2" pref="182" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblAlienName" min="-2" pref="153" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btnShowInfo" min="-2" pref="108" max="-2" attributes="0"/>
+                                      <Component id="txtfAlienInput" min="-2" pref="134" max="-2" attributes="0"/>
+                                      <Component id="lblMessage" min="-2" pref="179" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
