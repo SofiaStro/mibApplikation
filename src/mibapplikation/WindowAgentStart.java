@@ -139,6 +139,11 @@ public class WindowAgentStart extends javax.swing.JFrame {
 
         btn10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn10.setText("Lista aliens registrering");
+        btn10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn10ActionPerformed(evt);
+            }
+        });
 
         btn11.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn11.setText("jButton1");
@@ -272,6 +277,10 @@ public class WindowAgentStart extends javax.swing.JFrame {
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
        new WindowAgentListAlienLocation(idb).setVisible(true);
     }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10ActionPerformed
+       new WindowAgentAlienDates(idb).setVisible(true);
+    }//GEN-LAST:event_btn10ActionPerformed
 
 
     /**
