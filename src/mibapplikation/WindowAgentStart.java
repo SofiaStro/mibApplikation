@@ -252,7 +252,7 @@ public class WindowAgentStart extends javax.swing.JFrame {
 
     private void btnListAlienRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListAlienRaceActionPerformed
         // TODO add your handling code here:
-         new WindowAgentListAlienRace(idb, agentId).setVisible(true);
+         new WindowAgentListAlienRace(idb).setVisible(true);
     }//GEN-LAST:event_btnListAlienRaceActionPerformed
 
     private void btnEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquipmentActionPerformed
