@@ -6,6 +6,7 @@
 package mibapplikation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -101,11 +102,11 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane1)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lblSelectLocation)
-                                    .addGap(26, 26, 26)
-                                    .addComponent(cbListLocations, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(lblSelectLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(cbListLocations, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -174,15 +175,18 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
 
         try {
 
-            String query = "SELECT namn from Alien \n"
+            String query = "SELECT namn, alien_id from Alien \n"
                          + "JOIN plats ON Alien.plats = plats.plats_ID\n"
                          + "WHERE benamning =" + "'" + cbListLocations.getSelectedItem() + "'";
 
-            ArrayList<String> alienLocation = idb.fetchColumn(query);
+           ArrayList<HashMap<String,String>> alienInfo = idb.fetchRows(query);
 
-            for (String element : alienLocation) {
-                txtShowAliens.append("•" + element + "\n");
-            }
+            txtShowAliens.append("ID: \t Namn: \n\n");
+ 
+            for(HashMap<String,String> element : alienInfo){
+                txtShowAliens.append(element.get("alien_id") + "\t " + element.get("namn") + "\n");
+        
+                }
 
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
@@ -190,8 +194,7 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
             System.out.println("Random fel" + ex.getMessage());
         }
     }//GEN-LAST:event_cbListLocationsActionPerformed
-
-
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMenu;
     private javax.swing.JComboBox<String> cbListLocations;
@@ -202,4 +205,5 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
     private javax.swing.JLabel lblSelectLocation;
     private javax.swing.JTextArea txtShowAliens;
     // End of variables declaration//GEN-END:variables
+
 }
