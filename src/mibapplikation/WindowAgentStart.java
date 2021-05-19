@@ -51,8 +51,8 @@ public class WindowAgentStart extends javax.swing.JFrame {
         btnInfoAlien = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnChangePw = new javax.swing.JButton();
-        btn8 = new javax.swing.JButton();
-        btn9 = new javax.swing.JButton();
+        btnListAlienCity = new javax.swing.JButton();
+        btnListAlienRace = new javax.swing.JButton();
         btn10 = new javax.swing.JButton();
         btn11 = new javax.swing.JButton();
         btn12 = new javax.swing.JButton();
@@ -121,19 +121,19 @@ public class WindowAgentStart extends javax.swing.JFrame {
             }
         });
 
-        btn8.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn8.setText("Lista aliens på plats");
-        btn8.addActionListener(new java.awt.event.ActionListener() {
+        btnListAlienCity.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnListAlienCity.setText("Lista aliens på plats");
+        btnListAlienCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn8ActionPerformed(evt);
+                btnListAlienCityActionPerformed(evt);
             }
         });
 
-        btn9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn9.setText("Lista aliens på ras");
-        btn9.addActionListener(new java.awt.event.ActionListener() {
+        btnListAlienRace.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnListAlienRace.setText("Lista aliens på ras");
+        btnListAlienRace.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn9ActionPerformed(evt);
+                btnListAlienRaceActionPerformed(evt);
             }
         });
 
@@ -169,8 +169,8 @@ public class WindowAgentStart extends javax.swing.JFrame {
                     .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnListAlienRace, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnListAlienCity, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,9 +205,9 @@ public class WindowAgentStart extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnInfoAlien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn8)
+                .addComponent(btnListAlienCity)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn9)
+                .addComponent(btnListAlienRace)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -250,9 +250,10 @@ public class WindowAgentStart extends javax.swing.JFrame {
         new WindowAgentChangePw(idb, agentId).setVisible(true);
     }//GEN-LAST:event_btnChangePwActionPerformed
 
-    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+    private void btnListAlienRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListAlienRaceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn9ActionPerformed
+         new WindowAgentListAlienRace(idb, agentId).setVisible(true);
+    }//GEN-LAST:event_btnListAlienRaceActionPerformed
 
     private void btnEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquipmentActionPerformed
         // TODO add your handling code here:
@@ -274,9 +275,9 @@ public class WindowAgentStart extends javax.swing.JFrame {
         new WindowAgentInfoAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnInfoAlienActionPerformed
 
-    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+    private void btnListAlienCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListAlienCityActionPerformed
        new WindowAgentListAlienLocation(idb).setVisible(true);
-    }//GEN-LAST:event_btn8ActionPerformed
+    }//GEN-LAST:event_btnListAlienCityActionPerformed
 
     private void btn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10ActionPerformed
        new WindowAgentAlienDates(idb).setVisible(true);
@@ -295,12 +296,12 @@ public class WindowAgentStart extends javax.swing.JFrame {
     private javax.swing.JButton btn11;
     private javax.swing.JButton btn12;
     private javax.swing.JButton btn4;
-    private javax.swing.JButton btn8;
-    private javax.swing.JButton btn9;
     private javax.swing.JButton btnAreaChief;
     private javax.swing.JButton btnChangePw;
     private javax.swing.JButton btnEquipment;
     private javax.swing.JButton btnInfoAlien;
+    private javax.swing.JButton btnListAlienCity;
+    private javax.swing.JButton btnListAlienRace;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRegAlien;
     private javax.swing.JLabel lblMenu;
