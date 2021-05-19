@@ -5,7 +5,6 @@
  */
 package mibapplikation;
 
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +25,7 @@ public class WindowAgentAlienDates extends javax.swing.JFrame {
      */
     public WindowAgentAlienDates(InfDB idb) {
         initComponents();
-        this.idb=idb;
+        this.idb = idb;
 
     }
 
@@ -108,37 +107,38 @@ public class WindowAgentAlienDates extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnMenu)
-                            .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblChangePw, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(btnSave))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(lblStartDate)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(txtfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(lblEndDate)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                        .addComponent(txtfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(6, 6, 6))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMessageFormat2)
-                                    .addComponent(lblMessageFormat))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15))))
+                                    .addComponent(lblMessageFormat)
+                                    .addComponent(lblMessageFormat2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnSave)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnMenu)
+                            .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,25 +148,25 @@ public class WindowAgentAlienDates extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 6, Short.MAX_VALUE)
+                        .addGap(0, 1, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblMessageFormat)
                         .addGap(2, 2, 2)
                         .addComponent(lblMessageFormat2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(14, 14, 14)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblStartDate))
-                        .addGap(29, 29, 29)
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEndDate))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(btnSave)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lblMessage)
-                .addGap(29, 29, 29)
+                .addGap(22, 22, 22)
                 .addComponent(btnMenu)
                 .addGap(21, 21, 21))
         );
@@ -189,50 +189,52 @@ public class WindowAgentAlienDates extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-           
+        
+        lblMessage.setText("");
+        txtListAliens.setText("");
+        
+        if (Validation.validationTxt(txtfStartDate, lblMessage)
+                && (Validation.validationTxt(txtfEndDate, lblMessage))) {
+            
+            /*Behöver ytterligare en validation som kan ge ett felmeddleande om man skriver in något annat 
+            än ett datum i rätt format i text-rutorna och om det inte finns några alien för den perioden*/
+
+            //Konvertera de inkommande string-värdena till datum av klassen LocalDate. 
             LocalDate startDate = LocalDate.parse(txtfStartDate.getText());
             LocalDate endDate = LocalDate.parse(txtfEndDate.getText());
-         
-        if(Validation.validationTxt(txtfStartDate, lblMessage) && 
-          (Validation.validationTxt(txtfEndDate, lblMessage))){    
             
-                    String qAlienInfo = "Select namn, alien_id, registreringsdatum from Alien";
-                
-                    try{
-                    
-                        ArrayList<HashMap<String,String>> alienInfo = idb.fetchRows(qAlienInfo);
-                       
-                        txtListAliens.append("ID:\t " + "Namn: \n\n");
-                        
-                        for(HashMap<String,String> element : alienInfo){
-                            
-                            LocalDate date = LocalDate.parse(element.get("registreringsdatum"));
-                            String namn = element.get("namn");
-                            String id = element.get("alien_id");
-                            
-                           int sizeStart = date.compareTo(startDate);
-                           int sizeEnd = date.compareTo(endDate);
-                           
-                                if (sizeStart >= 0 && sizeEnd < 0)
-                                {
-                                   txtListAliens.append(id + "\t " + namn + "\n");
-                                }
-                        } 
-                    
-                    
+            try {
+                String qAlienInfo = "Select namn, alien_id, registreringsdatum from Alien";
+                ArrayList<HashMap<String, String>> alienInfo = idb.fetchRows(qAlienInfo);
 
-                    }
-                     catch (InfException ex){
-                    System.out.println("Databasfel" + ex.getMessage());
-                    }
-                    catch (Exception ex){
-                    System.out.println("Random fel" + ex.getMessage());
-                    }
-        
-        
+                txtListAliens.append("ID:\t " + "Namn: \n\n");
+
+                for (HashMap<String, String> element : alienInfo) {
+                    LocalDate date = LocalDate.parse(element.get("registreringsdatum"));
+                    String namn = element.get("namn");
+                    String id = element.get("alien_id");
+
+                    int sizeStart = date.compareTo(startDate);
+                    int sizeEnd = date.compareTo(endDate);
+
+                        if (sizeStart >= 0 && sizeEnd < 0) {
+                            txtListAliens.append(" " + id + "\t " + namn + "\n");
+                        } 
+//                        else{
+//                            lblMessage.setText("Det finns inga registrerade aliens för de här datumen");
+//                        }
+                }
+
+            } catch (InfException ex) {
+                System.out.println("Databasfel" + ex.getMessage());
+            } catch (Exception ex) {
+                System.out.println("Random fel" + ex.getMessage());
+            }
+
+
     }//GEN-LAST:event_btnSaveActionPerformed
     }
-    
+
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
