@@ -86,4 +86,15 @@ public class Validation {
         return resultat;
     }
     
+    public static boolean validationCb(JComboBox fieldToValidate, JTextArea message)
+    {
+        boolean resultat = true;        
+        if(fieldToValidate.getSelectedItem().equals("-----")){
+            message.setText("En eller flera rutor är tomma!");
+            resultat = false;
+            fieldToValidate.requestFocus();
+        }       
+        return resultat;
+    }
+    
 }
