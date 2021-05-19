@@ -171,13 +171,12 @@ public class WindowAgentListAlienLocation extends javax.swing.JFrame {
 
         txtShowAliens.setText("");
 
-        String location = String.valueOf(cbListLocations.getSelectedItem());
 
         try {
 
             String query = "SELECT namn from Alien \n"
                          + "JOIN plats ON Alien.plats = plats.plats_ID\n"
-                         + "WHERE benamning =" + "'" + location + "'";
+                         + "WHERE benamning =" + "'" + cbListLocations.getSelectedItem() + "'";
 
             ArrayList<String> alienLocation = idb.fetchColumn(query);
 

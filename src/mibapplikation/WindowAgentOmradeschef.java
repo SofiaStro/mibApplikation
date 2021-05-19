@@ -170,13 +170,12 @@ public class WindowAgentOmradeschef extends javax.swing.JFrame {
     private void cbListAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListAreasActionPerformed
        txtShowAreaChief.setText("");
        
-            String area = String.valueOf(cbListAreas.getSelectedItem());
 
         try {
             String query = "SELECT namn, telefon FROM Agent \n"
                     + "JOIN omradeschef oc USING (Agent_ID) \n"
                     + "JOIN Omrade o ON oc.Omrade = o.Omrades_ID \n"
-                    + "WHERE o.Benamning = " + "'" + area + "'";
+                    + "WHERE o.Benamning = " + "'" + cbListAreas.getSelectedItem() + "'";
 
            HashMap<String,String> areaChief = idb.fetchRow(query);
             String namn = areaChief.get("namn");
