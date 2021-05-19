@@ -189,52 +189,60 @@ public class WindowAgentAlienDates extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        
+        int alienCounter = 0;
         lblMessage.setText("");
         txtListAliens.setText("");
-        
+
         if (Validation.validationTxt(txtfStartDate, lblMessage)
-                && (Validation.validationTxt(txtfEndDate, lblMessage))) {
-            
+                && Validation.validationTxt(txtfEndDate, lblMessage)
+                && Validation.validationTxtDate(txtfStartDate, lblMessage)
+                && Validation.validationTxtDate(txtfEndDate, lblMessage)) {
+
             /*Behöver ytterligare en validation som kan ge ett felmeddleande om man skriver in något annat 
             än ett datum i rätt format i text-rutorna och om det inte finns några alien för den perioden*/
-
             //Konvertera de inkommande string-värdena till datum av klassen LocalDate. 
             LocalDate startDate = LocalDate.parse(txtfStartDate.getText());
             LocalDate endDate = LocalDate.parse(txtfEndDate.getText());
-            
-            try {
-                String qAlienInfo = "Select namn, alien_id, registreringsdatum from Alien";
-                ArrayList<HashMap<String, String>> alienInfo = idb.fetchRows(qAlienInfo);
 
-                txtListAliens.append("ID:\t " + "Namn: \n\n");
+            int checkDate = startDate.compareTo(endDate);
+            if (checkDate > 0) {
+                lblMessage.setText("Startdatumet är större än slutdatumet");
+            } else {
+                try {
+                    String qAlienInfo = "Select namn, alien_id, registreringsdatum from Alien";
+                    ArrayList<HashMap<String, String>> alienInfo = idb.fetchRows(qAlienInfo);
 
-                for (HashMap<String, String> element : alienInfo) {
-                    LocalDate date = LocalDate.parse(element.get("registreringsdatum"));
-                    String namn = element.get("namn");
-                    String id = element.get("alien_id");
+                    txtListAliens.append("ID:\t " + "Namn: \n\n");
 
-                    int sizeStart = date.compareTo(startDate);
-                    int sizeEnd = date.compareTo(endDate);
+                    for (HashMap<String, String> element : alienInfo) {
+                        LocalDate date = LocalDate.parse(element.get("registreringsdatum"));
+                        String namn = element.get("namn");
+                        String id = element.get("alien_id");
 
-                        if (sizeStart >= 0 && sizeEnd < 0) {
+                        int sizeStart = date.compareTo(startDate);
+                        int sizeEnd = date.compareTo(endDate);
+
+                        if (sizeStart >= 0 && sizeEnd <= 0) {
+                            alienCounter++;
                             txtListAliens.append(" " + id + "\t " + namn + "\n");
-                        } 
-//                        else{
-//                            lblMessage.setText("Det finns inga registrerade aliens för de här datumen");
-//                        }
-                }
+                        }
 
-            } catch (InfException ex) {
-                System.out.println("Databasfel" + ex.getMessage());
-            } catch (Exception ex) {
-                System.out.println("Random fel" + ex.getMessage());
+                    }
+
+                    if (alienCounter == 0) {
+                        lblMessage.setText("Det finns inga registrerade aliens för de här datumen");
+                    }
+                } catch (InfException ex) {
+                    System.out.println("Databasfel" + ex.getMessage());
+                } catch (Exception ex) {
+                    System.out.println("Random fel" + ex.getMessage());
+                }
             }
 
-
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
-    }
 
+    
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:

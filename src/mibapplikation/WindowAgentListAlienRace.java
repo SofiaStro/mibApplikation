@@ -146,7 +146,8 @@ public class WindowAgentListAlienRace extends javax.swing.JFrame {
             String qAlienId = "SELECT alien_id FROM alien";
             ArrayList<String> listAlienId = idb.fetchColumn(qAlienId);
             
-            txtShowAliens.append(" ALIEN ID\tNAMN\n");
+            txtShowAliens.append(" ALIEN ID\tNAMN\n "
+                                 + "------------\t------------\n");
 
             for(String alienId : listAlienId){
                 String race = ValidationRace.getRace(idb, alienId);
