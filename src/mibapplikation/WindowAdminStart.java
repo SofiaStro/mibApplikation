@@ -278,7 +278,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnChangeAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeAreaChiefActionPerformed
-        new WindowAgentChangeAreaChief(idb).setVisible(true);
+        new WindowAdminChangeAreaChief(idb).setVisible(true);
     }//GEN-LAST:event_btnChangeAreaChiefActionPerformed
 
     private void btnAdminStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminStatusActionPerformed
@@ -287,7 +287,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdminStatusActionPerformed
 
     private void btnChangeHeadChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeHeadChiefActionPerformed
-        new WindowAgentChangeHeadChief(idb).setVisible(true);
+        new WindowAdminChangeHeadChief(idb).setVisible(true);
     }//GEN-LAST:event_btnChangeHeadChiefActionPerformed
 
     /**
