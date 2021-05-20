@@ -6,6 +6,8 @@
 package mibapplikation;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -21,6 +23,8 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
      */
     public WindowAgentChangeAreaChief(InfDB idb) {
         initComponents();
+        this.idb= idb;
+        listAllAgents();
 
     }
 
@@ -72,7 +76,7 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
 
         lblNewChiefMessage.setText("Välj namnet på den agent som ska bli områdeschef");
 
-        cbListAgents.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbListAgents.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -82,9 +86,6 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnMenu))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(192, 192, 192)
                         .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
@@ -92,8 +93,11 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
                             .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNewChiefMessage)
                             .addComponent(cbListAgents, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnMenu)))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,9 +110,9 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
                 .addComponent(cbListAgents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSave)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(lblMessage)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addComponent(btnMenu)
                 .addGap(21, 21, 21))
         );
@@ -117,7 +121,9 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,6 +133,37 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+        public void listAllAgents() {
+
+        try {
+            String query = "SELECT Agent_ID, namn, Benamning FROM Agent\n"
+                           + "JOIN Omrade o on Agent.Omrade = o.Omrades_ID";
+            ArrayList<HashMap<String, String>> agentInfo = idb.fetchRows(query);
+
+            for (HashMap<String, String> element : agentInfo) {
+                
+                String name = element.get("namn");
+                String id = element.get("Agent_ID");
+                String area = element.get("Benamning");
+                
+                String agent = name+" (" +id+") ("+area+")";
+                cbListAgents.addItem(agent);
+            }
+            cbListAgents.getSelectedItem();
+            String test = "Hej (5) hej";
+            String[] test2 = test.split("(", WIDTH);
+
+            for(String e : test2) {
+            System.out.println(e);
+            }   
+            
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+
+    }
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
 //        try{

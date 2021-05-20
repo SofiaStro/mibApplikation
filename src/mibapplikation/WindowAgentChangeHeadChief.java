@@ -5,7 +5,8 @@
  */
 package mibapplikation;
 
-
+import java.util.ArrayList;
+import java.util.HashMap;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -15,7 +16,6 @@ import oru.inf.InfException;
  */
 public class WindowAgentChangeHeadChief extends javax.swing.JFrame {
 
-    private String alienId;
     private InfDB idb;
 
     /**
@@ -23,7 +23,8 @@ public class WindowAgentChangeHeadChief extends javax.swing.JFrame {
      */
     public WindowAgentChangeHeadChief(InfDB idb) {
         initComponents();
-
+        this.idb = idb;
+        listAllAgents();
     }
 
     /**
@@ -72,7 +73,7 @@ public class WindowAgentChangeHeadChief extends javax.swing.JFrame {
             }
         });
 
-        cbListAgents.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbListAgents.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
 
         lblNewChiefMessage.setText("Välj namnet på den agent som ska bli kontorschef");
 
@@ -93,7 +94,7 @@ public class WindowAgentChangeHeadChief extends javax.swing.JFrame {
                             .addComponent(lblNewChiefMessage)
                             .addComponent(cbListAgents, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +118,7 @@ public class WindowAgentChangeHeadChief extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,6 +127,29 @@ public class WindowAgentChangeHeadChief extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void listAllAgents() {
+
+        try {
+             String query = "SELECT Agent_ID, namn FROM Agent";
+            ArrayList<HashMap<String, String>> agentInfo = idb.fetchRows(query);
+
+            for (HashMap<String, String> element : agentInfo) {
+                
+                String name = element.get("namn");
+                String id = element.get("Agent_ID");
+                
+                String agent = name+" (" +id+")";
+                cbListAgents.addItem(agent);
+
+            }
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+
+    }
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
