@@ -167,7 +167,7 @@ public class WindowAdminChangeHeadChief extends javax.swing.JFrame {
                 if (chief.equals(agentid)) {
                     lblMessage.setText("Den här agenten är redan kontorschef");
                 } else {
-                    
+
                     String qUpdate = "UPDATE kontorschef SET AGENT_ID = '" + agentid + "'WHERE Agent_ID = '" + chief + "'";
                     idb.update(qUpdate);
                     lblMessage.setForeground(Color.GREEN);
