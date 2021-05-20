@@ -45,7 +45,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn3 = new javax.swing.JButton();
         btn4 = new javax.swing.JButton();
         btn5 = new javax.swing.JButton();
-        btn6 = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         btnChangePw = new javax.swing.JButton();
         btn8 = new javax.swing.JButton();
         btn9 = new javax.swing.JButton();
@@ -91,8 +91,13 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn5.setText("Se info om alien");
 
-        btn6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn6.setText("Logga ut");
+        btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnLogout.setText("Logga ut");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         btnChangePw.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnChangePw.setText("Byt lösenord");
@@ -178,7 +183,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -264,7 +269,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
                 .addGap(67, 67, 67)
                 .addComponent(btnChangePw)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn6)
+                .addComponent(btnLogout)
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
@@ -300,6 +305,13 @@ public class WindowAdminStart extends javax.swing.JFrame {
         new WindowAgentChangePw(idb, agentId).setVisible(true);
     }//GEN-LAST:event_btnChangePwActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        agentId = "";
+        setVisible(false);
+        new MainWindowLogin(idb).setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -323,13 +335,13 @@ public class WindowAdminStart extends javax.swing.JFrame {
     private javax.swing.JButton btn3;
     private javax.swing.JButton btn4;
     private javax.swing.JButton btn5;
-    private javax.swing.JButton btn6;
     private javax.swing.JButton btn8;
     private javax.swing.JButton btn9;
     private javax.swing.JButton btnAdminStatus;
     private javax.swing.JButton btnChangeAreaChief;
     private javax.swing.JButton btnChangeHeadChief;
     private javax.swing.JButton btnChangePw;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblWelcome;

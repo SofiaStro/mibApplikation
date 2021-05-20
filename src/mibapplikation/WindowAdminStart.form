@@ -50,7 +50,7 @@
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnChangePw" min="-2" pref="190" max="-2" attributes="0"/>
-                      <Component id="btn6" min="-2" pref="190" max="-2" attributes="0"/>
+                      <Component id="btnLogout" min="-2" pref="190" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblWelcome" min="-2" pref="274" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -151,7 +151,7 @@
                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   <Component id="btnChangePw" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btn6" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="32" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -209,13 +209,16 @@
             <Property name="text" type="java.lang.String" value="Se info om alien"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn6">
+        <Component class="javax.swing.JButton" name="btnLogout">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Logga ut"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogoutActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnChangePw">
           <Properties>
