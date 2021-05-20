@@ -94,21 +94,21 @@ public class WindowAgentOmradeschef extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnMenu)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnMenu))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbListAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cbListAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -122,11 +122,11 @@ public class WindowAgentOmradeschef extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(btnMenu)
-                .addGap(1, 1, 1)
+                .addGap(18, 18, 18)
                 .addComponent(lblMessage)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(btnMenu)
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -168,28 +168,28 @@ public class WindowAgentOmradeschef extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void cbListAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListAreasActionPerformed
-       txtShowAreaChief.setText("");
-       
+        txtShowAreaChief.setText("");
 
-        try {
-            String query = "SELECT namn, telefon FROM Agent \n"
-                    + "JOIN omradeschef oc USING (Agent_ID) \n"
-                    + "JOIN Omrade o ON oc.Omrade = o.Omrades_ID \n"
-                    + "WHERE o.Benamning = " + "'" + cbListAreas.getSelectedItem() + "'";
+        if (Validation.validationCb(cbListAreas, lblMessage)) {
+            try {
+                String query = "SELECT namn, telefon FROM Agent \n"
+                        + "JOIN omradeschef oc USING (Agent_ID) \n"
+                        + "JOIN Omrade o ON oc.Omrade = o.Omrades_ID \n"
+                        + "WHERE o.Benamning = " + "'" + cbListAreas.getSelectedItem() + "'";
 
-           HashMap<String,String> areaChief = idb.fetchRow(query);
-            String namn = areaChief.get("namn");
-            String telefon = areaChief.get("telefon");
-            
-            txtShowAreaChief.setText("Områdeschef:\t" + namn + "\n" 
-                                    + "Telefon:\t" + telefon);
+                HashMap<String, String> areaChief = idb.fetchRow(query);
+                String namn = areaChief.get("namn");
+                String telefon = areaChief.get("telefon");
 
-        } catch (InfException ex) {
-            System.out.println("Databasfel" + ex.getMessage());
-        } catch (Exception ex) {
-            System.out.println("Random fel" + ex.getMessage());
+                txtShowAreaChief.setText("Områdeschef:\t" + namn + "\n"
+                        + "Telefon:\t" + telefon);
+
+            } catch (InfException ex) {
+                System.out.println("Databasfel" + ex.getMessage());
+            } catch (Exception ex) {
+                System.out.println("Random fel" + ex.getMessage());
+            }
         }
-
     }//GEN-LAST:event_cbListAreasActionPerformed
 
 
