@@ -25,7 +25,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
         this.idb= idb;
         this.agentId = agentId;
         this.username = username; 
-        
+        lblUsername.setText(username + "!");
         
     }
 
@@ -46,7 +46,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn4 = new javax.swing.JButton();
         btn5 = new javax.swing.JButton();
         btn6 = new javax.swing.JButton();
-        btn7 = new javax.swing.JButton();
+        btnChangePw = new javax.swing.JButton();
         btn8 = new javax.swing.JButton();
         btn9 = new javax.swing.JButton();
         btn10 = new javax.swing.JButton();
@@ -63,7 +63,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn20 = new javax.swing.JButton();
         btn21 = new javax.swing.JButton();
         btn22 = new javax.swing.JButton();
-        lblAgentName = new javax.swing.JLabel();
+        lblUsername = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Galaxal");
@@ -94,8 +94,13 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn6.setText("Logga ut");
 
-        btn7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn7.setText("Byt lösenord");
+        btnChangePw.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnChangePw.setText("Byt lösenord");
+        btnChangePw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChangePwActionPerformed(evt);
+            }
+        });
 
         btn8.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn8.setText("Lista aliens på plats");
@@ -161,9 +166,9 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn22.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn22.setText("jButton1");
 
-        lblAgentName.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
-        lblAgentName.setForeground(new java.awt.Color(255, 255, 255));
-        lblAgentName.setText("Agent J!");
+        lblUsername.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsername.setText("Agent J!");
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
@@ -172,12 +177,12 @@ public class WindowAdminStart extends javax.swing.JFrame {
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblAgentName, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,7 +216,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAgentName, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -257,7 +262,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn12)))
                 .addGap(67, 67, 67)
-                .addComponent(btn7)
+                .addComponent(btnChangePw)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn6)
                 .addContainerGap(32, Short.MAX_VALUE))
@@ -290,6 +295,11 @@ public class WindowAdminStart extends javax.swing.JFrame {
         new WindowAgentChangeHeadChief(idb).setVisible(true);
     }//GEN-LAST:event_btnChangeHeadChiefActionPerformed
 
+    private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed
+        // TODO add your handling code here:
+        new WindowAgentChangePw(idb, agentId).setVisible(true);
+    }//GEN-LAST:event_btnChangePwActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -314,14 +324,14 @@ public class WindowAdminStart extends javax.swing.JFrame {
     private javax.swing.JButton btn4;
     private javax.swing.JButton btn5;
     private javax.swing.JButton btn6;
-    private javax.swing.JButton btn7;
     private javax.swing.JButton btn8;
     private javax.swing.JButton btn9;
     private javax.swing.JButton btnAdminStatus;
     private javax.swing.JButton btnChangeAreaChief;
     private javax.swing.JButton btnChangeHeadChief;
-    private javax.swing.JLabel lblAgentName;
+    private javax.swing.JButton btnChangePw;
     private javax.swing.JLabel lblMenu;
+    private javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblWelcome;
     // End of variables declaration//GEN-END:variables
 }
