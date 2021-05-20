@@ -8,6 +8,7 @@ package mibapplikation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import org.apache.commons.lang3.StringUtils;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -25,6 +26,7 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
         initComponents();
         this.idb= idb;
         listAllAgents();
+        listAllAreas();
 
     }
 
@@ -44,6 +46,10 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
         btnMenu = new javax.swing.JButton();
         lblNewChiefMessage = new javax.swing.JLabel();
         cbListAgents = new javax.swing.JComboBox<>();
+        cbListAreas = new javax.swing.JComboBox<>();
+        lblNewChief2 = new javax.swing.JLabel();
+        lblNewChiefMessage1 = new javax.swing.JLabel();
+        lblNewChief3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
@@ -74,9 +80,21 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
             }
         });
 
-        lblNewChiefMessage.setText("Välj namnet på den agent som ska bli områdeschef");
+        lblNewChiefMessage.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewChiefMessage.setText("Välj namnet på den agent");
 
         cbListAgents.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
+
+        cbListAreas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
+
+        lblNewChief2.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewChief2.setText("som ska bli områdeschef:");
+
+        lblNewChiefMessage1.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewChiefMessage1.setText("Välj namnet på det område den");
+
+        lblNewChief3.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewChief3.setText(" valda agent ska vara chef över:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -84,20 +102,40 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(17, 17, 17)
+                            .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addComponent(cbListAgents, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblNewChief2)
+                                        .addComponent(lblNewChiefMessage))
+                                    .addGap(41, 41, 41)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblNewChief3)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(18, 18, 18)
+                                    .addComponent(cbListAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addGap(4, 4, 4)
+                                    .addComponent(lblNewChiefMessage1)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNewChiefMessage)
-                            .addComponent(cbListAgents, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnMenu)))
-                .addContainerGap(80, Short.MAX_VALUE))
+                            .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnMenu))))
+                .addGap(121, 121, 121))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,12 +143,23 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lblNewChiefMessage)
-                .addGap(24, 24, 24)
-                .addComponent(cbListAgents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSave)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNewChiefMessage)
+                            .addComponent(lblNewChiefMessage1))
+                        .addGap(1, 1, 1)
+                        .addComponent(lblNewChief2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblNewChief3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbListAgents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbListAreas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(btnSave)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblMessage)
                 .addGap(31, 31, 31)
                 .addComponent(btnMenu)
@@ -136,26 +185,17 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
         public void listAllAgents() {
 
         try {
-            String query = "SELECT Agent_ID, namn, Benamning FROM Agent\n"
-                           + "JOIN Omrade o on Agent.Omrade = o.Omrades_ID";
+            String query = "SELECT agent_id, namn, benamning FROM agent\n"
+                           + "JOIN Omrade o on Agent.Omrade = o.Omrades_ID\n"
+                           + "ORDER BY namn, benamning";
             ArrayList<HashMap<String, String>> agentInfo = idb.fetchRows(query);
 
             for (HashMap<String, String> element : agentInfo) {
                 
-                String name = element.get("namn");
-                String id = element.get("Agent_ID");
-                String area = element.get("Benamning");
-                
-                String agent = name+" (" +id+") ("+area+")";
-                cbListAgents.addItem(agent);
+              cbListAgents.addItem(element.get("namn") 
+                            + " (" + element.get("agent_id") + ") " 
+                            + element.get("benamning"));
             }
-            cbListAgents.getSelectedItem();
-            String test = "Hej (5) hej";
-            String[] test2 = test.split("(", WIDTH);
-
-            for(String e : test2) {
-            System.out.println(e);
-            }   
             
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
@@ -164,11 +204,35 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
         }
 
     }
+         public void listAllAreas() {
+
+        try {
+            String query = "Select benamning from omrade";
+            ArrayList<String> result = idb.fetchColumn(query);
+
+            for (String element : result) {
+                cbListAreas.addItem(element);
+
+            }
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+
+    }
+         
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
 //        try{
-//
-//        catch (InfException ex){
+            Object getAgentListItem = cbListAgents.getSelectedItem();
+            String agentListItem = getAgentListItem.toString();
+            String agentid = StringUtils.substringBetween(agentListItem,"(", ")");
+            
+            String query;
+            
+            
+//        }catch (InfException ex){
 //            System.out.println("Databasfel" + ex.getMessage());
 //        }
 //        catch (Exception ex){
@@ -187,9 +251,13 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> cbListAgents;
+    private javax.swing.JComboBox<String> cbListAreas;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblChangePw;
     private javax.swing.JLabel lblMessage;
+    private javax.swing.JLabel lblNewChief2;
+    private javax.swing.JLabel lblNewChief3;
     private javax.swing.JLabel lblNewChiefMessage;
+    private javax.swing.JLabel lblNewChiefMessage1;
     // End of variables declaration//GEN-END:variables
 }
