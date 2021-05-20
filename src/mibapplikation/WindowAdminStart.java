@@ -39,7 +39,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
-        btn1 = new javax.swing.JButton();
+        btnEquipment = new javax.swing.JButton();
         lblMenu = new javax.swing.JLabel();
         btn2 = new javax.swing.JButton();
         btn3 = new javax.swing.JButton();
@@ -72,8 +72,8 @@ public class WindowAdminStart extends javax.swing.JFrame {
 
         background.setBackground(new java.awt.Color(40, 40, 40));
 
-        btn1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn1.setText("Utrustning");
+        btnEquipment.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnEquipment.setText("Hantera utrustning");
 
         lblMenu.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         lblMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,7 +205,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn13, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnChangeAreaChief, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn22, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn21, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn20, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,7 +245,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addComponent(btnChangeHeadChief)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn1)
+                        .addComponent(btnEquipment)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -320,7 +320,6 @@ public class WindowAdminStart extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JButton btn1;
     private javax.swing.JButton btn10;
     private javax.swing.JButton btn11;
     private javax.swing.JButton btn12;
@@ -341,6 +340,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
     private javax.swing.JButton btnChangeAreaChief;
     private javax.swing.JButton btnChangeHeadChief;
     private javax.swing.JButton btnChangePw;
+    private javax.swing.JButton btnEquipment;
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lblUsername;
