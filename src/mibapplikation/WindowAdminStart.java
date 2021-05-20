@@ -38,7 +38,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        sidePanel = new javax.swing.JPanel();
+        background = new javax.swing.JPanel();
         btn1 = new javax.swing.JButton();
         lblMenu = new javax.swing.JLabel();
         btn2 = new javax.swing.JButton();
@@ -54,12 +54,12 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn12 = new javax.swing.JButton();
         lblWelcome = new javax.swing.JLabel();
         btn13 = new javax.swing.JButton();
-        btn14 = new javax.swing.JButton();
+        btnChangeAreaChief = new javax.swing.JButton();
         btn15 = new javax.swing.JButton();
-        btn16 = new javax.swing.JButton();
+        btnAdminStatus = new javax.swing.JButton();
         btn17 = new javax.swing.JButton();
         btn18 = new javax.swing.JButton();
-        btn19 = new javax.swing.JButton();
+        btnChangeHeadChief = new javax.swing.JButton();
         btn20 = new javax.swing.JButton();
         btn21 = new javax.swing.JButton();
         btn22 = new javax.swing.JButton();
@@ -70,7 +70,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setResizable(false);
 
-        sidePanel.setBackground(new java.awt.Color(40, 40, 40));
+        background.setBackground(new java.awt.Color(40, 40, 40));
 
         btn1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn1.setText("Utrustning");
@@ -119,22 +119,22 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn13.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn13.setText("Ta bort utrustning");
 
-        btn14.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn14.setText("Ändra områdeschef");
-        btn14.addActionListener(new java.awt.event.ActionListener() {
+        btnChangeAreaChief.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnChangeAreaChief.setText("Ändra områdeschef");
+        btnChangeAreaChief.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn14ActionPerformed(evt);
+                btnChangeAreaChiefActionPerformed(evt);
             }
         });
 
         btn15.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn15.setText("Ta bort alien");
 
-        btn16.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn16.setText("Ge agent admin status");
-        btn16.addActionListener(new java.awt.event.ActionListener() {
+        btnAdminStatus.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnAdminStatus.setText("Ändra admin status");
+        btnAdminStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn16ActionPerformed(evt);
+                btnAdminStatusActionPerformed(evt);
             }
         });
 
@@ -144,11 +144,11 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn18.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn18.setText("Ta bort agent");
 
-        btn19.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn19.setText("Ändra kontorschef");
-        btn19.addActionListener(new java.awt.event.ActionListener() {
+        btnChangeHeadChief.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnChangeHeadChief.setText("Ändra kontorschef");
+        btnChangeHeadChief.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn19ActionPerformed(evt);
+                btnChangeHeadChiefActionPerformed(evt);
             }
         });
 
@@ -165,21 +165,21 @@ public class WindowAdminStart extends javax.swing.JFrame {
         lblAgentName.setForeground(new java.awt.Color(255, 255, 255));
         lblAgentName.setText("Agent J!");
 
-        javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
-        sidePanel.setLayout(sidePanelLayout);
-        sidePanelLayout.setHorizontalGroup(
-            sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sidePanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
+        background.setLayout(backgroundLayout);
+        backgroundLayout.setHorizontalGroup(
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(sidePanelLayout.createSequentialGroup()
+                    .addGroup(backgroundLayout.createSequentialGroup()
                         .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblAgentName, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(sidePanelLayout.createSequentialGroup()
-                        .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,48 +192,48 @@ public class WindowAdminStart extends javax.swing.JFrame {
                             .addComponent(btn15, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
-                        .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn13, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn14, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnChangeAreaChief, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn22, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn21, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn20, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn19, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnChangeHeadChief, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn18, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn16, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAdminStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn17, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(52, 52, 52))
         );
-        sidePanelLayout.setVerticalGroup(
-            sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sidePanelLayout.createSequentialGroup()
+        backgroundLayout.setVerticalGroup(
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAgentName, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn3)
                     .addComponent(btn21))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn4)
                     .addComponent(btn17))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn5)
-                    .addComponent(btn16))
+                    .addComponent(btnAdminStatus))
                 .addGap(12, 12, 12)
-                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn15)
-                    .addComponent(btn14))
+                    .addComponent(btnChangeAreaChief))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(sidePanelLayout.createSequentialGroup()
-                        .addComponent(btn19)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addComponent(btnChangeHeadChief)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -244,7 +244,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
                         .addComponent(btn22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn20))
-                    .addGroup(sidePanelLayout.createSequentialGroup()
+                    .addGroup(backgroundLayout.createSequentialGroup()
                         .addComponent(btn2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn8)
@@ -267,27 +267,28 @@ public class WindowAdminStart extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn14ActionPerformed
+    private void btnChangeAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeAreaChiefActionPerformed
         new WindowAgentChangeAreaChief(idb).setVisible(true);
-    }//GEN-LAST:event_btn14ActionPerformed
+    }//GEN-LAST:event_btnChangeAreaChiefActionPerformed
 
-    private void btn16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn16ActionPerformed
+    private void btnAdminStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminStatusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn16ActionPerformed
+        new WindowAdminChangeAdminStatus(idb).setVisible(true);
+    }//GEN-LAST:event_btnAdminStatusActionPerformed
 
-    private void btn19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn19ActionPerformed
+    private void btnChangeHeadChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeHeadChiefActionPerformed
         new WindowAgentChangeHeadChief(idb).setVisible(true);
-    }//GEN-LAST:event_btn19ActionPerformed
+    }//GEN-LAST:event_btnChangeHeadChiefActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,17 +297,15 @@ public class WindowAdminStart extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel background;
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn10;
     private javax.swing.JButton btn11;
     private javax.swing.JButton btn12;
     private javax.swing.JButton btn13;
-    private javax.swing.JButton btn14;
     private javax.swing.JButton btn15;
-    private javax.swing.JButton btn16;
     private javax.swing.JButton btn17;
     private javax.swing.JButton btn18;
-    private javax.swing.JButton btn19;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn20;
     private javax.swing.JButton btn21;
@@ -318,9 +317,11 @@ public class WindowAdminStart extends javax.swing.JFrame {
     private javax.swing.JButton btn7;
     private javax.swing.JButton btn8;
     private javax.swing.JButton btn9;
+    private javax.swing.JButton btnAdminStatus;
+    private javax.swing.JButton btnChangeAreaChief;
+    private javax.swing.JButton btnChangeHeadChief;
     private javax.swing.JLabel lblAgentName;
     private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JPanel sidePanel;
     // End of variables declaration//GEN-END:variables
 }

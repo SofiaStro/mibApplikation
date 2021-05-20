@@ -26,17 +26,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="sidePanel" min="-2" pref="497" max="-2" attributes="0"/>
+          <Component id="background" min="-2" pref="497" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="sidePanel" min="-2" max="-2" attributes="0"/>
+          <Component id="background" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="sidePanel">
+    <Container class="javax.swing.JPanel" name="background">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="28" green="28" red="28" type="rgb"/>
@@ -73,14 +73,14 @@
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btn13" min="-2" pref="190" max="-2" attributes="0"/>
-                              <Component id="btn14" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="btnChangeAreaChief" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn1" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn22" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn21" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn20" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                              <Component id="btn19" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="btnChangeHeadChief" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn18" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                              <Component id="btn16" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="btnAdminStatus" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn17" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -112,17 +112,17 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btn5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn16" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAdminStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btn15" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn14" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnChangeAreaChief" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="btn19" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnChangeHeadChief" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btn1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -284,7 +284,7 @@
             <Property name="text" type="java.lang.String" value="Ta bort utrustning"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn14">
+        <Component class="javax.swing.JButton" name="btnChangeAreaChief">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
@@ -292,7 +292,7 @@
             <Property name="text" type="java.lang.String" value="&#xc4;ndra omr&#xe5;deschef"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn14ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeAreaChiefActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn15">
@@ -303,15 +303,15 @@
             <Property name="text" type="java.lang.String" value="Ta bort alien"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn16">
+        <Component class="javax.swing.JButton" name="btnAdminStatus">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ge agent admin status"/>
+            <Property name="text" type="java.lang.String" value="&#xc4;ndra admin status"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn16ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdminStatusActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn17">
@@ -330,7 +330,7 @@
             <Property name="text" type="java.lang.String" value="Ta bort agent"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn19">
+        <Component class="javax.swing.JButton" name="btnChangeHeadChief">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
@@ -338,7 +338,7 @@
             <Property name="text" type="java.lang.String" value="&#xc4;ndra kontorschef"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn19ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeHeadChiefActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn20">
