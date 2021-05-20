@@ -14,14 +14,14 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAgentChangeHeadChief extends javax.swing.JFrame {
+public class WindowAdminChangeHeadChief extends javax.swing.JFrame {
 
     private InfDB idb;
 
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAgentChangeHeadChief(InfDB idb) {
+    public WindowAdminChangeHeadChief(InfDB idb) {
         initComponents();
         this.idb = idb;
         listAllAgents();

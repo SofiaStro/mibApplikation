@@ -5,7 +5,6 @@
  */
 package mibapplikation;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.commons.lang3.StringUtils;
@@ -16,15 +15,16 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
+public class WindowAdminChangeAreaChief extends javax.swing.JFrame {
+
     private InfDB idb;
 
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAgentChangeAreaChief(InfDB idb) {
+    public WindowAdminChangeAreaChief(InfDB idb) {
         initComponents();
-        this.idb= idb;
+        this.idb = idb;
         listAllAgents();
         listAllAreas();
 
@@ -102,39 +102,41 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(17, 17, 17)
-                            .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(6, 6, 6)
-                                    .addComponent(cbListAgents, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblNewChief2)
-                                        .addComponent(lblNewChiefMessage))
-                                    .addGap(41, 41, 41)))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblNewChief3)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(18, 18, 18)
-                                    .addComponent(cbListAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addGap(4, 4, 4)
-                                    .addComponent(lblNewChiefMessage1)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(17, 17, 17)
+                        .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnMenu))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(cbListAgents, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNewChief2)
+                                    .addComponent(lblNewChiefMessage))
+                                .addGap(41, 41, 41)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNewChief3)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(cbListAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(lblNewChiefMessage1)))))
                 .addGap(121, 121, 121))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnMenu))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -159,9 +161,9 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
                     .addComponent(cbListAreas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(btnSave)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lblMessage)
-                .addGap(31, 31, 31)
+                .addGap(25, 25, 25)
                 .addComponent(btnMenu)
                 .addGap(21, 21, 21))
         );
@@ -182,21 +184,21 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        public void listAllAgents() {
+    public void listAllAgents() {
 
         try {
             String query = "SELECT agent_id, namn, benamning FROM agent\n"
-                           + "JOIN Omrade o on Agent.Omrade = o.Omrades_ID\n"
-                           + "ORDER BY namn, benamning";
+                    + "JOIN Omrade o on Agent.Omrade = o.Omrades_ID\n"
+                    + "ORDER BY namn, benamning";
             ArrayList<HashMap<String, String>> agentInfo = idb.fetchRows(query);
 
             for (HashMap<String, String> element : agentInfo) {
-                
-              cbListAgents.addItem(element.get("namn") 
-                            + " (" + element.get("agent_id") + ") " 
-                            + element.get("benamning"));
+
+                cbListAgents.addItem(element.get("namn")
+                        + " (" + element.get("agent_id") + ") "
+                        + element.get("benamning"));
             }
-            
+
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
         } catch (Exception ex) {
@@ -204,7 +206,8 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
         }
 
     }
-         public void listAllAreas() {
+
+    public void listAllAreas() {
 
         try {
             String query = "Select benamning from omrade";
@@ -221,23 +224,38 @@ public class WindowAgentChangeAreaChief extends javax.swing.JFrame {
         }
 
     }
-         
+
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
-//        try{
+        try {
+
             Object getAgentListItem = cbListAgents.getSelectedItem();
             String agentListItem = getAgentListItem.toString();
-            String agentid = StringUtils.substringBetween(agentListItem,"(", ")");
-            
-            String query;
-            
-            
-//        }catch (InfException ex){
-//            System.out.println("Databasfel" + ex.getMessage());
-//        }
-//        catch (Exception ex){
-//            System.out.println("Random fel" + ex.getMessage());
-//        }
+            String agentid = StringUtils.substringBetween(agentListItem, "(", ")");
+
+            String qCurrentChief = "SELECT a.agent_id FROM AGENT a \n "
+                    + "JOIN omradeschef oc ON a.agent_id = oc.agent_id\n"
+                    + "JOIN omrade o on oc.omrade = o.omrades_id\n"
+                    + "WHERE benamning =" + "'" + cbListAreas.getSelectedItem() + "'";
+
+            String currentChief = idb.fetchSingle(qCurrentChief);
+
+            if (agentid.equals(currentChief)) {
+                lblMessage.setText("Den här agenten är redan chef för det här området");
+
+            } else {
+                String qUpdate = "UPDATE Omradeschef\n"
+                                +"SET AGENT_ID = '" + agentid + "'\n"
+                                +"WHERE Agent_ID = '" + currentChief + "'";
+
+      }
+                    
+
+        }catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
