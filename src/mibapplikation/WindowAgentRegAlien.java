@@ -9,6 +9,7 @@ package mibapplikation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import org.apache.commons.lang3.RandomStringUtils;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -36,6 +37,7 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         txtRaceSpecial.setVisible(false);
         lblRaceSpecial.setVisible(false);
         getNewAlienId();
+        getNewPw();
 
     }
     
@@ -121,6 +123,15 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         
         return newId;
         
+    }
+    
+    private String getNewPw(){
+        String newPw = RandomStringUtils.randomAlphanumeric(6);
+        
+        
+        System.out.println(newPw);
+        
+        return newPw;
     }
 
     /**
