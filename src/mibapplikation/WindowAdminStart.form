@@ -131,7 +131,7 @@
                           <Component id="btn18" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btn22" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btn20" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">

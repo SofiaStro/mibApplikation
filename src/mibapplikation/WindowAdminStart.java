@@ -242,7 +242,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
                         .addComponent(btn18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn22)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn20))
                     .addGroup(sidePanelLayout.createSequentialGroup()
                         .addComponent(btn2)
