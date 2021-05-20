@@ -8,6 +8,7 @@ package mibapplikation;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -25,7 +26,7 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAgentRegAlien(InfDB idb, String agentId) {
+    public WindowAgentRegAlien(InfDB idb) {
         initComponents();
         this.idb = idb;
         this.agentId = agentId;
@@ -34,6 +35,7 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         setAgentInCharge();
         txtRaceSpecial.setVisible(false);
         lblRaceSpecial.setVisible(false);
+        getNewAlienId();
 
     }
     
@@ -69,16 +71,55 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
     
     private void setAgentInCharge(){
         try {
-            String query = "SELECT namn FROM agent";
-            ArrayList<String> result = idb.fetchColumn(query);
-            for (String element : result) {
-                cbAgentInCharge.addItem(element);
+            String query = "SELECT namn, agent_id, benamning FROM agent a\n" +
+                            "JOIN omrade o on a.Omrade = o.Omrades_ID\n" +
+                            "ORDER BY Benamning;";
+            ArrayList<HashMap<String, String>> result = idb.fetchRows(query);
+            
+            for (HashMap<String, String> element : result) {
+                cbAgentInCharge.addItem(element.get("namn") + " (" + element.get("agent_id") + ") (" + element.get("benamning") + ")");
             }
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
+        
+    }
+    
+    private String getNewAlienId(){
+        int lastNr = 0;
+        String newId = "";
+        
+        try{
+            String query = "SELECT alien_id FROM alien";
+            ArrayList<String> result = idb.fetchColumn(query);
+            int[] intResult = new int[result.size()];
+            System.out.println(intResult.length);
+            
+            for(int i = 0; i < result.size(); i++){
+                intResult[i] = Integer.parseInt(result.get(i));
+            }
+            for(int element : intResult){
+                if(element >= lastNr){
+                    lastNr = element;
+                }
+            }
+            int newIdInt = lastNr + 1;
+            newId = String.valueOf(newIdInt);
+            System.out.println(newId);
+            
+            
+        }
+        
+        catch (InfException ex){
+            System.out.println("Databasfel" + ex.getMessage());
+        }
+        catch (Exception ex){
+            System.out.println("Random fel" + ex.getMessage());
+        }
+        
+        return newId;
         
     }
 
@@ -142,8 +183,13 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         cbAgentInCharge.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
 
         cbRace.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
+        cbRace.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbRaceActionPerformed(evt);
+            }
+        });
 
-        txtPhone.setColumns(5);
+        txtPhone.setColumns(6);
 
         spMessageBox.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         spMessageBox.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -182,81 +228,76 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         jpBackgroundLayout.setHorizontalGroup(
             jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBackgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnMenu)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jpBackgroundLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
                 .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpBackgroundLayout.createSequentialGroup()
-                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbAgentInCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAgentInCharge))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(spMessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(btnMenu))
                     .addGroup(jpBackgroundLayout.createSequentialGroup()
-                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(15, 15, 15)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jpBackgroundLayout.createSequentialGroup()
                                 .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblName)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, Short.MAX_VALUE)
-                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cbRace, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblRace)))
-                            .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jpBackgroundLayout.createSequentialGroup()
-                                    .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblPhone)
-                                        .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblLocation)
-                                        .addComponent(cbLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbAgentInCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblAgentInCharge))
+                                .addGap(34, 34, 34)
+                                .addComponent(spMessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jpBackgroundLayout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblRaceSpecial)
-                                    .addComponent(txtRaceSpecial, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBackgroundLayout.createSequentialGroup()
+                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                            .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblPhone)
+                                                .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(26, 26, 26)
+                                            .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblLocation)
+                                                .addComponent(cbLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                            .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblName)
+                                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(34, 34, 34)
+                                            .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(cbRace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lblRace))))
+                                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnSave)))))
-                .addGap(17, 17, 17))
+                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBackgroundLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(btnSave))
+                                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblRaceSpecial)
+                                            .addComponent(txtRaceSpecial, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
+                .addGap(10, 10, 10))
         );
         jpBackgroundLayout.setVerticalGroup(
             jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBackgroundLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(26, 26, 26)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jpBackgroundLayout.createSequentialGroup()
                         .addComponent(lblName)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpBackgroundLayout.createSequentialGroup()
-                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblRace)
-                            .addComponent(lblRaceSpecial))
+                        .addComponent(lblRace)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbRace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtRaceSpecial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(cbRace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addComponent(lblRaceSpecial)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtRaceSpecial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12)
                 .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jpBackgroundLayout.createSequentialGroup()
-                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jpBackgroundLayout.createSequentialGroup()
-                                .addComponent(lblPhone)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jpBackgroundLayout.createSequentialGroup()
-                                .addComponent(lblLocation)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblPhone)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)
                         .addComponent(lblAgentInCharge)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -264,7 +305,11 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(btnMenu))
                     .addGroup(jpBackgroundLayout.createSequentialGroup()
-                        .addComponent(btnSave)
+                        .addComponent(lblLocation)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSave))
                         .addGap(18, 18, 18)
                         .addComponent(spMessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -299,9 +344,18 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         // När man väljer en ras ska den unika specifikationsnamnet dyka upp 
         // + ett textField där man kan skriva in en INT.
         String password;
-        
+        if(Validation.validationTxt(txtName, txtaMessage) 
+            && Validation.validationTxt(txtPhone, txtaMessage)
+            && Validation.validationCb(cbLocation, txtaMessage)
+            && Validation.validationCb(cbRace, txtaMessage)
+            && Validation.validationCb(cbAgentInCharge, txtaMessage)){
+            
+            if(txtRaceSpecial.isShowing() == true){
+                Validation.validationTxt(txtRaceSpecial, txtaMessage);
+                return;
+            }
 //        try{
-//            
+//             
 //            
 //        }
 //        
@@ -311,13 +365,29 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
 //        catch (Exception ex){
 //            System.out.println("Random fel" + ex.getMessage());
 //        }
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
         setVisible(false);
+       
         //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void cbRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaceActionPerformed
+        // TODO add your handling code here:
+        if(cbRace.getSelectedItem().equals("Squid") || cbRace.getSelectedItem().equals("Boglodite")){
+            txtRaceSpecial.setVisible(true);
+            lblRaceSpecial.setVisible(true);
+            
+        }
+        else{
+            txtRaceSpecial.setVisible(false);
+            lblRaceSpecial.setVisible(false);
+        }
+        
+    }//GEN-LAST:event_cbRaceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
