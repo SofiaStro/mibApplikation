@@ -138,7 +138,7 @@ public class WindowAlienStart extends javax.swing.JFrame {
 
     private void btnAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreaChiefActionPerformed
         // TODO add your handling code here:
-        new WindowAlienOmradeschef(idb, alienId).setVisible(true);
+        new WindowAlienAreaChief(idb, alienId).setVisible(true);
         
     }//GEN-LAST:event_btnAreaChiefActionPerformed
 

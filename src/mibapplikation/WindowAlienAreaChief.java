@@ -14,7 +14,7 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAlienOmradeschef extends javax.swing.JFrame {
+public class WindowAlienAreaChief extends javax.swing.JFrame {
 
     private InfDB idb;
     private String alienId;
@@ -23,7 +23,7 @@ public class WindowAlienOmradeschef extends javax.swing.JFrame {
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAlienOmradeschef(InfDB idb, String alienId) {
+    public WindowAlienAreaChief(InfDB idb, String alienId) {
         initComponents();
         this.idb = idb;
         this.alienId = alienId;
