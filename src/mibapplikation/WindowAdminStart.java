@@ -5,19 +5,26 @@
  */
 package mibapplikation;
 
+import oru.inf.InfDB;
+
 /**
  *
  * @author Blazl
  */
 public class WindowAdminStart extends javax.swing.JFrame {
     
-    
+    private  InfDB idb;
+    private  String agentId;
+    private  String username;
 
     /**
      * Creates new form MainWindow
      */
-    public WindowAdminStart() {
+    public WindowAdminStart(InfDB idb, String agentId, String username) {
         initComponents();
+        this.idb= idb;
+        this.agentId = agentId;
+        this.username = username; 
         
         
     }
@@ -139,6 +146,11 @@ public class WindowAdminStart extends javax.swing.JFrame {
 
         btn19.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn19.setText("Ändra kontorschef");
+        btn19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn19ActionPerformed(evt);
+            }
+        });
 
         btn20.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn20.setText("jButton1");
@@ -266,12 +278,16 @@ public class WindowAdminStart extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn14ActionPerformed
-        // TODO add your handling code here:
+        new WindowAgentChangeAreaChief(idb).setVisible(true);
     }//GEN-LAST:event_btn14ActionPerformed
 
     private void btn16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn16ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn16ActionPerformed
+
+    private void btn19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn19ActionPerformed
+        new WindowAgentChangeHeadChief(idb).setVisible(true);
+    }//GEN-LAST:event_btn19ActionPerformed
 
     /**
      * @param args the command line arguments

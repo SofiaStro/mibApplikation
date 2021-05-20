@@ -181,8 +181,8 @@ public class MainWindowLogin extends javax.swing.JFrame {
                 if (resultAgent != null) {
                     if(resultAdmin.equals("J")){
                         setVisible(false);
-                        //username = WordUtils.capitalize(username);
-                        //new WindowAdminStart(idb, resultAdmin, username).setVisible(true);
+                        username = WordUtils.capitalize(username);
+                        new WindowAdminStart(idb, resultAdmin, username).setVisible(true);
                     }
                     else{
                         setVisible(false);
