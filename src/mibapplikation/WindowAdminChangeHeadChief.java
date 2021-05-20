@@ -5,8 +5,10 @@
  */
 package mibapplikation;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
+import org.apache.commons.lang3.StringUtils;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -89,11 +91,11 @@ public class WindowAdminChangeHeadChief extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNewChiefMessage)
                             .addComponent(cbListAgents, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(98, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -131,16 +133,14 @@ public class WindowAdminChangeHeadChief extends javax.swing.JFrame {
     public void listAllAgents() {
 
         try {
-             String query = "SELECT Agent_ID, namn FROM Agent";
+
+            String query = "SELECT agent_id, namn FROM Agent";
             ArrayList<HashMap<String, String>> agentInfo = idb.fetchRows(query);
 
             for (HashMap<String, String> element : agentInfo) {
-                
-                String name = element.get("namn");
-                String id = element.get("Agent_ID");
-                
-                String agent = name+" (" +id+")";
-                cbListAgents.addItem(agent);
+
+                cbListAgents.addItem(element.get("namn")
+                        + " (" + element.get("agent_id") + ")");
 
             }
         } catch (InfException ex) {
@@ -153,14 +153,33 @@ public class WindowAdminChangeHeadChief extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
-//        try{
-//
-//        catch (InfException ex){
-//            System.out.println("Databasfel" + ex.getMessage());
-//        }
-//        catch (Exception ex){
-//            System.out.println("Random fel" + ex.getMessage());
-//        }
+        lblMessage.setText("");
+        lblMessage.setForeground(Color.RED);
+        if (Validation.validationCb(cbListAgents, lblMessage)) {
+
+            Object getAgentListItem = cbListAgents.getSelectedItem();
+            String agentListItem = getAgentListItem.toString();
+            String agentid = StringUtils.substringBetween(agentListItem, "(", ")");
+            try {
+                String qHeadChief = "SELECT agent_id from agent JOIN kontorschef USING (agent_ID)";
+                String chief = idb.fetchSingle(qHeadChief);
+
+                if (chief.equals(agentid)) {
+                    lblMessage.setText("Den här agenten är redan kontorschef");
+                } else {
+                    
+                    String qUpdate = "UPDATE kontorschef SET AGENT_ID = '" + agentid + "'WHERE Agent_ID = '" + chief + "'";
+                    idb.update(qUpdate);
+                    lblMessage.setForeground(Color.GREEN);
+                    lblMessage.setText("Agenten har registrerats som kontorschef");
+                }
+
+            } catch (InfException ex) {
+                System.out.println("Databasfel" + ex.getMessage());
+            } catch (Exception ex) {
+                System.out.println("Random fel" + ex.getMessage());
+            }
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
