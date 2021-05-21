@@ -36,6 +36,7 @@ public class ValidationRace {
             else if (alienWorm != null) {
                 ras = "Worm";
             }
+
         } 
         catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
