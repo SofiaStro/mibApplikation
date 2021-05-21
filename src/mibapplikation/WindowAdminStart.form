@@ -72,9 +72,9 @@
                           </Group>
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btn13" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="btnEquipmentList" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btnChangeAreaChief" min="-2" pref="190" max="-2" attributes="0"/>
-                              <Component id="btnEquipment" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="btnOwnEquipment" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn22" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn21" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn20" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
@@ -124,9 +124,9 @@
                       <Group type="102" attributes="0">
                           <Component id="btnChangeHeadChief" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnEquipment" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnOwnEquipment" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn13" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnEquipmentList" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btn18" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -158,13 +158,16 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnEquipment">
+        <Component class="javax.swing.JButton" name="btnOwnEquipment">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Hantera utrustning"/>
+            <Property name="text" type="java.lang.String" value="Registrera egen utrustning"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOwnEquipmentActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblMenu">
           <Properties>
@@ -282,13 +285,16 @@
             <Property name="text" type="java.lang.String" value="V&#xe4;lkommen Admin"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn13">
+        <Component class="javax.swing.JButton" name="btnEquipmentList">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ta bort utrustning"/>
+            <Property name="text" type="java.lang.String" value="Hantera utrustning"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEquipmentListActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnChangeAreaChief">
           <Properties>
