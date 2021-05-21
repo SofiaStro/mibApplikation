@@ -36,6 +36,7 @@ public class ValidationRace {
             else if (alienWorm != null) {
                 ras = "Worm";
             }
+
         } 
         catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
@@ -46,4 +47,38 @@ public class ValidationRace {
         return ras;
     }
 
+
+
+    public static String getEquipment(InfDB idbIncoming, String equipmentId) {
+        InfDB idb = idbIncoming;
+        String equipmentType = "";
+        try {
+            String qEquipmentWeapon = "SELECT utrustnings_id FROM vapen WHERE utrustnings_id = '" + equipmentId + "'";
+            String equipmentWeapon = idb.fetchSingle(qEquipmentWeapon);
+
+            String qEquipmentTech = "SELECT utrustnings_id FROM teknik WHERE utrustnings_id = '" + equipmentId + "'";
+            String equipmentTech = idb.fetchSingle(qEquipmentTech);
+
+            String qEquipmentComms = "SELECT utrustnings_id FROM kommunikation WHERE utrustnings_id = '" + equipmentId + "'";
+            String equipmentComms = idb.fetchSingle(qEquipmentComms);
+
+            if (equipmentWeapon != null) {
+                equipmentType = "Vapen";
+            } 
+            else if (equipmentTech != null) {
+                equipmentType = "Teknik";
+            } 
+            else if (equipmentComms != null) {
+                equipmentType = "Kommunikation";
+            }
+        } 
+        catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } 
+        catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+        return equipmentType;
+    }
 }
+

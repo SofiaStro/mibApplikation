@@ -46,7 +46,7 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
             ArrayList<String> result = idb.fetchColumn(query);
 
             for (String element : result) {
-                txtMyEquipment.append("• " + element + "\n");
+                txtMyEquipment.append(" • " + element + "\n");
             }
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
