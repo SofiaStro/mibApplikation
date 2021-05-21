@@ -21,24 +21,24 @@ public class Validation {
     
     public static boolean validationTxt(JTextField fieldToValidate, JLabel message)
     {
-        boolean resultat = true;        
+        boolean result = true;        
         if(fieldToValidate.getText().isEmpty()){
             message.setText("En eller flera rutor är tomma!");
-            resultat = false;
+            result = false;
             fieldToValidate.requestFocus();
         }       
-        return resultat;
+        return result;
     }
     
     public static boolean validationTxt(JTextField fieldToValidate, JTextArea message)
     {
-        boolean resultat = true;        
+        boolean result = true;        
         if(fieldToValidate.getText().isEmpty()){
             message.setText("En eller flera rutor är tomma!");
-            resultat = false;
+            result = false;
             fieldToValidate.requestFocus();
         }       
-        return resultat;
+        return result;
     }
     
        public static boolean validationTxtDate(JTextField fieldToValidate, JLabel message) {
@@ -73,28 +73,42 @@ public class Validation {
         }
         return result;
     }
+       
+    public static boolean validationTxtPhone(JTextField fieldToValidate, JTextArea message){
+        boolean result = false;        
+        if(fieldToValidate.getText().matches("[+() [0-9]-]+") || fieldToValidate.getText().matches("")){
+            
+            result = true;
+            fieldToValidate.requestFocus();
+            
+        }
+        else{
+            message.setText("Telefonnumret har fel format!");
+        }
+        return result;
+    }
     
     
     public static boolean validationCb(JComboBox fieldToValidate, JLabel message)
     {
-        boolean resultat = true;        
+        boolean result = true;        
         if(fieldToValidate.getSelectedItem().equals("-----")){
             message.setText("En eller flera rutor är tomma!");
-            resultat = false;
+            result = false;
             fieldToValidate.requestFocus();
         }       
-        return resultat;
+        return result;
     }
     
     public static boolean validationCb(JComboBox fieldToValidate, JTextArea message)
     {
-        boolean resultat = true;        
+        boolean result = true;        
         if(fieldToValidate.getSelectedItem().equals("-----")){
             message.setText("En eller flera rutor är tomma!");
-            resultat = false;
+            result = false;
             fieldToValidate.requestFocus();
         }       
-        return resultat;
+        return result;
     }
     
 }

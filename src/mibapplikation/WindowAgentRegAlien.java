@@ -5,12 +5,13 @@
  */
 package mibapplikation;
 
-
-
+import static java.lang.Integer.parseInt;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.WordUtils;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -22,8 +23,6 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
 
     private String agentId;
     private InfDB idb;
-    
-   
 
     /**
      * Creates new form WindowAlienChangePw
@@ -37,27 +36,27 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         setAgentInCharge();
         txtRaceSpecial.setVisible(false);
         lblRaceSpecial.setVisible(false);
-        //ta bort nedan när klar
+        //ta bort nedan och lägg till i actionBtn när klar
         getNewAlienId();
         getNewPw();
-        
+        getSystemDate();
 
     }
-    
-    private void setRace(){
-        
-       ArrayList<String> raceList = new ArrayList<String>();
-       raceList.add("Boglodite");
-       raceList.add("Squid");
-       raceList.add("Worm");
-       
-            for(String element : raceList){
-                cbRace.addItem(element);
-            } 
-        
-        
+
+    private void setRace() {
+
+        ArrayList<String> raceList = new ArrayList<String>();
+        raceList.add("<Oidentifierad>");
+        raceList.add("Boglodite");
+        raceList.add("Squid");
+        raceList.add("Worm");
+
+        for (String element : raceList) {
+            cbRace.addItem(element);
+        }
+
     }
-    
+
     private void setLocation() {
         try {
             String query = "SELECT benamning FROM plats";
@@ -70,17 +69,16 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
-               
-            
+
     }
-    
-    private void setAgentInCharge(){
+
+    private void setAgentInCharge() {
         try {
-            String query = "SELECT namn, agent_id, benamning FROM agent a\n" +
-                            "JOIN omrade o on a.Omrade = o.Omrades_ID\n" +
-                            "ORDER BY Benamning;";
+            String query = "SELECT namn, agent_id, benamning FROM agent a\n"
+                    + "JOIN omrade o on a.Omrade = o.Omrades_ID\n"
+                    + "ORDER BY Benamning;";
             ArrayList<HashMap<String, String>> result = idb.fetchRows(query);
-            
+
             for (HashMap<String, String> element : result) {
                 cbAgentInCharge.addItem(element.get("namn") + " (" + element.get("agent_id") + ") (" + element.get("benamning") + ")");
             }
@@ -89,63 +87,93 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
-        
+
     }
-    
-    private String getNewAlienId(){
+
+    private String getNewAlienId() {
         int lastNr = 0;
         String newId = "";
-        
-        try{
+
+        try {
             String query = "SELECT alien_id FROM alien";
             ArrayList<String> result = idb.fetchColumn(query);
             int[] intResult = new int[result.size()];
-            System.out.println(intResult.length);
-            
-            for(int i = 0; i < result.size(); i++){
+            System.out.println("intResult = " + intResult.length);
+
+            for (int i = 0; i < result.size(); i++) {
                 intResult[i] = Integer.parseInt(result.get(i));
             }
-            for(int element : intResult){
-                if(element >= lastNr){
+            for (int element : intResult) {
+                if (element >= lastNr) {
                     lastNr = element;
                 }
             }
             int newIdInt = lastNr + 1;
             newId = String.valueOf(newIdInt);
-            System.out.println(newId);
-            
-            
-        }
-        
-        catch (InfException ex){
+
+            System.out.println("Nytt alien ID: " + newId);
+
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
-        
+
         return newId;
-        
+
     }
-    
-    private String getNewPw(){
+
+    private String getNewPw() {
         String newPw = RandomStringUtils.randomAlphanumeric(6);
-        
-        System.out.println(newPw);
-        
+
+        System.out.println("Lösen: " + newPw);
+
         return newPw;
     }
-    
-    private String getAgentInCharge(){
-        
+
+    private String getAgentInCharge() {
+
         Object getListItem = cbAgentInCharge.getSelectedItem();
         String getString = String.valueOf(getListItem);
         String agentId = StringUtils.substringBetween(getString, "(", ")");
-        
-        System.out.println(agentId);
+
+        System.out.println("Agent ID: " + agentId);
         return agentId;
     }
-       
+
+    private String getSystemDate() {
+        LocalDate localDate = LocalDate.now();
+        String currentDate = String.valueOf(localDate);
+        System.out.println("Datum: " + currentDate);
+
+        return currentDate;
+    }
+
+    private String getLocationId() {
+        String locationId = "";
+        Object getListItem = cbLocation.getSelectedItem();
+        String location = String.valueOf(getListItem);
+        String query = "SELECT plats_id FROM plats WHERE benamning = " + "'" + location + "'";
+
+        try {
+            String getLocationId = idb.fetchSingle(query);
+            locationId = getLocationId;
+            System.out.println("Plats ID: " + "(" + locationId + ")");
+
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+        return locationId;
+    }
+
+    private String getRaceSpecial() {
+        String raceSpecial = txtRaceSpecial.getText();
+
+        return raceSpecial;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -332,9 +360,9 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
                     .addGroup(jpBackgroundLayout.createSequentialGroup()
                         .addComponent(lblLocation)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSave))
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSave, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cbLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(spMessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -357,62 +385,123 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         //TODO: INSERT INTO alien. 
         //1. KLAR Auto incr ID efter den högsta nuvarande
-        //2. Nuvarande datum.
-                                 
-        //3.KLAR Ett random lösenord.
-        //4. Namn från txtField.
-        //5. Telefon från txtField.
-        //6. Plats ID, måste hämta ID genom plats namn från ComboBox.
-        //7. Ansvarig agent ID, samma sätt som ovan.
+        //2. KLAR Nuvarande datum.
 
+        //3.KLAR Ett random lösenord.
+        //4. KLAR Namn från txtField.
+        //5. KLAR Telefon från txtField.
+        //6. KLAR Plats ID, måste hämta ID genom plats namn från ComboBox.
+        //7. KLAR Ansvarig agent ID, samma sätt som ovan.
         //8. INSERT alien ID och unik ras specifikation INTO en ras tabell beroende på val av ras.
         // När man väljer en ras ska den unika specifikationsnamnet dyka upp 
         // + ett textField där man kan skriva in en INT.
         getAgentInCharge();
-        String password;
-        if(Validation.validationTxt(txtName, txtaMessage) 
-            && Validation.validationTxt(txtPhone, txtaMessage)
-            && Validation.validationCb(cbLocation, txtaMessage)
-            && Validation.validationCb(cbRace, txtaMessage)
-            && Validation.validationCb(cbAgentInCharge, txtaMessage)){
-            
-            if(txtRaceSpecial.isShowing() == true){
-                Validation.validationTxt(txtRaceSpecial, txtaMessage);
-                return;
+        getLocationId();
+
+        String getName = txtName.getText();
+        String name = WordUtils.capitalize(getName);
+
+        String phone = txtPhone.getText();
+        System.out.println("Alien namn: " + name);
+        System.out.println("Alien telefonnr: " + phone);
+
+        Object getRaceListItem = cbRace.getSelectedItem();
+        String race = getRaceListItem.toString();
+
+        if (race.equals("Squid")) {
+            lblRaceSpecial.setText("Antal armar:");
+        }
+        if (race.equals("Boglodite")) {
+            lblRaceSpecial.setText("Antal boogies");
+        }
+
+        if (Validation.validationTxtPhone(txtPhone, txtaMessage) //kolla om databasen får ett värde om man endast skriver mellanslag
+                && Validation.validationTxt(txtName, txtaMessage)
+                && Validation.validationCb(cbLocation, txtaMessage)
+                && Validation.validationCb(cbRace, txtaMessage)
+                && Validation.validationCb(cbAgentInCharge, txtaMessage)) {
+
+            if (txtRaceSpecial.isShowing() == true) {
+                if (!Validation.validationTxt(txtRaceSpecial, txtaMessage)) {
+
+                    return;
+                }
             }
-//        try{
-//             
-//            
-//        }
-//        
-//        catch (InfException ex){
-//            System.out.println("Databasfel" + ex.getMessage());
-//        }
-//        catch (Exception ex){
-//            System.out.println("Random fel" + ex.getMessage());
-//        }
+
+            try {
+                String alienId = getNewAlienId();
+                String newPw = getNewPw();
+                
+                String queryTest ="INSERT INTO alien (alien_id, namn, plats, ansvarig_agent)\n" +
+                                    "VALUES (6, " + "'" + name + "'" + ", " + "'" + getLocationId() + "'" + ", '1')";
+                String query = "INSERT INTO alien (alien_id, registreringsdatum, losenord, namn, telefon, plats, ansvarig_agent)\n"
+                        + "VALUES (" + alienId + ", "
+                        + "'" + getSystemDate() + "'" + ", "
+                        + "'" + newPw + "'" + ", "
+                        + "'" + name + "'" + ", "
+                        + "'" + phone + "'" + ", "
+                        + "'" + getLocationId() + "'" + ", "
+                        + "'" + getAgentInCharge() + "'" + ")";
+                String querySquid = "INSERT INTO squid (alien_id, antal_armar)\n"
+                        + "VALUES ("
+                        + alienId + ", "
+                        + "'" + getRaceSpecial() + "'" + ")";
+                String queryBoglodite = "INSERT INTO boglodite (alien_id, antal_boogies)\n"
+                        + "VALUES ("
+                        + alienId + ", "
+                        + "'" + getRaceSpecial() + "'" + ")";
+                String queryWorm = "INSERT INTO worm (alien_id)\n"
+                        + "VALUES ("
+                        + alienId + ")";
+
+                idb.insert(query);
+                //idb.insert(queryBoglodite);
+
+                switch (race) {
+                    case "Squid":
+                        idb.insert(querySquid);
+                        break;
+                    case "Boglodite":
+                        idb.insert(queryBoglodite);
+                        break;
+                    case "Worm":
+                        idb.insert(queryWorm);
+                        break;
+                }
+
+            } catch (InfException ex) {
+                System.out.println("Databasfel" + ex.getMessage());
+            } catch (Exception ex) {
+                System.out.println("Random fel" + ex.getMessage());
+            }
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-       
+
         //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void cbRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaceActionPerformed
         // TODO add your handling code here:
-        if(cbRace.getSelectedItem().equals("Squid") || cbRace.getSelectedItem().equals("Boglodite")){
+        if (cbRace.getSelectedItem().equals("Squid") || cbRace.getSelectedItem().equals("Boglodite")) {
             txtRaceSpecial.setVisible(true);
             lblRaceSpecial.setVisible(true);
-            
-        }
-        else{
+
+            if (cbRace.getSelectedItem().equals("Squid")) {
+                lblRaceSpecial.setText("Antal armar:");
+            }
+            if (cbRace.getSelectedItem().equals("Boglodite")) {
+                lblRaceSpecial.setText("Antal boogies:");
+            }
+
+        } else {
             txtRaceSpecial.setVisible(false);
             lblRaceSpecial.setVisible(false);
         }
-        
+
     }//GEN-LAST:event_cbRaceActionPerformed
 
 
