@@ -39,7 +39,7 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblChangePw = new javax.swing.JLabel();
+        lblTitel = new javax.swing.JLabel();
         lblMessage = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
@@ -62,9 +62,9 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(40, 40, 40));
 
-        lblChangePw.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        lblChangePw.setForeground(new java.awt.Color(255, 255, 255));
-        lblChangePw.setText("Ändra information om en alien");
+        lblTitel.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lblTitel.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitel.setText("Ändra information om en alien");
 
         lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblMessage.setForeground(new java.awt.Color(255, 96, 96));
@@ -129,7 +129,7 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
                         .addContainerGap(33, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblChangePw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblTitel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +158,7 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtfAlienInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -213,10 +213,16 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
         lblRaceSpecial.setVisible(true);
         txtfRaceSpecial.setVisible(true);
     }
-
+    
+    public void correctValues(){
+        
+                        lblMessage.setForeground(Color.GREEN);
+                        lblMessage.setText("Dina ändringar är sparade");
+        
+    }
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-
-        lblMessage.setText(" ");
+        lblMessageInput.setText("");
+        lblMessage.setText("");
         lblMessage.setForeground(Color.RED);
         int loops = 0;
 
@@ -232,6 +238,7 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
 
                 if (loops > 1) {
                     lblMessageInput.setText("Det finns mer än en alien med detta namn, var vänligen ange ID");
+
                 } else if (alienId == null) {
                     lblMessage.setText("Alien namnet finns inte registrerat");
 
@@ -240,10 +247,12 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
                     if (!txtfNameInput.getText().isEmpty()) {
                         String qName = "UPDATE alien SET namn = '" + txtfNameInput.getText() + "' WHERE alien_id = '" + alienId + "'";
                         idb.update(qName);
+                        correctValues();
                     }
                     if (!txtfPhoneInput.getText().isEmpty()) {
                         String qPhone = "UPDATE alien SET telefon = '" + txtfPhoneInput.getText() + "' WHERE alien_id = '" + alienId + "'";
                         idb.update(qPhone);
+                        correctValues();
                     }
                     if (cbListRace.getSelectedItem() != "-----") {
 
@@ -252,18 +261,18 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
 
                         if (currentRace.equals(cbListRace.getSelectedItem())) {
                             lblMessage.setText("Alien är redan registrerad som den här rasen.");
-                            
+
                         } else {
-                                if(currentRace != ""){
+                            if (currentRace != "") {
                                 String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                                 idb.delete(qDelete);
-                                }
+                            }
 
                             if (cbListRace.getSelectedItem().equals("Boglodite")) {
                                 showText();
                                 lblRaceSpecial.setText("Ange antal boogies: ");
                                 if (!txtfRaceSpecial.getText().isEmpty()) {
-                                String qBoglodite = "INSERT INTO Boglodite VALUES (" + alienId + "," + txtfRaceSpecial.getText() + ")";
+                                    String qBoglodite = "INSERT INTO Boglodite VALUES (" + alienId + "," + txtfRaceSpecial.getText() + ")";
                                     idb.insert(qBoglodite);
                                 }
                             }
@@ -271,18 +280,19 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
                                 showText();
                                 lblRaceSpecial.setText("Ange antal armar:");
                                 if (!txtfRaceSpecial.getText().isEmpty()) {
-                                String qSquid = "INSERT INTO Squid VALUES (" + alienId + "," + txtfRaceSpecial.getText() + ")";
-                                idb.insert(qSquid);
+                                    String qSquid = "INSERT INTO Squid VALUES (" + alienId + "," + txtfRaceSpecial.getText() + ")";
+                                    idb.insert(qSquid);
                                 }
                             }
                             if (cbListRace.getSelectedItem().equals("Worm")) {
                                 String qWorm = "INSERT INTO Worm VALUES (" + alienId + ")";
                                 idb.insert(qWorm);
                             }
-                            lblMessage.setForeground(Color.GREEN);
-                            lblMessage.setText("Dina ändringar är sparade");
-                        }
+                            correctValues();
+
+                        } 
                     }
+                   
 
                 }
 
@@ -325,10 +335,10 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
     private javax.swing.JLabel lblAlienName1;
     private javax.swing.JLabel lblAlienPhone;
     private javax.swing.JLabel lblAlienRace;
-    private javax.swing.JLabel lblChangePw;
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblMessageInput;
     private javax.swing.JLabel lblRaceSpecial;
+    private javax.swing.JLabel lblTitel;
     private javax.swing.JTextField txtfAlienInput;
     private javax.swing.JTextField txtfNameInput;
     private javax.swing.JTextField txtfPhoneInput;
