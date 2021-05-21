@@ -26,7 +26,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -46,21 +46,42 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                          <Component id="btnMenu" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="lblMessageInput" min="-2" pref="367" max="-2" attributes="0"/>
+                          <EmptySpace pref="33" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblChangePw" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="lblAlien" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblAlienPhone" alignment="0" pref="171" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="lblAlien" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="lblAlienPhone" alignment="0" pref="171" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Component id="lblAlienRace" min="-2" pref="171" max="-2" attributes="0"/>
+                                              <Component id="lblAlienName1" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
+                                              <Component id="lblRaceSpecial" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="btnSave" pref="134" max="32767" attributes="0"/>
+                                              <Component id="txtfAlienInput" max="32767" attributes="0"/>
+                                              <Component id="txtfNameInput" max="32767" attributes="0"/>
+                                              <Component id="cbListRace" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtfPhoneInput" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtfRaceSpecial" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="lblMessage" min="-2" pref="292" max="-2" attributes="0"/>
+                                      <Component id="btnMenu" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -68,38 +89,6 @@
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="lblMessage" min="-2" pref="292" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="10" max="32767" attributes="0"/>
-                          <Component id="lblAlienName1" min="-2" pref="121" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblAlienRace" min="-2" pref="171" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="txtfAlienInput" max="32767" attributes="0"/>
-                      <Component id="txtfNameInput" max="32767" attributes="0"/>
-                      <Component id="cbListRace" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtfPhoneInput" alignment="0" max="32767" attributes="0"/>
-                      <Component id="btnSave" alignment="0" pref="134" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="lblMessageInput" min="-2" pref="367" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -110,33 +99,38 @@
                   <Component id="lblChangePw" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblAlien" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtfAlienInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblAlien" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblMessageInput" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblAlienName1" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                       <Component id="txtfNameInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblAlienName1" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblAlienPhone" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtfPhoneInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblAlienPhone" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblAlienRace" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                       <Component id="cbListRace" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblAlienRace" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtfRaceSpecial" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblRaceSpecial" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnSave" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblMessage" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <Component id="lblMessage" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnMenu" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -251,6 +245,19 @@
               <Color blue="60" green="60" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value=" "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtfRaceSpecial">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblRaceSpecial">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="xxxx"/>
           </Properties>
         </Component>
       </SubComponents>

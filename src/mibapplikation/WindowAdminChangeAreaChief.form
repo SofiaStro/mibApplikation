@@ -113,7 +113,6 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Component id="lblChangePw" min="-2" pref="38" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -129,9 +128,9 @@
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cbListAgents" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="cbListAreas" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbListAgents" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="37" max="32767" attributes="0"/>
                   <Component id="btnSave" min="-2" max="-2" attributes="0"/>
