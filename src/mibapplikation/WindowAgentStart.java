@@ -272,7 +272,7 @@ public class WindowAgentStart extends javax.swing.JFrame {
 
     private void btnRegAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAlienActionPerformed
         // TODO add your handling code here:
-        new WindowAgentRegAlien(idb, agentId).setVisible(true);
+        new WindowAgentRegAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAlienActionPerformed
 
     private void btnInfoAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoAlienActionPerformed

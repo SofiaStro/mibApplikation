@@ -112,7 +112,7 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
         lblMessageInput.setForeground(new java.awt.Color(255, 96, 96));
         lblMessageInput.setText(" ");
 
-        lblRaceSpecial.setForeground(new java.awt.Color(255, 0, 0));
+        lblRaceSpecial.setForeground(new java.awt.Color(255, 255, 255));
         lblRaceSpecial.setText("xxxx");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -228,14 +228,17 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
             lblRaceSpecial.setText("Ange antal boogies: ");
             if (txtfRaceSpecial.getText().isEmpty()) {
                 lblMessage.setText("Rutan för ras-specialitet är tom");
+//  
             } else {
                 if (currentRace != "") {
                     String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                     idb.delete(qDelete);
                 }
-                String qBoglodite = "INSERT INTO Boglodite VALUES (" + alienId + "," + txtfRaceSpecial.getText() + ")";
-                idb.insert(qBoglodite);
-                correctValues();
+                if (Validation.validationTxtInt(txtfRaceSpecial, lblMessage)) {
+                    String qBoglodite = "INSERT INTO Boglodite VALUES (" + alienId + "," + txtfRaceSpecial.getText() + ")";
+                    idb.insert(qBoglodite);
+                    correctValues();
+                }
             }
 
         } catch (InfException ex) {
@@ -259,9 +262,11 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
                     String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                     idb.delete(qDelete);
                 }
-                String qSquid = "INSERT INTO Squid VALUES (" + alienId + "," + txtfRaceSpecial.getText() + ")";
-                idb.insert(qSquid);
-                correctValues();
+                if (Validation.validationTxtInt(txtfRaceSpecial, lblMessage)) {
+                    String qSquid = "INSERT INTO Squid VALUES (" + alienId + "," + txtfRaceSpecial.getText() + ")";
+                    idb.insert(qSquid);
+                    correctValues();
+                }
             }
 
         } catch (InfException ex) {
@@ -291,19 +296,19 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
     }
 
     public void setUnidentified(String alienId) {
-       String currentRace = ValidationRace.getRace(idb, alienId);
-        try{
-         if (currentRace != "") {
+        String currentRace = ValidationRace.getRace(idb, alienId);
+        try {
+            if (currentRace != "") {
                 String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                 idb.delete(qDelete);
                 correctValues();
             }
-        }catch (InfException ex) {
-                System.out.println("Databasfel" + ex.getMessage());
-            } catch (Exception ex) {
-                System.out.println("Random fel" + ex.getMessage());
-            }
-        
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+
     }
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -313,61 +318,64 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
         int loops = 0;
 
         if (Validation.validationTxt(txtfAlienInput, lblMessage)) {
-            try {
-                String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";
-                ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
-                String alienId = idb.fetchSingle(qAlienId);
+            if (Validation.validationTxtAndCb(txtfNameInput, txtfPhoneInput, cbListRace, lblMessage)) {
+                try {
+                    String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";
+                    ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
+                    String alienId = idb.fetchSingle(qAlienId);
 
-                for (String element : alienIdList) {
-                    loops++;
-                }
-
-                if (loops > 1) {
-                    lblMessageInput.setText("Det finns mer än en alien med detta namn, var vänligen ange ID");
-
-                } else if (alienId == null) {
-                    lblMessage.setText("Alien namnet finns inte registrerat");
-
-                } else {
-
-                    if (!txtfNameInput.getText().isEmpty()) {
-                        String qName = "UPDATE alien SET namn = '" + txtfNameInput.getText() + "' WHERE alien_id = '" + alienId + "'";
-                        idb.update(qName);
-                        correctValues();
+                    for (String element : alienIdList) {
+                        loops++;
                     }
-                    if (!txtfPhoneInput.getText().isEmpty()) {
-                        String qPhone = "UPDATE alien SET telefon = '" + txtfPhoneInput.getText() + "' WHERE alien_id = '" + alienId + "'";
-                        idb.update(qPhone);
-                        correctValues();
-                    }
-                    if (!cbListRace.getSelectedItem().equals("-----")) {
-                        System.out.println("HEJ");
 
-                        String currentRace = ValidationRace.getRace(idb, alienId);
-                        System.out.println(currentRace);
+                    if (loops > 1) {
+                        lblMessageInput.setText("Det finns mer än en alien med detta namn, var vänligen ange ID");
 
-                        if (currentRace.equals(cbListRace.getSelectedItem())) {
-                            lblMessage.setText("Alien är redan registrerad som den här rasen.");
-                        } else {
+                    } else if (alienId == null) {
+                        lblMessage.setText("Alien namnet finns inte registrerat");
 
-                            if (cbListRace.getSelectedItem().equals("Boglodite")) {
-                                setBoglodite(alienId);
-                            } else if (cbListRace.getSelectedItem().equals("Squid")) {
-                                setSquid(alienId);
-                            } else if (cbListRace.getSelectedItem().equals("Worm")) {
-                                setWorm(alienId);
-                            } else if(cbListRace.getSelectedItem().equals("<Oidentifierad>")){
-                                setUnidentified(alienId);
+                    } else {
+
+                        if (!txtfNameInput.getText().isEmpty()) {
+                            String qName = "UPDATE alien SET namn = '" + txtfNameInput.getText() + "' WHERE alien_id = '" + alienId + "'";
+                            idb.update(qName);
+                            correctValues();
+                        }
+                        if (!txtfPhoneInput.getText().isEmpty()) {
+                            if (Validation.validationTxtPhone(txtfPhoneInput, lblMessage)) {
+                                String qPhone = "UPDATE alien SET telefon = '" + txtfPhoneInput.getText() + "' WHERE alien_id = '" + alienId + "'";
+                                idb.update(qPhone);
+                                correctValues();
                             }
                         }
+                        if (!cbListRace.getSelectedItem().equals("-----")) {
+
+                            String currentRace = ValidationRace.getRace(idb, alienId);
+                            System.out.println(currentRace);
+
+                            if (currentRace.equals(cbListRace.getSelectedItem())) {
+                                lblMessage.setText("Alien är redan registrerad som den här rasen.");
+                            } else {
+
+                                if (cbListRace.getSelectedItem().equals("Boglodite")) {
+                                    setBoglodite(alienId);
+                                } else if (cbListRace.getSelectedItem().equals("Squid")) {
+                                    setSquid(alienId);
+                                } else if (cbListRace.getSelectedItem().equals("Worm")) {
+                                    setWorm(alienId);
+                                } else if (cbListRace.getSelectedItem().equals("<Oidentifierad>")) {
+                                    setUnidentified(alienId);
+                                }
+                            }
+                        }
+
                     }
 
+                } catch (InfException ex) {
+                    System.out.println("Databasfel" + ex.getMessage());
+                } catch (Exception ex) {
+                    System.out.println("Random fel" + ex.getMessage());
                 }
-
-            } catch (InfException ex) {
-                System.out.println("Databasfel" + ex.getMessage());
-            } catch (Exception ex) {
-                System.out.println("Random fel" + ex.getMessage());
             }
 
         }

@@ -69,12 +69,12 @@
                                       <Component id="cbEquipCategory" alignment="0" pref="148" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="lblDeleteEquip" min="-2" pref="121" max="-2" attributes="0"/>
                               <Component id="cbListEquipment" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
-                              <Component id="btnDelete" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
-                              <Component id="btnSave" min="-2" max="-2" attributes="0"/>
                               <Component id="lblAddEquip" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
                               <Component id="lblMessage" alignment="0" min="-2" pref="214" max="-2" attributes="0"/>
+                              <Component id="btnDelete" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="btnSave" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
+                              <Component id="lblDeleteEquip" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="lblTitle" min="-2" pref="333" max="-2" attributes="0"/>
@@ -238,6 +238,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbEquipCategoryActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>

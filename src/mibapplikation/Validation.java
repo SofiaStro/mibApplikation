@@ -38,6 +38,15 @@ public class Validation {
         }
         return result;
     }
+    
+    public static boolean validationTxtAndCb(JTextField fieldOne, JTextField fieldTwo, JComboBox cBox, JLabel message){
+        boolean result = true;
+        if(fieldOne.getText().isEmpty() && fieldTwo.getText().isEmpty() && cBox.getSelectedItem().equals("-----")){
+            message.setText("Välj minst en ruta att uppdatera för den valda alien.");
+            result = false; 
+        }
+        return result; 
+    }
 
     public static boolean validationTxtDate(JTextField fieldToValidate, JLabel message) {
         boolean result = true;
@@ -95,6 +104,15 @@ public class Validation {
             message.setText(messageText);
             fieldToValidate.requestFocus();
             result = false;
+    public static boolean validationTxtPhone(JTextField fieldToValidate, JLabel message) {
+        boolean result = false;
+        if (fieldToValidate.getText().matches("[+() [0-9]-]+") || fieldToValidate.getText().matches("")) {
+
+            result = true;
+            fieldToValidate.requestFocus();
+
+        } else {
+            message.setText("Telefonnumret har fel format!");
         }
         return result;
     }
@@ -118,5 +136,32 @@ public class Validation {
         }
         return result;
     }
+
+    public static boolean validationTxtInt(JTextField fieldToValidate, JLabel message) {
+        boolean result = false;
+        if (fieldToValidate.getText().matches("[0-9]+") || fieldToValidate.getText().matches("")) {
+
+            result = true;
+            fieldToValidate.requestFocus();
+
+        } else {
+            message.setText("Ange siffror!");
+        }
+        return result;
+    }
+    
+     public static boolean validationTxtNrOfChar(JTextField fieldToValidate, JLabel message) {
+        boolean result = false;
+        if (fieldToValidate.getText().length() <= 20) {
+
+            result = true;
+            fieldToValidate.requestFocus();
+
+        } else {
+            message.setText("För många tecken!");
+        }
+        return result;
+    }
+
 
 }
