@@ -38,14 +38,14 @@ public class Validation {
         }
         return result;
     }
-    
-    public static boolean validationTxtAndCb(JTextField fieldOne, JTextField fieldTwo, JComboBox cBox, JLabel message){
+
+    public static boolean validationTxtAndCb(JTextField fieldOne, JTextField fieldTwo, JComboBox cBox, JLabel message) {
         boolean result = true;
-        if(fieldOne.getText().isEmpty() && fieldTwo.getText().isEmpty() && cBox.getSelectedItem().equals("-----")){
+        if (fieldOne.getText().isEmpty() && fieldTwo.getText().isEmpty() && cBox.getSelectedItem().equals("-----")) {
             message.setText("Välj minst en ruta att uppdatera för den valda alien.");
-            result = false; 
+            result = false;
         }
-        return result; 
+        return result;
     }
 
     public static boolean validationTxtDate(JTextField fieldToValidate, JLabel message) {
@@ -95,7 +95,7 @@ public class Validation {
     }
 
     public static boolean validationNumbers(JTextField fieldToValidate, JTextArea message, String messageText) {
-        boolean result = true;
+        boolean result = false;
         if (fieldToValidate.getText().matches("[0-9]+")) {
 
             result = true;
@@ -103,7 +103,12 @@ public class Validation {
         } else {
             message.setText(messageText);
             fieldToValidate.requestFocus();
-            result = false;
+            
+        }
+        return result;
+    }
+    
+
     public static boolean validationTxtPhone(JTextField fieldToValidate, JLabel message) {
         boolean result = false;
         if (fieldToValidate.getText().matches("[+() [0-9]-]+") || fieldToValidate.getText().matches("")) {
@@ -149,8 +154,8 @@ public class Validation {
         }
         return result;
     }
-    
-     public static boolean validationTxtNrOfChar(JTextField fieldToValidate, JLabel message) {
+
+    public static boolean validationTxtNrOfChar(JTextField fieldToValidate, JLabel message) {
         boolean result = false;
         if (fieldToValidate.getText().length() <= 20) {
 
@@ -162,6 +167,5 @@ public class Validation {
         }
         return result;
     }
-
 
 }
