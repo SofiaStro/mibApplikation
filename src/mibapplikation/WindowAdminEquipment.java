@@ -28,6 +28,7 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
         this.idb = idb;
         printEquipmentList();
         setEquipmentList();
+        txtfEquipCapacity.setVisible(false);
     }
 
     /**
@@ -107,6 +108,11 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
         lblListDescription.setText("Följande utrustning finns registrerad");
 
         cbEquipCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Vapen", "Teknik", "Kommunikation" }));
+        cbEquipCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbEquipCategoryActionPerformed(evt);
+            }
+        });
 
         lblAddEquip.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblAddEquip.setForeground(new java.awt.Color(255, 255, 255));
@@ -148,12 +154,12 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
                                     .addComponent(txtfEquipName)
                                     .addComponent(txtfEquipCapacity)
                                     .addComponent(cbEquipCategory, 0, 148, Short.MAX_VALUE)))
-                            .addComponent(lblDeleteEquip, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbListEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSave)
                             .addComponent(lblAddEquip, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDeleteEquip, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblListDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
@@ -217,254 +223,235 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void printEquipmentList(){
-       txtaListEquipment.setText("");
-       
-        try{
+    private void printEquipmentList() {
+        txtaListEquipment.setText("");
+        
+        try {
             String query = "SELECT utrustnings_id, benamning FROM utrustning";
-            ArrayList<HashMap<String,String>> result = idb.fetchRows(query);
+            ArrayList<HashMap<String, String>> result = idb.fetchRows(query);
             
-            for(HashMap<String,String> element : result){
+            for (HashMap<String, String> element : result) {
                 String equipmentType = ValidationRace.getEquipment(idb, element.get("utrustnings_id"));
                 txtaListEquipment.append(" • " + element.get("benamning") + " (" + equipmentType + ")\n");
             }
-        }
-
-        catch (InfException ex){
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
-    private void setEquipmentList(){
+
+    private void setEquipmentList() {
         cbListEquipment.removeAllItems();
         cbListEquipment.addItem("-----");
-        try{
+        
+        try {
             String query = "SELECT benamning FROM utrustning";
             ArrayList<String> result = idb.fetchColumn(query);
             
-            for(String element : result){
+            for (String element : result) {
                 cbListEquipment.addItem(element);
             }
-        }
-
-        catch (InfException ex){
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
     
-    private String getNewEquipmentId(){
+    private String getNewEquipmentId() {
         int lastNr = 0;
         String newId = "";
         
-        try{ 
+        try {            
             String query = "SELECT utrustnings_id FROM utrustning";
             ArrayList<String> result = idb.fetchColumn(query);
             int[] intResult = new int[result.size()];
-            System.out.println(intResult.length);
             
-            for(int i = 0; i < result.size(); i++){
+            for (int i = 0; i < result.size(); i++) {
                 intResult[i] = Integer.parseInt(result.get(i));
             }
-            for(int element : intResult){
-                if(element >= lastNr){
+            for (int element : intResult) {
+                if (element >= lastNr) {
                     lastNr = element;
                 }
             }
             int newIdInt = lastNr + 1;
             newId = String.valueOf(newIdInt);
-            System.out.println(newId);
-            }
-
-        catch (InfException ex){
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
         return newId;
     }
     
-    private String getEquipmentName(){
+    private String getEquipmentName() {
         String equipmentName = txtfEquipName.getText();
         return equipmentName;
     }
     
-    private void addWeaponEquipment(){
+    private void addWeaponEquipment() {
         String newId = getNewEquipmentId();
-        try{
-        String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + getEquipmentName() + "')";
-        idb.insert(queryAddEquip);
-        
-        String queryAddWeaponCapacity = "INSERT INTO vapen(utrustnings_id, kaliber) VALUES ('" + newId + "','" + txtfEquipCapacity.getText() + "')";
-        idb.insert(queryAddWeaponCapacity);
-        }
-
-        catch (InfException ex){
+        try {
+            String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + getEquipmentName() + "')";
+            idb.insert(queryAddEquip);
+            
+            String queryAddWeaponCapacity = "INSERT INTO vapen(utrustnings_id, kaliber) VALUES ('" + newId + "','" + txtfEquipCapacity.getText() + "')";
+            idb.insert(queryAddWeaponCapacity);
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
         
     }
-     private void addTechEquipment(){
-        String newId = getNewEquipmentId();
-        try{
-        String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + getEquipmentName() + "')";
-        idb.insert(queryAddEquip);
-        
-        String queryAddWeaponCapacity = "INSERT INTO teknik (utrustnings_id, kraftkalla) VALUES ('" + newId + "','" + txtfEquipCapacity.getText() + "')";
-        idb.insert(queryAddWeaponCapacity);
-        }
 
-        catch (InfException ex){
+    private void addTechEquipment() {
+        String newId = getNewEquipmentId();
+        try {
+            String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + getEquipmentName() + "')";
+            idb.insert(queryAddEquip);
+            
+            String queryAddWeaponCapacity = "INSERT INTO teknik (utrustnings_id, kraftkalla) VALUES ('" + newId + "','" + txtfEquipCapacity.getText() + "')";
+            idb.insert(queryAddWeaponCapacity);
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
         
     }
-    private void addCommsEquipment(){
-        String newId = getNewEquipmentId();
-        try{
-        String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + getEquipmentName() + "')";
-        idb.insert(queryAddEquip);
-        
-        String queryAddWeaponCapacity = "INSERT INTO kommunikation (utrustnings_id, overforingsteknik) VALUES ('" + newId + "','" + txtfEquipCapacity.getText() + "')";
-        idb.insert(queryAddWeaponCapacity);
-        }
 
-        catch (InfException ex){
+    private void addCommsEquipment() {
+        String newId = getNewEquipmentId();
+        try {
+            String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + getEquipmentName() + "')";
+            idb.insert(queryAddEquip);
+            
+            String queryAddWeaponCapacity = "INSERT INTO kommunikation (utrustnings_id, overforingsteknik) VALUES ('" + newId + "','" + txtfEquipCapacity.getText() + "')";
+            idb.insert(queryAddWeaponCapacity);
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
         
     }
-    private String getEquipmentId(){
-         String equipmentId = "";
-         try{
-         String query = "SELECT utrustnings_id FROM utrustning WHERE benamning = '" + cbListEquipment.getSelectedItem() + "'";
-         String result = idb.fetchSingle(query);
-         equipmentId = result;
-         }
 
-        catch (InfException ex){
+    private String getEquipmentId() {
+        String equipmentId = "";
+        try {
+            String query = "SELECT utrustnings_id FROM utrustning WHERE benamning = '" + cbListEquipment.getSelectedItem() + "'";
+            String result = idb.fetchSingle(query);
+            equipmentId = result;
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
         return equipmentId;
-     }
-    private void deleteWeaponEquipment(){
-     
-        try{
-       // String equipmentType = ValidationRace.getEquipment(idb, getEquipmentID());
-         String queryEquipment = "DELETE FROM utrustning WHERE utrustnings_id = '" + getEquipmentId() + "'";
-                idb.delete(queryEquipment);
-                
-        }
-
-        catch (InfException ex){
+    }
+    
+    private void deleteWeaponEquipment() {
+        
+        try {
+            String equipmentId = getEquipmentId();
+            
+            String queryEquipment = "DELETE FROM utrustning WHERE utrustnings_id = '" + equipmentId + "'";
+            idb.delete(queryEquipment);
+            String queryWeapon = "DELETE FROM vapen WHERE utrustnings_id = '" + equipmentId + "'";
+            idb.delete(queryWeapon);
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
         
     }
-     private void deleteTechEquipment(){
-        String newId = getNewEquipmentId();
-        try{
-        String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + getEquipmentName() + "')";
-        idb.insert(queryAddEquip);
-        
-        String queryAddWeaponCapacity = "INSERT INTO teknik (utrustnings_id, kraftkalla) VALUES ('" + newId + "','" + txtfEquipCapacity.getText() + "')";
-        idb.insert(queryAddWeaponCapacity);
-        }
 
-        catch (InfException ex){
+    private void deleteTechEquipment() {
+        try {
+            String equipmentId = getEquipmentId();
+            String queryEquipment = "DELETE FROM utrustning WHERE utrustnings_id = '" + equipmentId + "'";
+            idb.delete(queryEquipment);
+            String queryTech = "DELETE FROM teknik WHERE utrustnings_id = '" + equipmentId + "'";
+            idb.delete(queryTech);
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
         
     }
-     private void deleteCommsEquipment(){
-        String newId = getNewEquipmentId();
-        try{
-        String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + getEquipmentName() + "')";
-        idb.insert(queryAddEquip);
-        
-        String queryAddWeaponCapacity = "INSERT INTO kommunikation (utrustnings_id, overforingsteknik) VALUES ('" + newId + "','" + txtfEquipCapacity.getText() + "')";
-        idb.insert(queryAddWeaponCapacity);
-        }
 
-        catch (InfException ex){
+    private void deleteCommsEquipment() {
+        try {
+            String equipmentId = getEquipmentId();
+            String queryEquipment = "DELETE FROM utrustning WHERE utrustnings_id = '" + equipmentId + "'";
+            idb.delete(queryEquipment);
+            String queryComms = "DELETE FROM kommunikation WHERE utrustnings_id = '" + equipmentId + "'";
+            idb.delete(queryComms);
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
         
     }
-     
+    
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        lblMessage.setText("");
+        lblMessage.setText(" ");
         lblMessage.setForeground(Color.RED);
-       if(Validation.validationTxt(txtfEquipName, lblMessage) && Validation.validationTxt(txtfEquipName, lblMessage) && Validation.validationCb(cbEquipCategory, lblMessage)){
-        try{
-            Boolean equipmentExist = false;
-            String newEquipment = txtfEquipName.getText();
-
-            String query = "SELECT benamning FROM utrustning";
-            ArrayList<String> result = idb.fetchColumn(query);
-            
-            for(String element : result){              
-                if(newEquipment.toLowerCase().equals(element.toLowerCase())){
-                    equipmentExist = true;
-                }
-            }
-            if(equipmentExist){
-                lblMessage.setText("Utrustningen finns redan!");
-            }
-            else{
+        if (Validation.validationTxt(txtfEquipName, lblMessage)
+                && Validation.validationTxt(txtfEquipName, lblMessage)
+                && Validation.validationCb(cbEquipCategory, lblMessage)
+                && Validation.validationTxt(txtfEquipCapacity, lblMessage)) {
+            try {
+                Boolean equipmentExist = false;
+                Boolean equipmentAdded = false;
+                String newEquipment = txtfEquipName.getText();
                 
- 
-                if(cbEquipCategory.getSelectedItem().equals("Vapen")){
-                    addWeaponEquipment();
+                String query = "SELECT benamning FROM utrustning";
+                ArrayList<String> result = idb.fetchColumn(query);
+                
+                for (String element : result) {
+                    if (newEquipment.toLowerCase().equals(element.toLowerCase())) {
+                        equipmentExist = true;
+                    }
                 }
-                else if(cbEquipCategory.getSelectedItem().equals("Teknik")){
-                    addTechEquipment();
+                if (equipmentExist) {
+                    lblMessage.setText("Utrustningen finns redan!");
+                } else {
+                    
+                    if (cbEquipCategory.getSelectedItem().equals("Vapen") && Validation.validationTxtInt(txtfEquipCapacity, lblMessage)) {
+                        addWeaponEquipment();
+                        equipmentAdded = true;
+                    } else if (cbEquipCategory.getSelectedItem().equals("Teknik") && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessage)) {
+                        addTechEquipment();
+                        equipmentAdded = true;
+                    } else if (cbEquipCategory.getSelectedItem().equals("Kommunikation") && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessage)) {
+                        addCommsEquipment();
+                        equipmentAdded = true;
+                    }
+                    
                 }
-                else if(cbEquipCategory.getSelectedItem().equals("Kommunikation")){
-                    addCommsEquipment();
+                if (equipmentAdded) {
+                    lblMessage.setForeground(Color.GREEN);
+                    lblMessage.setText("Utrustningen har lagts till!");
+                    txtfEquipName.setText("");
+                    cbEquipCategory.setSelectedIndex(0);
+                    txtfEquipCapacity.setText("");
+                    lblEquipCapacity.setText(" ");
+                    printEquipmentList();
+                    setEquipmentList();
                 }
-                lblMessage.setForeground(Color.GREEN);
-                lblMessage.setText("Utrustningen har lagts till!");
-                printEquipmentList();
-                setEquipmentList();
+            } catch (InfException ex) {
+                System.out.println("Databasfel" + ex.getMessage());
+            } catch (Exception ex) {
+                System.out.println("Random fel" + ex.getMessage());
             }
-            
-            
         }
-
-        catch (InfException ex){
-            System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
-            System.out.println("Random fel" + ex.getMessage());
-        }
-       }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
@@ -475,23 +462,62 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-         if(Validation.validationCb(cbListEquipment, lblMessage)){
-                deleteWeaponEquipment();
+        lblMessage.setText(" ");
+        lblMessage.setForeground(Color.RED);
+        if (Validation.validationCb(cbListEquipment, lblMessage)) {
+            
+            try {
+                String equipmentId = getEquipmentId();
+                String query = "SELECT utrustnings_id FROM innehar_utrustning";
+                ArrayList<String> result = idb.fetchColumn(query);
+                
+                for (String element : result) {
+                    if (equipmentId.equals(element)) {
+                        String qDeleteUsedEquip = "DELETE FROM innehar_utrustning WHERE utrustnings_id = '" + element + "'";
+                        idb.delete(qDeleteUsedEquip);
+                    }
+                }
+                
+                String equipmentType = ValidationRace.getEquipment(idb, equipmentId);
+                if (equipmentType.equals("Vapen")) {
+                    deleteWeaponEquipment();
+                } else if (equipmentType.equals("Teknik")) {
+                    deleteTechEquipment();
+                } else if (equipmentType.equals("Kommunikation")) {
+                    deleteCommsEquipment();
+                }
+                
                 lblMessage.setForeground(Color.GREEN);
                 lblMessage.setText("Utrustningen har tagits bort!");
-
+                printEquipmentList();
+                setEquipmentList();
+                
+            } catch (InfException ex) {
+                System.out.println("Databasfel" + ex.getMessage());
+            } catch (Exception ex) {
+                System.out.println("Random fel" + ex.getMessage());
             }
-//        try{
-//           
-//        }
-//
-//        catch (InfException ex){
-//            System.out.println("Databasfel" + ex.getMessage());
-//        }
-//        catch (Exception ex){
-//            System.out.println("Random fel" + ex.getMessage());
-//        }
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void cbEquipCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEquipCategoryActionPerformed
+        // TODO add your handling code here:
+
+        if (cbEquipCategory.getSelectedItem().equals("Vapen")) {
+            txtfEquipCapacity.setVisible(true);
+            lblEquipCapacity.setText("Kaliber:");
+        } else if (cbEquipCategory.getSelectedItem().equals("Teknik")) {
+            txtfEquipCapacity.setVisible(true);
+            lblEquipCapacity.setText("Kraftkälla::");
+        } else if (cbEquipCategory.getSelectedItem().equals("Kommunikation")) {
+            txtfEquipCapacity.setVisible(true);
+            lblEquipCapacity.setText("Överföringsteknik:");
+        } else {
+            txtfEquipCapacity.setVisible(false);
+            lblEquipCapacity.setText(" ");
+        }
+        
+    }//GEN-LAST:event_cbEquipCategoryActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

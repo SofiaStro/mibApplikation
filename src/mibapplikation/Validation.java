@@ -139,5 +139,19 @@ public class Validation {
         }
         return result;
     }
+    
+     public static boolean validationTxtNrOfChar(JTextField fieldToValidate, JLabel message) {
+        boolean result = false;
+        if (fieldToValidate.getText().length() <= 20) {
+
+            result = true;
+            fieldToValidate.requestFocus();
+
+        } else {
+            message.setText("För många tecken!");
+        }
+        return result;
+    }
+
 
 }
