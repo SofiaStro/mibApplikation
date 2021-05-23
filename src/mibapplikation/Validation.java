@@ -18,30 +18,37 @@ import javax.swing.JTextField;
  * @author Blazl
  */
 public class Validation {
-    
-    public static boolean validationTxt(JTextField fieldToValidate, JLabel message)
-    {
-        boolean result = true;        
-        if(fieldToValidate.getText().isEmpty()){
+
+    public static boolean validationTxt(JTextField fieldToValidate, JLabel message) {
+        boolean result = true;
+        if (fieldToValidate.getText().isEmpty()) {
             message.setText("En eller flera rutor är tomma!");
             result = false;
             fieldToValidate.requestFocus();
-        }       
+        }
         return result;
     }
-    
-    public static boolean validationTxt(JTextField fieldToValidate, JTextArea message)
-    {
-        boolean result = true;        
-        if(fieldToValidate.getText().isEmpty()){
+
+    public static boolean validationTxt(JTextField fieldToValidate, JTextArea message) {
+        boolean result = true;
+        if (fieldToValidate.getText().isEmpty()) {
             message.setText("En eller flera rutor är tomma!");
             result = false;
             fieldToValidate.requestFocus();
-        }       
+        }
         return result;
     }
     
-       public static boolean validationTxtDate(JTextField fieldToValidate, JLabel message) {
+    public static boolean validationTxtAndCb(JTextField fieldOne, JTextField fieldTwo, JComboBox cBox, JLabel message){
+        boolean result = true;
+        if(fieldOne.getText().isEmpty() && fieldTwo.getText().isEmpty() && cBox.getSelectedItem().equals("-----")){
+            message.setText("Välj minst en ruta att uppdatera för den valda alien.");
+            result = false; 
+        }
+        return result; 
+    }
+
+    public static boolean validationTxtDate(JTextField fieldToValidate, JLabel message) {
         boolean result = true;
         String fullDate = fieldToValidate.getText();
 
@@ -56,7 +63,7 @@ public class Validation {
             String lineTwo = fullDate.substring(7, 8);
 
             String regex = "\\d+"; //Kontrollerar att det er ett tal från 0 eller större
-            
+
             Boolean yearTest = year.matches(regex);
             Boolean monthTest = month.matches(regex);
             Boolean dayTest = day.matches(regex);
@@ -64,7 +71,7 @@ public class Validation {
             if (yearTest && monthTest && dayTest
                     && lineOne.equals("-") && lineTwo.equals("-")
                     && Integer.parseInt(month) >= 1 && Integer.parseInt(month) <= 12
-                    && Integer.parseInt(day) >= 1 && Integer.parseInt(day) <= 31){
+                    && Integer.parseInt(day) >= 1 && Integer.parseInt(day) <= 31) {
             } else {
                 result = false;
                 message.setText("Datumet är felaktigt!");
@@ -73,42 +80,64 @@ public class Validation {
         }
         return result;
     }
-       
-    public static boolean validationTxtPhone(JTextField fieldToValidate, JTextArea message){
-        boolean result = false;        
-        if(fieldToValidate.getText().matches("[+() [0-9]-]+") || fieldToValidate.getText().matches("")){
-            
+
+    public static boolean validationTxtPhone(JTextField fieldToValidate, JTextArea message) {
+        boolean result = false;
+        if (fieldToValidate.getText().matches("[+() [0-9]-]+") || fieldToValidate.getText().matches("")) {
+
             result = true;
             fieldToValidate.requestFocus();
-            
-        }
-        else{
+
+        } else {
             message.setText("Telefonnumret har fel format!");
         }
         return result;
     }
-    
-    
-    public static boolean validationCb(JComboBox fieldToValidate, JLabel message)
-    {
-        boolean result = true;        
-        if(fieldToValidate.getSelectedItem().equals("-----")){
+
+    public static boolean validationTxtPhone(JTextField fieldToValidate, JLabel message) {
+        boolean result = false;
+        if (fieldToValidate.getText().matches("[+() [0-9]-]+") || fieldToValidate.getText().matches("")) {
+
+            result = true;
+            fieldToValidate.requestFocus();
+
+        } else {
+            message.setText("Telefonnumret har fel format!");
+        }
+        return result;
+    }
+
+    public static boolean validationCb(JComboBox fieldToValidate, JLabel message) {
+        boolean result = true;
+        if (fieldToValidate.getSelectedItem().equals("-----")) {
             message.setText("En eller flera rutor är tomma!");
             result = false;
             fieldToValidate.requestFocus();
-        }       
+        }
         return result;
     }
-    
-    public static boolean validationCb(JComboBox fieldToValidate, JTextArea message)
-    {
-        boolean result = true;        
-        if(fieldToValidate.getSelectedItem().equals("-----")){
+
+    public static boolean validationCb(JComboBox fieldToValidate, JTextArea message) {
+        boolean result = true;
+        if (fieldToValidate.getSelectedItem().equals("-----")) {
             message.setText("En eller flera rutor är tomma!");
             result = false;
             fieldToValidate.requestFocus();
-        }       
+        }
         return result;
     }
-    
+
+    public static boolean validationTxtInt(JTextField fieldToValidate, JLabel message) {
+        boolean result = false;
+        if (fieldToValidate.getText().matches("[0-9]+") || fieldToValidate.getText().matches("")) {
+
+            result = true;
+            fieldToValidate.requestFocus();
+
+        } else {
+            message.setText("Ange siffror!");
+        }
+        return result;
+    }
+
 }
