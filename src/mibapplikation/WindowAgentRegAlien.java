@@ -252,7 +252,6 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         txtaMessage.setColumns(10);
         txtaMessage.setForeground(new java.awt.Color(255, 255, 255));
         txtaMessage.setRows(5);
-        txtaMessage.setText("Registrering slutförd!\nSkriv ner informationen nedan.\n------------------------------------------\nID: asdasf\nLösenord: asadafsa");
         txtaMessage.setFocusable(false);
         spMessageBox.setViewportView(txtaMessage);
 
@@ -365,7 +364,7 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
                             .addComponent(cbLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(spMessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -422,7 +421,8 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
                 && Validation.validationCb(cbAgentInCharge, txtaMessage)) {
 
             if (txtRaceSpecial.isShowing() == true) {
-                if (!Validation.validationTxt(txtRaceSpecial, txtaMessage)) {
+                if (!Validation.validationTxt(txtRaceSpecial, txtaMessage)
+                        || !Validation.validationNumbers(txtRaceSpecial, txtaMessage, lblRaceSpecial.getText() + " måste vara\nen siffra!")) {
 
                     return;
                 }
@@ -431,9 +431,9 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
             try {
                 String alienId = getNewAlienId();
                 String newPw = getNewPw();
-                
-                String queryTest ="INSERT INTO alien (alien_id, namn, plats, ansvarig_agent)\n" +
-                                    "VALUES (6, " + "'" + name + "'" + ", " + "'" + getLocationId() + "'" + ", '1')";
+
+                //String queryTest ="INSERT INTO alien (alien_id, namn, plats, ansvarig_agent)\n" +
+                //                  "VALUES (6, " + "'" + name + "'" + ", " + "'" + getLocationId() + "'" + ", '1')";
                 String query = "INSERT INTO alien (alien_id, registreringsdatum, losenord, namn, telefon, plats, ansvarig_agent)\n"
                         + "VALUES (" + alienId + ", "
                         + "'" + getSystemDate() + "'" + ", "
@@ -468,6 +468,12 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
                         idb.insert(queryWorm);
                         break;
                 }
+
+                txtaMessage.setText("Registrering slutförd!\n"
+                        + "Skriv ner informationen nedan.\n"
+                        + "------------------------------------------\n"
+                        + "ID: " + alienId + "\n"
+                        + "Lösenord: " + newPw);
 
             } catch (InfException ex) {
                 System.out.println("Databasfel" + ex.getMessage());
