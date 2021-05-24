@@ -7,6 +7,7 @@ package mibapplikation;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.HashMap;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -25,6 +26,8 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
         hideText();
+        listAgents();
+        listLocations();
 
     }
 
@@ -56,9 +59,9 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
         lblPw = new javax.swing.JLabel();
         lblLocation = new javax.swing.JLabel();
         lblAgent = new javax.swing.JLabel();
-        txtfLocationInput = new javax.swing.JTextField();
         cbListAgents = new javax.swing.JComboBox<>();
         txtfPwInput = new javax.swing.JTextField();
+        cbListLocations = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
@@ -130,11 +133,11 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
         lblAgent.setForeground(new java.awt.Color(255, 255, 255));
         lblAgent.setText("Uppdatera ansvarig agent:");
 
-        txtfLocationInput.setColumns(6);
-
         cbListAgents.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
 
         txtfPwInput.setColumns(6);
+
+        cbListLocations.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -171,9 +174,10 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
                                             .addComponent(txtfPhoneInput)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtfLocationInput, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                                            .addComponent(txtfPwInput)))))
+                                        .addComponent(txtfPwInput, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cbListLocations, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addComponent(lblRaceSpecial))
@@ -221,7 +225,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtfLocationInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbListLocations, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAgent)
@@ -273,6 +277,42 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
         lblMessage.setText("Dina ändringar är sparade");
 
     }
+    
+    private void listLocations(){
+        
+        try {
+            String query = "SELECT benamning FROM plats";
+            ArrayList<String> listLocations = idb.fetchColumn(query);
+
+            for (String element : listLocations) {
+
+                cbListLocations.addItem(element);
+
+            }
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+    }
+    
+    private void listAgents(){
+        
+        try {
+            String query = "SELECT namn,agent_id FROM agent";
+            ArrayList<HashMap<String,String>> listLocations = idb.fetchRows(query);
+
+            for (HashMap<String,String> element : listLocations) {
+                
+                cbListAgents.addItem(element.get("namn") + " (" + element.get("agent_id") + ")");
+
+            }
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+    }
 
     private void setAlienName(String alienId) {
 
@@ -304,34 +344,51 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
 
     }
 
-    private void setPassword(String aliendId) {
-//        try {
-//            if(Validation.validationTxtNrOfCharPw(txtfNameInput, lblMessage))
-//        } catch (InfException ex) {
-//            System.out.println("Databasfel" + ex.getMessage());
-//        } catch (Exception ex) {
-//            System.out.println("Random fel" + ex.getMessage());
-//        }
+    private void setPassword(String alienId) {
+        try {
+            if (Validation.validationTxtNrOfCharPw(txtfPwInput, lblMessage)) {
+                String qPassword = "UPDATE alien SET losenord = '" + txtfPwInput.getText() +"' WHERE alien_id = '" + alienId + "'" ;
+                idb.update(qPassword);
+                correctValues();
+            }
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
     }
 
     private void setLocation(String alienId) {
-//        try {
-//
-//        } catch (InfException ex) {
-//            System.out.println("Databasfel" + ex.getMessage());
-//        } catch (Exception ex) {
-//            System.out.println("Random fel" + ex.getMessage());
-//        }
+        try {
+                String qLocationId = "SElECT plats_id from plats WHERE benamning = '" + cbListLocations.getSelectedItem() + "'";
+                String locationId = idb.fetchSingle(qLocationId);
+          
+                String qLocation = "Update alien SET plats ='" + locationId + "' WHERE alien_id = '" + alienId + "'";
+                idb.update(qLocation);
+                correctValues();
+            
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+
     }
 
-    private void setAgent(String aliendId) {
+    private void setAgent(String alienId) {
 //        try {
-//
+//               //Hämta ut agentId
+//          
+//                String qAgent = "Update alien SET plats ='" + agentId + "' WHERE alien_id = '" + alienId + "'";
+//                idb.update(qAgent);
+//                correctValues();
+//            
 //        } catch (InfException ex) {
 //            System.out.println("Databasfel" + ex.getMessage());
 //        } catch (Exception ex) {
 //            System.out.println("Random fel" + ex.getMessage());
 //        }
+
     }
 
     private void setBoglodite(String alienId) {
@@ -432,7 +489,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
         int loops = 0;
 
         if (Validation.validationTxt(txtfAlienInput, lblMessage)) {
-            if (Validation.validationTxtAndCb(txtfNameInput, txtfPhoneInput, cbListRace, lblMessage)) {
+//            if (Validation.validationTxtAndCb(txtfNameInput, txtfPhoneInput, cbListRace, lblMessage)) {
 //                    && Validation.validationTxtAndCb(txtfPwInput, txtfLocationInput, cbListAgents, lblMessage)) 
 
                 try {
@@ -459,13 +516,13 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
                             setPhone(alienId);
                         }
                         if (!txtfPwInput.getText().isEmpty()) {
-
+                            setPassword(alienId);
                         }
-                        if (!txtfLocationInput.getText().isEmpty()) {
-
+                        if (!cbListLocations.getSelectedItem().equals("-----")) {
+                            setLocation(alienId);
                         }
                         if (!cbListAgents.getSelectedItem().equals("-----")) {
-
+                            setAgent(alienId);
                         }
                         if (!cbListRace.getSelectedItem().equals("-----")) {
 
@@ -493,7 +550,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
                 } catch (Exception ex) {
                     System.out.println("Random fel" + ex.getMessage());
                 }
-            }
+            
         }
 
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -524,6 +581,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> cbListAgents;
+    private javax.swing.JComboBox<String> cbListLocations;
     private javax.swing.JComboBox<String> cbListRace;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAgent;
@@ -538,7 +596,6 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
     private javax.swing.JLabel lblRaceSpecial;
     private javax.swing.JLabel lblTitel;
     private javax.swing.JTextField txtfAlienInput;
-    private javax.swing.JTextField txtfLocationInput;
     private javax.swing.JTextField txtfNameInput;
     private javax.swing.JTextField txtfPhoneInput;
     private javax.swing.JTextField txtfPwInput;

@@ -84,10 +84,11 @@
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="txtfLocationInput" pref="134" max="32767" attributes="0"/>
-                                              <Component id="txtfPwInput" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="txtfPwInput" min="-2" pref="134" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                          <Component id="cbListLocations" min="-2" pref="134" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -153,7 +154,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblLocation" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
-                      <Component id="txtfLocationInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbListLocations" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -331,11 +332,6 @@
             <Property name="text" type="java.lang.String" value="Uppdatera ansvarig agent:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtfLocationInput">
-          <Properties>
-            <Property name="columns" type="int" value="6"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JComboBox" name="cbListAgents">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -352,6 +348,18 @@
           <Properties>
             <Property name="columns" type="int" value="6"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbListLocations">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="1">
+                <StringItem index="0" value="-----"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
