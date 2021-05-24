@@ -150,7 +150,7 @@ public class WindowAgentListAlienRace extends javax.swing.JFrame {
                                  + "------------\t------------\n");
 
             for(String alienId : listAlienId){
-                String race = ValidationRace.getRace(idb, alienId);
+                String race = Alien.getRace(alienId);
                 String qAlienName = "SELECT namn FROM alien WHERE alien_id = '" + alienId + "'";
                 String alienName = idb.fetchSingle(qAlienName);
                 

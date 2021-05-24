@@ -206,7 +206,7 @@ public class WindowAdminDeleteAgent extends javax.swing.JFrame {
                 deleteAgent();
 
                 lblMessage.setForeground(Color.GREEN);
-                lblMessage.setText("Alien har tagits bort!");
+                lblMessage.setText("Agenten har tagits bort!");
 
             }
         }

@@ -12,7 +12,7 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class StartClass {
+public class Database {
     
     private static InfDB idb;
     
@@ -25,7 +25,7 @@ public class StartClass {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
         }
         catch(InfException ex){
-            Logger.getLogger(StartClass.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         new MainWindowLogin(idb).setVisible(true);
@@ -33,7 +33,8 @@ public class StartClass {
         
         
        // new WindowTemplate().setVisible(true);
-       
+       new Equipment(idb);
+       new Alien(idb);
     }
 
 }

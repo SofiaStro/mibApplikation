@@ -393,7 +393,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
 
     private void setBoglodite(String alienId) {
 
-        String currentRace = ValidationRace.getRace(idb, alienId);
+        String currentRace = Alien.getRace(alienId);
         try {
             showText();
             lblRaceSpecial.setText("Ange antal boogies: ");
@@ -420,7 +420,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
     }
 
     private void setSquid(String alienId) {
-        String currentRace = ValidationRace.getRace(idb, alienId);
+        String currentRace = Alien.getRace(alienId);
         try {
 
             showText();
@@ -448,7 +448,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
     }
 
     private void setWorm(String alienId) {
-        String currentRace = ValidationRace.getRace(idb, alienId);
+        String currentRace = Alien.getRace(alienId);
         try {
 
             if (currentRace != "") {
@@ -467,7 +467,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
     }
 
     private void setUnidentified(String alienId) {
-        String currentRace = ValidationRace.getRace(idb, alienId);
+        String currentRace = Alien.getRace(alienId);
         try {
             if (currentRace != "") {
                 String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
@@ -526,7 +526,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
                         }
                         if (!cbListRace.getSelectedItem().equals("-----")) {
 
-                            String currentRace = ValidationRace.getRace(idb, alienId);
+                            String currentRace = Alien.getRace(alienId);
 
                             if (currentRace.equals(cbListRace.getSelectedItem())) {
                                 lblMessage.setText("Alien är redan registrerad som den här rasen.");

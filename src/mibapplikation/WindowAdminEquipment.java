@@ -231,7 +231,7 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
             ArrayList<HashMap<String, String>> result = idb.fetchRows(query);
             
             for (HashMap<String, String> element : result) {
-                String equipmentType = ValidationRace.getEquipment(idb, element.get("utrustnings_id"));
+                String equipmentType = Equipment.getEquipmentType(element.get("utrustnings_id"));
                 txtaListEquipment.append(" • " + element.get("benamning") + " (" + equipmentType + ")\n");
             }
         } catch (InfException ex) {
@@ -478,7 +478,7 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
                     }
                 }
                 
-                String equipmentType = ValidationRace.getEquipment(idb, equipmentId);
+                String equipmentType = Equipment.getEquipmentType(equipmentId);
                 if (equipmentType.equals("Vapen")) {
                     deleteWeaponEquipment();
                 } else if (equipmentType.equals("Teknik")) {

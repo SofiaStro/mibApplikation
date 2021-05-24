@@ -12,45 +12,16 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class ValidationRace {
+public class Equipment {
 
-    public static String getRace(InfDB idbIncoming, String alienId) {
-        InfDB idb = idbIncoming;
-        String ras = "";
-        try {
-            String qAlienSquid = "SELECT alien_id FROM squid WHERE alien_id = '" + alienId + "'";
-            String alienSquid = idb.fetchSingle(qAlienSquid);
+    private static InfDB idb;
 
-            String qAlienBoglodite = "SELECT alien_id FROM boglodite WHERE alien_id = '" + alienId + "'";
-            String alienBoglodite = idb.fetchSingle(qAlienBoglodite);
-
-            String qAlienWorm = "SELECT alien_id FROM worm WHERE alien_id = '" + alienId + "'";
-            String alienWorm = idb.fetchSingle(qAlienWorm);
-
-            if (alienSquid != null) {
-                ras = "Squid";
-            } 
-            else if (alienBoglodite != null) {
-                ras = "Boglodite";
-            } 
-            else if (alienWorm != null) {
-                ras = "Worm";
-            }
-
-        } 
-        catch (InfException ex) {
-            System.out.println("Databasfel" + ex.getMessage());
-        } 
-        catch (Exception ex) {
-            System.out.println("Random fel" + ex.getMessage());
-        }
-        return ras;
+    public Equipment(InfDB idb){
+        this.idb = idb;
     }
+   
+    public static String getEquipmentType(String equipmentId) {
 
-
-
-    public static String getEquipment(InfDB idbIncoming, String equipmentId) {
-        InfDB idb = idbIncoming;
         String equipmentType = "";
         try {
             String qEquipmentWeapon = "SELECT utrustnings_id FROM vapen WHERE utrustnings_id = '" + equipmentId + "'";

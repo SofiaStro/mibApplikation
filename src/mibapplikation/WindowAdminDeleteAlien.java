@@ -159,7 +159,6 @@ public class WindowAdminDeleteAlien extends javax.swing.JFrame {
         try {
             String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";
             ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
-            String alienId = idb.fetchSingle(qAlienId);
 
             for (String element : alienIdList) {
                 loops++;
@@ -231,7 +230,7 @@ public class WindowAdminDeleteAlien extends javax.swing.JFrame {
                 lblMessage.setText("Alien namnet finns inte registrerat");
 
             } else {
-                String race = ValidationRace.getRace(idb, getAlienId());
+                String race = Alien.getRace(getAlienId());
                 if (race.equals("Squid")) {
                     deleteSquid();
                 } else if (race.equals("Boglodite")) {

@@ -188,7 +188,7 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
                     String alienKontakt = idb.fetchSingle(qAlienKontakt);
                     txtaPrintAlienInfo.append("Kontakt:\t" + alienKontakt + "\n");
 
-                    String ras = ValidationRace.getRace(idb, alienId);
+                    String ras = Alien.getRace(alienId);
                     txtaPrintAlienInfo.append("Ras:\t" + ras + "\n");
                     
                     String alienEgenskap = "";
