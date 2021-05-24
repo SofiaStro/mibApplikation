@@ -98,7 +98,7 @@ public class WindowAlienStart extends javax.swing.JFrame {
         lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setText("Välkommen ");
-        background.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 250, -1));
+        background.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 350, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

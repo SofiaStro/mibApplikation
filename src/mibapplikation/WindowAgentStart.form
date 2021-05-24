@@ -66,9 +66,9 @@
                       <Component id="btn4" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btnInfoAlien" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btnEquipment" min="-2" pref="190" max="-2" attributes="0"/>
-                      <Component id="lblWelcome" min="-2" pref="178" max="-2" attributes="0"/>
+                      <Component id="lblWelcome" alignment="0" min="-2" pref="360" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="307" max="32767" attributes="0"/>
+                  <EmptySpace pref="137" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

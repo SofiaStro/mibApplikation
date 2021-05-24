@@ -51,7 +51,6 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnChangePw" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btnLogout" min="-2" pref="190" max="-2" attributes="0"/>
-                      <Component id="lblWelcome" alignment="0" min="-2" pref="274" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btn12" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
@@ -80,8 +79,9 @@
                               <Component id="btn17" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Component id="lblWelcome" min="-2" pref="441" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
