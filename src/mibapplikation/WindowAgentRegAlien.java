@@ -5,7 +5,6 @@
  */
 package mibapplikation;
 
-import static java.lang.Integer.parseInt;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +20,7 @@ import oru.inf.InfException;
  */
 public class WindowAgentRegAlien extends javax.swing.JFrame {
 
-    private String agentId;
+    
     private InfDB idb;
 
     /**
@@ -30,7 +29,7 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
     public WindowAgentRegAlien(InfDB idb) {
         initComponents();
         this.idb = idb;
-        this.agentId = agentId;
+        
         setRace();
         setLocation();
         setAgentInCharge();
@@ -407,12 +406,7 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         Object getRaceListItem = cbRace.getSelectedItem();
         String race = getRaceListItem.toString();
 
-        if (race.equals("Squid")) {
-            lblRaceSpecial.setText("Antal armar:");
-        }
-        if (race.equals("Boglodite")) {
-            lblRaceSpecial.setText("Antal boogies");
-        }
+       
 
         if (Validation.validationTxtPhone(txtPhone, txtaMessage) //kolla om databasen får ett värde om man endast skriver mellanslag
                 && Validation.validationTxt(txtName, txtaMessage)
