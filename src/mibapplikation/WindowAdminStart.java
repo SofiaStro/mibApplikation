@@ -92,6 +92,11 @@ public class WindowAdminStart extends javax.swing.JFrame {
 
         btn4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn4.setText("Ändra info om alien");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
 
         btn5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn5.setText("Se info om alien");
@@ -331,6 +336,10 @@ public class WindowAdminStart extends javax.swing.JFrame {
         // TODO add your handling code here:
          new WindowAdminEquipment(idb).setVisible(true);
     }//GEN-LAST:event_btnEquipmentListActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        new WindowAdminUpdateAlienInfo(idb).setVisible(true);
+    }//GEN-LAST:event_btn4ActionPerformed
 
     /**
      * @param args the command line arguments
