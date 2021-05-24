@@ -300,12 +300,14 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
     private void listAgents() {
 
         try {
-            String query = "SELECT namn,agent_id FROM agent";
+             String query = "SELECT agent_id, namn, benamning FROM agent\n"
+                    + "JOIN Omrade o on Agent.Omrade = o.Omrades_ID\n"
+                    + "ORDER BY namn, benamning";
             ArrayList<HashMap<String, String>> listLocations = idb.fetchRows(query);
 
             for (HashMap<String, String> element : listLocations) {
 
-                cbListAgents.addItem(element.get("namn") + " (" + element.get("agent_id") + ")");
+                cbListAgents.addItem(element.get("namn") + " (" + element.get("agent_id") + ") " + element.get("benamning"));
 
             }
         } catch (InfException ex) {
@@ -378,8 +380,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
 
     private void setAgent(String alienId) {
         try {
-               Object getAgentListItem = cbListAgents.getSelectedItem();
-                String agentListItem = getAgentListItem.toString();
+                String agentListItem =  cbListAgents.getSelectedItem().toString();
                 String agentId = StringUtils.substringBetween(agentListItem, "(", ")");
           
                 String qAgent = "Update alien SET ansvarig_agent  ='" + agentId + "' WHERE alien_id = '" + alienId + "'";
