@@ -39,14 +39,8 @@ public class Validation {
         return result;
     }
 
-    public static boolean validationTxtAndCb(JTextField fieldOne, JTextField fieldTwo, JComboBox cBox, JLabel message) {
-        boolean result = true;
-        if (fieldOne.getText().isEmpty() && fieldTwo.getText().isEmpty() && cBox.getSelectedItem().equals("-----")) {
-            message.setText("Välj minst en ruta att uppdatera för den valda alien.");
-            result = false;
-        }
-        return result;
-    }
+ 
+    
 
     public static boolean validationTxtDate(JTextField fieldToValidate, JLabel message) {
         boolean result = true;
