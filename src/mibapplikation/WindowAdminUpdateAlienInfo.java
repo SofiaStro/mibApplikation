@@ -8,6 +8,7 @@ package mibapplikation;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
+import org.apache.commons.lang3.StringUtils;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -277,9 +278,9 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
         lblMessage.setText("Dina ändringar är sparade");
 
     }
-    
-    private void listLocations(){
-        
+
+    private void listLocations() {
+
         try {
             String query = "SELECT benamning FROM plats";
             ArrayList<String> listLocations = idb.fetchColumn(query);
@@ -295,15 +296,15 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
-    
-    private void listAgents(){
-        
+
+    private void listAgents() {
+
         try {
             String query = "SELECT namn,agent_id FROM agent";
-            ArrayList<HashMap<String,String>> listLocations = idb.fetchRows(query);
+            ArrayList<HashMap<String, String>> listLocations = idb.fetchRows(query);
 
-            for (HashMap<String,String> element : listLocations) {
-                
+            for (HashMap<String, String> element : listLocations) {
+
                 cbListAgents.addItem(element.get("namn") + " (" + element.get("agent_id") + ")");
 
             }
@@ -347,7 +348,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
     private void setPassword(String alienId) {
         try {
             if (Validation.validationTxtNrOfChar(txtfPwInput, lblMessage, 6, "Lösenordet får max vara 6 tecken")) {
-                String qPassword = "UPDATE alien SET losenord = '" + txtfPwInput.getText() +"' WHERE alien_id = '" + alienId + "'" ;
+                String qPassword = "UPDATE alien SET losenord = '" + txtfPwInput.getText() + "' WHERE alien_id = '" + alienId + "'";
                 idb.update(qPassword);
                 correctValues();
             }
@@ -360,13 +361,13 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
 
     private void setLocation(String alienId) {
         try {
-                String qLocationId = "SElECT plats_id from plats WHERE benamning = '" + cbListLocations.getSelectedItem() + "'";
-                String locationId = idb.fetchSingle(qLocationId);
-          
-                String qLocation = "Update alien SET plats ='" + locationId + "' WHERE alien_id = '" + alienId + "'";
-                idb.update(qLocation);
-                correctValues();
-            
+            String qLocationId = "SElECT plats_id from plats WHERE benamning = '" + cbListLocations.getSelectedItem() + "'";
+            String locationId = idb.fetchSingle(qLocationId);
+
+            String qLocation = "Update alien SET plats ='" + locationId + "' WHERE alien_id = '" + alienId + "'";
+            idb.update(qLocation);
+            correctValues();
+
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
         } catch (Exception ex) {
@@ -376,18 +377,20 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
     }
 
     private void setAgent(String alienId) {
-//        try {
-//               //Hämta ut agentId
-//          
-//                String qAgent = "Update alien SET plats ='" + agentId + "' WHERE alien_id = '" + alienId + "'";
-//                idb.update(qAgent);
-//                correctValues();
-//            
-//        } catch (InfException ex) {
-//            System.out.println("Databasfel" + ex.getMessage());
-//        } catch (Exception ex) {
-//            System.out.println("Random fel" + ex.getMessage());
-//        }
+        try {
+               Object getAgentListItem = cbListAgents.getSelectedItem();
+                String agentListItem = getAgentListItem.toString();
+                String agentId = StringUtils.substringBetween(agentListItem, "(", ")");
+          
+                String qAgent = "Update alien SET ansvarig_agent  ='" + agentId + "' WHERE alien_id = '" + alienId + "'";
+                idb.update(qAgent);
+                correctValues();
+            
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
 
     }
 
@@ -489,8 +492,13 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
         int loops = 0;
 
         if (Validation.validationTxt(txtfAlienInput, lblMessage, "Ange aliennamn eller id")) {
-//            if (Validation.validationTxtAndCb(txtfNameInput, txtfPhoneInput, cbListRace, lblMessage)) {
-//                    && Validation.validationTxtAndCb(txtfPwInput, txtfLocationInput, cbListAgents, lblMessage)) 
+            if (txtfNameInput.getText().isEmpty() && txtfPhoneInput.getText().isEmpty()
+                    && txtfPwInput.getText().isEmpty()
+                    && cbListLocations.getSelectedItem().equals("-----")
+                    && cbListAgents.getSelectedItem().equals("-----")
+                    && cbListRace.getSelectedItem().equals("-----")) {
+                lblMessage.setText("Välj minst en ruta att uppdatera för den valda alien");
+            } else {
 
                 try {
                     String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";
@@ -550,7 +558,8 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
                 } catch (Exception ex) {
                     System.out.println("Random fel" + ex.getMessage());
                 }
-            
+
+            }
         }
 
     }//GEN-LAST:event_btnSaveActionPerformed

@@ -219,7 +219,8 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
         lblMessage.setText("Dina ändringar är sparade");
 
     }
-       private void setAlienName(String alienId) {
+
+    private void setAlienName(String alienId) {
 
         try {
             if (Validation.validationTxtNrOfChar(txtfNameInput, lblMessage, 20, "Namnet får vara max 20 tecken")) {
@@ -257,7 +258,7 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
             lblRaceSpecial.setText("Ange antal boogies: ");
             if (txtfRaceSpecial.getText().isEmpty()) {
                 lblMessage.setText("Rutan för ras-specialitet är tom");
-//  
+
             } else {
                 if (currentRace != "") {
                     String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
@@ -347,7 +348,10 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
         int loops = 0;
 
         if (Validation.validationTxt(txtfAlienInput, lblMessage, "Ange aliennamn eller id")) {
-            if (Validation.validationTxtAndCb(txtfNameInput, txtfPhoneInput, cbListRace, lblMessage)) {
+            if (txtfNameInput.getText().isEmpty() && txtfPhoneInput.getText().isEmpty()
+                    && cbListRace.getSelectedItem().equals("-----")) {
+                lblMessage.setText("Välj minst en ruta att uppdatera för den valda alien");
+            } else {
                 try {
                     String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";
                     ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
@@ -356,7 +360,6 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
                     for (String element : alienIdList) {
                         loops++;
                     }
-
                     if (loops > 1) {
                         lblMessageInput.setText("Det finns mer än en alien med detta namn, var vänligen ange ID");
 
@@ -367,21 +370,11 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
 
                         if (!txtfNameInput.getText().isEmpty()) {
                             setAlienName(alienId);
-//                            if(Validation.validationTxtNrOfChar(txtfNameInput, lblMessage)){
-//                            String qName = "UPDATE alien SET namn = '" + txtfNameInput.getText() + "' WHERE alien_id = '" + alienId + "'";
-//                            idb.update(qName);
-//                            correctValues();
-                            
                         }
-                        if(!txtfPhoneInput.getText().isEmpty()) {
+                        if (!txtfPhoneInput.getText().isEmpty()) {
                             setPhone(alienId);
-//                            if (Validation.validationTxtPhone(txtfPhoneInput, lblMessage)) {
-//                                String qPhone = "UPDATE alien SET telefon = '" + txtfPhoneInput.getText() + "' WHERE alien_id = '" + alienId + "'";
-//                                idb.update(qPhone);
-//                                correctValues();
-//                            }
                         }
-                        if(!cbListRace.getSelectedItem().equals("-----")) {
+                        if (!cbListRace.getSelectedItem().equals("-----")) {
 
                             String currentRace = Alien.getRace(alienId);
                             System.out.println(currentRace);
@@ -409,8 +402,8 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
                 } catch (Exception ex) {
                     System.out.println("Random fel" + ex.getMessage());
                 }
-            }
 
+            }
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
