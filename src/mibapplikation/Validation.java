@@ -142,19 +142,6 @@ public class Validation {
         return result;
     }
 
-    public static boolean validationTxtInt(JTextField fieldToValidate, JLabel message) {
-        boolean result = false;
-        if (fieldToValidate.getText().matches("[0-9]+") || fieldToValidate.getText().matches("")) {
-
-            result = true;
-            fieldToValidate.requestFocus();
-
-        } else {
-            message.setText("Ange siffror!");
-        }
-        return result;
-    }
-
     public static boolean validationTxtNrOfChar(JTextField fieldToValidate, JLabel message) {
         boolean result = false;
         if (fieldToValidate.getText().length() <= 20) {
