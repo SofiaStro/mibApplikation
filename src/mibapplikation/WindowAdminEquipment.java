@@ -423,8 +423,8 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
                 if (equipmentExist) {
                     lblMessage.setText("Utrustningen finns redan!");
                 } else {
-                    
-                    if (cbEquipCategory.getSelectedItem().equals("Vapen") && Validation.validationTxtInt(txtfEquipCapacity, lblMessage)) {
+                     
+                    if (cbEquipCategory.getSelectedItem().equals("Vapen") && Validation.validationNumbers(txtfEquipCapacity, lblMessage, "Kaliber måste vare en siffra!")) {
                         addWeaponEquipment();
                         equipmentAdded = true;
                     } else if (cbEquipCategory.getSelectedItem().equals("Teknik") && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessage)) {
