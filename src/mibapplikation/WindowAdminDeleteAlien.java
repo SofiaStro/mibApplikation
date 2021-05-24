@@ -6,6 +6,8 @@
 package mibapplikation;
 
 
+import java.awt.Color;
+import java.util.ArrayList;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -23,6 +25,7 @@ public class WindowAdminDeleteAlien extends javax.swing.JFrame {
      */
     public WindowAdminDeleteAlien(InfDB idb) {
         initComponents();
+        this.idb= idb;
 
     }
 
@@ -89,18 +92,18 @@ public class WindowAdminDeleteAlien extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 150, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAlien, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
-                            .addComponent(txtfAlienInput, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE))
+                            .addComponent(lblAlien, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+                            .addComponent(txtfAlienInput, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnDelete))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(35, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,16 +137,115 @@ public class WindowAdminDeleteAlien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private String getAlienId() {
+        String alienId = "";
+        try {
+            String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";
+            String resultAlienId = idb.fetchSingle(qAlienId);
+            if(resultAlienId != null){
+                alienId = resultAlienId;
+            }
+            
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+        return alienId;
+    }
+
+    private int checkInput() {
+        int loops = 0;
+        try {
+            String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";
+            ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
+            String alienId = idb.fetchSingle(qAlienId);
+
+            for (String element : alienIdList) {
+                loops++;
+            }
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+        return loops;
+
+    }
+  
+    private void deleteSquid() {
+        String alienId = getAlienId();
+        try {
+            String qAlien = "DELETE FROM alien WHERE alien_id = '" + alienId + "'";
+            idb.delete(qAlien);
+            String qSquid = "DELETE FROM squid WHERE alien_id = '" + alienId + "'";
+            idb.delete(qSquid);
+
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+    }
+    
+    private void deleteBoglodite() {
+        String alienId = getAlienId();
+        try {
+            String qAlien = "DELETE FROM alien WHERE alien_id = '" + alienId + "'";
+            idb.delete(qAlien);
+            String qBoglodite = "DELETE FROM boglodite WHERE alien_id = '" + alienId + "'";
+            idb.delete(qBoglodite);
+
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+    }
+    
+        private void deleteWorm() {
+        String alienId = getAlienId();
+        try {
+            String qAlien = "DELETE FROM alien WHERE alien_id = '" + alienId + "'";
+            idb.delete(qAlien);
+            String qWorm = "DELETE FROM worm WHERE alien_id = '" + alienId + "'";
+            idb.delete(qWorm);
+
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+    }
+
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
 
-//        try{
-//
-//        catch (InfException ex){
-//            System.out.println("Databasfel" + ex.getMessage());
-//        }
-//        catch (Exception ex){
-//            System.out.println("Random fel" + ex.getMessage());
-//        }
+        lblMessage.setText(" ");
+        lblMessage.setForeground(Color.RED);
+
+        if(Validation.validationTxt(txtfAlienInput, lblMessage)){
+            if (checkInput() > 1) {
+                lblMessage.setText("Det finns mer än en alien med detta namn, vänligen ange ID");
+
+            } else if (getAlienId().equals("")) {
+                lblMessage.setText("Alien namnet finns inte registrerat");
+
+            } else {
+                String race = ValidationRace.getRace(idb, getAlienId());
+                if (race.equals("Squid")) {
+                    deleteSquid();
+                } else if (race.equals("Boglodite")) {
+                    deleteBoglodite();
+                } else if (race.equals("Worm")) {
+                    deleteWorm();
+                }
+
+                lblMessage.setForeground(Color.GREEN);
+                lblMessage.setText("Alien har tagits bort!");
+
+            }
+        }
+ 
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
