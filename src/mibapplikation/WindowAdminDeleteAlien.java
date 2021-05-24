@@ -222,7 +222,7 @@ public class WindowAdminDeleteAlien extends javax.swing.JFrame {
         lblMessage.setText(" ");
         lblMessage.setForeground(Color.RED);
 
-        if(Validation.validationTxt(txtfAlienInput, lblMessage)){
+        if(Validation.validationTxt(txtfAlienInput, lblMessage, "Ange aliennamn eller id")){
             if (checkInput() > 1) {
                 lblMessage.setText("Det finns mer än en alien med detta namn, vänligen ange ID");
 

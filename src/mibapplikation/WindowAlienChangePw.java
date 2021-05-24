@@ -155,7 +155,9 @@ public class WindowAlienChangePw extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // Om ID stämmer med old lösenord
         // Byt till nya lösenordet
-        if(Validation.validationTxt(pwOldPw, lblMessage)&& Validation.validationTxt(pwNewPw, lblMessage)){
+        if(Validation.validationTxt(pwOldPw, lblMessage, "Ange ditt nuvarande lösenord")
+                && Validation.validationTxt(pwNewPw, lblMessage, "Ange ditt nya lösenord")
+                && Validation.validationTxtNrOfChar(pwNewPw, lblMessage, 6, "Det nya lösenordet får vara max 6 tecken")){
             try{
                 char[] pwOldArray = pwOldPw.getPassword();
                 String oldPassword = new String(pwOldArray);

@@ -19,10 +19,10 @@ import javax.swing.JTextField;
  */
 public class Validation {
 
-    public static boolean validationTxt(JTextField fieldToValidate, JLabel message) {
+    public static boolean validationTxt(JTextField fieldToValidate, JLabel message, String messageText) {
         boolean result = true;
         if (fieldToValidate.getText().isEmpty()) {
-            message.setText("En eller flera rutor är tomma!");
+            message.setText(messageText);
             result = false;
             fieldToValidate.requestFocus();
         }
@@ -155,28 +155,28 @@ public class Validation {
         return result;
     }
 
-    public static boolean validationTxtNrOfChar(JTextField fieldToValidate, JLabel message) {
+//    public static boolean validationTxtNrOfChar(JTextField fieldToValidate, JLabel message) {
+//        boolean result = false;
+//        if (fieldToValidate.getText().length() <= 20) {
+//
+//            result = true;
+//            fieldToValidate.requestFocus();
+//
+//        } else {
+//            message.setText("För många tecken!");
+//        }
+//        return result;
+//    }
+
+    public static boolean validationTxtNrOfChar(JTextField fieldToValidate, JLabel message, int maxChars, String messageText) {
         boolean result = false;
-        if (fieldToValidate.getText().length() <= 20) {
+        if (fieldToValidate.getText().length() <= maxChars) {
 
             result = true;
             fieldToValidate.requestFocus();
 
         } else {
-            message.setText("För många tecken!");
-        }
-        return result;
-    }
-
-    public static boolean validationTxtNrOfCharPw(JTextField fieldToValidate, JLabel message) {
-        boolean result = false;
-        if (fieldToValidate.getText().length() <= 6) {
-
-            result = true;
-            fieldToValidate.requestFocus();
-
-        } else {
-            message.setText("För många tecken!");
+            message.setText(messageText);
         }
         return result;
     }

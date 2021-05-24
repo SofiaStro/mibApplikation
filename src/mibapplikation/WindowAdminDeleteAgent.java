@@ -195,7 +195,7 @@ public class WindowAdminDeleteAgent extends javax.swing.JFrame {
         lblMessage.setText(" ");
         lblMessage.setForeground(Color.RED);
 
-        if(Validation.validationTxt(txtfAgentInput, lblMessage)){
+        if(Validation.validationTxt(txtfAgentInput, lblMessage, "Ange agentnamn eller id")){
             if (checkInput() > 1) {
                 lblMessage.setText("Det finns mer än en agent med detta namn, vänligen ange ID");
 

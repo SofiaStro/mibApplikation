@@ -317,7 +317,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
     private void setAlienName(String alienId) {
 
         try {
-            if (Validation.validationTxtNrOfChar(txtfNameInput, lblMessage)) {
+            if (Validation.validationTxtNrOfChar(txtfNameInput, lblMessage, 20, "Namnet får vara max 20 tecken")) {
                 String qName = "UPDATE alien SET namn = '" + txtfNameInput.getText() + "' WHERE alien_id = '" + alienId + "'";
                 idb.update(qName);
                 correctValues();
@@ -346,7 +346,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
 
     private void setPassword(String alienId) {
         try {
-            if (Validation.validationTxtNrOfCharPw(txtfPwInput, lblMessage)) {
+            if (Validation.validationTxtNrOfChar(txtfPwInput, lblMessage, 6, "Lösenordet får max vara 6 tecken")) {
                 String qPassword = "UPDATE alien SET losenord = '" + txtfPwInput.getText() +"' WHERE alien_id = '" + alienId + "'" ;
                 idb.update(qPassword);
                 correctValues();
@@ -488,7 +488,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
         lblMessage.setForeground(Color.RED);
         int loops = 0;
 
-        if (Validation.validationTxt(txtfAlienInput, lblMessage)) {
+        if (Validation.validationTxt(txtfAlienInput, lblMessage, "Ange aliennamn eller id")) {
 //            if (Validation.validationTxtAndCb(txtfNameInput, txtfPhoneInput, cbListRace, lblMessage)) {
 //                    && Validation.validationTxtAndCb(txtfPwInput, txtfLocationInput, cbListAgents, lblMessage)) 
 

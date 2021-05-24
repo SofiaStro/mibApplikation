@@ -222,7 +222,7 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
        private void setAlienName(String alienId) {
 
         try {
-            if (Validation.validationTxtNrOfChar(txtfNameInput, lblMessage)) {
+            if (Validation.validationTxtNrOfChar(txtfNameInput, lblMessage, 20, "Namnet får vara max 20 tecken")) {
                 String qName = "UPDATE alien SET namn = '" + txtfNameInput.getText() + "' WHERE alien_id = '" + alienId + "'";
                 idb.update(qName);
                 correctValues();
@@ -346,7 +346,7 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
         lblMessage.setForeground(Color.RED);
         int loops = 0;
 
-        if (Validation.validationTxt(txtfAlienInput, lblMessage)) {
+        if (Validation.validationTxt(txtfAlienInput, lblMessage, "Ange aliennamn eller id")) {
             if (Validation.validationTxtAndCb(txtfNameInput, txtfPhoneInput, cbListRace, lblMessage)) {
                 try {
                     String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";

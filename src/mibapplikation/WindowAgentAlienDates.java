@@ -188,8 +188,8 @@ public class WindowAgentAlienDates extends javax.swing.JFrame {
         lblMessage.setText("");
         txtListAliens.setText("");
 
-        if (Validation.validationTxt(txtfStartDate, lblMessage)
-                && Validation.validationTxt(txtfEndDate, lblMessage)
+        if (Validation.validationTxt(txtfStartDate, lblMessage, "Ange ett fr.o.m. datum")
+                && Validation.validationTxt(txtfEndDate, lblMessage, "Ange ett t.o.m. datum")
                 && Validation.validationTxtDate(txtfStartDate, lblMessage)
                 && Validation.validationTxtDate(txtfEndDate, lblMessage)) {
 

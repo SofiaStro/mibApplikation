@@ -160,7 +160,7 @@ public class WindowAgentInfoAlien extends javax.swing.JFrame {
         lblMessage.setText(" ");
         
       
-        if(Validation.validationTxt(txtfAlienInput, lblMessage)){
+        if(Validation.validationTxt(txtfAlienInput, lblMessage, "Ange aliennamn eller id")){
             try {
                 String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";
                 String alienId = idb.fetchSingle(qAlienId);

@@ -403,10 +403,9 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         lblMessage.setText(" ");
         lblMessage.setForeground(Color.RED);
-        if (Validation.validationTxt(txtfEquipName, lblMessage)
-                && Validation.validationTxt(txtfEquipName, lblMessage)
+        if (Validation.validationTxt(txtfEquipName, lblMessage, "Ange utrustningsnamn")
                 && Validation.validationCb(cbEquipCategory, lblMessage)
-                && Validation.validationTxt(txtfEquipCapacity, lblMessage)) {
+                && Validation.validationTxt(txtfEquipCapacity, lblMessage, "")) {
             try {
                 Boolean equipmentExist = false;
                 Boolean equipmentAdded = false;
@@ -427,10 +426,10 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
                     if (cbEquipCategory.getSelectedItem().equals("Vapen") && Validation.validationNumbers(txtfEquipCapacity, lblMessage, "Kaliber måste vare en siffra!")) {
                         addWeaponEquipment();
                         equipmentAdded = true;
-                    } else if (cbEquipCategory.getSelectedItem().equals("Teknik") && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessage)) {
+                    } else if (cbEquipCategory.getSelectedItem().equals("Teknik") && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessage, 20, "Kraftkälla får max vara 20 tecken")) {
                         addTechEquipment();
                         equipmentAdded = true;
-                    } else if (cbEquipCategory.getSelectedItem().equals("Kommunikation") && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessage)) {
+                    } else if (cbEquipCategory.getSelectedItem().equals("Kommunikation") && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessage, 20, "Överföringsteknik får max vara 20 tecken")) {
                         addCommsEquipment();
                         equipmentAdded = true;
                     }
