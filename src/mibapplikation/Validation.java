@@ -107,6 +107,19 @@ public class Validation {
         }
         return result;
     }
+        public static boolean validationNumbers(JTextField fieldToValidate, JLabel message, String messageText) {
+        boolean result = false;
+        if (fieldToValidate.getText().matches("[0-9]+")) {
+
+            result = true;
+
+        } else {
+            message.setText(messageText);
+            fieldToValidate.requestFocus();
+            
+        }
+        return result;
+    }
     
 
     public static boolean validationTxtPhone(JTextField fieldToValidate, JLabel message) {
