@@ -133,11 +133,6 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
         txtfLocationInput.setColumns(6);
 
         cbListAgents.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
-        cbListAgents.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbListAgentsActionPerformed(evt);
-            }
-        });
 
         txtfPwInput.setColumns(6);
 
@@ -145,9 +140,6 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(lblTitel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,6 +190,10 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(33, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,9 +238,9 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
                 .addComponent(btnSave)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMessage)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnMenu)
-                .addGap(15, 15, 15))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -261,24 +257,84 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void hideText() {
+    private void hideText() {
         lblRaceSpecial.setVisible(false);
         txtfRaceSpecial.setVisible(false);
     }
 
-    public void showText() {
+    private void showText() {
         lblRaceSpecial.setVisible(true);
         txtfRaceSpecial.setVisible(true);
     }
 
-    public void correctValues() {
+    private void correctValues() {
 
         lblMessage.setForeground(Color.GREEN);
         lblMessage.setText("Dina ändringar är sparade");
 
     }
 
-    public void setBoglodite(String alienId) {
+    private void setAlienName(String alienId) {
+
+        try {
+            if (Validation.validationTxtNrOfChar(txtfNameInput, lblMessage)) {
+                String qName = "UPDATE alien SET namn = '" + txtfNameInput.getText() + "' WHERE alien_id = '" + alienId + "'";
+                idb.update(qName);
+                correctValues();
+            }
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+    }
+
+    private void setPhone(String alienId) {
+        try {
+            if (Validation.validationTxtPhone(txtfPhoneInput, lblMessage)) {
+                String qPhone = "UPDATE alien SET telefon = '" + txtfPhoneInput.getText() + "' WHERE alien_id = '" + alienId + "'";
+                idb.update(qPhone);
+                correctValues();
+            }
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+
+    }
+
+    private void setPassword(String aliendId) {
+//        try {
+//            if(Validation.validationTxtNrOfCharPw(txtfNameInput, lblMessage))
+//        } catch (InfException ex) {
+//            System.out.println("Databasfel" + ex.getMessage());
+//        } catch (Exception ex) {
+//            System.out.println("Random fel" + ex.getMessage());
+//        }
+    }
+
+    private void setLocation(String alienId) {
+//        try {
+//
+//        } catch (InfException ex) {
+//            System.out.println("Databasfel" + ex.getMessage());
+//        } catch (Exception ex) {
+//            System.out.println("Random fel" + ex.getMessage());
+//        }
+    }
+
+    private void setAgent(String aliendId) {
+//        try {
+//
+//        } catch (InfException ex) {
+//            System.out.println("Databasfel" + ex.getMessage());
+//        } catch (Exception ex) {
+//            System.out.println("Random fel" + ex.getMessage());
+//        }
+    }
+
+    private void setBoglodite(String alienId) {
 
         String currentRace = ValidationRace.getRace(idb, alienId);
         try {
@@ -306,7 +362,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
         }
     }
 
-    public void setSquid(String alienId) {
+    private void setSquid(String alienId) {
         String currentRace = ValidationRace.getRace(idb, alienId);
         try {
 
@@ -334,7 +390,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
         }
     }
 
-    public void setWorm(String alienId) {
+    private void setWorm(String alienId) {
         String currentRace = ValidationRace.getRace(idb, alienId);
         try {
 
@@ -353,7 +409,7 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
         }
     }
 
-    public void setUnidentified(String alienId) {
+    private void setUnidentified(String alienId) {
         String currentRace = ValidationRace.getRace(idb, alienId);
         try {
             if (currentRace != "") {
@@ -377,6 +433,8 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
 
         if (Validation.validationTxt(txtfAlienInput, lblMessage)) {
             if (Validation.validationTxtAndCb(txtfNameInput, txtfPhoneInput, cbListRace, lblMessage)) {
+//                    && Validation.validationTxtAndCb(txtfPwInput, txtfLocationInput, cbListAgents, lblMessage)) 
+
                 try {
                     String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInput.getText() + "' OR alien_id = '" + txtfAlienInput.getText() + "'";
                     ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
@@ -395,23 +453,23 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
                     } else {
 
                         if (!txtfNameInput.getText().isEmpty()) {
-                            if(Validation.validationTxtNrOfChar(txtfNameInput, lblMessage)){
-                            String qName = "UPDATE alien SET namn = '" + txtfNameInput.getText() + "' WHERE alien_id = '" + alienId + "'";
-                            idb.update(qName);
-                            correctValues();
-                            }
+                            setAlienName(alienId);
                         }
                         if (!txtfPhoneInput.getText().isEmpty()) {
-                            if (Validation.validationTxtPhone(txtfPhoneInput, lblMessage)) {
-                                String qPhone = "UPDATE alien SET telefon = '" + txtfPhoneInput.getText() + "' WHERE alien_id = '" + alienId + "'";
-                                idb.update(qPhone);
-                                correctValues();
-                            }
+                            setPhone(alienId);
+                        }
+                        if (!txtfPwInput.getText().isEmpty()) {
+
+                        }
+                        if (!txtfLocationInput.getText().isEmpty()) {
+
+                        }
+                        if (!cbListAgents.getSelectedItem().equals("-----")) {
+
                         }
                         if (!cbListRace.getSelectedItem().equals("-----")) {
 
                             String currentRace = ValidationRace.getRace(idb, alienId);
-                            System.out.println(currentRace);
 
                             if (currentRace.equals(cbListRace.getSelectedItem())) {
                                 lblMessage.setText("Alien är redan registrerad som den här rasen.");
@@ -428,7 +486,6 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
                                 }
                             }
                         }
-
                     }
 
                 } catch (InfException ex) {
@@ -437,8 +494,8 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
                     System.out.println("Random fel" + ex.getMessage());
                 }
             }
-
         }
+
     }//GEN-LAST:event_btnSaveActionPerformed
 
 
@@ -461,10 +518,6 @@ public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_cbListRaceActionPerformed
-
-    private void cbListAgentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListAgentsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbListAgentsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
