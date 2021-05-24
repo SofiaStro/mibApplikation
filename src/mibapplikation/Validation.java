@@ -168,4 +168,16 @@ public class Validation {
         return result;
     }
 
+    public static boolean validationTxtNrOfCharPw(JTextField fieldToValidate, JLabel message) {
+        boolean result = false;
+        if (fieldToValidate.getText().length() <= 6) {
+
+            result = true;
+            fieldToValidate.requestFocus();
+
+        } else {
+            message.setText("För många tecken!");
+        }
+        return result;
+    }
 }
