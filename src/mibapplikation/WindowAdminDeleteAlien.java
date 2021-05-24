@@ -227,7 +227,7 @@ public class WindowAdminDeleteAlien extends javax.swing.JFrame {
                 lblMessage.setText("Det finns mer än en alien med detta namn, vänligen ange ID");
 
             } else if (getAlienId().equals("")) {
-                lblMessage.setText("Alien namnet finns inte registrerat");
+                lblMessage.setText("Alien namnet eller id:t finns inte registrerat");
 
             } else {
                 String race = Alien.getRace(getAlienId());
