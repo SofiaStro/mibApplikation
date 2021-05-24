@@ -14,14 +14,14 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
+public class WindowAdminUpdateAlienInfo extends javax.swing.JFrame {
 
     private InfDB idb;
 
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAgentUpdateAlienInfo(InfDB idb) {
+    public WindowAdminUpdateAlienInfo(InfDB idb) {
         initComponents();
         this.idb = idb;
         hideText();
