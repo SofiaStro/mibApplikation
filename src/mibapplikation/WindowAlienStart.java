@@ -25,7 +25,7 @@ public class WindowAlienStart extends javax.swing.JFrame {
         this.idb = idb;
         this.alienId = alienId;
         this.username = username;
-        lblUsername.setText(username + "!");
+        lblWelcome.setText("Välkommen " + username + "!");
     }
 
     /**
@@ -38,7 +38,6 @@ public class WindowAlienStart extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
-        lblUsername = new javax.swing.JLabel();
         btnChangePw = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btn2 = new javax.swing.JButton();
@@ -55,11 +54,6 @@ public class WindowAlienStart extends javax.swing.JFrame {
         background.setBackground(new java.awt.Color(40, 40, 40));
         background.setPreferredSize(new java.awt.Dimension(100, 500));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblUsername.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
-        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
-        lblUsername.setText("\"Alien\"");
-        background.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 100, -1));
 
         btnChangePw.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnChangePw.setText("Byt lösenord");
@@ -156,7 +150,6 @@ public class WindowAlienStart extends javax.swing.JFrame {
     private javax.swing.JButton btnChangePw;
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel lblMenu;
-    private javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblWelcome;
     // End of variables declaration//GEN-END:variables
 }
