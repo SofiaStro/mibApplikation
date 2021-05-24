@@ -203,24 +203,53 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void hideText() {
+    private void hideText() {
         lblRaceSpecial.setVisible(false);
         txtfRaceSpecial.setVisible(false);
     }
 
-    public void showText() {
+    private void showText() {
         lblRaceSpecial.setVisible(true);
         txtfRaceSpecial.setVisible(true);
     }
 
-    public void correctValues() {
+    private void correctValues() {
 
         lblMessage.setForeground(Color.GREEN);
         lblMessage.setText("Dina ändringar är sparade");
 
     }
+       private void setAlienName(String alienId) {
 
-    public void setBoglodite(String alienId) {
+        try {
+            if (Validation.validationTxtNrOfChar(txtfNameInput, lblMessage)) {
+                String qName = "UPDATE alien SET namn = '" + txtfNameInput.getText() + "' WHERE alien_id = '" + alienId + "'";
+                idb.update(qName);
+                correctValues();
+            }
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+    }
+
+    private void setPhone(String alienId) {
+        try {
+            if (Validation.validationTxtPhone(txtfPhoneInput, lblMessage)) {
+                String qPhone = "UPDATE alien SET telefon = '" + txtfPhoneInput.getText() + "' WHERE alien_id = '" + alienId + "'";
+                idb.update(qPhone);
+                correctValues();
+            }
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+
+    }
+
+    private void setBoglodite(String alienId) {
 
         String currentRace = ValidationRace.getRace(idb, alienId);
         try {
@@ -248,7 +277,7 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
         }
     }
 
-    public void setSquid(String alienId) {
+    private void setSquid(String alienId) {
         String currentRace = ValidationRace.getRace(idb, alienId);
         try {
 
@@ -276,7 +305,7 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
         }
     }
 
-    public void setWorm(String alienId) {
+    private void setWorm(String alienId) {
         String currentRace = ValidationRace.getRace(idb, alienId);
         try {
 
@@ -295,7 +324,7 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
         }
     }
 
-    public void setUnidentified(String alienId) {
+    private void setUnidentified(String alienId) {
         String currentRace = ValidationRace.getRace(idb, alienId);
         try {
             if (currentRace != "") {
@@ -337,20 +366,22 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
                     } else {
 
                         if (!txtfNameInput.getText().isEmpty()) {
-                            if(Validation.validationTxtNrOfChar(txtfNameInput, lblMessage)){
-                            String qName = "UPDATE alien SET namn = '" + txtfNameInput.getText() + "' WHERE alien_id = '" + alienId + "'";
-                            idb.update(qName);
-                            correctValues();
-                            }
+                            setAlienName(alienId);
+//                            if(Validation.validationTxtNrOfChar(txtfNameInput, lblMessage)){
+//                            String qName = "UPDATE alien SET namn = '" + txtfNameInput.getText() + "' WHERE alien_id = '" + alienId + "'";
+//                            idb.update(qName);
+//                            correctValues();
+                            
                         }
-                        if (!txtfPhoneInput.getText().isEmpty()) {
-                            if (Validation.validationTxtPhone(txtfPhoneInput, lblMessage)) {
-                                String qPhone = "UPDATE alien SET telefon = '" + txtfPhoneInput.getText() + "' WHERE alien_id = '" + alienId + "'";
-                                idb.update(qPhone);
-                                correctValues();
-                            }
+                        if(!txtfPhoneInput.getText().isEmpty()) {
+                            setPhone(alienId);
+//                            if (Validation.validationTxtPhone(txtfPhoneInput, lblMessage)) {
+//                                String qPhone = "UPDATE alien SET telefon = '" + txtfPhoneInput.getText() + "' WHERE alien_id = '" + alienId + "'";
+//                                idb.update(qPhone);
+//                                correctValues();
+//                            }
                         }
-                        if (!cbListRace.getSelectedItem().equals("-----")) {
+                        if(!cbListRace.getSelectedItem().equals("-----")) {
 
                             String currentRace = ValidationRace.getRace(idb, alienId);
                             System.out.println(currentRace);
