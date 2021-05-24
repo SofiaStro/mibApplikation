@@ -74,7 +74,7 @@
                               <Component id="btn21" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn20" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btnChangeHeadChief" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                              <Component id="btn18" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="btnDeleteAgent" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btnAdminStatus" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn17" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                           </Group>
@@ -121,7 +121,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnEquipmentList" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn18" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnDeleteAgent" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btn22" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -336,13 +336,16 @@
             <Property name="text" type="java.lang.String" value="&#xc4;ndra info om agent"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn18">
+        <Component class="javax.swing.JButton" name="btnDeleteAgent">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ta bort agent"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteAgentActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnChangeHeadChief">
           <Properties>

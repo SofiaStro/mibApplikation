@@ -58,7 +58,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btnDeleteAlien = new javax.swing.JButton();
         btnAdminStatus = new javax.swing.JButton();
         btn17 = new javax.swing.JButton();
-        btn18 = new javax.swing.JButton();
+        btnDeleteAgent = new javax.swing.JButton();
         btnChangeHeadChief = new javax.swing.JButton();
         btn20 = new javax.swing.JButton();
         btn21 = new javax.swing.JButton();
@@ -175,8 +175,13 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn17.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn17.setText("Ändra info om agent");
 
-        btn18.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn18.setText("Ta bort agent");
+        btnDeleteAgent.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnDeleteAgent.setText("Ta bort agent");
+        btnDeleteAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteAgentActionPerformed(evt);
+            }
+        });
 
         btnChangeHeadChief.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnChangeHeadChief.setText("Ändra kontorschef");
@@ -226,7 +231,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
                             .addComponent(btn21, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn20, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnChangeHeadChief, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn18, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDeleteAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAdminStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn17, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -264,7 +269,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEquipmentList)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn18)
+                        .addComponent(btnDeleteAgent)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -351,6 +356,11 @@ public class WindowAdminStart extends javax.swing.JFrame {
         new WindowAgentRegAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAlienActionPerformed
 
+    private void btnDeleteAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAgentActionPerformed
+        // TODO add your handling code here:
+        new WindowAdminDeleteAgent(idb).setVisible(true);
+    }//GEN-LAST:event_btnDeleteAgentActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -363,7 +373,6 @@ public class WindowAdminStart extends javax.swing.JFrame {
     private javax.swing.JButton btn11;
     private javax.swing.JButton btn12;
     private javax.swing.JButton btn17;
-    private javax.swing.JButton btn18;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn20;
     private javax.swing.JButton btn21;
@@ -376,6 +385,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
     private javax.swing.JButton btnChangeAreaChief;
     private javax.swing.JButton btnChangeHeadChief;
     private javax.swing.JButton btnChangePw;
+    private javax.swing.JButton btnDeleteAgent;
     private javax.swing.JButton btnDeleteAlien;
     private javax.swing.JButton btnEquipmentList;
     private javax.swing.JButton btnLogout;
