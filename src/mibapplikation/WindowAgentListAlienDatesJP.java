@@ -15,14 +15,14 @@ import oru.inf.InfException;
  *
  * @author Blazl
  */
-public class WindowAgentAlienDatesJP extends javax.swing.JPanel {
+public class WindowAgentListAlienDatesJP extends javax.swing.JPanel {
     
-    private String alienId;
+    
     private InfDB idb;
     /**
      * Creates new form WindowAgentAlienDatesJP
      */
-    public WindowAgentAlienDatesJP(InfDB idb) {
+    public WindowAgentListAlienDatesJP(InfDB idb) {
         initComponents();
         this.idb = idb;
     }
