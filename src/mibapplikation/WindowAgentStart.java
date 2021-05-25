@@ -44,11 +44,9 @@ public class WindowAgentStart extends javax.swing.JFrame {
 
         background = new javax.swing.JPanel();
         btnEquipment = new javax.swing.JButton();
-        lblMenu = new javax.swing.JLabel();
         btnAreaChief = new javax.swing.JButton();
         btnRegAlien = new javax.swing.JButton();
         btn4 = new javax.swing.JButton();
-        btnInfoAlien = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnChangePw = new javax.swing.JButton();
         btnAlienLists = new javax.swing.JButton();
@@ -69,10 +67,6 @@ public class WindowAgentStart extends javax.swing.JFrame {
             }
         });
 
-        lblMenu.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        lblMenu.setForeground(new java.awt.Color(255, 255, 255));
-        lblMenu.setText("Meny");
-
         btnAreaChief.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnAreaChief.setText("Sök områdeschef");
         btnAreaChief.addActionListener(new java.awt.event.ActionListener() {
@@ -90,18 +84,10 @@ public class WindowAgentStart extends javax.swing.JFrame {
         });
 
         btn4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn4.setText("Ändra info om alien");
+        btn4.setText("Hantera alien");
         btn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn4ActionPerformed(evt);
-            }
-        });
-
-        btnInfoAlien.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnInfoAlien.setText("Se info om alien");
-        btnInfoAlien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInfoAlienActionPerformed(evt);
             }
         });
 
@@ -140,42 +126,42 @@ public class WindowAgentStart extends javax.swing.JFrame {
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnRegAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAreaChief, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnAlienLists, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAreaChief, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInfoAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(33, 33, 33)
                 .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEquipment)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAreaChief)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRegAlien)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnInfoAlien)
+                .addGap(37, 37, 37)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addComponent(btnRegAlien)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn4))
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addComponent(btnEquipment)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAreaChief)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAlienLists)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
+                .addGap(62, 62, 62)
                 .addComponent(btnChangePw)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogout)
-                .addGap(21, 21, 21))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -186,10 +172,7 @@ public class WindowAgentStart extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -222,11 +205,6 @@ public class WindowAgentStart extends javax.swing.JFrame {
         new WindowAgentRegAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAlienActionPerformed
 
-    private void btnInfoAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoAlienActionPerformed
-        // TODO add your handling code here:
-        new WindowAgentInfoAlien(idb).setVisible(true);
-    }//GEN-LAST:event_btnInfoAlienActionPerformed
-
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
        new WindowAgentUpdateAlienInfo(idb).setVisible(true); 
     }//GEN-LAST:event_btn4ActionPerformed
@@ -250,10 +228,8 @@ public class WindowAgentStart extends javax.swing.JFrame {
     private javax.swing.JButton btnAreaChief;
     private javax.swing.JButton btnChangePw;
     private javax.swing.JButton btnEquipment;
-    private javax.swing.JButton btnInfoAlien;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRegAlien;
-    private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lblWelcome;
     // End of variables declaration//GEN-END:variables
 }

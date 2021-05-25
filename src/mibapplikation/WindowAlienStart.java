@@ -78,27 +78,28 @@ public class WindowAlienStart extends javax.swing.JFrame {
         lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setText("Välkommen ");
-        background.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 350, -1));
+        background.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 350, -1));
 
+        lblAgentName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblAgentName.setForeground(new java.awt.Color(255, 255, 255));
         lblAgentName.setText("Områdeschef:");
-        background.add(lblAgentName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+        background.add(lblAgentName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
+        lblAgentPhone.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblAgentPhone.setForeground(new java.awt.Color(255, 255, 255));
         lblAgentPhone.setText("Telefon:");
-        background.add(lblAgentPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+        background.add(lblAgentPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
+        lblArea.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblArea.setForeground(new java.awt.Color(255, 255, 255));
         lblArea.setText("Du tillhör området:");
-        background.add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+        background.add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
