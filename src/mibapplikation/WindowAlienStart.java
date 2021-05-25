@@ -5,7 +5,9 @@
  */
 package mibapplikation;
 
+import java.util.HashMap;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
@@ -26,6 +28,7 @@ public class WindowAlienStart extends javax.swing.JFrame {
         this.alienId = alienId;
         this.username = username;
         lblWelcome.setText("Välkommen " + username + "!");
+        getAreaChief();
     }
 
     /**
@@ -40,11 +43,10 @@ public class WindowAlienStart extends javax.swing.JFrame {
         background = new javax.swing.JPanel();
         btnChangePw = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        btn2 = new javax.swing.JButton();
-        btnAreaChief = new javax.swing.JButton();
-        lblMenu = new javax.swing.JLabel();
-        btn3 = new javax.swing.JButton();
         lblWelcome = new javax.swing.JLabel();
+        lblAgentName = new javax.swing.JLabel();
+        lblAgentPhone = new javax.swing.JLabel();
+        lblArea = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Galaxal");
@@ -62,7 +64,7 @@ public class WindowAlienStart extends javax.swing.JFrame {
                 btnChangePwActionPerformed(evt);
             }
         });
-        background.add(btnChangePw, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 190, -1));
+        background.add(btnChangePw, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 190, 30));
 
         btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnLogout.setText("Logga ut");
@@ -73,32 +75,22 @@ public class WindowAlienStart extends javax.swing.JFrame {
         });
         background.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 190, -1));
 
-        btn2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn2.setText("jButton1");
-        background.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 190, -1));
-
-        btnAreaChief.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnAreaChief.setText("Se områdeschef");
-        btnAreaChief.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAreaChiefActionPerformed(evt);
-            }
-        });
-        background.add(btnAreaChief, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 190, -1));
-
-        lblMenu.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        lblMenu.setForeground(new java.awt.Color(255, 255, 255));
-        lblMenu.setText("Meny");
-        background.add(lblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 117, 38));
-
-        btn3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn3.setText("jButton1");
-        background.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 190, -1));
-
         lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setText("Välkommen ");
         background.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 350, -1));
+
+        lblAgentName.setForeground(new java.awt.Color(255, 255, 255));
+        lblAgentName.setText("Områdeschef:");
+        background.add(lblAgentName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+
+        lblAgentPhone.setForeground(new java.awt.Color(255, 255, 255));
+        lblAgentPhone.setText("Telefon:");
+        background.add(lblAgentPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+
+        lblArea.setForeground(new java.awt.Color(255, 255, 255));
+        lblArea.setText("Du tillhör området:");
+        background.add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,16 +118,33 @@ public class WindowAlienStart extends javax.swing.JFrame {
     private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed
         // TODO add your handling code here:
         new WindowAlienChangePw(idb, alienId).setVisible(true);
-        
-        
     }//GEN-LAST:event_btnChangePwActionPerformed
+    private void getAreaChief() {
+        try {
+            String query
+                    = "SELECT ag.Namn, ag.Telefon, o.Benamning\n"
+                    + "FROM alien al\n"
+                    + "JOIN plats p ON al.plats = p.plats_id\n"
+                    + "JOIN omrade o ON p.finns_i = o.omrades_id\n"
+                    + "JOIN omradeschef oc ON o.Omrades_ID = oc.Omrade\n"
+                    + "JOIN agent ag ON oc.Agent_ID = ag.Agent_ID\n"
+                    + "WHERE Alien_ID = " + "'" + alienId + "'";
+            HashMap<String, String> result = idb.fetchRow(query);
+            String agentName = result.get("Namn");
+            String agentPhone = result.get("Telefon");
+            String areaName = result.get("Benamning");
 
-    private void btnAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreaChiefActionPerformed
-        // TODO add your handling code here:
-        new WindowAlienAreaChief(idb, alienId).setVisible(true);
-        
-    }//GEN-LAST:event_btnAreaChiefActionPerformed
+            lblAgentName.setText("Områdeschef: " + agentName);
+            lblAgentPhone.setText("Telefon: " + agentPhone);
+            lblArea.setText("Du tillhör området: " + areaName);
+            
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
 
+    }
     /**
      * @param args the command line arguments
      */
@@ -144,12 +153,11 @@ public class WindowAlienStart extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JButton btn2;
-    private javax.swing.JButton btn3;
-    private javax.swing.JButton btnAreaChief;
     private javax.swing.JButton btnChangePw;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JLabel lblMenu;
+    private javax.swing.JLabel lblAgentName;
+    private javax.swing.JLabel lblAgentPhone;
+    private javax.swing.JLabel lblArea;
     private javax.swing.JLabel lblWelcome;
     // End of variables declaration//GEN-END:variables
 }
