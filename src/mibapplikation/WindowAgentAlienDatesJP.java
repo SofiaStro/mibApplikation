@@ -13,20 +13,18 @@ import oru.inf.InfException;
 
 /**
  *
- * @author strom
+ * @author Blazl
  */
-public class WindowAgentAlienDates extends javax.swing.JFrame {
-
+public class WindowAgentAlienDatesJP extends javax.swing.JPanel {
+    
     private String alienId;
     private InfDB idb;
-
     /**
-     * Creates new form WindowAlienChangePw
+     * Creates new form WindowAgentAlienDatesJP
      */
-    public WindowAgentAlienDates(InfDB idb) {
+    public WindowAgentAlienDatesJP() {
         initComponents();
         this.idb = idb;
-
     }
 
     /**
@@ -38,7 +36,6 @@ public class WindowAgentAlienDates extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         lblMessage = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
         txtfStartDate = new javax.swing.JTextField();
@@ -49,12 +46,7 @@ public class WindowAgentAlienDates extends javax.swing.JFrame {
         txtListAliens = new javax.swing.JTextArea();
         lblMessageFormat = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Galaxal");
-        setLocationByPlatform(true);
-        setResizable(false);
-
-        jPanel1.setBackground(new java.awt.Color(40, 40, 40));
+        setBackground(new java.awt.Color(40, 40, 40));
 
         lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblMessage.setForeground(new java.awt.Color(255, 96, 96));
@@ -82,19 +74,19 @@ public class WindowAgentAlienDates extends javax.swing.JFrame {
         lblMessageFormat.setForeground(new java.awt.Color(255, 255, 255));
         lblMessageFormat.setText("Datumet ska skrivas in i formatet: YYYY-MM-DD");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(53, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -103,17 +95,17 @@ public class WindowAgentAlienDates extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(96, Short.MAX_VALUE)
                 .addComponent(lblMessageFormat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblStartDate)
                     .addComponent(lblEndDate))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtfStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -124,21 +116,6 @@ public class WindowAgentAlienDates extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -147,13 +124,13 @@ public class WindowAgentAlienDates extends javax.swing.JFrame {
         txtListAliens.setText("");
 
         if (Validation.validationTxt(txtfStartDate, lblMessage, "Ange ett fr.o.m. datum")
-                && Validation.validationTxt(txtfEndDate, lblMessage, "Ange ett t.o.m. datum")
-                && Validation.validationTxtDate(txtfStartDate, lblMessage)
-                && Validation.validationTxtDate(txtfEndDate, lblMessage)) {
+            && Validation.validationTxt(txtfEndDate, lblMessage, "Ange ett t.o.m. datum")
+            && Validation.validationTxtDate(txtfStartDate, lblMessage)
+            && Validation.validationTxtDate(txtfEndDate, lblMessage)) {
 
-            /*Behöver ytterligare en validation som kan ge ett felmeddleande om man skriver in något annat 
+            /*Behöver ytterligare en validation som kan ge ett felmeddleande om man skriver in något annat
             än ett datum i rätt format i text-rutorna och om det inte finns några alien för den perioden*/
-            //Konvertera de inkommande string-värdena till datum av klassen LocalDate. 
+            //Konvertera de inkommande string-värdena till datum av klassen LocalDate.
             LocalDate startDate = LocalDate.parse(txtfStartDate.getText());
             LocalDate endDate = LocalDate.parse(txtfEndDate.getText());
 
@@ -166,7 +143,7 @@ public class WindowAgentAlienDates extends javax.swing.JFrame {
                     ArrayList<HashMap<String, String>> alienInfo = idb.fetchRows(qAlienInfo);
 
                     txtListAliens.append(" ID\t NAMN \n"
-                                         + "-------\t-------\n");
+                        + "-------\t-------\n");
 
                     for (HashMap<String, String> element : alienInfo) {
                         LocalDate date = LocalDate.parse(element.get("registreringsdatum"));
@@ -196,12 +173,9 @@ public class WindowAgentAlienDates extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEndDate;
     private javax.swing.JLabel lblMessage;
