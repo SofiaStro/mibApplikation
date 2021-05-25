@@ -174,6 +174,11 @@ public class WindowAdminStart extends javax.swing.JFrame {
 
         btn17.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn17.setText("Ändra info om agent");
+        btn17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn17ActionPerformed(evt);
+            }
+        });
 
         btnDeleteAgent.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnDeleteAgent.setText("Ta bort agent");
@@ -360,6 +365,10 @@ public class WindowAdminStart extends javax.swing.JFrame {
         // TODO add your handling code here:
         new WindowAdminDeleteAgent(idb).setVisible(true);
     }//GEN-LAST:event_btnDeleteAgentActionPerformed
+
+    private void btn17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn17ActionPerformed
+        new WindowAdminUpdateAgentInfo(idb).setVisible(true);
+    }//GEN-LAST:event_btn17ActionPerformed
 
     /**
      * @param args the command line arguments
