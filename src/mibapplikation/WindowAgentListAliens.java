@@ -62,11 +62,11 @@ public class WindowAgentListAliens extends javax.swing.JFrame {
         jpBackground.setLayout(jpBackgroundLayout);
         jpBackgroundLayout.setHorizontalGroup(
             jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 636, Short.MAX_VALUE)
+            .addGap(0, 660, Short.MAX_VALUE)
         );
         jpBackgroundLayout.setVerticalGroup(
             jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 445, Short.MAX_VALUE)
+            .addGap(0, 420, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
