@@ -131,7 +131,12 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn10.setText("Lista alien registrering");
 
         btn11.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn11.setText("jButton1");
+        btn11.setText("Korrigera alien");
+        btn11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn11ActionPerformed(evt);
+            }
+        });
 
         btn12.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn12.setText("jButton1");
@@ -376,9 +381,13 @@ public class WindowAdminStart extends javax.swing.JFrame {
     }//GEN-LAST:event_btn17ActionPerformed
 
     private void btnRegAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAgentActionPerformed
-        // TODO add your handling code here:
+   
         new WindowAdminRegAgent(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAgentActionPerformed
+
+    private void btn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn11ActionPerformed
+        new WindowAdminManageAlien(idb).setVisible(true);
+    }//GEN-LAST:event_btn11ActionPerformed
 
     /**
      * @param args the command line arguments
