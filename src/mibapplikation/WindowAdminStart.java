@@ -25,7 +25,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
         this.idb= idb;
         this.agentId = agentId;
         this.username = username; 
-        lblWelcome.setText("Välkommen admin" + username + "!");
+        lblWelcome.setText("Välkommen admin " + username + "!");
         
     }
 
