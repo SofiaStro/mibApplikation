@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import oru.inf.InfDB;
 
 
 
@@ -18,8 +19,12 @@ import javax.swing.JPanel;
  */
 public class WindowAgentListAliens extends javax.swing.JFrame {
     
+    private InfDB idb;
 //    private JPanel panelMain;
-    private PanelTest testPanel;
+    private WindowAgentAlienDatesJP datesWindow;
+    private WindowAgentListAlienLocation locationWindow;
+    private WindowAgentListAlienRace raceWindow;
+    
     /**
      * Creates new form WindowAgentListAliens
      */
@@ -35,10 +40,10 @@ public class WindowAgentListAliens extends javax.swing.JFrame {
 //        panelMain.setPreferredSize(new Dimension(1000,500));
 //        add(panelMain);
         initComponents();
-        testPanel = new PanelTest();
-        testPanel.setBounds(0, 0, 636, 445);
-        jpBackground.add(testPanel);
-        testPanel.setVisible(true);
+        datesWindow = new WindowAgentAlienDatesJP();
+        datesWindow.setBounds(300, 0, 360, 420);
+        jpBackground.add(datesWindow);
+        datesWindow.setVisible(true);
         
     }
 
@@ -52,21 +57,37 @@ public class WindowAgentListAliens extends javax.swing.JFrame {
     private void initComponents() {
 
         jpBackground = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jpBackground.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel1.setBackground(new java.awt.Color(40, 40, 40));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 420, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jpBackgroundLayout = new javax.swing.GroupLayout(jpBackground);
         jpBackground.setLayout(jpBackgroundLayout);
         jpBackgroundLayout.setHorizontalGroup(
             jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 360, Short.MAX_VALUE))
         );
         jpBackgroundLayout.setVerticalGroup(
             jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -86,6 +107,7 @@ public class WindowAgentListAliens extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jpBackground;
     // End of variables declaration//GEN-END:variables
 }
