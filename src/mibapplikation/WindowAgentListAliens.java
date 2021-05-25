@@ -79,7 +79,7 @@ public class WindowAgentListAliens extends javax.swing.JFrame {
         
         
         raceWindow = new WindowAgentListAlienRaceJP(idb);
-        raceWindow.setBounds(300, 0, 360, 420);
+        raceWindow.setBounds(280, 7, 360, 420);
         jpBackground.add(raceWindow);
         raceWindow.setVisible(false);
         
@@ -89,7 +89,7 @@ public class WindowAgentListAliens extends javax.swing.JFrame {
         
         
         locationWindow = new WindowAgentListAlienLocationJP(idb);
-        locationWindow.setBounds(300, 0, 360, 420);
+        locationWindow.setBounds(280, 7, 360, 420);
         jpBackground.add(locationWindow);
         locationWindow.setVisible(false);
         
