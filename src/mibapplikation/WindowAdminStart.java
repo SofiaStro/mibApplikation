@@ -139,7 +139,12 @@ public class WindowAdminStart extends javax.swing.JFrame {
         });
 
         btn12.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn12.setText("jButton1");
+        btn12.setText("Listor för aliens");
+        btn12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn12ActionPerformed(evt);
+            }
+        });
 
         lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
@@ -388,6 +393,11 @@ public class WindowAdminStart extends javax.swing.JFrame {
     private void btn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn11ActionPerformed
         new WindowAdminManageAlien(idb).setVisible(true);
     }//GEN-LAST:event_btn11ActionPerformed
+
+    private void btn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn12ActionPerformed
+        // TODO add your handling code here:
+        new WindowAgentListAliens(idb).setVisible(true);
+    }//GEN-LAST:event_btn12ActionPerformed
 
     /**
      * @param args the command line arguments
