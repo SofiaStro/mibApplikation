@@ -194,7 +194,7 @@ public class WindowAdminRegAgent extends javax.swing.JFrame {
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Registrera Agent");
 
-        btnSave.setText("Spara ändringar");
+        btnSave.setText("REGISTRERA");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -271,7 +271,7 @@ public class WindowAdminRegAgent extends javax.swing.JFrame {
                                         .addComponent(btnSave)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 26, Short.MAX_VALUE)))))
+                                .addGap(0, 45, Short.MAX_VALUE)))))
                 .addGap(47, 47, 47))
         );
         jpBackgroundLayout.setVerticalGroup(

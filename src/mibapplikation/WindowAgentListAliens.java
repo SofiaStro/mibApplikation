@@ -43,7 +43,7 @@ public class WindowAgentListAliens extends javax.swing.JFrame {
         datesWindow = new WindowAgentAlienDatesJP(idb);
         datesWindow.setBounds(300, 0, 360, 420);
         jpBackground.add(datesWindow);
-        datesWindow.setVisible(true);
+        
         
         
     }
@@ -100,8 +100,9 @@ public class WindowAgentListAliens extends javax.swing.JFrame {
                         .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
                                 .addComponent(jLabel1)
-                                .addGap(28, 28, 28)
+                                .addGap(18, 18, 18)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(32, Short.MAX_VALUE))
