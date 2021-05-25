@@ -55,9 +55,6 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btn12" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn11" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                              <Component id="btn10" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                              <Component id="btn9" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                              <Component id="btn8" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btnRegAlien" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn4" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="lblMenu" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
@@ -129,13 +126,7 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="btn2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn9" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn10" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                           <Component id="btn11" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btn12" min="-2" max="-2" attributes="0"/>
@@ -232,30 +223,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangePwActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btn8">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="16" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Lista aliens p&#xe5; plats"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btn9">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="16" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Lista aliens p&#xe5; ras"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btn10">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="16" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Lista alien registrering"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn11">
           <Properties>

@@ -53,11 +53,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btn12" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btnAlienLists" min="-2" pref="190" max="-2" attributes="0"/>
-                      <Component id="btn10" min="-2" pref="190" max="-2" attributes="0"/>
-                      <Component id="btnListAlienRace" min="-2" pref="190" max="-2" attributes="0"/>
-                      <Component id="btnListAlienCity" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btnChangePw" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btnLogout" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="lblMenu" min="-2" pref="117" max="-2" attributes="0"/>
@@ -90,16 +86,8 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnInfoAlien" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnListAlienCity" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnListAlienRace" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btn10" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnAlienLists" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btn12" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="73" max="32767" attributes="0"/>
+                  <EmptySpace pref="233" max="32767" attributes="0"/>
                   <Component id="btnChangePw" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
@@ -197,39 +185,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangePwActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnListAlienCity">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="16" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Lista aliens p&#xe5; plats"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnListAlienCityActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnListAlienRace">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="16" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Lista aliens p&#xe5; ras"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnListAlienRaceActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btn10">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="16" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Lista aliens registrering"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn10ActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="btnAlienLists">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -240,14 +195,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlienListsActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btn12">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="16" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblWelcome">
           <Properties>

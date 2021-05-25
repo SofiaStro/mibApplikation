@@ -47,9 +47,6 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn5 = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnChangePw = new javax.swing.JButton();
-        btn8 = new javax.swing.JButton();
-        btn9 = new javax.swing.JButton();
-        btn10 = new javax.swing.JButton();
         btn11 = new javax.swing.JButton();
         btn12 = new javax.swing.JButton();
         lblWelcome = new javax.swing.JLabel();
@@ -120,15 +117,6 @@ public class WindowAdminStart extends javax.swing.JFrame {
                 btnChangePwActionPerformed(evt);
             }
         });
-
-        btn8.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn8.setText("Lista aliens på plats");
-
-        btn9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn9.setText("Lista aliens på ras");
-
-        btn10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn10.setText("Lista alien registrering");
 
         btn11.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn11.setText("Korrigera alien");
@@ -233,9 +221,6 @@ public class WindowAdminStart extends javax.swing.JFrame {
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRegAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -296,13 +281,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
                         .addComponent(btn20))
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addComponent(btn2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(132, 132, 132)
                         .addComponent(btn11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn12)))
@@ -407,7 +386,6 @@ public class WindowAdminStart extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JButton btn10;
     private javax.swing.JButton btn11;
     private javax.swing.JButton btn12;
     private javax.swing.JButton btn17;
@@ -416,8 +394,6 @@ public class WindowAdminStart extends javax.swing.JFrame {
     private javax.swing.JButton btn22;
     private javax.swing.JButton btn4;
     private javax.swing.JButton btn5;
-    private javax.swing.JButton btn8;
-    private javax.swing.JButton btn9;
     private javax.swing.JButton btnAdminStatus;
     private javax.swing.JButton btnChangeAreaChief;
     private javax.swing.JButton btnChangeHeadChief;
