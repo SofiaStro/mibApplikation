@@ -22,7 +22,7 @@ public class WindowAgentAlienDatesJP extends javax.swing.JPanel {
     /**
      * Creates new form WindowAgentAlienDatesJP
      */
-    public WindowAgentAlienDatesJP() {
+    public WindowAgentAlienDatesJP(InfDB idb) {
         initComponents();
         this.idb = idb;
     }

@@ -54,7 +54,7 @@
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btn12" min="-2" pref="190" max="-2" attributes="0"/>
-                      <Component id="btn11" min="-2" pref="190" max="-2" attributes="0"/>
+                      <Component id="btnAlienLists" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btn10" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btnListAlienRace" min="-2" pref="190" max="-2" attributes="0"/>
                       <Component id="btnListAlienCity" min="-2" pref="190" max="-2" attributes="0"/>
@@ -96,7 +96,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btn10" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btn11" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAlienLists" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btn12" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="73" max="32767" attributes="0"/>
@@ -230,13 +230,16 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn10ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btn11">
+        <Component class="javax.swing.JButton" name="btnAlienLists">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="Listor f&#xf6;r aliens"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlienListsActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn12">
           <Properties>

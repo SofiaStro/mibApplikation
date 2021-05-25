@@ -54,7 +54,7 @@ public class WindowAgentStart extends javax.swing.JFrame {
         btnListAlienCity = new javax.swing.JButton();
         btnListAlienRace = new javax.swing.JButton();
         btn10 = new javax.swing.JButton();
-        btn11 = new javax.swing.JButton();
+        btnAlienLists = new javax.swing.JButton();
         btn12 = new javax.swing.JButton();
         lblWelcome = new javax.swing.JLabel();
 
@@ -149,8 +149,13 @@ public class WindowAgentStart extends javax.swing.JFrame {
             }
         });
 
-        btn11.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn11.setText("jButton1");
+        btnAlienLists.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnAlienLists.setText("Listor för aliens");
+        btnAlienLists.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlienListsActionPerformed(evt);
+            }
+        });
 
         btn12.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn12.setText("jButton1");
@@ -167,7 +172,7 @@ public class WindowAgentStart extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAlienLists, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnListAlienRace, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnListAlienCity, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,7 +211,7 @@ public class WindowAgentStart extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn11)
+                .addComponent(btnAlienLists)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
@@ -282,6 +287,11 @@ public class WindowAgentStart extends javax.swing.JFrame {
        new WindowAgentUpdateAlienInfo(idb).setVisible(true); 
     }//GEN-LAST:event_btn4ActionPerformed
 
+    private void btnAlienListsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienListsActionPerformed
+        // TODO add your handling code here:
+        new WindowAgentListAliens(idb).setVisible(true);
+    }//GEN-LAST:event_btnAlienListsActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -292,9 +302,9 @@ public class WindowAgentStart extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JButton btn10;
-    private javax.swing.JButton btn11;
     private javax.swing.JButton btn12;
     private javax.swing.JButton btn4;
+    private javax.swing.JButton btnAlienLists;
     private javax.swing.JButton btnAreaChief;
     private javax.swing.JButton btnChangePw;
     private javax.swing.JButton btnEquipment;
