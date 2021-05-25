@@ -61,7 +61,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btnDeleteAgent = new javax.swing.JButton();
         btnChangeHeadChief = new javax.swing.JButton();
         btn20 = new javax.swing.JButton();
-        btn21 = new javax.swing.JButton();
+        btnRegAgent = new javax.swing.JButton();
         btn22 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -199,8 +199,13 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn20.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn20.setText("jButton1");
 
-        btn21.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn21.setText("Registera agent");
+        btnRegAgent.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnRegAgent.setText("Registera agent");
+        btnRegAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegAgentActionPerformed(evt);
+            }
+        });
 
         btn22.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn22.setText("jButton1");
@@ -233,7 +238,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
                             .addComponent(btnChangeAreaChief, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnOwnEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn22, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn21, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn20, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnChangeHeadChief, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnDeleteAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,7 +257,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegAlien)
-                    .addComponent(btn21))
+                    .addComponent(btnRegAgent))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn4)
@@ -370,6 +375,11 @@ public class WindowAdminStart extends javax.swing.JFrame {
         new WindowAdminUpdateAgentInfo(idb).setVisible(true);
     }//GEN-LAST:event_btn17ActionPerformed
 
+    private void btnRegAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAgentActionPerformed
+        // TODO add your handling code here:
+        new WindowAdminRegAgent(idb).setVisible(true);
+    }//GEN-LAST:event_btnRegAgentActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -384,7 +394,6 @@ public class WindowAdminStart extends javax.swing.JFrame {
     private javax.swing.JButton btn17;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn20;
-    private javax.swing.JButton btn21;
     private javax.swing.JButton btn22;
     private javax.swing.JButton btn4;
     private javax.swing.JButton btn5;
@@ -399,6 +408,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
     private javax.swing.JButton btnEquipmentList;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnOwnEquipment;
+    private javax.swing.JButton btnRegAgent;
     private javax.swing.JButton btnRegAlien;
     private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lblWelcome;

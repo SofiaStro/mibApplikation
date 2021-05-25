@@ -18,7 +18,7 @@ import oru.inf.InfException;
  */
 public class WindowAdminDeleteAgent extends javax.swing.JFrame {
 
-    private String alienId;
+
     private InfDB idb;
 
     /**
@@ -27,7 +27,7 @@ public class WindowAdminDeleteAgent extends javax.swing.JFrame {
     public WindowAdminDeleteAgent(InfDB idb) {
         initComponents();
         this.idb= idb;
-        jPanel2.setVisible(false);
+        jpInfo.setVisible(false);
 
     }
 
@@ -40,26 +40,27 @@ public class WindowAdminDeleteAgent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        background = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblMessage = new javax.swing.JLabel();
         btnDelete = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
         lblAgent = new javax.swing.JLabel();
         txtfAgentInput = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
+        jpInfo = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtaPrint = new javax.swing.JTextArea();
+        txtaPrintInfo = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtaMessageTitle = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        txtaTitleInfo = new javax.swing.JTextArea();
+        btnChangeInfo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
+        setBackground(new java.awt.Color(40, 40, 40));
         setLocationByPlatform(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(40, 40, 40));
+        background.setBackground(new java.awt.Color(40, 40, 40));
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -88,86 +89,89 @@ public class WindowAdminDeleteAgent extends javax.swing.JFrame {
 
         txtfAgentInput.setColumns(6);
 
-        jPanel2.setBackground(new java.awt.Color(79, 79, 79));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0), 2));
+        jpInfo.setBackground(new java.awt.Color(79, 79, 79));
+        jpInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0), 2));
 
-        txtaPrint.setBackground(new java.awt.Color(40, 40, 40));
-        txtaPrint.setColumns(20);
-        txtaPrint.setForeground(new java.awt.Color(255, 255, 255));
-        txtaPrint.setRows(5);
-        txtaPrint.setRequestFocusEnabled(false);
-        jScrollPane1.setViewportView(txtaPrint);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        txtaPrintInfo.setBackground(new java.awt.Color(40, 40, 40));
+        txtaPrintInfo.setColumns(20);
+        txtaPrintInfo.setForeground(new java.awt.Color(255, 255, 255));
+        txtaPrintInfo.setRows(5);
+        txtaPrintInfo.setRequestFocusEnabled(false);
+        jScrollPane1.setViewportView(txtaPrintInfo);
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        txtaMessageTitle.setBackground(new java.awt.Color(40, 40, 40));
-        txtaMessageTitle.setColumns(20);
-        txtaMessageTitle.setForeground(new java.awt.Color(255, 255, 255));
-        txtaMessageTitle.setRows(5);
-        txtaMessageTitle.setText("Följande aliens behöver tilldelas\nny kontaktperson innan \nagenten kan tas bort");
-        txtaMessageTitle.setRequestFocusEnabled(false);
-        jScrollPane2.setViewportView(txtaMessageTitle);
+        txtaTitleInfo.setBackground(new java.awt.Color(40, 40, 40));
+        txtaTitleInfo.setColumns(20);
+        txtaTitleInfo.setForeground(new java.awt.Color(255, 255, 255));
+        txtaTitleInfo.setRows(5);
+        txtaTitleInfo.setText("Följande område behöver tilldelas \nen ny områdeschef innan agenten\nkan tas bort");
+        txtaTitleInfo.setRequestFocusEnabled(false);
+        jScrollPane2.setViewportView(txtaTitleInfo);
 
-        jButton1.setText("Ändra info om aliens");
+        btnChangeInfo.setText("Ändra områdeschef");
+        btnChangeInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChangeInfoActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpInfoLayout = new javax.swing.GroupLayout(jpInfo);
+        jpInfo.setLayout(jpInfoLayout);
+        jpInfoLayout.setHorizontalGroup(
+            jpInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpInfoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jButton1)
-                    .addComponent(jScrollPane2))
+                .addGroup(jpInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnChangeInfo)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        jpInfoLayout.setVerticalGroup(
+            jpInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpInfoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addComponent(btnChangeInfo)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnMenu)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDelete)
-                            .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtfAgentInput, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(277, 277, 277))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
+        background.setLayout(backgroundLayout);
+        backgroundLayout.setHorizontalGroup(
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(txtfAgentInput, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAgent, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(btnDelete)
+                            .addComponent(lblMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnMenu)))
+                .addGap(18, 18, 18)
+                .addComponent(jpInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        backgroundLayout.setVerticalGroup(
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblAgent)
                         .addGap(12, 12, 12)
                         .addComponent(txtfAgentInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,21 +179,21 @@ public class WindowAdminDeleteAgent extends javax.swing.JFrame {
                         .addComponent(btnDelete)
                         .addGap(18, 18, 18)
                         .addComponent(lblMessage)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnMenu)
-                        .addGap(21, 21, 21))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(60, 60, 60)
+                        .addComponent(btnMenu))
+                    .addComponent(jpInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -200,7 +204,7 @@ public class WindowAdminDeleteAgent extends javax.swing.JFrame {
         try {
             String qAgentId = "SELECT agent_id FROM agent WHERE namn = '" + txtfAgentInput.getText() + "' OR agent_id = '" + txtfAgentInput.getText() + "'";
             String resultAgentId = idb.fetchSingle(qAgentId);
-            System.out.println(resultAgentId);
+ 
             if(resultAgentId != null){
                 agentId = resultAgentId;
             }
@@ -210,59 +214,122 @@ public class WindowAdminDeleteAgent extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
-        System.out.println(agentId);
+  
         return agentId;
     }
 
-    private int checkInput() {
+    private boolean checkAgentDoublet() {
         int loops = 0;
+        boolean isDoublet = false;
         try {
             String qAgentId = "SELECT agent_id FROM agent WHERE namn = '" + txtfAgentInput.getText() + "' OR agent_id = '" + txtfAgentInput.getText() + "'";
             ArrayList<String> agentIdList = idb.fetchColumn(qAgentId);
-        
+
 
             for (String element : agentIdList) {
                 loops++;
             }
+            if(loops > 1 ){
+                isDoublet = true;
+            }
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
-        return loops;
+        System.out.println(isDoublet);
+        return isDoublet;
 
     }
-  
-    private void deleteAgent() {
+
+    private boolean checkAgentIsContact() {
         // Ta bort från agentlistan
         // Ta bort från fältagent, områdeschef, kontorschef
         // Ta bort från innahar_fordon
         // Ta bort från innehar_utrustning
-        // Ändra ansvarig agent för alien 
-        
-        
-        
+        // Ändra ansvarig agent för alien KLAR
+        txtaPrintInfo.setText("");
         String agentId = getAgentId();
-        
-        
+        boolean isContactAgent = false;
+
         try {
-            jPanel2.setVisible(true);
             String qAlien = "SELECT alien_id, namn FROM alien WHERE ansvarig_agent = '" + agentId + "'";
-            ArrayList<HashMap<String,String>> result = idb.fetchRows(qAlien);
-            if(result.size() > 0){
-            
-                for(HashMap<String,String> element : result){
-                txtaPrint.append(" -" + element.get("alien_id") + " " + element.get("namn") + "\n");
+            ArrayList<HashMap<String, String>> result = idb.fetchRows(qAlien);
+
+            if (result.size() > 0) {
+
+                txtaTitleInfo.setText("Följande aliens behöver tilldelas\n"
+                        + "ny kontaktperson innan \n"
+                        + "agenten kan tas bort");
+                for (HashMap<String, String> element : result) {
+                    txtaPrintInfo.append(" -" + element.get("alien_id") + " " + element.get("namn") + "\n");
+                }
+                btnChangeInfo.setText("Ändra info om alien");
+
+                isContactAgent = true;
             }
-            }
-//            String qSquid = "DELETE FROM squid WHERE alien_id = '" + alienId + "'";
-//            idb.delete(qSquid);
 
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
+        return isContactAgent;
+    }
+
+    private boolean checkAgentIsAreaChief() {
+        txtaPrintInfo.setText("");
+        String agentId = getAgentId();
+        boolean isAreaChief = false;
+
+        try {
+            String qOmrade = "SELECT benamning FROM omrade o\n"
+                    + "JOIN omradeschef oc ON o.omrades_id = oc.omrade\n"
+                    + "WHERE agent_id = '" + agentId + "'";
+            String result = idb.fetchSingle(qOmrade);
+
+            if (result != null) {
+
+                txtaTitleInfo.setText("Följande område behöver tilldelas \n"
+                        + "en ny områdeschef innan agenten\n"
+                        + "kan tas bort");
+                txtaPrintInfo.append(" -" + result);
+                btnChangeInfo.setText("Ändra områdeschef");
+
+                isAreaChief = true;
+            }
+
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+        return isAreaChief;
+    }
+
+    private void deleteAgent() {
+        String agentId = getAgentId();
+
+        try {
+            String qVehicle = "DELETE FROM innehar_fordon WHERE agent_id = '" + agentId + "'";
+            idb.delete(qVehicle);
+            String qEquipment = "DELETE FROM innehar_utrustning WHERE agent_id = '" + agentId + "'";
+            idb.delete(qEquipment);
+            String qAreaChief = "DELETE FROM omradeschef WHERE agent_id = '" + agentId + "'";
+            idb.delete(qAreaChief);
+            String qHeadChief = "DELETE FROM kontorschef WHERE agent_id = '" + agentId + "'";
+            idb.delete(qHeadChief);
+            String qFieldAgent = "DELETE FROM faltagent WHERE agent_id = '" + agentId + "'";
+            idb.delete(qFieldAgent);
+            String qAgent = "DELETE FROM agent WHERE agent_id = '" + agentId + "'";
+            idb.delete(qAgent);
+
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+
     }
 
 
@@ -270,16 +337,21 @@ public class WindowAdminDeleteAgent extends javax.swing.JFrame {
 
         lblMessage.setText(" ");
         lblMessage.setForeground(Color.RED);
+        jpInfo.setVisible(false);
 
         if(Validation.validationTxt(txtfAgentInput, lblMessage, "Ange agentnamn eller id")){
-            if (checkInput() > 1) {
+            if (checkAgentDoublet()) {
                 lblMessage.setText("Det finns mer än en agent med detta namn, vänligen ange id");
 
             } else if (getAgentId().equals("")) {
-                lblMessage.setText("Agent namnet eller id:t finns inte registrerat");
+                lblMessage.setText("Agentnamnet eller id:t finns inte registrerat");
 
-            } else {
-                deleteAgent();
+            } else if(checkAgentIsContact()){
+                jpInfo.setVisible(true);
+            } else if(checkAgentIsAreaChief()){
+                jpInfo.setVisible(true);
+            }else{
+               deleteAgent();
 
                 lblMessage.setForeground(Color.GREEN);
                 lblMessage.setText("Agenten har tagits bort!");
@@ -295,20 +367,30 @@ public class WindowAdminDeleteAgent extends javax.swing.JFrame {
         //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
+    private void btnChangeInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeInfoActionPerformed
+        // TODO add your handling code here:
+        if(btnChangeInfo.getText().equals("Ändra områdeschef")){
+            new WindowAdminChangeAreaChief(idb).setVisible(true);
+        }
+         if(btnChangeInfo.getText().equals("Ändra info om alien")){
+            new WindowAdminUpdateAlienInfo(idb).setVisible(true);
+        }
+    }//GEN-LAST:event_btnChangeInfoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel background;
+    private javax.swing.JButton btnChangeInfo;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnMenu;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel jpInfo;
     private javax.swing.JLabel lblAgent;
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTextArea txtaMessageTitle;
-    private javax.swing.JTextArea txtaPrint;
+    private javax.swing.JTextArea txtaPrintInfo;
+    private javax.swing.JTextArea txtaTitleInfo;
     private javax.swing.JTextField txtfAgentInput;
     // End of variables declaration//GEN-END:variables
 }

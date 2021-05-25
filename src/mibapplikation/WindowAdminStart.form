@@ -71,7 +71,7 @@
                               <Component id="btnChangeAreaChief" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btnOwnEquipment" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn22" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                              <Component id="btn21" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="btnRegAgent" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn20" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btnChangeHeadChief" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btnDeleteAgent" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
@@ -95,7 +95,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnRegAlien" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn21" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnRegAgent" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -369,13 +369,16 @@
             <Property name="text" type="java.lang.String" value="jButton1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn21">
+        <Component class="javax.swing.JButton" name="btnRegAgent">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Registera agent"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegAgentActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn22">
           <Properties>
