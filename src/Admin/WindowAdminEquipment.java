@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Admin;
 
 
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
+import mibapplikation.Equipment;
+import mibapplikation.Validation;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -463,7 +465,7 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         lblMessage.setText(" ");
-        lblMessage.setForeground(Color.RED);
+        lblMessage.setForeground(new Color(255,50,50));
         if (Validation.validationCb(cbListEquipment, lblMessage)) {
             
             try {
@@ -487,7 +489,7 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
                     deleteCommsEquipment();
                 }
                 
-                lblMessage.setForeground(Color.GREEN);
+                lblMessage.setForeground(new Color(50,255,50));
                 lblMessage.setText("Utrustningen har tagits bort!");
                 printEquipmentList();
                 setEquipmentList();

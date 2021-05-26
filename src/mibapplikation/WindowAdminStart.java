@@ -5,6 +5,7 @@
  */
 package mibapplikation;
 
+import Admin.WindowAdminEquipment;
 import oru.inf.InfDB;
 
 /**
