@@ -91,10 +91,10 @@ public class JpListAlienDates extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtfEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSave)
                     .addComponent(lblMessageFormat)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
@@ -130,15 +130,13 @@ public class JpListAlienDates extends javax.swing.JPanel {
             && Validation.validationTxtDate(txtfStartDate, lblMessage)
             && Validation.validationTxtDate(txtfEndDate, lblMessage)) {
 
-            /*Behöver ytterligare en validation som kan ge ett felmeddleande om man skriver in något annat
-            än ett datum i rätt format i text-rutorna och om det inte finns några alien för den perioden*/
-            //Konvertera de inkommande string-värdena till datum av klassen LocalDate.
+       
             LocalDate startDate = LocalDate.parse(txtfStartDate.getText());
             LocalDate endDate = LocalDate.parse(txtfEndDate.getText());
 
             int checkDate = startDate.compareTo(endDate);
             if (checkDate > 0) {
-                lblMessage.setText("Startdatumet är större än slutdatumet");
+                lblMessage.setText("Fr.o.m. datumet är större än t.o.m. datumet");
             } else {
                 try {
                     String qAlienInfo = "Select namn, alien_id, registreringsdatum from Alien";

@@ -35,10 +35,10 @@
                           <Component id="lblEndDate" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="lblMessage" alignment="0" min="-2" pref="229" max="-2" attributes="0"/>
                   <Component id="btnSave" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="lblMessageFormat" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" alignment="0" min="-2" pref="235" max="-2" attributes="0"/>
+                  <Component id="lblMessage" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
           </Group>
