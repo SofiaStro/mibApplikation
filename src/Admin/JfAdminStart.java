@@ -77,7 +77,7 @@ public class JfAdminStart extends javax.swing.JFrame {
         });
 
         btnFindAreaChief.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnFindAreaChief.setText("Sök omradeschef");
+        btnFindAreaChief.setText("Sök områdeschef");
         btnFindAreaChief.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFindAreaChiefActionPerformed(evt);

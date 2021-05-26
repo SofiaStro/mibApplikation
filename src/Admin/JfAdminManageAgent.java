@@ -242,61 +242,64 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
             .addGroup(jpBackgroundLayout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnMenu)
-                    .addComponent(lblTitel)
-                    .addComponent(lblTitleShowInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpBackgroundLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
+                        .addComponent(lblTitleShowInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addComponent(lblTitel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
                         .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitleUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnMenu)
                                     .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                        .addComponent(lblAgentInfo)
+                                        .addGap(18, 18, 18)
                                         .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblUpdateDate)
-                                            .addComponent(lblUpdatePhone)
-                                            .addComponent(lblUpdateName)
-                                            .addComponent(lblAgentUpdate, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addGap(12, 12, 12)
+                                            .addComponent(btnShowInfo)
+                                            .addComponent(txtfAgentInfoInput, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
                                         .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cbListAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtfDateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtfPasswordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtfPhoneInput, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtfNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtfAgentUpdateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnUpdate)))
-                                    .addComponent(lblUpdatePw))
-                                .addGroup(jpBackgroundLayout.createSequentialGroup()
-                                    .addGap(1, 1, 1)
-                                    .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jpBackgroundLayout.createSequentialGroup()
-                                            .addComponent(lblAgentDelete)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(btnDelete)
-                                                .addComponent(txtfAgentDeleteInput, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addComponent(lblDeleteMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jpBackgroundLayout.createSequentialGroup()
-                                            .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblTitleDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lblUpdateArea))
-                                            .addGap(0, 0, Short.MAX_VALUE))
-                                        .addComponent(lblUpdateMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGap(3, 3, 3)))
-                            .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(lblInfoMessage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpBackgroundLayout.createSequentialGroup()
-                                    .addComponent(lblAgentInfo)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnShowInfo)
-                                        .addComponent(txtfAgentInfoInput, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(112, 112, 112)
-                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lblUpdateDate)
+                                                    .addComponent(lblUpdatePw)
+                                                    .addComponent(lblUpdatePhone)
+                                                    .addComponent(lblUpdateName)
+                                                    .addComponent(lblAgentUpdate))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(cbListAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtfDateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtfPasswordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtfPhoneInput, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtfNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtfAgentUpdateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(btnUpdate)))
+                                            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lblTitleDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lblUpdateArea)
+                                                    .addComponent(lblUpdateMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lblTitleUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lblDeleteMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBackgroundLayout.createSequentialGroup()
+                                                .addComponent(lblAgentDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(btnDelete)
+                                                    .addComponent(txtfAgentDeleteInput, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGap(84, 84, 84))
+                            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                .addComponent(lblInfoMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(spShowInfoBox, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jpErrorMessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(74, 74, 74))
+                            .addComponent(jpErrorMessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(157, 157, 157))))
         );
         jpBackgroundLayout.setVerticalGroup(
             jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,10 +341,10 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
                             .addComponent(txtfDateInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblUpdateDate)))
                     .addComponent(spShowInfoBox, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpBackgroundLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpBackgroundLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(lblUpdateArea))
@@ -352,36 +355,168 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
                         .addComponent(lblUpdateMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19)
                         .addComponent(lblTitleDelete)
+                        .addGap(6, 6, 6)
                         .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addGroup(jpBackgroundLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(lblAgentDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblAgentDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtfAgentDeleteInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnDelete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblDeleteMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpBackgroundLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jpErrorMessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(25, 25, 25)
+                    .addComponent(jpErrorMessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addComponent(btnMenu)
-                .addGap(28, 28, 28))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnChangeErrorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeErrorInfoActionPerformed
+        // TODO add your handling code here:
+        if (btnChangeErrorInfo.getText().equals("Ändra områdeschef")) {
+            new JfAdminManageAuthority(idb).setVisible(true);
+        }
+        if (btnChangeErrorInfo.getText().equals("Ändra info om alien")) {
+            new JfAdminManageAlien(idb).setVisible(true);
+        }
+        if (btnChangeErrorInfo.getText().equals("Ändra kontorschef")) {
+            new JfAdminManageAuthority(idb).setVisible(true);
+        }
+    }//GEN-LAST:event_btnChangeErrorInfoActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        lblInfoMessage.setText(" ");
+        lblUpdateMessage.setText(" ");
+        lblDeleteMessage.setText(" ");
+        lblDeleteMessage.setForeground(new Color(255,50,50));
+        jpErrorMessageBox.setVisible(false);
+
+        if (Validation.validationTxt(txtfAgentDeleteInput, lblDeleteMessage, "Ange agentnamn eller id")) {
+            if (checkAgentDoublet()) {
+                lblDeleteMessage.setText("Det finns mer än en agent med detta namn, vänligen ange id");
+
+            } else if (getAgentId().equals("")) {
+                lblDeleteMessage.setText("Agentnamnet eller id:t finns inte registrerat");
+
+            } else if (checkAgentIsContact()) {
+                jpErrorMessageBox.setVisible(true);
+            } else if (checkAgentIsAreaChief()) {
+                jpErrorMessageBox.setVisible(true);
+            } else if (checkAgentIsHeadChief()){
+                jpErrorMessageBox.setVisible(true);
+            }else{
+                deleteAgent();
+
+                lblDeleteMessage.setForeground(new Color(50,255,50));
+                lblDeleteMessage.setText("Agenten har tagits bort!");
+
+            }
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        //spara ändringar knappen
+        lblInfoMessage.setText(" ");
+        lblUpdateMessage.setText(" ");
+        lblDeleteMessage.setText(" ");
+        lblUpdateMessage.setForeground(new Color(255,50,50));
+        int loops = 0;
+        if (Validation.validationTxt(txtfAgentUpdateInput, lblUpdateMessage, "Ange ett namn eller id för en agent")) {
+            if (txtfNameInput.getText().isEmpty() && txtfPhoneInput.getText().isEmpty() && txtfPasswordInput.getText().isEmpty()
+                && txtfDateInput.getText().isEmpty() && cbListAreas.getSelectedItem().equals("-----")) {
+                lblUpdateMessage.setText("Du måste välja minst en sak att uppdatera för den valda agenten");
+            } else {
+                try {
+                    String qAgentId = "SELECT agent_id FROM agent WHERE namn = '" + txtfAgentUpdateInput.getText() + "' OR agent_id = '" + txtfAgentUpdateInput.getText() + "'";
+                    ArrayList<String> agentIdList = idb.fetchColumn(qAgentId);
+                    String agentId = idb.fetchSingle(qAgentId);
+
+                    for (String element : agentIdList) {
+                        loops++;
+                    }
+
+                    if (loops > 1) {
+                        lblUpdateMessage.setText("Det finns mer än en agent med detta namn, var vänligen ange ID");
+
+                    } else if (agentId == null) {
+                        lblUpdateMessage.setText("Agentens namn finns inte registrerat");
+                    } else {
+                        if (!txtfNameInput.getText().isEmpty()) {
+                            setAgentName(agentId);
+                        }
+                        if (!txtfPhoneInput.getText().isEmpty()) {
+                            setPhone(agentId);
+                        }
+                        if (!txtfPasswordInput.getText().isEmpty()) {
+                            setPassword(agentId);
+                        }
+                        if (!txtfDateInput.getText().isEmpty()) {
+                            setDate(agentId);
+                        }
+                        if (!cbListAreas.getSelectedItem().equals("-----")) {
+                            setAgentLocation(agentId);
+                        }
+                    }
+                } catch (InfException ex) {
+                    System.out.println("Databasfel" + ex.getMessage());
+                } catch (Exception ex) {
+                    System.out.println("Random fel" + ex.getMessage());
+                }
+            }
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        //dispose();
+    }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnShowInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowInfoActionPerformed
+        //visa info knappen
+        lblInfoMessage.setText(" ");
+        lblUpdateMessage.setText(" ");
+        lblDeleteMessage.setText(" ");
+        txtaShowAgentInfo.setText("");
+        int loops = 0;
+        if (Validation.validationTxt(txtfAgentInfoInput, lblInfoMessage, "Ange ett namn eller id för en agent")) {
+            try {
+                String qAgentId = "SELECT agent_id FROM agent WHERE namn = '" + txtfAgentInfoInput.getText() + "' OR agent_id = '" + txtfAgentInfoInput.getText() + "'";
+                ArrayList<String> agentIdList = idb.fetchColumn(qAgentId);
+                String agentId = idb.fetchSingle(qAgentId);
+
+                for (String element : agentIdList) {
+                    loops++;
+                }
+
+                if (loops > 1) {
+                    lblInfoMessage.setText("Det finns mer än en agent med detta namn, var vänligen ange ID");
+
+                }
+                if (agentId == null) {
+                    lblInfoMessage.setText("Agentens namn finns inte registrerat");
+                } else {
+                    listAgentInfo(agentId);
+                }
+            } catch (InfException ex) {
+                System.out.println("Databasfel" + ex.getMessage());
+            } catch (Exception ex) {
+                System.out.println("Random fel" + ex.getMessage());
+            }
+        }
+    }//GEN-LAST:event_btnShowInfoActionPerformed
 
     private void correctValues() {
 
@@ -501,46 +636,6 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
-    private void btnShowInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowInfoActionPerformed
-        //visa info knappen
-        lblInfoMessage.setText(" ");
-        lblUpdateMessage.setText(" ");
-        lblDeleteMessage.setText(" ");
-        txtaShowAgentInfo.setText("");
-        int loops = 0;
-        if (Validation.validationTxt(txtfAgentInfoInput, lblInfoMessage, "Ange ett namn eller id för en agent")) {
-            try {
-                String qAgentId = "SELECT agent_id FROM agent WHERE namn = '" + txtfAgentInfoInput.getText() + "' OR agent_id = '" + txtfAgentInfoInput.getText() + "'";
-                ArrayList<String> agentIdList = idb.fetchColumn(qAgentId);
-                String agentId = idb.fetchSingle(qAgentId);
-
-                for (String element : agentIdList) {
-                    loops++;
-                }
-
-                if (loops > 1) {
-                    lblInfoMessage.setText("Det finns mer än en agent med detta namn, var vänligen ange ID");
-
-                }
-                if (agentId == null) {
-                    lblInfoMessage.setText("Agentens namn finns inte registrerat");
-                } else {
-                    listAgentInfo(agentId);
-                }
-            } catch (InfException ex) {
-                System.out.println("Databasfel" + ex.getMessage());
-            } catch (Exception ex) {
-                System.out.println("Random fel" + ex.getMessage());
-            }
-        }
-    }//GEN-LAST:event_btnShowInfoActionPerformed
-
-    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-        //dispose();
-    }//GEN-LAST:event_btnMenuActionPerformed
-
     private String getAgentId() {
         String agentId = "";
         try {
@@ -642,6 +737,33 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         }
         return isAreaChief;
     }
+    
+     private boolean checkAgentIsHeadChief() {
+        txtaPrintErrorInfo.setText("");
+        String agentId = getAgentId();
+        boolean isHeadChief = false;
+
+        try {
+            String qHeadChief = "SELECT agent_id FROM kontorschef \n"
+                    + "WHERE agent_id = '" + agentId + "'";
+            String result = idb.fetchSingle(qHeadChief);
+
+            if (result != null) {
+
+                txtaTitleErrorInfo.setText("Ny kontorschef behöver tilldelas \n"
+                        + "innan agenten kan tas bort");
+                btnChangeErrorInfo.setText("Ändra kontorschef");
+
+                isHeadChief = true;
+            }
+
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+        return isHeadChief;
+    }
 
     private void deleteAgent() {
         String agentId = getAgentId();
@@ -667,97 +789,6 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         }
 
     }
-
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        //spara ändringar knappen
-        lblInfoMessage.setText(" ");
-        lblUpdateMessage.setText(" ");
-        lblDeleteMessage.setText(" ");
-        lblUpdateMessage.setForeground(new Color(255,50,50));
-        int loops = 0;
-        if (Validation.validationTxt(txtfAgentUpdateInput, lblUpdateMessage, "Ange ett namn eller id för en agent")) {
-            if (txtfNameInput.getText().isEmpty() && txtfPhoneInput.getText().isEmpty() && txtfPasswordInput.getText().isEmpty()
-                    && txtfDateInput.getText().isEmpty() && cbListAreas.getSelectedItem().equals("-----")) {
-                lblUpdateMessage.setText("Du måste välja minst en sak att uppdatera för den valda agenten");
-            } else {
-                try {
-                    String qAgentId = "SELECT agent_id FROM agent WHERE namn = '" + txtfAgentUpdateInput.getText() + "' OR agent_id = '" + txtfAgentUpdateInput.getText() + "'";
-                    ArrayList<String> agentIdList = idb.fetchColumn(qAgentId);
-                    String agentId = idb.fetchSingle(qAgentId);
-
-                    for (String element : agentIdList) {
-                        loops++;
-                    }
-
-                    if (loops > 1) {
-                        lblUpdateMessage.setText("Det finns mer än en agent med detta namn, var vänligen ange ID");
-
-                    } else if (agentId == null) {
-                        lblUpdateMessage.setText("Agentens namn finns inte registrerat");
-                    } else {
-                        if (!txtfNameInput.getText().isEmpty()) {
-                            setAgentName(agentId);
-                        }
-                        if (!txtfPhoneInput.getText().isEmpty()) {
-                            setPhone(agentId);
-                        }
-                        if (!txtfPasswordInput.getText().isEmpty()) {
-                            setPassword(agentId);
-                        }
-                        if (!txtfDateInput.getText().isEmpty()) {
-                            setDate(agentId);
-                        }
-                        if (!cbListAreas.getSelectedItem().equals("-----")) {
-                            setAgentLocation(agentId);
-                        }
-                    }
-                } catch (InfException ex) {
-                    System.out.println("Databasfel" + ex.getMessage());
-                } catch (Exception ex) {
-                    System.out.println("Random fel" + ex.getMessage());
-                }
-            }
-        }
-    }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        lblInfoMessage.setText(" ");
-        lblUpdateMessage.setText(" ");
-        lblDeleteMessage.setText(" ");
-        lblDeleteMessage.setForeground(new Color(255,50,50));
-        jpErrorMessageBox.setVisible(false);
-
-        if (Validation.validationTxt(txtfAgentDeleteInput, lblDeleteMessage, "Ange agentnamn eller id")) {
-            if (checkAgentDoublet()) {
-                lblDeleteMessage.setText("Det finns mer än en agent med detta namn, vänligen ange id");
-
-            } else if (getAgentId().equals("")) {
-                lblDeleteMessage.setText("Agentnamnet eller id:t finns inte registrerat");
-
-            } else if (checkAgentIsContact()) {
-                jpErrorMessageBox.setVisible(true);
-            } else if (checkAgentIsAreaChief()) {
-                jpErrorMessageBox.setVisible(true);
-            } else {
-                deleteAgent();
-
-                lblDeleteMessage.setForeground(new Color(50,255,50));
-                lblDeleteMessage.setText("Agenten har tagits bort!");
-
-            }
-        }
-
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void btnChangeErrorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeErrorInfoActionPerformed
-        // TODO add your handling code here:
-        if (btnChangeErrorInfo.getText().equals("Ändra områdeschef")) {
-            new JfAdminManageAuthority(idb).setVisible(true);
-        }
-        if (btnChangeErrorInfo.getText().equals("Ändra info om alien")) {
-            new JfAdminManageAlien(idb).setVisible(true);
-        }
-    }//GEN-LAST:event_btnChangeErrorInfoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

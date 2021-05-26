@@ -32,12 +32,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jpBackground" alignment="0" max="32767" attributes="0"/>
+          <Component id="jpBackground" min="-2" pref="776" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jpBackground" alignment="0" max="32767" attributes="0"/>
+          <Component id="jpBackground" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -55,79 +55,84 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnMenu" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblTitel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblTitleShowInfo" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="lblTitleShowInfo" min="-2" pref="182" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="lblTitel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblTitleUpdate" min="-2" pref="182" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btnMenu" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblAgentInfo" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblUpdateDate" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblUpdatePhone" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblUpdateName" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblAgentUpdate" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="cbListAreas" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                              <Component id="txtfDateInput" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                              <Component id="txtfPasswordInput" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                              <Component id="txtfPhoneInput" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                              <Component id="txtfNameInput" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                              <Component id="txtfAgentUpdateInput" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                              <Component id="btnUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnShowInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtfAgentInfoInput" min="-2" pref="142" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Component id="lblUpdatePw" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="lblAgentDelete" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtfAgentDeleteInput" min="-2" pref="140" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="lblUpdateDate" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblUpdatePw" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblUpdatePhone" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblUpdateName" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblAgentUpdate" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="cbListAreas" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                                      <Component id="txtfDateInput" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                                      <Component id="txtfPasswordInput" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                                      <Component id="txtfPhoneInput" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                                      <Component id="txtfNameInput" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                                      <Component id="txtfAgentUpdateInput" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                                      <Component id="btnUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="lblTitleDelete" min="-2" pref="182" max="-2" attributes="0"/>
+                                                      <Component id="lblUpdateArea" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblUpdateMessage" alignment="0" min="-2" pref="304" max="-2" attributes="0"/>
+                                                      <Component id="lblTitleUpdate" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
+                                                      <Component id="lblDeleteMessage" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="lblAgentDelete" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtfAgentDeleteInput" min="-2" pref="140" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                           </Group>
-                                          <Component id="lblDeleteMessage" alignment="0" max="32767" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="lblTitleDelete" min="-2" pref="182" max="-2" attributes="0"/>
-                                                  <Component id="lblUpdateArea" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="lblUpdateMessage" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="lblInfoMessage" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblAgentInfo" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="btnShowInfo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtfAgentInfoInput" min="-2" pref="142" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblInfoMessage" min="-2" pref="304" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="spShowInfoBox" min="-2" pref="225" max="-2" attributes="0"/>
                               <Component id="jpErrorMessageBox" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -145,7 +150,7 @@
                               <Component id="lblAgentInfo" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtfAgentInfoInput" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnShowInfo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblInfoMessage" min="-2" max="-2" attributes="0"/>
@@ -177,17 +182,17 @@
                               <Component id="lblUpdateDate" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="spShowInfoBox" alignment="0" min="-2" pref="248" max="-2" attributes="0"/>
+                      <Component id="spShowInfoBox" min="-2" pref="248" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Group type="102" alignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                   <Component id="lblUpdateArea" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="cbListAreas" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbListAreas" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                           <Component id="btnUpdate" min="-2" max="-2" attributes="0"/>
@@ -195,11 +200,9 @@
                           <Component id="lblUpdateMessage" min="-2" pref="20" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Component id="lblTitleDelete" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Group type="102" alignment="3" attributes="0">
-                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Component id="lblAgentDelete" min="-2" pref="22" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="lblAgentDelete" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                               <Component id="txtfAgentDeleteInput" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
@@ -207,14 +210,11 @@
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="lblDeleteMessage" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                          <Component id="jpErrorMessageBox" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jpErrorMessageBox" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="btnMenu" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
