@@ -5,7 +5,6 @@
  */
 package Admin;
 
-
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,12 +42,12 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jpBackground = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
-        lblMessage = new javax.swing.JLabel();
-        btnSave = new javax.swing.JButton();
+        lblMessageAdd = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        spListEquipment = new javax.swing.JScrollPane();
         txtaListEquipment = new javax.swing.JTextArea();
         txtfEquipName = new javax.swing.JTextField();
         cbListEquipment = new javax.swing.JComboBox<>();
@@ -61,6 +60,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         txtfEquipCapacity = new javax.swing.JTextField();
         lblDeleteEquip = new javax.swing.JLabel();
         lblEquipCapacity = new javax.swing.JLabel();
+        lblMessageDelete = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
@@ -68,20 +68,20 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(40, 40, 40));
+        jpBackground.setBackground(new java.awt.Color(40, 40, 40));
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Hantera utrustning");
 
-        lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessage.setForeground(new java.awt.Color(255, 50, 50));
-        lblMessage.setText(" ");
+        lblMessageAdd.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        lblMessageAdd.setForeground(new java.awt.Color(255, 50, 50));
+        lblMessageAdd.setText(" ");
 
-        btnSave.setText("LÄGG TILL");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setText("LÄGG TILL");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
@@ -96,7 +96,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         txtaListEquipment.setColumns(20);
         txtaListEquipment.setForeground(new java.awt.Color(255, 255, 255));
         txtaListEquipment.setRows(5);
-        jScrollPane1.setViewportView(txtaListEquipment);
+        spListEquipment.setViewportView(txtaListEquipment);
 
         txtfEquipName.setColumns(6);
 
@@ -108,7 +108,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         });
 
         lblListDescription.setForeground(new java.awt.Color(255, 255, 255));
-        lblListDescription.setText("Följande utrustning finns registrerad");
+        lblListDescription.setText("Registrerad utrustning i lagret");
 
         cbEquipCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Vapen", "Teknik", "Kommunikation" }));
         cbEquipCategory.addActionListener(new java.awt.event.ActionListener() {
@@ -136,84 +136,95 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         lblEquipCapacity.setForeground(new java.awt.Color(255, 255, 255));
         lblEquipCapacity.setText(" ");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblEquipName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblEquipCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblEquipCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtfEquipName, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtfEquipCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbEquipCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(17, 17, 17))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblAddEquip, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDeleteEquip, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbListEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblListDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        lblMessageDelete.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        lblMessageDelete.setForeground(new java.awt.Color(255, 50, 50));
+        lblMessageDelete.setText(" ");
+
+        javax.swing.GroupLayout jpBackgroundLayout = new javax.swing.GroupLayout(jpBackground);
+        jpBackground.setLayout(jpBackgroundLayout);
+        jpBackgroundLayout.setHorizontalGroup(
+            jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpBackgroundLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(btnMenu)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addComponent(lblListDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addComponent(spListEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEquipName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEquipCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEquipCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtfEquipName, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtfEquipCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbEquipCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(83, 83, 83))
+                            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                .addComponent(lblAddEquip, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBackgroundLayout.createSequentialGroup()
+                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblMessageDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblMessageAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpBackgroundLayout.createSequentialGroup()
+                                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblDeleteEquip, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cbListEquipment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(119, 119, 119))))
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 311, Short.MAX_VALUE))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jpBackgroundLayout.setVerticalGroup(
+            jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpBackgroundLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblListDescription)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
                         .addComponent(lblAddEquip)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtfEquipName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEquipName))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cbEquipCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEquipCategory))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtfEquipCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEquipCapacity))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSave)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                        .addComponent(btnAdd)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblMessageAdd)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                         .addComponent(lblDeleteEquip)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbListEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnDelete))
-                    .addComponent(jScrollPane1))
-                .addGap(27, 27, 27)
-                .addComponent(lblMessage)
-                .addGap(20, 20, 20)
+                    .addComponent(spListEquipment))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMessageDelete)
+                .addGap(41, 41, 41)
                 .addComponent(btnMenu)
                 .addGap(28, 28, 28))
         );
@@ -222,12 +233,12 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -236,11 +247,11 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
 
     private void printEquipmentList() {
         txtaListEquipment.setText("");
-        
+
         try {
             String query = "SELECT utrustnings_id, benamning FROM utrustning";
             ArrayList<HashMap<String, String>> result = idb.fetchRows(query);
-            
+
             for (HashMap<String, String> element : result) {
                 String equipmentType = Equipment.getEquipmentType(element.get("utrustnings_id"));
                 txtaListEquipment.append(" • " + element.get("benamning") + " (" + equipmentType + ")\n");
@@ -255,11 +266,11 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
     private void setEquipmentList() {
         cbListEquipment.removeAllItems();
         cbListEquipment.addItem("-----");
-        
+
         try {
             String query = "SELECT benamning FROM utrustning";
             ArrayList<String> result = idb.fetchColumn(query);
-            
+
             for (String element : result) {
                 cbListEquipment.addItem(element);
             }
@@ -269,16 +280,16 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
-    
+
     private String getNewEquipmentId() {
         int lastNr = 0;
         String newId = "";
-        
-        try {            
+
+        try {
             String query = "SELECT utrustnings_id FROM utrustning";
             ArrayList<String> result = idb.fetchColumn(query);
             int[] intResult = new int[result.size()];
-            
+
             for (int i = 0; i < result.size(); i++) {
                 intResult[i] = Integer.parseInt(result.get(i));
             }
@@ -296,18 +307,18 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         }
         return newId;
     }
-    
+
     private String getEquipmentName() {
         String equipmentName = txtfEquipName.getText();
         return equipmentName;
     }
-    
+
     private void addWeaponEquipment() {
         String newId = getNewEquipmentId();
         try {
             String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + getEquipmentName() + "')";
             idb.insert(queryAddEquip);
-            
+
             String queryAddWeaponCapacity = "INSERT INTO vapen(utrustnings_id, kaliber) VALUES ('" + newId + "','" + txtfEquipCapacity.getText() + "')";
             idb.insert(queryAddWeaponCapacity);
         } catch (InfException ex) {
@@ -315,7 +326,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
-        
+
     }
 
     private void addTechEquipment() {
@@ -323,7 +334,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         try {
             String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + getEquipmentName() + "')";
             idb.insert(queryAddEquip);
-            
+
             String queryAddWeaponCapacity = "INSERT INTO teknik (utrustnings_id, kraftkalla) VALUES ('" + newId + "','" + txtfEquipCapacity.getText() + "')";
             idb.insert(queryAddWeaponCapacity);
         } catch (InfException ex) {
@@ -331,7 +342,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
-        
+
     }
 
     private void addCommsEquipment() {
@@ -339,7 +350,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         try {
             String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + getEquipmentName() + "')";
             idb.insert(queryAddEquip);
-            
+
             String queryAddWeaponCapacity = "INSERT INTO kommunikation (utrustnings_id, overforingsteknik) VALUES ('" + newId + "','" + txtfEquipCapacity.getText() + "')";
             idb.insert(queryAddWeaponCapacity);
         } catch (InfException ex) {
@@ -347,7 +358,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
-        
+
     }
 
     private String getEquipmentId() {
@@ -363,12 +374,12 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         }
         return equipmentId;
     }
-    
+
     private void deleteWeaponEquipment() {
-        
+
         try {
             String equipmentId = getEquipmentId();
-            
+
             String queryEquipment = "DELETE FROM utrustning WHERE utrustnings_id = '" + equipmentId + "'";
             idb.delete(queryEquipment);
             String queryWeapon = "DELETE FROM vapen WHERE utrustnings_id = '" + equipmentId + "'";
@@ -378,7 +389,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
-        
+
     }
 
     private void deleteTechEquipment() {
@@ -393,7 +404,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
-        
+
     }
 
     private void deleteCommsEquipment() {
@@ -408,47 +419,48 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
-        
+
     }
-    
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        lblMessage.setText(" ");
-        lblMessage.setForeground(new Color(255,50,50));
-        if (Validation.validationTxt(txtfEquipName, lblMessage, "Ange utrustningsnamn")
-                && Validation.validationCb(cbEquipCategory, lblMessage, "Ange kategori")
-                && Validation.validationTxt(txtfEquipCapacity, lblMessage, "")) {
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        lblMessageAdd.setText(" ");
+        lblMessageDelete.setText(" ");
+        lblMessageAdd.setForeground(new Color(255, 50, 50));
+        if (Validation.validationTxt(txtfEquipName, lblMessageAdd, "Ange utrustningsnamn")
+                && Validation.validationCb(cbEquipCategory, lblMessageAdd, "Ange kategori")
+                && Validation.validationTxt(txtfEquipCapacity, lblMessageAdd, "Ett fält är tomt")) {
             try {
                 Boolean equipmentExist = false;
                 Boolean equipmentAdded = false;
                 String newEquipment = txtfEquipName.getText();
-                
+
                 String query = "SELECT benamning FROM utrustning";
                 ArrayList<String> result = idb.fetchColumn(query);
-                
+
                 for (String element : result) {
                     if (newEquipment.toLowerCase().equals(element.toLowerCase())) {
                         equipmentExist = true;
                     }
                 }
                 if (equipmentExist) {
-                    lblMessage.setText("Utrustningen finns redan!");
+                    lblMessageAdd.setText("Utrustningen finns redan!");
                 } else {
-                     
-                    if (cbEquipCategory.getSelectedItem().equals("Vapen") && Validation.validationNumbers(txtfEquipCapacity, lblMessage, "Kaliber måste vare en siffra!")) {
+
+                    if (cbEquipCategory.getSelectedItem().equals("Vapen") && Validation.validationNumbers(txtfEquipCapacity, lblMessageAdd, "Kaliber måste var en siffra!")) {
                         addWeaponEquipment();
                         equipmentAdded = true;
-                    } else if (cbEquipCategory.getSelectedItem().equals("Teknik") && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessage, 20, "Kraftkälla får max vara 20 tecken")) {
+                    } else if (cbEquipCategory.getSelectedItem().equals("Teknik") && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessageAdd, 20, "Kraftkälla får max vara 20 tecken")) {
                         addTechEquipment();
                         equipmentAdded = true;
-                    } else if (cbEquipCategory.getSelectedItem().equals("Kommunikation") && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessage, 20, "Överföringsteknik får max vara 20 tecken")) {
+                    } else if (cbEquipCategory.getSelectedItem().equals("Kommunikation") && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessageAdd, 20, "Överföringsteknik får max vara 20 tecken")) {
                         addCommsEquipment();
                         equipmentAdded = true;
                     }
-                    
+
                 }
                 if (equipmentAdded) {
-                    lblMessage.setForeground(new Color(50,255,50));
-                    lblMessage.setText("Utrustningen har lagts till!");
+                    lblMessageAdd.setForeground(new Color(50, 255, 50));
+                    lblMessageAdd.setText("Utrustningen har lagts till!");
                     txtfEquipName.setText("");
                     cbEquipCategory.setSelectedIndex(0);
                     txtfEquipCapacity.setText("");
@@ -462,7 +474,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
                 System.out.println("Random fel" + ex.getMessage());
             }
         }
-    }//GEN-LAST:event_btnSaveActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
@@ -472,22 +484,23 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        lblMessage.setText(" ");
-        lblMessage.setForeground(new Color(255,50,50));
-        if (Validation.validationCb(cbListEquipment, lblMessage, "Välj viken utrustnings som ska tas bort")) {
-            
+        lblMessageAdd.setText(" ");
+        lblMessageDelete.setText(" ");
+        lblMessageDelete.setForeground(new Color(255, 50, 50));
+        if (Validation.validationCb(cbListEquipment, lblMessageDelete, "Välj viken utrustnings som ska tas bort")) {
+
             try {
                 String equipmentId = getEquipmentId();
                 String query = "SELECT utrustnings_id FROM innehar_utrustning";
                 ArrayList<String> result = idb.fetchColumn(query);
-                
+
                 for (String element : result) {
                     if (equipmentId.equals(element)) {
                         String qDeleteUsedEquip = "DELETE FROM innehar_utrustning WHERE utrustnings_id = '" + element + "'";
                         idb.delete(qDeleteUsedEquip);
                     }
                 }
-                
+
                 String equipmentType = Equipment.getEquipmentType(equipmentId);
                 if (equipmentType.equals("Vapen")) {
                     deleteWeaponEquipment();
@@ -496,12 +509,12 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
                 } else if (equipmentType.equals("Kommunikation")) {
                     deleteCommsEquipment();
                 }
-                
-                lblMessage.setForeground(new Color(50,255,50));
-                lblMessage.setText("Utrustningen har tagits bort!");
+
+                lblMessageDelete.setForeground(new Color(50, 255, 50));
+                lblMessageDelete.setText("Utrustningen har tagits bort!");
                 printEquipmentList();
                 setEquipmentList();
-                
+
             } catch (InfException ex) {
                 System.out.println("Databasfel" + ex.getMessage());
             } catch (Exception ex) {
@@ -518,7 +531,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
             lblEquipCapacity.setText("Kaliber:");
         } else if (cbEquipCategory.getSelectedItem().equals("Teknik")) {
             txtfEquipCapacity.setVisible(true);
-            lblEquipCapacity.setText("Kraftkälla::");
+            lblEquipCapacity.setText("Kraftkälla:");
         } else if (cbEquipCategory.getSelectedItem().equals("Kommunikation")) {
             txtfEquipCapacity.setVisible(true);
             lblEquipCapacity.setText("Överföringsteknik:");
@@ -526,26 +539,27 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
             txtfEquipCapacity.setVisible(false);
             lblEquipCapacity.setText(" ");
         }
-        
+
     }//GEN-LAST:event_cbEquipCategoryActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnMenu;
-    private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> cbEquipCategory;
     private javax.swing.JComboBox<String> cbListEquipment;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jpBackground;
     private javax.swing.JLabel lblAddEquip;
     private javax.swing.JLabel lblDeleteEquip;
     private javax.swing.JLabel lblEquipCapacity;
     private javax.swing.JLabel lblEquipCategory;
     private javax.swing.JLabel lblEquipName;
     private javax.swing.JLabel lblListDescription;
-    private javax.swing.JLabel lblMessage;
+    private javax.swing.JLabel lblMessageAdd;
+    private javax.swing.JLabel lblMessageDelete;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JScrollPane spListEquipment;
     private javax.swing.JTextArea txtaListEquipment;
     private javax.swing.JTextField txtfEquipCapacity;
     private javax.swing.JTextField txtfEquipName;

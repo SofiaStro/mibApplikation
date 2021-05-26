@@ -62,28 +62,35 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lblName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblPhone" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblPrivileges" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblWorkArea" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtName" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtPhone" alignment="0" pref="127" max="32767" attributes="0"/>
-                                      <Component id="cbPrivileges" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbAreas" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="85" max="32767" attributes="0"/>
-                                  <Component id="spMessageBox" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
                                   <Component id="btnMenu" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="318" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="btnSave" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtPhone" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="cbPrivileges" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="cbAreas" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblPhone" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblPrivileges" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblWorkArea" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtName" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                                              <Component id="btnSave" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblMessage" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
+                                          <Component id="spMessageBox" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="lblMessage" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
