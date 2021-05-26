@@ -72,7 +72,7 @@ public class JfAlienChangePw extends javax.swing.JFrame {
         });
 
         lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessage.setForeground(new java.awt.Color(255, 96, 96));
+        lblMessage.setForeground(new java.awt.Color(255, 50, 50));
         lblMessage.setText(" ");
 
         btnSave.setText("SPARA");
@@ -155,8 +155,8 @@ public class JfAlienChangePw extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // Om ID stämmer med old lösenord
-        // Byt till nya lösenordet
+        lblMessage.setText("");
+        lblMessage.setForeground(new Color(255,50,50));
         if(Validation.validationTxt(pwOldPw, lblMessage, "Ange ditt nuvarande lösenord")
                 && Validation.validationTxt(pwNewPw, lblMessage, "Ange ditt nya lösenord")
                 && Validation.validationTxtNrOfChar(pwNewPw, lblMessage, 6, "Det nya lösenordet får vara max 6 tecken")){
@@ -173,12 +173,11 @@ public class JfAlienChangePw extends javax.swing.JFrame {
                 if(oldPassword.equals(result)){
                     String qSetPassword = "UPDATE alien SET losenord =" + "'" + newPassword + "'" + "WHERE alien_id = " + "'" + alienId + "'";
                     idb.update(qSetPassword);
-                    lblMessage.setForeground(Color.GREEN);
+                    lblMessage.setForeground(new Color(50,255,50));
                     lblMessage.setText("Ditt lösenord är nu ändrat!");
                 }
                 else{
                     pwOldPw.requestFocus();
-                    lblMessage.setForeground(Color.RED);
                     lblMessage.setText("Nuvarande lösenord är felaktigt!");
                 }
                 pwOldPw.setText("");

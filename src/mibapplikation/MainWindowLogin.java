@@ -198,7 +198,7 @@ public class MainWindowLogin extends javax.swing.JFrame {
                     setVisible(false);
                     //Gör om första bokstaven till versal.
                     username = WordUtils.capitalize(username);
-                    new JfAlienStart(idb, resultAlien, username).setVisible(true);
+                    new JfAgentStart(idb, resultAlien, username).setVisible(true);
                 } 
                 else {
                     lblMessage.setText("Fel användarnamn eller lösenord");

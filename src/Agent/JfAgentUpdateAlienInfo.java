@@ -41,7 +41,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jpBackground = new javax.swing.JPanel();
         lblTitel = new javax.swing.JLabel();
         lblMessageUpdate = new javax.swing.JLabel();
         btnUpdate = new javax.swing.JButton();
@@ -67,18 +67,20 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
+        setBackground(new java.awt.Color(40, 40, 40));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icons/astronomy.png")).getImage());
         setLocationByPlatform(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(40, 40, 40));
+        jpBackground.setBackground(new java.awt.Color(40, 40, 40));
+        jpBackground.setForeground(new java.awt.Color(40, 40, 40));
 
         lblTitel.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         lblTitel.setForeground(new java.awt.Color(255, 255, 255));
         lblTitel.setText("Se och ändra information om en alien");
 
         lblMessageUpdate.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessageUpdate.setForeground(new java.awt.Color(255, 96, 96));
+        lblMessageUpdate.setForeground(new java.awt.Color(255, 50, 50));
         lblMessageUpdate.setText(" ");
 
         btnUpdate.setText("UPPDATERA");
@@ -121,7 +123,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
         txtfAlienUpdate.setColumns(6);
 
         lblMessageInfo.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessageInfo.setForeground(new java.awt.Color(255, 96, 96));
+        lblMessageInfo.setForeground(new java.awt.Color(255, 50, 50));
         lblMessageInfo.setText(" ");
 
         lblRaceSpecial.setForeground(new java.awt.Color(255, 255, 255));
@@ -160,67 +162,72 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
         lblTitleInfo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitleInfo.setText("Visa information");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpBackgroundLayout = new javax.swing.GroupLayout(jpBackground);
+        jpBackground.setLayout(jpBackgroundLayout);
+        jpBackgroundLayout.setHorizontalGroup(
+            jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpBackgroundLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(lblUpdateRace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lblRaceSpecial)
-                                            .addComponent(lblUpdatePhone, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(cbListRace, javax.swing.GroupLayout.Alignment.LEADING, 0, 134, Short.MAX_VALUE)
-                                            .addComponent(txtfRaceSpecial, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtfUpdatePhone, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtfUpdateName, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addComponent(lblMessageUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBackgroundLayout.createSequentialGroup()
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBackgroundLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblUpdateRace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblRaceSpecial)
+                                    .addComponent(lblUpdatePhone, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(cbListRace, javax.swing.GroupLayout.Alignment.LEADING, 0, 134, Short.MAX_VALUE)
+                                    .addComponent(txtfRaceSpecial, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtfUpdatePhone, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtfUpdateName, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(49, 49, 49))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jpBackgroundLayout.createSequentialGroup()
                                         .addComponent(lblAlienInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(btnShowInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                                             .addComponent(txtfAlienInfo)))
                                     .addComponent(lblUpdateName, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jpBackgroundLayout.createSequentialGroup()
                                         .addComponent(lblAlienUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtfAlienUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(lblTitleUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTitleInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblMessageInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblTitleInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBackgroundLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(lblMessageInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2731, 2731, 2731))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnMenu))
                         .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBackgroundLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblMessageUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2912, 2912, 2912))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        jpBackgroundLayout.setVerticalGroup(
+            jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBackgroundLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblTitleInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblAlienInfo)
                             .addComponent(txtfAlienInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -230,23 +237,23 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(lblTitleUpdate)
                         .addGap(12, 12, 12)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblAlienUpdate)
                             .addComponent(txtfAlienUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblUpdateName, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtfUpdateName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtfUpdatePhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblUpdatePhone))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblUpdateRace, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbListRace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblRaceSpecial)
                             .addComponent(txtfRaceSpecial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -263,11 +270,11 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jpBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jpBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -275,21 +282,31 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
 
     private void btnShowInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowInfoActionPerformed
         txtaPrintAlienInfo.setText("");
+        lblMessageUpdate.setText(" ");
         lblMessageInfo.setText(" ");
+        lblMessageInfo.setForeground(new Color(255, 50, 50));
+        int loops = 0;
 
-        if(Validation.validationTxt(txtfAlienInfo, lblMessageInfo, "Ange aliennamn eller id")){
+        if (Validation.validationTxt(txtfAlienInfo, lblMessageInfo, "Ange aliennamn eller id")) {
             try {
                 String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInfo.getText() + "' OR alien_id = '" + txtfAlienInfo.getText() + "'";
-                String alienId = idb.fetchSingle(qAlienId);
+                    ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
+                    String alienId = idb.fetchSingle(qAlienId);
 
-                if(alienId == null){
+                    for (String element : alienIdList) {
+                        loops++;
+                    }
+                    if (loops > 1) {
+                        lblMessageInfo.setText("Det finns mer än en alien med detta namn, var vänligen ange ID");
+                    }
+
+                    else if (alienId == null) {
                     lblMessageInfo.setText("Alien namet finns inte registrerat");
-                }
-                else{
+                } else {
                     txtaPrintAlienInfo.append("Alien id:\t" + alienId + "\n");
 
                     String qAlienInfo = "SELECT namn, telefon, registreringsdatum FROM alien WHERE alien_id = '" + alienId + "'";
-                    HashMap<String,String> alienInfo = idb.fetchRow(qAlienInfo);
+                    HashMap<String, String> alienInfo = idb.fetchRow(qAlienInfo);
                     txtaPrintAlienInfo.append("Namn:\t" + alienInfo.get("namn") + "\n");
                     txtaPrintAlienInfo.append("Telefon:\t" + alienInfo.get("telefon") + "\n");
                     txtaPrintAlienInfo.append("Registrerad:\t" + alienInfo.get("registreringsdatum") + "\n");
@@ -308,26 +325,27 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
                     txtaPrintAlienInfo.append("Ras:\t" + ras + "\n");
 
                     String alienEgenskap = "";
-                    if(ras.equals("Squid")){
+                    if (ras.equals("Squid")) {
                         String qAlienSquid = "SELECT antal_armar FROM squid WHERE alien_id = '" + alienId + "'";
                         alienEgenskap = idb.fetchSingle(qAlienSquid);
                         txtaPrintAlienInfo.append("Egenskap:\t" + alienEgenskap + " st armar\n");
-                    }
-                    else if (ras.equals("Boglodite")){
+                    } else if (ras.equals("Boglodite")) {
                         String qAlienBoglodite = "SELECT antal_boogies FROM boglodite WHERE alien_id = '" + alienId + "'";
                         alienEgenskap = idb.fetchSingle(qAlienBoglodite);
                         txtaPrintAlienInfo.append("Egenskap:\t" + alienEgenskap + " st boogies\n");
                     }
-                    
+
                 }
-            }
-            catch (InfException ex){
+            } catch (InfException ex) {
                 System.out.println("Databasfel" + ex.getMessage());
-            }
-            catch (Exception ex){
+            } catch (Exception ex) {
                 System.out.println("Random fel" + ex.getMessage());
             }
+            
         }
+        
+    
+        
     }//GEN-LAST:event_btnShowInfoActionPerformed
 
     private void cbListRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListRaceActionPerformed
@@ -352,12 +370,12 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         lblMessageInfo.setText(" ");
         lblMessageUpdate.setText(" ");
-        lblMessageUpdate.setForeground(Color.RED);
+        lblMessageUpdate.setForeground(new Color(255,50,50));
         int loops = 0;
 
         if (Validation.validationTxt(txtfAlienUpdate, lblMessageUpdate, "Ange aliennamn eller id")) {
             if (txtfUpdateName.getText().isEmpty() && txtfUpdatePhone.getText().isEmpty()
-                && cbListRace.getSelectedItem().equals("-----")) {
+                    && cbListRace.getSelectedItem().equals("-----")) {
                 lblMessageUpdate.setText("Välj minst en ruta att uppdatera för den valda alien");
             } else {
                 try {
@@ -385,7 +403,6 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
                         if (!cbListRace.getSelectedItem().equals("-----")) {
 
                             String currentRace = Alien.getRace(alienId);
-                            System.out.println(currentRace);
 
                             if (currentRace.equals(cbListRace.getSelectedItem())) {
                                 lblMessageUpdate.setText("Alien är redan registrerad som den här rasen.");
@@ -427,7 +444,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
 
     private void correctValues() {
 
-        lblMessageUpdate.setForeground(Color.GREEN);
+        lblMessageUpdate.setForeground(new Color(50, 255, 50));
         lblMessageUpdate.setText("Dina ändringar är sparade");
 
     }
@@ -472,7 +489,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
                 lblMessageUpdate.setText("Rutan för ras-specialitet är tom");
 
             } else {
-                if (currentRace != "") {
+                if (currentRace != "<Oidentifierad>") {
                     String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                     idb.delete(qDelete);
                 }
@@ -500,7 +517,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
                 lblMessageUpdate.setText("Rutan för ras-specialitet är tom");
 
             } else {
-                if (currentRace != "") {
+                if (currentRace != "<Oidentifierad>") {
                     String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                     idb.delete(qDelete);
                 }
@@ -522,7 +539,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
         String currentRace = Alien.getRace(alienId);
         try {
 
-            if (currentRace != "") {
+            if (currentRace != "<Oidentifierad>") {
                 String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                 idb.delete(qDelete);
             }
@@ -540,7 +557,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
     private void setUnidentified(String alienId) {
         String currentRace = Alien.getRace(alienId);
         try {
-            if (currentRace != "") {
+            if (currentRace != "<Oidentifierad>") {
                 String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                 idb.delete(qDelete);
                 correctValues();
@@ -554,14 +571,13 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
     }
 
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnShowInfo;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cbListRace;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jpBackground;
     private javax.swing.JLabel lblAlienInfo;
     private javax.swing.JLabel lblAlienUpdate;
     private javax.swing.JLabel lblMessageInfo;

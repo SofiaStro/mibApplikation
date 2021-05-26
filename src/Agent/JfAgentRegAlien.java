@@ -38,11 +38,6 @@ public class JfAgentRegAlien extends javax.swing.JFrame {
         setAgentInCharge();
         txtRaceSpecial.setVisible(false);
         lblRaceSpecial.setVisible(false);
-        //ta bort nedan och lägg till i actionBtn när klar
-        getNewAlienId();
-        getNewPw();
-        getSystemDate();
-
     }
 
     private void setRace() {
@@ -362,7 +357,7 @@ public class JfAgentRegAlien extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+            .addComponent(jpBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 468, Short.MAX_VALUE)
         );
 
         pack();
