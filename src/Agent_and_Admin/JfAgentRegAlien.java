@@ -401,8 +401,8 @@ public class JfAgentRegAlien extends javax.swing.JFrame {
 
         Object getRaceListItem = cbRace.getSelectedItem();
         String race = getRaceListItem.toString();
-
        
+        String raceSpecial = lblRaceSpecial.getText();
 
         if (Validation.validationTxtPhone(txtPhone, lblMessage) //kolla om databasen får ett värde om man endast skriver mellanslag
                 && Validation.validationTxt(txtName, lblMessage, "Ange namn")
@@ -411,8 +411,8 @@ public class JfAgentRegAlien extends javax.swing.JFrame {
                 && Validation.validationCb(cbAgentInCharge, lblMessage, "Ange ansvarig agent")) {
 
             if (txtRaceSpecial.isShowing() == true) {
-                if (!Validation.validationTxt(txtRaceSpecial, lblMessage, "Ange " + lblRaceSpecial.getText().toLowerCase())
-                        || !Validation.validationNumbers(txtRaceSpecial, txtaMessage, lblRaceSpecial.getText() + " måste vara\nen siffra!")) {
+                if (!Validation.validationTxt(txtRaceSpecial, lblMessage, "Ange " + raceSpecial.substring(0, raceSpecial.length() - 1))
+                        || !Validation.validationNumbers(txtRaceSpecial, lblMessage, raceSpecial.substring(0, raceSpecial.length() - 1) + " måste vara en siffra")) {
 
                     return;
                 }
