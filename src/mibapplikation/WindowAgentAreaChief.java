@@ -24,6 +24,7 @@ public class WindowAgentAreaChief extends javax.swing.JFrame {
     public WindowAgentAreaChief(InfDB idb) {
         initComponents();
         this.idb = idb;
+        txtaShowAreaChief.setEditable(false);
         listAreas();
 
     }
@@ -43,11 +44,12 @@ public class WindowAgentAreaChief extends javax.swing.JFrame {
         btnMenu = new javax.swing.JButton();
         cbListAreas = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtShowAreaChief = new javax.swing.JTextArea();
+        txtaShowAreaChief = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icons/astronomy.png")).getImage());
         setLocationByPlatform(true);
         setResizable(false);
 
@@ -75,12 +77,12 @@ public class WindowAgentAreaChief extends javax.swing.JFrame {
             }
         });
 
-        txtShowAreaChief.setBackground(new java.awt.Color(79, 79, 79));
-        txtShowAreaChief.setColumns(20);
-        txtShowAreaChief.setForeground(new java.awt.Color(255, 255, 255));
-        txtShowAreaChief.setRows(5);
-        txtShowAreaChief.setAutoscrolls(false);
-        jScrollPane1.setViewportView(txtShowAreaChief);
+        txtaShowAreaChief.setBackground(new java.awt.Color(79, 79, 79));
+        txtaShowAreaChief.setColumns(20);
+        txtaShowAreaChief.setForeground(new java.awt.Color(255, 255, 255));
+        txtaShowAreaChief.setRows(5);
+        txtaShowAreaChief.setAutoscrolls(false);
+        jScrollPane1.setViewportView(txtaShowAreaChief);
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Välj ett område:");
@@ -168,7 +170,7 @@ public class WindowAgentAreaChief extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void cbListAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListAreasActionPerformed
-        txtShowAreaChief.setText("");
+        txtaShowAreaChief.setText("");
 
         if (Validation.validationCb(cbListAreas, lblMessage)) {
             try {
@@ -181,7 +183,7 @@ public class WindowAgentAreaChief extends javax.swing.JFrame {
                 String namn = areaChief.get("namn");
                 String telefon = areaChief.get("telefon");
 
-                txtShowAreaChief.setText("Områdeschef:\t" + namn + "\n"
+                txtaShowAreaChief.setText("Områdeschef:\t" + namn + "\n"
                         + "Telefon:\t" + telefon);
 
             } catch (InfException ex) {
@@ -201,7 +203,7 @@ public class WindowAgentAreaChief extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblName;
-    private javax.swing.JTextArea txtShowAreaChief;
+    private javax.swing.JTextArea txtaShowAreaChief;
     // End of variables declaration//GEN-END:variables
 
 }

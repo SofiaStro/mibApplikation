@@ -114,6 +114,7 @@ public class WindowAgentListAliens extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icons/astronomy.png")).getImage());
         setResizable(false);
 
         jpBackground.setBackground(new java.awt.Color(40, 40, 40));

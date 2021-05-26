@@ -27,6 +27,7 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
         this.agentId = agentId;
+        txtaMyEquipment.setEditable(false);
         listMyEquipment();
         setWeapons();
         setComms();
@@ -35,7 +36,7 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
    
     public void listMyEquipment() {
         try {
-            txtMyEquipment.setText("");
+            txtaMyEquipment.setText("");
             String query
                     = "SELECT benamning\n"
                     + "FROM utrustning\n"
@@ -46,7 +47,7 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
             ArrayList<String> result = idb.fetchColumn(query);
 
             for (String element : result) {
-                txtMyEquipment.append(" • " + element + "\n");
+                txtaMyEquipment.append(" • " + element + "\n");
             }
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
@@ -119,7 +120,7 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtMyEquipment = new javax.swing.JTextArea();
+        txtaMyEquipment = new javax.swing.JTextArea();
         cbWeapons = new javax.swing.JComboBox<>();
         cbComms = new javax.swing.JComboBox<>();
         cbTech = new javax.swing.JComboBox<>();
@@ -132,6 +133,7 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icons/astronomy.png")).getImage());
         setLocationByPlatform(true);
         setResizable(false);
 
@@ -157,12 +159,11 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        txtMyEquipment.setBackground(new java.awt.Color(79, 79, 79));
-        txtMyEquipment.setColumns(20);
-        txtMyEquipment.setForeground(new java.awt.Color(255, 255, 255));
-        txtMyEquipment.setRows(5);
-        txtMyEquipment.setFocusable(false);
-        jScrollPane1.setViewportView(txtMyEquipment);
+        txtaMyEquipment.setBackground(new java.awt.Color(79, 79, 79));
+        txtaMyEquipment.setColumns(20);
+        txtaMyEquipment.setForeground(new java.awt.Color(255, 255, 255));
+        txtaMyEquipment.setRows(5);
+        jScrollPane1.setViewportView(txtaMyEquipment);
 
         cbWeapons.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
         cbWeapons.setName(""); // NOI18N
@@ -349,6 +350,6 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblName;
-    private javax.swing.JTextArea txtMyEquipment;
+    private javax.swing.JTextArea txtaMyEquipment;
     // End of variables declaration//GEN-END:variables
 }

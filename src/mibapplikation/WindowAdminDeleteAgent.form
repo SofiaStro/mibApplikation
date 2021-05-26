@@ -7,6 +7,9 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="28" green="28" red="28" type="rgb"/>
     </Property>
+    <Property name="iconImage" type="java.awt.Image" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+      <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/Icons/astronomy.png&quot;)).getImage()" type="code"/>
+    </Property>
     <Property name="locationByPlatform" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
@@ -212,6 +215,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="requestFocusEnabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
@@ -239,6 +243,7 @@
                     </Property>
                     <Property name="rows" type="int" value="5"/>
                     <Property name="text" type="java.lang.String" value="F&#xf6;ljande omr&#xe5;de beh&#xf6;ver tilldelas &#xa;en ny omr&#xe5;deschef innan agenten&#xa;kan tas bort"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="requestFocusEnabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>

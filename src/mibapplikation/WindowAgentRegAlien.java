@@ -22,6 +22,7 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
 
     
     private InfDB idb;
+    
 
     /**
      * Creates new form WindowAlienChangePw
@@ -30,6 +31,7 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
         
+        txtaMessage.setEditable(false);
         setRace();
         setLocation();
         setAgentInCharge();
@@ -203,6 +205,7 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icons/astronomy.png")).getImage());
         setLocationByPlatform(true);
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
@@ -251,7 +254,6 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
         txtaMessage.setColumns(10);
         txtaMessage.setForeground(new java.awt.Color(255, 255, 255));
         txtaMessage.setRows(5);
-        txtaMessage.setFocusable(false);
         txtaMessage.setRequestFocusEnabled(false);
         spMessageBox.setViewportView(txtaMessage);
 

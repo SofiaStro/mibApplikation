@@ -23,6 +23,7 @@ public class WindowAgentListAlienLocationJP extends javax.swing.JPanel {
     public WindowAgentListAlienLocationJP(InfDB idb) {
         initComponents();
         this.idb = idb;
+        txtaShowAliens.setEditable(false);
         listAllLocations();
     }
 
@@ -38,7 +39,7 @@ public class WindowAgentListAlienLocationJP extends javax.swing.JPanel {
         lblSelectLocation = new javax.swing.JLabel();
         cbListLocations = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtShowAliens = new javax.swing.JTextArea();
+        txtaShowAliens = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(40, 40, 40));
 
@@ -52,11 +53,11 @@ public class WindowAgentListAlienLocationJP extends javax.swing.JPanel {
             }
         });
 
-        txtShowAliens.setBackground(new java.awt.Color(79, 79, 79));
-        txtShowAliens.setColumns(19);
-        txtShowAliens.setForeground(new java.awt.Color(255, 255, 255));
-        txtShowAliens.setRows(5);
-        jScrollPane1.setViewportView(txtShowAliens);
+        txtaShowAliens.setBackground(new java.awt.Color(79, 79, 79));
+        txtaShowAliens.setColumns(19);
+        txtaShowAliens.setForeground(new java.awt.Color(255, 255, 255));
+        txtaShowAliens.setRows(5);
+        jScrollPane1.setViewportView(txtaShowAliens);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -87,7 +88,7 @@ public class WindowAgentListAlienLocationJP extends javax.swing.JPanel {
 
     private void cbListLocationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListLocationsActionPerformed
 
-        txtShowAliens.setText("");
+        txtaShowAliens.setText("");
         
 
             try {
@@ -98,11 +99,11 @@ public class WindowAgentListAlienLocationJP extends javax.swing.JPanel {
 
                 ArrayList<HashMap<String, String>> alienInfo = idb.fetchRows(query);
 
-                txtShowAliens.append("ID \t NAMN \n"
+                txtaShowAliens.append("ID \t NAMN \n"
                     + "-------\t-------\n");
 
                 for (HashMap<String, String> element : alienInfo) {
-                    txtShowAliens.append(element.get("alien_id") + "\t " + element.get("namn") + "\n");
+                    txtaShowAliens.append(element.get("alien_id") + "\t " + element.get("namn") + "\n");
 
                 }
 
@@ -136,6 +137,6 @@ public class WindowAgentListAlienLocationJP extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbListLocations;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblSelectLocation;
-    private javax.swing.JTextArea txtShowAliens;
+    private javax.swing.JTextArea txtaShowAliens;
     // End of variables declaration//GEN-END:variables
 }

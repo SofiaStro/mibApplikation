@@ -25,6 +25,7 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
     public WindowAgentUpdateAlienInfo(InfDB idb) {
         initComponents();
         this.idb = idb;
+        txtaPrintAlienInfo.setEditable(false);
         hideText();
 
     }
@@ -64,6 +65,7 @@ public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icons/astronomy.png")).getImage());
         setLocationByPlatform(true);
         setResizable(false);
 

@@ -57,6 +57,7 @@ public class WindowAdminDeleteAgent extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
         setBackground(new java.awt.Color(40, 40, 40));
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icons/astronomy.png")).getImage());
         setLocationByPlatform(true);
         setResizable(false);
 
@@ -98,6 +99,7 @@ public class WindowAdminDeleteAgent extends javax.swing.JFrame {
         txtaPrintInfo.setColumns(20);
         txtaPrintInfo.setForeground(new java.awt.Color(255, 255, 255));
         txtaPrintInfo.setRows(5);
+        txtaPrintInfo.setFocusable(false);
         txtaPrintInfo.setRequestFocusEnabled(false);
         jScrollPane1.setViewportView(txtaPrintInfo);
 
@@ -109,6 +111,7 @@ public class WindowAdminDeleteAgent extends javax.swing.JFrame {
         txtaTitleInfo.setForeground(new java.awt.Color(255, 255, 255));
         txtaTitleInfo.setRows(5);
         txtaTitleInfo.setText("Följande område behöver tilldelas \nen ny områdeschef innan agenten\nkan tas bort");
+        txtaTitleInfo.setFocusable(false);
         txtaTitleInfo.setRequestFocusEnabled(false);
         jScrollPane2.setViewportView(txtaTitleInfo);
 

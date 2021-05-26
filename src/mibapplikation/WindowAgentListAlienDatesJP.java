@@ -25,6 +25,7 @@ public class WindowAgentListAlienDatesJP extends javax.swing.JPanel {
     public WindowAgentListAlienDatesJP(InfDB idb) {
         initComponents();
         this.idb = idb;
+        txtaListAliens.setEditable(false);
     }
 
     /**
@@ -43,7 +44,7 @@ public class WindowAgentListAlienDatesJP extends javax.swing.JPanel {
         lblStartDate = new javax.swing.JLabel();
         lblEndDate = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtListAliens = new javax.swing.JTextArea();
+        txtaListAliens = new javax.swing.JTextArea();
         lblMessageFormat = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(40, 40, 40));
@@ -65,11 +66,11 @@ public class WindowAgentListAlienDatesJP extends javax.swing.JPanel {
         lblEndDate.setForeground(new java.awt.Color(255, 255, 255));
         lblEndDate.setText("Till och med:");
 
-        txtListAliens.setBackground(new java.awt.Color(79, 79, 79));
-        txtListAliens.setColumns(20);
-        txtListAliens.setForeground(new java.awt.Color(255, 255, 255));
-        txtListAliens.setRows(5);
-        jScrollPane1.setViewportView(txtListAliens);
+        txtaListAliens.setBackground(new java.awt.Color(79, 79, 79));
+        txtaListAliens.setColumns(20);
+        txtaListAliens.setForeground(new java.awt.Color(255, 255, 255));
+        txtaListAliens.setRows(5);
+        jScrollPane1.setViewportView(txtaListAliens);
 
         lblMessageFormat.setForeground(new java.awt.Color(255, 255, 255));
         lblMessageFormat.setText("Datumet ska skrivas in i formatet: YYYY-MM-DD");
@@ -121,7 +122,7 @@ public class WindowAgentListAlienDatesJP extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         int alienCounter = 0;
         lblMessage.setText(" ");
-        txtListAliens.setText("");
+        txtaListAliens.setText("");
 
         if (Validation.validationTxt(txtfStartDate, lblMessage, "Ange ett fr.o.m. datum")
             && Validation.validationTxt(txtfEndDate, lblMessage, "Ange ett t.o.m. datum")
@@ -142,7 +143,7 @@ public class WindowAgentListAlienDatesJP extends javax.swing.JPanel {
                     String qAlienInfo = "Select namn, alien_id, registreringsdatum from Alien";
                     ArrayList<HashMap<String, String>> alienInfo = idb.fetchRows(qAlienInfo);
 
-                    txtListAliens.append(" ID\t NAMN \n"
+                    txtaListAliens.append(" ID\t NAMN \n"
                         + "-------\t-------\n");
 
                     for (HashMap<String, String> element : alienInfo) {
@@ -155,7 +156,7 @@ public class WindowAgentListAlienDatesJP extends javax.swing.JPanel {
 
                         if (sizeStart >= 0 && sizeEnd <= 0) {
                             alienCounter++;
-                            txtListAliens.append(" " + id + "\t " + namn + "\n");
+                            txtaListAliens.append(" " + id + "\t " + namn + "\n");
                         }
 
                     }
@@ -181,7 +182,7 @@ public class WindowAgentListAlienDatesJP extends javax.swing.JPanel {
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblMessageFormat;
     private javax.swing.JLabel lblStartDate;
-    private javax.swing.JTextArea txtListAliens;
+    private javax.swing.JTextArea txtaListAliens;
     private javax.swing.JTextField txtfEndDate;
     private javax.swing.JTextField txtfStartDate;
     // End of variables declaration//GEN-END:variables

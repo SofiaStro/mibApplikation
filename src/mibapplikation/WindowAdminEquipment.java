@@ -26,6 +26,7 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
     public WindowAdminEquipment(InfDB idb) {
         initComponents();
         this.idb = idb;
+        txtaListEquipment.setEditable(false);
         printEquipmentList();
         setEquipmentList();
         txtfEquipCapacity.setVisible(false);
@@ -61,6 +62,7 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icons/astronomy.png")).getImage());
         setLocationByPlatform(true);
         setResizable(false);
 
@@ -92,7 +94,6 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
         txtaListEquipment.setColumns(20);
         txtaListEquipment.setForeground(new java.awt.Color(255, 255, 255));
         txtaListEquipment.setRows(5);
-        txtaListEquipment.setFocusable(false);
         jScrollPane1.setViewportView(txtaListEquipment);
 
         txtfEquipName.setColumns(6);

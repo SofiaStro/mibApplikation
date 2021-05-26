@@ -22,6 +22,7 @@ public class WindowAgentListAlienRaceJP extends javax.swing.JPanel {
     public WindowAgentListAlienRaceJP(InfDB idb) {
         initComponents();
         this.idb = idb;
+        txtaShowAliens.setEditable(false);
     }
 
     /**
@@ -36,7 +37,7 @@ public class WindowAgentListAlienRaceJP extends javax.swing.JPanel {
         lblSelectRace = new javax.swing.JLabel();
         cbListRace = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtShowAliens = new javax.swing.JTextArea();
+        txtaShowAliens = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(40, 40, 40));
 
@@ -50,11 +51,11 @@ public class WindowAgentListAlienRaceJP extends javax.swing.JPanel {
             }
         });
 
-        txtShowAliens.setBackground(new java.awt.Color(79, 79, 79));
-        txtShowAliens.setColumns(19);
-        txtShowAliens.setForeground(new java.awt.Color(255, 255, 255));
-        txtShowAliens.setRows(5);
-        jScrollPane1.setViewportView(txtShowAliens);
+        txtaShowAliens.setBackground(new java.awt.Color(79, 79, 79));
+        txtaShowAliens.setColumns(19);
+        txtaShowAliens.setForeground(new java.awt.Color(255, 255, 255));
+        txtaShowAliens.setRows(5);
+        jScrollPane1.setViewportView(txtaShowAliens);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -85,13 +86,13 @@ public class WindowAgentListAlienRaceJP extends javax.swing.JPanel {
 
     private void cbListRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListRaceActionPerformed
 
-        txtShowAliens.setText("");
+        txtaShowAliens.setText("");
 
         try {
             String qAlienId = "SELECT alien_id FROM alien";
             ArrayList<String> listAlienId = idb.fetchColumn(qAlienId);
 
-            txtShowAliens.append(" ALIEN ID\tNAMN\n "
+            txtaShowAliens.append(" ALIEN ID\tNAMN\n "
                 + "------------\t------------\n");
 
             for(String alienId : listAlienId){
@@ -100,7 +101,7 @@ public class WindowAgentListAlienRaceJP extends javax.swing.JPanel {
                 String alienName = idb.fetchSingle(qAlienName);
 
                 if(cbListRace.getSelectedItem().equals(race)){
-                    txtShowAliens.append(" " + alienId + "\t" + alienName + "\n");
+                    txtaShowAliens.append(" " + alienId + "\t" + alienName + "\n");
                 }
             }
         } catch (InfException ex) {
@@ -115,6 +116,6 @@ public class WindowAgentListAlienRaceJP extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbListRace;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblSelectRace;
-    private javax.swing.JTextArea txtShowAliens;
+    private javax.swing.JTextArea txtaShowAliens;
     // End of variables declaration//GEN-END:variables
 }

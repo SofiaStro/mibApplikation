@@ -117,7 +117,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="txtListAliens">
+        <Component class="javax.swing.JTextArea" name="txtaListAliens">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="4f" green="4f" red="4f" type="rgb"/>
