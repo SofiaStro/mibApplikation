@@ -105,10 +105,10 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
 
         switch (getListItem) {
             case "Standard":
-                privilege = "N";
+                privilege = "Standard";
                 break;
             case "Administratör":
-                privilege = "J";
+                privilege = "Admin";
                 break;
 
         }
