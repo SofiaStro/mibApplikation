@@ -38,26 +38,19 @@ public class WindowAdminStart extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        background = new javax.swing.JPanel();
+        jpBackground = new javax.swing.JPanel();
         btnOwnEquipment = new javax.swing.JButton();
-        lblMenu = new javax.swing.JLabel();
-        btn2 = new javax.swing.JButton();
+        btnFindAreaChief = new javax.swing.JButton();
         btnRegAlien = new javax.swing.JButton();
-        btn4 = new javax.swing.JButton();
-        btn5 = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnChangePw = new javax.swing.JButton();
-        btn11 = new javax.swing.JButton();
-        btn12 = new javax.swing.JButton();
+        btnChangeAlien = new javax.swing.JButton();
+        btnListAlien = new javax.swing.JButton();
         lblWelcome = new javax.swing.JLabel();
-        btnEquipmentList = new javax.swing.JButton();
-        btnChangeAreaChief = new javax.swing.JButton();
-        btnDeleteAlien = new javax.swing.JButton();
-        btnAdminStatus = new javax.swing.JButton();
-        btn17 = new javax.swing.JButton();
-        btnChangeHeadChief = new javax.swing.JButton();
+        btnCompanyEquipment = new javax.swing.JButton();
+        btnChangeAgent = new javax.swing.JButton();
         btnRegAgent = new javax.swing.JButton();
-        btn21 = new javax.swing.JButton();
+        btnChangeAuthority = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Galaxal");
@@ -65,7 +58,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setResizable(false);
 
-        background.setBackground(new java.awt.Color(40, 40, 40));
+        jpBackground.setBackground(new java.awt.Color(40, 40, 40));
 
         btnOwnEquipment.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnOwnEquipment.setText("Registrera egen utrustning");
@@ -75,15 +68,11 @@ public class WindowAdminStart extends javax.swing.JFrame {
             }
         });
 
-        lblMenu.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        lblMenu.setForeground(new java.awt.Color(255, 255, 255));
-        lblMenu.setText("Meny");
-
-        btn2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn2.setText("Sök omradeschef");
-        btn2.addActionListener(new java.awt.event.ActionListener() {
+        btnFindAreaChief.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnFindAreaChief.setText("Sök omradeschef");
+        btnFindAreaChief.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn2ActionPerformed(evt);
+                btnFindAreaChiefActionPerformed(evt);
             }
         });
 
@@ -94,17 +83,6 @@ public class WindowAdminStart extends javax.swing.JFrame {
                 btnRegAlienActionPerformed(evt);
             }
         });
-
-        btn4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn4.setText("Ändra info om alien");
-        btn4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn4ActionPerformed(evt);
-            }
-        });
-
-        btn5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn5.setText("Se info om alien");
 
         btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnLogout.setText("Logga ut");
@@ -122,19 +100,19 @@ public class WindowAdminStart extends javax.swing.JFrame {
             }
         });
 
-        btn11.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn11.setText("Korrigera alien");
-        btn11.addActionListener(new java.awt.event.ActionListener() {
+        btnChangeAlien.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnChangeAlien.setText("Korrigera alien");
+        btnChangeAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn11ActionPerformed(evt);
+                btnChangeAlienActionPerformed(evt);
             }
         });
 
-        btn12.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn12.setText("Listor för aliens");
-        btn12.addActionListener(new java.awt.event.ActionListener() {
+        btnListAlien.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnListAlien.setText("Listor för aliens");
+        btnListAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn12ActionPerformed(evt);
+                btnListAlienActionPerformed(evt);
             }
         });
 
@@ -142,51 +120,19 @@ public class WindowAdminStart extends javax.swing.JFrame {
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setText("Välkommen Admin");
 
-        btnEquipmentList.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnEquipmentList.setText("Hantera utrustning");
-        btnEquipmentList.addActionListener(new java.awt.event.ActionListener() {
+        btnCompanyEquipment.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnCompanyEquipment.setText("Hantera utrustning");
+        btnCompanyEquipment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEquipmentListActionPerformed(evt);
+                btnCompanyEquipmentActionPerformed(evt);
             }
         });
 
-        btnChangeAreaChief.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnChangeAreaChief.setText("Ändra områdeschef");
-        btnChangeAreaChief.addActionListener(new java.awt.event.ActionListener() {
+        btnChangeAgent.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnChangeAgent.setText("Korrigera agent");
+        btnChangeAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnChangeAreaChiefActionPerformed(evt);
-            }
-        });
-
-        btnDeleteAlien.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnDeleteAlien.setText("Ta bort alien");
-        btnDeleteAlien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteAlienActionPerformed(evt);
-            }
-        });
-
-        btnAdminStatus.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnAdminStatus.setText("Ändra admin status");
-        btnAdminStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdminStatusActionPerformed(evt);
-            }
-        });
-
-        btn17.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn17.setText("Korrigera agent");
-        btn17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn17ActionPerformed(evt);
-            }
-        });
-
-        btnChangeHeadChief.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnChangeHeadChief.setText("Ändra kontorschef");
-        btnChangeHeadChief.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnChangeHeadChiefActionPerformed(evt);
+                btnChangeAgentActionPerformed(evt);
             }
         });
 
@@ -198,116 +144,82 @@ public class WindowAdminStart extends javax.swing.JFrame {
             }
         });
 
-        btn21.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn21.setText("Hantera befogenheter");
-        btn21.addActionListener(new java.awt.event.ActionListener() {
+        btnChangeAuthority.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnChangeAuthority.setText("Hantera befogenheter");
+        btnChangeAuthority.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn21ActionPerformed(evt);
+                btnChangeAuthorityActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
-        background.setLayout(backgroundLayout);
-        backgroundLayout.setHorizontalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundLayout.createSequentialGroup()
+        javax.swing.GroupLayout jpBackgroundLayout = new javax.swing.GroupLayout(jpBackground);
+        jpBackground.setLayout(jpBackgroundLayout);
+        jpBackgroundLayout.setHorizontalGroup(
+            jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpBackgroundLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(backgroundLayout.createSequentialGroup()
-                        .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnListAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnChangeAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRegAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAdminStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDeleteAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnChangeHeadChief, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnChangeAreaChief, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnFindAreaChief, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
-                        .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnEquipmentList, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCompanyEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnOwnEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRegAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn17, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn21, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnChangeAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnChangeAuthority, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(44, 44, 44))
         );
-        backgroundLayout.setVerticalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundLayout.createSequentialGroup()
+        jpBackgroundLayout.setVerticalGroup(
+            jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpBackgroundLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(56, 56, 56)
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegAlien)
                     .addComponent(btnRegAgent))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn17)
-                    .addComponent(btn11))
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnChangeAgent)
+                    .addComponent(btnChangeAlien))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn12)
-                    .addComponent(btn21))
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnListAlien)
+                    .addComponent(btnChangeAuthority))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn2)
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFindAreaChief)
                     .addComponent(btnOwnEquipment))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEquipmentList)
-                .addGap(48, 48, 48)
-                .addComponent(btn5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDeleteAlien)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnChangeHeadChief)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnChangeAreaChief)
-                .addGap(3, 3, 3)
-                .addComponent(btnAdminStatus)
-                .addGap(30, 30, 30)
+                .addComponent(btnCompanyEquipment)
+                .addGap(59, 59, 59)
                 .addComponent(btnChangePw)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogout)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jpBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jpBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnChangeAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeAreaChiefActionPerformed
-        new WindowAdminChangeAreaChief(idb).setVisible(true);
-    }//GEN-LAST:event_btnChangeAreaChiefActionPerformed
-
-    private void btnAdminStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminStatusActionPerformed
-        // TODO add your handling code here:
-        new WindowAdminChangeAdminStatus(idb).setVisible(true);
-    }//GEN-LAST:event_btnAdminStatusActionPerformed
-
-    private void btnChangeHeadChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeHeadChiefActionPerformed
-        new WindowAdminChangeHeadChief(idb).setVisible(true);
-    }//GEN-LAST:event_btnChangeHeadChiefActionPerformed
 
     private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed
         // TODO add your handling code here:
@@ -326,51 +238,42 @@ public class WindowAdminStart extends javax.swing.JFrame {
         new WindowAgentEquipment(idb, agentId).setVisible(true);
     }//GEN-LAST:event_btnOwnEquipmentActionPerformed
 
-    private void btnEquipmentListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquipmentListActionPerformed
+    private void btnCompanyEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompanyEquipmentActionPerformed
         // TODO add your handling code here:
          new WindowAdminEquipment(idb).setVisible(true);
-    }//GEN-LAST:event_btnEquipmentListActionPerformed
-
-    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
-        new WindowAdminUpdateAlienInfo(idb).setVisible(true);
-    }//GEN-LAST:event_btn4ActionPerformed
-
-    private void btnDeleteAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAlienActionPerformed
-        // TODO add your handling code here:
-        new WindowAdminDeleteAlien(idb).setVisible(true);
-    }//GEN-LAST:event_btnDeleteAlienActionPerformed
+    }//GEN-LAST:event_btnCompanyEquipmentActionPerformed
 
     private void btnRegAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAlienActionPerformed
         // TODO add your handling code here:
         new WindowAgentRegAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAlienActionPerformed
 
-    private void btn17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn17ActionPerformed
-        new WindowAdminUpdateAgentInfo(idb).setVisible(true);
-    }//GEN-LAST:event_btn17ActionPerformed
+    private void btnChangeAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeAgentActionPerformed
+        new WindowAdminManageAgent(idb).setVisible(true);
+    }//GEN-LAST:event_btnChangeAgentActionPerformed
 
     private void btnRegAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAgentActionPerformed
    
         new WindowAdminRegAgent(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAgentActionPerformed
 
-    private void btn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn11ActionPerformed
+    private void btnChangeAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeAlienActionPerformed
         new WindowAdminManageAlien(idb).setVisible(true);
-    }//GEN-LAST:event_btn11ActionPerformed
+    }//GEN-LAST:event_btnChangeAlienActionPerformed
 
-    private void btn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn12ActionPerformed
+    private void btnListAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListAlienActionPerformed
         // TODO add your handling code here:
         new WindowAgentListAliens(idb).setVisible(true);
-    }//GEN-LAST:event_btn12ActionPerformed
+    }//GEN-LAST:event_btnListAlienActionPerformed
 
-    private void btn21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn21ActionPerformed
+    private void btnChangeAuthorityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeAuthorityActionPerformed
        new WindowAdminManageAuthority(idb).setVisible(true);
-    }//GEN-LAST:event_btn21ActionPerformed
+    }//GEN-LAST:event_btnChangeAuthorityActionPerformed
 
-    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+    private void btnFindAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindAreaChiefActionPerformed
         // TODO add your handling code here:
         new WindowAgentAreaChief(idb).setVisible(true);
-    }//GEN-LAST:event_btn2ActionPerformed
+    }//GEN-LAST:event_btnFindAreaChiefActionPerformed
 
     /**
      * @param args the command line arguments
@@ -379,25 +282,18 @@ public class WindowAdminStart extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel background;
-    private javax.swing.JButton btn11;
-    private javax.swing.JButton btn12;
-    private javax.swing.JButton btn17;
-    private javax.swing.JButton btn2;
-    private javax.swing.JButton btn21;
-    private javax.swing.JButton btn4;
-    private javax.swing.JButton btn5;
-    private javax.swing.JButton btnAdminStatus;
-    private javax.swing.JButton btnChangeAreaChief;
-    private javax.swing.JButton btnChangeHeadChief;
+    private javax.swing.JButton btnChangeAgent;
+    private javax.swing.JButton btnChangeAlien;
+    private javax.swing.JButton btnChangeAuthority;
     private javax.swing.JButton btnChangePw;
-    private javax.swing.JButton btnDeleteAlien;
-    private javax.swing.JButton btnEquipmentList;
+    private javax.swing.JButton btnCompanyEquipment;
+    private javax.swing.JButton btnFindAreaChief;
+    private javax.swing.JButton btnListAlien;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnOwnEquipment;
     private javax.swing.JButton btnRegAgent;
     private javax.swing.JButton btnRegAlien;
-    private javax.swing.JLabel lblMenu;
+    private javax.swing.JPanel jpBackground;
     private javax.swing.JLabel lblWelcome;
     // End of variables declaration//GEN-END:variables
 }

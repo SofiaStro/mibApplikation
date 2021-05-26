@@ -15,14 +15,14 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
+public class WindowAdminManageAgent extends javax.swing.JFrame {
 
     private InfDB idb;
 
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAdminUpdateAgentInfo(InfDB idb) {
+    public WindowAdminManageAgent(InfDB idb) {
         initComponents();
         this.idb = idb;
         txtaShowAgentInfo.setEditable(false);
@@ -79,6 +79,7 @@ public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
+        setBackground(new java.awt.Color(40, 40, 40));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icons/astronomy.png")).getImage());
         setLocationByPlatform(true);
         setResizable(false);
@@ -140,15 +141,15 @@ public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
 
         lblDeleteMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblDeleteMessage.setForeground(new java.awt.Color(255, 96, 96));
-        lblDeleteMessage.setText("XXX");
+        lblDeleteMessage.setText(" ");
 
         lblTitleUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTitleUpdate.setForeground(new java.awt.Color(255, 255, 255));
         lblTitleUpdate.setText("Uppdatera information");
 
         lblInfoMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblInfoMessage.setForeground(new java.awt.Color(255, 96, 96));
-        lblInfoMessage.setText("XXX");
+        lblInfoMessage.setForeground(new java.awt.Color(255, 0, 0));
+        lblInfoMessage.setText(" ");
 
         lblAgentDelete.setForeground(new java.awt.Color(255, 255, 255));
         lblAgentDelete.setText("Ange agentens namn eller id:");
@@ -231,7 +232,7 @@ public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
 
         lblUpdateMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblUpdateMessage.setForeground(new java.awt.Color(255, 96, 96));
-        lblUpdateMessage.setText("XXX");
+        lblUpdateMessage.setText(" ");
 
         javax.swing.GroupLayout jpBackgroundLayout = new javax.swing.GroupLayout(jpBackground);
         jpBackground.setLayout(jpBackgroundLayout);
@@ -665,7 +666,7 @@ public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
         lblInfoMessage.setText(" ");
         lblUpdateMessage.setText(" ");
         lblDeleteMessage.setText(" ");
-        lblDeleteMessage.setForeground(Color.RED);
+        lblUpdateMessage.setForeground(Color.RED);
         int loops = 0;
         if (Validation.validationTxt(txtfAgentUpdateInput, lblUpdateMessage, "Ange ett namn eller id för en agent")) {
             if (txtfNameInput.getText().isEmpty() && txtfPhoneInput.getText().isEmpty() && txtfPasswordInput.getText().isEmpty()
@@ -744,10 +745,10 @@ public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
     private void btnChangeInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeInfoActionPerformed
         // TODO add your handling code here:
         if(btnChangeInfo.getText().equals("Ändra områdeschef")){
-            new WindowAdminChangeAreaChief(idb).setVisible(true);
+            new WindowAdminManageAuthority(idb).setVisible(true);
         }
         if(btnChangeInfo.getText().equals("Ändra info om alien")){
-            new WindowAdminUpdateAlienInfo(idb).setVisible(true);
+            new WindowAdminManageAlien(idb).setVisible(true);
         }
     }//GEN-LAST:event_btnChangeInfoActionPerformed
 

@@ -53,7 +53,7 @@ public class WindowTemplateSmall extends javax.swing.JFrame {
         lblChangePw.setText("Template");
 
         lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessage.setForeground(new java.awt.Color(255, 96, 96));
+        lblMessage.setForeground(new java.awt.Color(255, 0, 0));
         lblMessage.setText(" ");
 
         btnSave.setText("SPARA");
