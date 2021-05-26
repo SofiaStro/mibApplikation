@@ -55,11 +55,8 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btnDeleteAlien = new javax.swing.JButton();
         btnAdminStatus = new javax.swing.JButton();
         btn17 = new javax.swing.JButton();
-        btnDeleteAgent = new javax.swing.JButton();
         btnChangeHeadChief = new javax.swing.JButton();
-        btn20 = new javax.swing.JButton();
         btnRegAgent = new javax.swing.JButton();
-        btn22 = new javax.swing.JButton();
         btn21 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,6 +81,11 @@ public class WindowAdminStart extends javax.swing.JFrame {
 
         btn2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn2.setText("Sök omradeschef");
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
 
         btnRegAlien.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnRegAlien.setText("Registrera alien");
@@ -173,18 +175,10 @@ public class WindowAdminStart extends javax.swing.JFrame {
         });
 
         btn17.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn17.setText("Ändra info om agent");
+        btn17.setText("Korrigera agent");
         btn17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn17ActionPerformed(evt);
-            }
-        });
-
-        btnDeleteAgent.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnDeleteAgent.setText("Ta bort agent");
-        btnDeleteAgent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteAgentActionPerformed(evt);
             }
         });
 
@@ -196,9 +190,6 @@ public class WindowAdminStart extends javax.swing.JFrame {
             }
         });
 
-        btn20.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn20.setText("jButton1");
-
         btnRegAgent.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnRegAgent.setText("Registera agent");
         btnRegAgent.addActionListener(new java.awt.event.ActionListener() {
@@ -206,9 +197,6 @@ public class WindowAdminStart extends javax.swing.JFrame {
                 btnRegAgentActionPerformed(evt);
             }
         });
-
-        btn22.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn22.setText("jButton1");
 
         btn21.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn21.setText("Hantera befogenheter");
@@ -246,10 +234,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
                             .addComponent(btnEquipmentList, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnOwnEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRegAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn20, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDeleteAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn17, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn22, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn21, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(44, 44, 44))
         );
@@ -272,35 +257,24 @@ public class WindowAdminStart extends javax.swing.JFrame {
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn12)
                     .addComponent(btn21))
-                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backgroundLayout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(btnOwnEquipment))
-                    .addGroup(backgroundLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backgroundLayout.createSequentialGroup()
-                        .addComponent(btnEquipmentList)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDeleteAgent)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn22)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn20))
-                    .addGroup(backgroundLayout.createSequentialGroup()
-                        .addComponent(btn5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDeleteAlien)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnChangeHeadChief)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnChangeAreaChief)
-                        .addGap(3, 3, 3)
-                        .addComponent(btnAdminStatus)))
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn2)
+                    .addComponent(btnOwnEquipment))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEquipmentList)
+                .addGap(48, 48, 48)
+                .addComponent(btn5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDeleteAlien)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnChangeHeadChief)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnChangeAreaChief)
+                .addGap(3, 3, 3)
+                .addComponent(btnAdminStatus)
                 .addGap(30, 30, 30)
                 .addComponent(btnChangePw)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -371,11 +345,6 @@ public class WindowAdminStart extends javax.swing.JFrame {
         new WindowAgentRegAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAlienActionPerformed
 
-    private void btnDeleteAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAgentActionPerformed
-        // TODO add your handling code here:
-        new WindowAdminDeleteAgent(idb).setVisible(true);
-    }//GEN-LAST:event_btnDeleteAgentActionPerformed
-
     private void btn17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn17ActionPerformed
         new WindowAdminUpdateAgentInfo(idb).setVisible(true);
     }//GEN-LAST:event_btn17ActionPerformed
@@ -398,6 +367,11 @@ public class WindowAdminStart extends javax.swing.JFrame {
        new WindowAdminManageAuthority(idb).setVisible(true);
     }//GEN-LAST:event_btn21ActionPerformed
 
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        // TODO add your handling code here:
+        new WindowAgentAreaChief(idb).setVisible(true);
+    }//GEN-LAST:event_btn2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -410,16 +384,13 @@ public class WindowAdminStart extends javax.swing.JFrame {
     private javax.swing.JButton btn12;
     private javax.swing.JButton btn17;
     private javax.swing.JButton btn2;
-    private javax.swing.JButton btn20;
     private javax.swing.JButton btn21;
-    private javax.swing.JButton btn22;
     private javax.swing.JButton btn4;
     private javax.swing.JButton btn5;
     private javax.swing.JButton btnAdminStatus;
     private javax.swing.JButton btnChangeAreaChief;
     private javax.swing.JButton btnChangeHeadChief;
     private javax.swing.JButton btnChangePw;
-    private javax.swing.JButton btnDeleteAgent;
     private javax.swing.JButton btnDeleteAlien;
     private javax.swing.JButton btnEquipmentList;
     private javax.swing.JButton btnLogout;
