@@ -3,9 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Agent;
 
+import Agent_and_Admin.JfEquipment;
+import Agent_and_Admin.JfChangePw;
+import Agent_and_Admin.JfAreaChief;
+import Agent_and_Admin.JfListAliens;
 import java.util.ArrayList;
+import mibapplikation.MainWindowLogin;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -13,7 +18,7 @@ import oru.inf.InfException;
  *
  * @author Blazl
  */
-public class WindowAgentStart extends javax.swing.JFrame {
+public class JfAgentStart extends javax.swing.JFrame {
 
     private  InfDB idb;
     private  String agentId;
@@ -24,7 +29,7 @@ public class WindowAgentStart extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    public WindowAgentStart(InfDB idb, String agentId, String username) {
+    public JfAgentStart(InfDB idb, String agentId, String username) {
         initComponents();
         this.idb = idb;
         this.agentId = agentId;
@@ -188,31 +193,31 @@ public class WindowAgentStart extends javax.swing.JFrame {
 
     private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed
         // TODO add your handling code here:
-        new WindowAgentChangePw(idb, agentId).setVisible(true);
+        new JfChangePw(idb, agentId).setVisible(true);
     }//GEN-LAST:event_btnChangePwActionPerformed
 
     private void btnEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquipmentActionPerformed
         // TODO add your handling code here:
-        new WindowAgentEquipment(idb, agentId).setVisible(true);
+        new JfEquipment(idb, agentId).setVisible(true);
     }//GEN-LAST:event_btnEquipmentActionPerformed
 
     private void btnAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreaChiefActionPerformed
         // TODO add your handling code here:
-        new WindowAgentAreaChief(idb).setVisible(true);
+        new JfAreaChief(idb).setVisible(true);
     }//GEN-LAST:event_btnAreaChiefActionPerformed
 
     private void btnRegAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAlienActionPerformed
         // TODO add your handling code here:
-        new WindowAgentRegAlien(idb).setVisible(true);
+        new JfAgentRegAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAlienActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
-       new WindowAgentUpdateAlienInfo(idb).setVisible(true); 
+       new JfAgentUpdateAlienInfo(idb).setVisible(true); 
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btnAlienListsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienListsActionPerformed
         // TODO add your handling code here:
-        new WindowAgentListAliens(idb).setVisible(true);
+        new JfListAliens(idb).setVisible(true);
     }//GEN-LAST:event_btnAlienListsActionPerformed
 
 

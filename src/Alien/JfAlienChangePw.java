@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Alien;
 
 import java.awt.Color;
+import mibapplikation.Validation;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -13,18 +14,18 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAgentChangePw extends javax.swing.JFrame {
+public class JfAlienChangePw extends javax.swing.JFrame {
 
-    private String agentId;
+    private String alienId;
     private InfDB idb;
 
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAgentChangePw(InfDB idb, String agentId) {
+    public JfAlienChangePw(InfDB idb, String alienId) {
         initComponents();
         this.idb = idb;
-        this.agentId = agentId;
+        this.alienId = alienId;
     }
 
     /**
@@ -156,7 +157,7 @@ public class WindowAgentChangePw extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // Om ID stämmer med old lösenord
         // Byt till nya lösenordet
-        if(Validation.validationTxt(pwOldPw, lblMessage, "Ange ditt nuvarande lösenord") 
+        if(Validation.validationTxt(pwOldPw, lblMessage, "Ange ditt nuvarande lösenord")
                 && Validation.validationTxt(pwNewPw, lblMessage, "Ange ditt nya lösenord")
                 && Validation.validationTxtNrOfChar(pwNewPw, lblMessage, 6, "Det nya lösenordet får vara max 6 tecken")){
             try{
@@ -166,14 +167,14 @@ public class WindowAgentChangePw extends javax.swing.JFrame {
                 char[] pwNewArray = pwNewPw.getPassword();
                 String newPassword = new String(pwNewArray);
 
-                String query = "SELECT losenord FROM agent WHERE agent_id =" + "'" + agentId + "'";
+                String query = "SELECT losenord FROM alien WHERE alien_id =" + "'" + alienId + "'";
                 String result = idb.fetchSingle(query);
 
                 if(oldPassword.equals(result)){
-                    String qSetPassword = "UPDATE agent SET losenord =" + "'" + newPassword + "'" + "WHERE agent_id = " + "'" + agentId + "'";
+                    String qSetPassword = "UPDATE alien SET losenord =" + "'" + newPassword + "'" + "WHERE alien_id = " + "'" + alienId + "'";
                     idb.update(qSetPassword);
                     lblMessage.setForeground(Color.GREEN);
-                    lblMessage.setText("Detta lösenord är ändrat!");
+                    lblMessage.setText("Ditt lösenord är nu ändrat!");
                 }
                 else{
                     pwOldPw.requestFocus();

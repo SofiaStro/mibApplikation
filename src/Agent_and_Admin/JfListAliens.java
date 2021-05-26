@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Agent_and_Admin;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -18,18 +18,18 @@ import oru.inf.InfDB;
  *
  * @author Blazl
  */
-public class WindowAgentListAliens extends javax.swing.JFrame {
+public class JfListAliens extends javax.swing.JFrame {
     
     private InfDB idb;
 //    private JPanel panelMain;
-    private WindowAgentListAlienDatesJP datesWindow;
-    private WindowAgentListAlienLocationJP locationWindow;
-    private WindowAgentListAlienRaceJP raceWindow;
+    private JpListAlienDates datesWindow;
+    private JpListAlienLocation locationWindow;
+    private JpListAlienRace raceWindow;
     
     /**
      * Creates new form WindowAgentListAliens
      */
-    public WindowAgentListAliens(InfDB idb) {
+    public JfListAliens(InfDB idb) {
 //        setLayout(null);
 //        setPreferredSize(new Dimension(420,90));
 //        setResizable(false);
@@ -68,7 +68,7 @@ public class WindowAgentListAliens extends javax.swing.JFrame {
     private void createDatesWindow(InfDB idb){
         
         
-        datesWindow = new WindowAgentListAlienDatesJP(idb);
+        datesWindow = new JpListAlienDates(idb);
         datesWindow.setBounds(300, 0, 360, 420);
         jpBackground.add(datesWindow);
         datesWindow.setVisible(false);
@@ -78,7 +78,7 @@ public class WindowAgentListAliens extends javax.swing.JFrame {
     private void createRaceWindow(InfDB idb){
         
         
-        raceWindow = new WindowAgentListAlienRaceJP(idb);
+        raceWindow = new JpListAlienRace(idb);
         raceWindow.setBounds(280, 7, 360, 420);
         jpBackground.add(raceWindow);
         raceWindow.setVisible(false);
@@ -88,7 +88,7 @@ public class WindowAgentListAliens extends javax.swing.JFrame {
     private void createLocationWindow(InfDB idb){
         
         
-        locationWindow = new WindowAgentListAlienLocationJP(idb);
+        locationWindow = new JpListAlienLocation(idb);
         locationWindow.setBounds(280, 7, 360, 420);
         jpBackground.add(locationWindow);
         locationWindow.setVisible(false);

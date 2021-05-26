@@ -18,14 +18,14 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAdminEquipment extends javax.swing.JFrame {
+public class JfAdminEquipment extends javax.swing.JFrame {
 
     private InfDB idb;
 
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAdminEquipment(InfDB idb) {
+    public JfAdminEquipment(InfDB idb) {
         initComponents();
         this.idb = idb;
         txtaListEquipment.setEditable(false);
@@ -75,7 +75,7 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
         lblTitle.setText("Hantera utrustning");
 
         lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessage.setForeground(new java.awt.Color(255, 96, 96));
+        lblMessage.setForeground(new java.awt.Color(255, 50, 50));
         lblMessage.setText(" ");
 
         btnSave.setText("LÄGG TILL");
@@ -405,7 +405,7 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
     
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         lblMessage.setText(" ");
-        lblMessage.setForeground(Color.RED);
+        lblMessage.setForeground(new Color(255,50,50));
         if (Validation.validationTxt(txtfEquipName, lblMessage, "Ange utrustningsnamn")
                 && Validation.validationCb(cbEquipCategory, lblMessage)
                 && Validation.validationTxt(txtfEquipCapacity, lblMessage, "")) {
@@ -439,7 +439,7 @@ public class WindowAdminEquipment extends javax.swing.JFrame {
                     
                 }
                 if (equipmentAdded) {
-                    lblMessage.setForeground(Color.GREEN);
+                    lblMessage.setForeground(new Color(50,255,50));
                     lblMessage.setText("Utrustningen har lagts till!");
                     txtfEquipName.setText("");
                     cbEquipCategory.setSelectedIndex(0);

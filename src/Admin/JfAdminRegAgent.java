@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Admin;
 
 import java.awt.Color;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JComboBox;
+import mibapplikation.Validation;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.WordUtils;
@@ -20,14 +21,14 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAdminRegAgent extends javax.swing.JFrame {
+public class JfAdminRegAgent extends javax.swing.JFrame {
 
     private InfDB idb;
 
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAdminRegAgent(InfDB idb) {
+    public JfAdminRegAgent(InfDB idb) {
         initComponents();
         this.idb = idb;
         

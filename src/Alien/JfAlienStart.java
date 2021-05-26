@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Alien;
 
 import java.util.HashMap;
+import mibapplikation.MainWindowLogin;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -13,7 +14,7 @@ import oru.inf.InfException;
  *
  * @author Blazl
  */
-public class WindowAlienStart extends javax.swing.JFrame {
+public class JfAlienStart extends javax.swing.JFrame {
 
     private InfDB idb;
     private String alienId;
@@ -22,7 +23,7 @@ public class WindowAlienStart extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    public WindowAlienStart(InfDB idb, String alienId, String username) {
+    public JfAlienStart(InfDB idb, String alienId, String username) {
         initComponents();
         this.idb = idb;
         this.alienId = alienId;
@@ -119,7 +120,7 @@ public class WindowAlienStart extends javax.swing.JFrame {
 
     private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed
         // TODO add your handling code here:
-        new WindowAlienChangePw(idb, alienId).setVisible(true);
+        new JfAlienChangePw(idb, alienId).setVisible(true);
     }//GEN-LAST:event_btnChangePwActionPerformed
     private void getAreaChief() {
         try {

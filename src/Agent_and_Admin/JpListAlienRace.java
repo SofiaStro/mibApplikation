@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Agent_and_Admin;
 
 import java.util.ArrayList;
+import mibapplikation.Alien;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -13,13 +14,13 @@ import oru.inf.InfException;
  *
  * @author Blazl
  */
-public class WindowAgentListAlienRaceJP extends javax.swing.JPanel {
+public class JpListAlienRace extends javax.swing.JPanel {
     
     private InfDB idb;
     /**
      * Creates new form WindowAgentAlienRaceJP
      */
-    public WindowAgentListAlienRaceJP(InfDB idb) {
+    public JpListAlienRace(InfDB idb) {
         initComponents();
         this.idb = idb;
         txtaShowAliens.setEditable(false);

@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Agent;
 
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
+import mibapplikation.Alien;
+import mibapplikation.Validation;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -15,14 +17,14 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAgentUpdateAlienInfo extends javax.swing.JFrame {
+public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
 
     private InfDB idb;
 
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAgentUpdateAlienInfo(InfDB idb) {
+    public JfAgentUpdateAlienInfo(InfDB idb) {
         initComponents();
         this.idb = idb;
         txtaPrintAlienInfo.setEditable(false);

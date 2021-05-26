@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Admin;
 
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
+import mibapplikation.Validation;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -15,14 +16,14 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAdminManageAgent extends javax.swing.JFrame {
+public class JfAdminManageAgent extends javax.swing.JFrame {
 
     private InfDB idb;
 
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAdminManageAgent(InfDB idb) {
+    public JfAdminManageAgent(InfDB idb) {
         initComponents();
         this.idb = idb;
         txtaShowAgentInfo.setEditable(false);
@@ -745,10 +746,10 @@ public class WindowAdminManageAgent extends javax.swing.JFrame {
     private void btnChangeInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeInfoActionPerformed
         // TODO add your handling code here:
         if(btnChangeInfo.getText().equals("Ändra områdeschef")){
-            new WindowAdminManageAuthority(idb).setVisible(true);
+            new JfAdminManageAuthority(idb).setVisible(true);
         }
         if(btnChangeInfo.getText().equals("Ändra info om alien")){
-            new WindowAdminManageAlien(idb).setVisible(true);
+            new JfAdminManageAlien(idb).setVisible(true);
         }
     }//GEN-LAST:event_btnChangeInfoActionPerformed
 

@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Admin;
 
 
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
+import mibapplikation.Validation;
 import org.apache.commons.lang3.StringUtils;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -17,7 +18,7 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAdminManageAuthority extends javax.swing.JFrame {
+public class JfAdminManageAuthority extends javax.swing.JFrame {
 
     private String alienId;
     private InfDB idb;
@@ -25,7 +26,7 @@ public class WindowAdminManageAuthority extends javax.swing.JFrame {
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAdminManageAuthority(InfDB idb) {
+    public JfAdminManageAuthority(InfDB idb) {
         initComponents();
         this.idb=idb;
         listAllAgentsAdmin(); 

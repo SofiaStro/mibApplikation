@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Agent_and_Admin;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import mibapplikation.Validation;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -14,14 +15,14 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAgentAreaChief extends javax.swing.JFrame {
+public class JfAreaChief extends javax.swing.JFrame {
 
     private InfDB idb;
 
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAgentAreaChief(InfDB idb) {
+    public JfAreaChief(InfDB idb) {
         initComponents();
         this.idb = idb;
         txtaShowAreaChief.setEditable(false);

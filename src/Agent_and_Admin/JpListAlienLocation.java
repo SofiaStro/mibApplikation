@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Agent_and_Admin;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,13 +14,13 @@ import oru.inf.InfException;
  *
  * @author Blazl
  */
-public class WindowAgentListAlienLocationJP extends javax.swing.JPanel {
+public class JpListAlienLocation extends javax.swing.JPanel {
     
     private InfDB idb;
     /**
      * Creates new form WindowAgentListAlienLocationJP
      */
-    public WindowAgentListAlienLocationJP(InfDB idb) {
+    public JpListAlienLocation(InfDB idb) {
         initComponents();
         this.idb = idb;
         txtaShowAliens.setEditable(false);

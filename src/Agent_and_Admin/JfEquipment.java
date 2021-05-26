@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Agent_and_Admin;
 
 
 import java.time.LocalDate;
@@ -15,7 +15,7 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAgentEquipment extends javax.swing.JFrame {
+public class JfEquipment extends javax.swing.JFrame {
 
     private String agentId;
     private InfDB idb;
@@ -23,7 +23,7 @@ public class WindowAgentEquipment extends javax.swing.JFrame {
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAgentEquipment(InfDB idb, String agentId) {
+    public JfEquipment(InfDB idb, String agentId) {
         initComponents();
         this.idb = idb;
         this.agentId = agentId;

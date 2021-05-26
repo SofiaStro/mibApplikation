@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Agent_and_Admin;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import mibapplikation.Validation;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -15,14 +16,14 @@ import oru.inf.InfException;
  *
  * @author Blazl
  */
-public class WindowAgentListAlienDatesJP extends javax.swing.JPanel {
+public class JpListAlienDates extends javax.swing.JPanel {
     
     
     private InfDB idb;
     /**
      * Creates new form WindowAgentAlienDatesJP
      */
-    public WindowAgentListAlienDatesJP(InfDB idb) {
+    public JpListAlienDates(InfDB idb) {
         initComponents();
         this.idb = idb;
         txtaListAliens.setEditable(false);

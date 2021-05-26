@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Agent;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import mibapplikation.Validation;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.WordUtils;
@@ -18,7 +19,7 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class WindowAgentRegAlien extends javax.swing.JFrame {
+public class JfAgentRegAlien extends javax.swing.JFrame {
 
     
     private InfDB idb;
@@ -27,7 +28,7 @@ public class WindowAgentRegAlien extends javax.swing.JFrame {
     /**
      * Creates new form WindowAlienChangePw
      */
-    public WindowAgentRegAlien(InfDB idb) {
+    public JfAgentRegAlien(InfDB idb) {
         initComponents();
         this.idb = idb;
         

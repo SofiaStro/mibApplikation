@@ -5,6 +5,9 @@
  */
 package mibapplikation;
 
+import Alien.JfAlienStart;
+import Agent.JfAgentStart;
+import Admin.JfAdminStart;
 import org.apache.commons.text.WordUtils;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -183,19 +186,19 @@ public class MainWindowLogin extends javax.swing.JFrame {
                     if(resultAdmin.equals("J")){
                         setVisible(false);
                         username = WordUtils.capitalize(username);
-                        new WindowAdminStart(idb, resultAgent, username).setVisible(true);
+                        new JfAdminStart(idb, resultAgent, username).setVisible(true);
                     }
                     else{
                         setVisible(false);
                         username = WordUtils.capitalize(username);
-                        new WindowAgentStart(idb, resultAgent, username).setVisible(true);
+                        new JfAgentStart(idb, resultAgent, username).setVisible(true);
                     }                
                 }
                 else if (resultAlien != null) {
                     setVisible(false);
                     //Gör om första bokstaven till versal.
                     username = WordUtils.capitalize(username);
-                    new WindowAlienStart(idb, resultAlien, username).setVisible(true);
+                    new JfAlienStart(idb, resultAlien, username).setVisible(true);
                 } 
                 else {
                     lblMessage.setText("Fel användarnamn eller lösenord");

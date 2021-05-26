@@ -3,16 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mibapplikation;
+package Admin;
 
-import Admin.WindowAdminEquipment;
+import Admin.JfAdminManageAgent;
+import Admin.JfAdminEquipment;
+import mibapplikation.MainWindowLogin;
+import Agent_and_Admin.JfAreaChief;
+import Agent_and_Admin.JfChangePw;
+import Agent_and_Admin.JfEquipment;
+import Agent_and_Admin.JfListAliens;
+import Agent.JfAgentRegAlien;
 import oru.inf.InfDB;
 
 /**
  *
  * @author Blazl
  */
-public class WindowAdminStart extends javax.swing.JFrame {
+public class JfAdminStart extends javax.swing.JFrame {
     
     private  InfDB idb;
     private  String agentId;
@@ -21,7 +28,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    public WindowAdminStart(InfDB idb, String agentId, String username) {
+    public JfAdminStart(InfDB idb, String agentId, String username) {
         initComponents();
         this.idb= idb;
         this.agentId = agentId;
@@ -224,7 +231,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
 
     private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed
         // TODO add your handling code here:
-        new WindowAgentChangePw(idb, agentId).setVisible(true);
+        new JfChangePw(idb, agentId).setVisible(true);
     }//GEN-LAST:event_btnChangePwActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -236,44 +243,44 @@ public class WindowAdminStart extends javax.swing.JFrame {
 
     private void btnOwnEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOwnEquipmentActionPerformed
         // TODO add your handling code here:
-        new WindowAgentEquipment(idb, agentId).setVisible(true);
+        new JfEquipment(idb, agentId).setVisible(true);
     }//GEN-LAST:event_btnOwnEquipmentActionPerformed
 
     private void btnCompanyEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompanyEquipmentActionPerformed
         // TODO add your handling code here:
-         new WindowAdminEquipment(idb).setVisible(true);
+         new JfAdminEquipment(idb).setVisible(true);
     }//GEN-LAST:event_btnCompanyEquipmentActionPerformed
 
     private void btnRegAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAlienActionPerformed
         // TODO add your handling code here:
-        new WindowAgentRegAlien(idb).setVisible(true);
+        new JfAgentRegAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAlienActionPerformed
 
     private void btnChangeAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeAgentActionPerformed
-        new WindowAdminManageAgent(idb).setVisible(true);
+        new JfAdminManageAgent(idb).setVisible(true);
     }//GEN-LAST:event_btnChangeAgentActionPerformed
 
     private void btnRegAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAgentActionPerformed
    
-        new WindowAdminRegAgent(idb).setVisible(true);
+        new JfAdminRegAgent(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAgentActionPerformed
 
     private void btnChangeAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeAlienActionPerformed
-        new WindowAdminManageAlien(idb).setVisible(true);
+        new JfAdminManageAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnChangeAlienActionPerformed
 
     private void btnListAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListAlienActionPerformed
         // TODO add your handling code here:
-        new WindowAgentListAliens(idb).setVisible(true);
+        new JfListAliens(idb).setVisible(true);
     }//GEN-LAST:event_btnListAlienActionPerformed
 
     private void btnChangeAuthorityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeAuthorityActionPerformed
-       new WindowAdminManageAuthority(idb).setVisible(true);
+       new JfAdminManageAuthority(idb).setVisible(true);
     }//GEN-LAST:event_btnChangeAuthorityActionPerformed
 
     private void btnFindAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindAreaChiefActionPerformed
         // TODO add your handling code here:
-        new WindowAgentAreaChief(idb).setVisible(true);
+        new JfAreaChief(idb).setVisible(true);
     }//GEN-LAST:event_btnFindAreaChiefActionPerformed
 
     /**
