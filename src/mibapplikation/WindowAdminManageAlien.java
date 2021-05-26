@@ -569,7 +569,7 @@ public class WindowAdminManageAlien extends javax.swing.JFrame {
     private void setUnidentified(String alienId) {
         String currentRace = Alien.getRace(alienId);
         try {
-            if (currentRace != "") {
+            if (currentRace != "<Oidentifierad>") {
                 String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                 idb.delete(qDelete);
                 correctValues();
@@ -800,7 +800,7 @@ public class WindowAdminManageAlien extends javax.swing.JFrame {
                     deleteBoglodite();
                 } else if (race.equals("Worm")) {
                     deleteWorm();
-                } else if (race.equals("")){
+                } else if (race.equals("<Oidentifierad>")){
                     deleteUnidentified();
                 }
 
