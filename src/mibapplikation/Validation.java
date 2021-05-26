@@ -133,11 +133,11 @@ public class Validation {
         return result;
     }
 
-    public static boolean validationCb(JComboBox fieldToValidate, JLabel message) {
+    public static boolean validationCb(JComboBox fieldToValidate, JLabel message, String messageText) {
         boolean result = true;
         if (fieldToValidate.getSelectedItem().equals("-----")) {
             setErrorColor(message);
-            message.setText("En eller flera rutor är tomma!");
+            message.setText(messageText);
             result = false;
             fieldToValidate.requestFocus();
         }

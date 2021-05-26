@@ -5,8 +5,10 @@
  */
 package Agent_and_Admin;
 
+import java.awt.Color;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import mibapplikation.Validation;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -268,13 +270,14 @@ public class JfEquipment extends javax.swing.JFrame {
         //LAGGAS TILL FÖR AGENT_ID
         //KONTROLLERA VILKA BOXAR SOM ÄR VALDA
         //REGISTERA DAGEN
+        lblMessage.setForeground(new Color(255,50,50));
         try {
             LocalDate getDate = LocalDate.now();
             String date = getDate.toString();
-            if (cbWeapons.getSelectedItem().equals("-----")
-                    && cbComms.getSelectedItem().equals("-----")
-                    && cbTech.getSelectedItem().equals("-----")) {
-                lblMessage.setText("Du måste välja minst 1 utrustning");
+            if (!Validation.validationCb(cbWeapons, lblMessage, " ")
+                    && !Validation.validationCb(cbComms, lblMessage, " ")
+                    && !Validation.validationCb(cbTech, lblMessage, " ")) {
+            lblMessage.setText("Du måste välja minst 1 utrustning");
             } else {
                 if (!cbWeapons.getSelectedItem().equals("-----")) {
 
@@ -306,7 +309,8 @@ public class JfEquipment extends javax.swing.JFrame {
                             + "VALUES (" + agentId + "," + utrustningsId + ",'" + date + "')";
                     idb.insert(qAddEquip);
                 }
-                lblMessage.setText(" ");
+                lblMessage.setForeground(new Color(50,255,50));
+                lblMessage.setText("Utrusting har registrerats");
             }
 
         } catch (InfException ex) {
