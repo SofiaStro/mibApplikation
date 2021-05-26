@@ -41,12 +41,11 @@ public class JfAreaChief extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
-        lblMessage = new javax.swing.JLabel();
         btnMenu = new javax.swing.JButton();
         cbListAreas = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtaShowAreaChief = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        lblArea = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
@@ -59,10 +58,6 @@ public class JfAreaChief extends javax.swing.JFrame {
         lblName.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("Visa områdeschef");
-
-        lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessage.setForeground(new java.awt.Color(255, 96, 96));
-        lblMessage.setText(" ");
 
         btnMenu.setText("MENY");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -85,8 +80,8 @@ public class JfAreaChief extends javax.swing.JFrame {
         txtaShowAreaChief.setAutoscrolls(false);
         jScrollPane1.setViewportView(txtaShowAreaChief);
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Välj ett område:");
+        lblArea.setForeground(new java.awt.Color(255, 255, 255));
+        lblArea.setText("Välj ett område:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,12 +101,9 @@ public class JfAreaChief extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblArea, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbListAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cbListAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -122,12 +114,10 @@ public class JfAreaChief extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbListAreas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(lblArea))
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblMessage)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(btnMenu)
                 .addGap(21, 21, 21))
         );
@@ -173,7 +163,7 @@ public class JfAreaChief extends javax.swing.JFrame {
     private void cbListAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListAreasActionPerformed
         txtaShowAreaChief.setText("");
 
-        if (Validation.validationCb(cbListAreas, lblMessage)) {
+        
             try {
                 String query = "SELECT namn, telefon FROM Agent \n"
                         + "JOIN omradeschef oc USING (Agent_ID) \n"
@@ -192,17 +182,16 @@ public class JfAreaChief extends javax.swing.JFrame {
             } catch (Exception ex) {
                 System.out.println("Random fel" + ex.getMessage());
             }
-        }
+        
     }//GEN-LAST:event_cbListAreasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMenu;
     private javax.swing.JComboBox<String> cbListAreas;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblMessage;
+    private javax.swing.JLabel lblArea;
     private javax.swing.JLabel lblName;
     private javax.swing.JTextArea txtaShowAreaChief;
     // End of variables declaration//GEN-END:variables

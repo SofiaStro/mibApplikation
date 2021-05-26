@@ -5,7 +5,6 @@
  */
 package Agent_and_Admin;
 
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import oru.inf.InfDB;
@@ -33,7 +32,7 @@ public class JfEquipment extends javax.swing.JFrame {
         setComms();
         setTech();
     }
-   
+
     public void listMyEquipment() {
         try {
             txtaMyEquipment.setText("");
@@ -56,55 +55,49 @@ public class JfEquipment extends javax.swing.JFrame {
         }
 
     }
-    private void setWeapons(){
-        try{
+
+    private void setWeapons() {
+        try {
             String query = "SELECT benamning FROM utrustning JOIN vapen USING (utrustnings_id)";
             ArrayList<String> result = idb.fetchColumn(query);
-            for(String element : result){
+            for (String element : result) {
                 cbWeapons.addItem(element);
             }
-        }
-        catch (InfException ex){
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
         listMyEquipment();
     }
-    
-    private void setComms(){
-        try{
+
+    private void setComms() {
+        try {
             String query = "SELECT benamning FROM utrustning JOIN kommunikation USING (utrustnings_id)";
             ArrayList<String> result = idb.fetchColumn(query);
-            for(String element : result){
+            for (String element : result) {
                 cbComms.addItem(element);
             }
-        }
-        catch (InfException ex){
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
-        
-    private void setTech(){
-        try{
+
+    private void setTech() {
+        try {
             String query = "SELECT benamning FROM utrustning JOIN teknik USING (utrustnings_id)";
             ArrayList<String> result = idb.fetchColumn(query);
-            for(String element : result){
+            for (String element : result) {
                 cbTech.addItem(element);
             }
-        }
-        catch (InfException ex){
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
-            
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -125,10 +118,10 @@ public class JfEquipment extends javax.swing.JFrame {
         cbComms = new javax.swing.JComboBox<>();
         cbTech = new javax.swing.JComboBox<>();
         cbVehicle = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblWeapon = new javax.swing.JLabel();
+        lblCommunication = new javax.swing.JLabel();
+        lblTech = new javax.swing.JLabel();
+        lblVehicle = new javax.swing.JLabel();
         lblMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -174,20 +167,20 @@ public class JfEquipment extends javax.swing.JFrame {
 
         cbVehicle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Vapen");
+        lblWeapon.setForeground(new java.awt.Color(255, 255, 255));
+        lblWeapon.setText("Vapen");
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Kommunikation");
+        lblCommunication.setForeground(new java.awt.Color(255, 255, 255));
+        lblCommunication.setText("Kommunikation");
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Teknik");
+        lblTech.setForeground(new java.awt.Color(255, 255, 255));
+        lblTech.setText("Teknik");
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Fordon");
+        lblVehicle.setForeground(new java.awt.Color(255, 255, 255));
+        lblVehicle.setText("Fordon");
 
         lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessage.setForeground(new java.awt.Color(255, 96, 96));
+        lblMessage.setForeground(new java.awt.Color(255, 50, 50));
         lblMessage.setText(" ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -211,10 +204,10 @@ public class JfEquipment extends javax.swing.JFrame {
                                             .addComponent(cbComms, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(cbTech, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(cbVehicle, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(lblWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblTech, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblCommunication, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(btnMenu)))
@@ -232,19 +225,19 @@ public class JfEquipment extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
                         .addComponent(cbWeapons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
+                        .addComponent(lblCommunication)
                         .addGap(3, 3, 3)
                         .addComponent(cbComms, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
+                        .addComponent(lblTech)
                         .addGap(2, 2, 2)
                         .addComponent(cbTech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)
                         .addComponent(cbVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
@@ -275,54 +268,51 @@ public class JfEquipment extends javax.swing.JFrame {
         //LAGGAS TILL FÖR AGENT_ID
         //KONTROLLERA VILKA BOXAR SOM ÄR VALDA
         //REGISTERA DAGEN
-        try{
+        try {
             LocalDate getDate = LocalDate.now();
-                String date = getDate.toString();
-            if(cbWeapons.getSelectedItem().equals("-----") && 
-               cbComms.getSelectedItem().equals("-----") && 
-               cbTech.getSelectedItem().equals("-----")){
+            String date = getDate.toString();
+            if (cbWeapons.getSelectedItem().equals("-----")
+                    && cbComms.getSelectedItem().equals("-----")
+                    && cbTech.getSelectedItem().equals("-----")) {
                 lblMessage.setText("Du måste välja minst 1 utrustning");
-            }
-            else{
-                if(!cbWeapons.getSelectedItem().equals("-----")){
+            } else {
+                if (!cbWeapons.getSelectedItem().equals("-----")) {
 
                     String qEquipId = "SELECT utrustnings_id FROM utrustning WHERE benamning = '" + cbWeapons.getSelectedItem() + "'";
                     String utrustningsId = idb.fetchSingle(qEquipId);
 
-                    String qAddEquip = 
-                                "INSERT INTO innehar_utrustning(agent_id, utrustnings_id, utkvitteringsdatum)\n" +
-                                "VALUES (" + agentId + "," + utrustningsId + ",'" + date + "')";
+                    String qAddEquip
+                            = "INSERT INTO innehar_utrustning(agent_id, utrustnings_id, utkvitteringsdatum)\n"
+                            + "VALUES (" + agentId + "," + utrustningsId + ",'" + date + "')";
                     idb.insert(qAddEquip);
                 }
-                if(!cbComms.getSelectedItem().equals("-----")){
+                if (!cbComms.getSelectedItem().equals("-----")) {
 
                     String qEquipId = "SELECT utrustnings_id FROM utrustning WHERE benamning = '" + cbComms.getSelectedItem() + "'";
                     String utrustningsId = idb.fetchSingle(qEquipId);
 
-                    String qAddEquip = 
-                                "INSERT INTO innehar_utrustning(agent_id, utrustnings_id, utkvitteringsdatum)\n" +
-                                "VALUES (" + agentId + "," + utrustningsId + ",'" + date + "')";
+                    String qAddEquip
+                            = "INSERT INTO innehar_utrustning(agent_id, utrustnings_id, utkvitteringsdatum)\n"
+                            + "VALUES (" + agentId + "," + utrustningsId + ",'" + date + "')";
                     idb.insert(qAddEquip);
                 }
-                if(!cbTech.getSelectedItem().equals("-----")){
+                if (!cbTech.getSelectedItem().equals("-----")) {
 
                     String qEquipId = "SELECT utrustnings_id FROM utrustning WHERE benamning = '" + cbTech.getSelectedItem() + "'";
                     String utrustningsId = idb.fetchSingle(qEquipId);
 
-                    String qAddEquip = 
-                                "INSERT INTO innehar_utrustning(agent_id, utrustnings_id, utkvitteringsdatum)\n" +
-                                "VALUES (" + agentId + "," + utrustningsId + ",'" + date + "')";
+                    String qAddEquip
+                            = "INSERT INTO innehar_utrustning(agent_id, utrustnings_id, utkvitteringsdatum)\n"
+                            + "VALUES (" + agentId + "," + utrustningsId + ",'" + date + "')";
                     idb.insert(qAddEquip);
                 }
+                lblMessage.setText(" ");
             }
-            
-        }
 
-        catch (InfException ex){
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
             lblMessage.setText("Du kan ej låna 2 av samma sort");
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
         listMyEquipment();
@@ -342,14 +332,14 @@ public class JfEquipment extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbTech;
     private javax.swing.JComboBox<String> cbVehicle;
     private javax.swing.JComboBox<String> cbWeapons;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCommunication;
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblTech;
+    private javax.swing.JLabel lblVehicle;
+    private javax.swing.JLabel lblWeapon;
     private javax.swing.JTextArea txtaMyEquipment;
     // End of variables declaration//GEN-END:variables
 }

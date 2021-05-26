@@ -107,7 +107,7 @@ public class JfListAliens extends javax.swing.JFrame {
     private void initComponents() {
 
         jpBackground = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        jpLeftSide = new javax.swing.JPanel();
         btnMenu = new javax.swing.JButton();
         lblLists = new javax.swing.JLabel();
         cbLists = new javax.swing.JComboBox<>();
@@ -119,7 +119,7 @@ public class JfListAliens extends javax.swing.JFrame {
 
         jpBackground.setBackground(new java.awt.Color(40, 40, 40));
 
-        jPanel1.setBackground(new java.awt.Color(40, 40, 40));
+        jpLeftSide.setBackground(new java.awt.Color(40, 40, 40));
 
         btnMenu.setText("MENY");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -142,32 +142,32 @@ public class JfListAliens extends javax.swing.JFrame {
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Listor för aliens");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpLeftSideLayout = new javax.swing.GroupLayout(jpLeftSide);
+        jpLeftSide.setLayout(jpLeftSideLayout);
+        jpLeftSideLayout.setHorizontalGroup(
+            jpLeftSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpLeftSideLayout.createSequentialGroup()
+                .addGroup(jpLeftSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpLeftSideLayout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(btnMenu))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jpLeftSideLayout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jpLeftSideLayout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addComponent(lblLists)
                         .addGap(18, 18, 18)
                         .addComponent(cbLists, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        jpLeftSideLayout.setVerticalGroup(
+            jpLeftSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpLeftSideLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpLeftSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLists)
                     .addComponent(cbLists, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
@@ -180,12 +180,12 @@ public class JfListAliens extends javax.swing.JFrame {
         jpBackgroundLayout.setHorizontalGroup(
             jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBackgroundLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpLeftSide, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 360, Short.MAX_VALUE))
         );
         jpBackgroundLayout.setVerticalGroup(
             jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpLeftSide, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -234,8 +234,8 @@ public class JfListAliens extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMenu;
     private javax.swing.JComboBox<String> cbLists;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jpBackground;
+    private javax.swing.JPanel jpLeftSide;
     private javax.swing.JLabel lblLists;
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables

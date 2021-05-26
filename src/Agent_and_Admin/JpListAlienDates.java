@@ -51,7 +51,7 @@ public class JpListAlienDates extends javax.swing.JPanel {
         setBackground(new java.awt.Color(40, 40, 40));
 
         lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessage.setForeground(new java.awt.Color(255, 96, 96));
+        lblMessage.setForeground(new java.awt.Color(255, 50, 50));
         lblMessage.setText(" ");
 
         btnSave.setText("Visa aliens");
