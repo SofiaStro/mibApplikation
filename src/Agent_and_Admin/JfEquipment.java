@@ -125,6 +125,7 @@ public class JfEquipment extends javax.swing.JFrame {
         lblTech = new javax.swing.JLabel();
         lblVehicle = new javax.swing.JLabel();
         lblMessage = new javax.swing.JLabel();
+        lblYourEquipment = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
@@ -185,6 +186,9 @@ public class JfEquipment extends javax.swing.JFrame {
         lblMessage.setForeground(new java.awt.Color(255, 50, 50));
         lblMessage.setText(" ");
 
+        lblYourEquipment.setForeground(new java.awt.Color(255, 255, 255));
+        lblYourEquipment.setText("Din nuvarande utrustning:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -209,7 +213,10 @@ public class JfEquipment extends javax.swing.JFrame {
                                             .addComponent(lblWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lblTech, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lblCommunication, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(lblVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(lblYourEquipment))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(btnMenu)))
@@ -224,7 +231,9 @@ public class JfEquipment extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(1, 1, 1)
+                .addComponent(lblYourEquipment)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -242,7 +251,7 @@ public class JfEquipment extends javax.swing.JFrame {
                         .addComponent(lblVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)
                         .addComponent(cbVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addComponent(btnAdd))
                     .addComponent(jScrollPane1))
                 .addGap(28, 28, 28)
@@ -344,6 +353,7 @@ public class JfEquipment extends javax.swing.JFrame {
     private javax.swing.JLabel lblTech;
     private javax.swing.JLabel lblVehicle;
     private javax.swing.JLabel lblWeapon;
+    private javax.swing.JLabel lblYourEquipment;
     private javax.swing.JTextArea txtaMyEquipment;
     // End of variables declaration//GEN-END:variables
 }
