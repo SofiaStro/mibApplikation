@@ -319,8 +319,8 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
 
         if (Validation.validationTxtPhone(txtPhone, lblMessage) //kolla om databasen får ett värde om man endast skriver mellanslag
                 && Validation.validationTxt(txtName, lblMessage, "Ange namn")
-                && Validation.validationCb(cbPrivileges, lblMessage)
-                && Validation.validationCb(cbAreas, lblMessage)) {
+                && Validation.validationCb(cbPrivileges, lblMessage, "Ange behörighet")
+                && Validation.validationCb(cbAreas, lblMessage, "Ange område")) {
 
             try {
                 String agentId = getNewAgentId();
