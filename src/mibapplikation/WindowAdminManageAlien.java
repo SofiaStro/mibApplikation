@@ -848,11 +848,13 @@ public class WindowAdminManageAlien extends javax.swing.JFrame {
                     if (ras.equals("Squid")) {
                         String qAlienSquid = "SELECT antal_armar FROM squid WHERE alien_id = '" + alienId + "'";
                         alienEgenskap = idb.fetchSingle(qAlienSquid);
+                        txtaPrintAlienInfo.append("Egenskap:\t" + alienEgenskap + " st armar\n");
                     } else if (ras.equals("Boglodite")) {
                         String qAlienBoglodite = "SELECT antal_boogies FROM boglodite WHERE alien_id = '" + alienId + "'";
                         alienEgenskap = idb.fetchSingle(qAlienBoglodite);
+                        txtaPrintAlienInfo.append("Egenskap:\t" + alienEgenskap + " st boogies\n");
                     }
-                    txtaPrintAlienInfo.append("Egenskap:\t" + alienEgenskap + " st armar\n");
+                    
                 }
             } catch (InfException ex) {
                 System.out.println("Databasfel" + ex.getMessage());

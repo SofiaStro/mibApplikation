@@ -29,7 +29,7 @@ public class Database {
         }
         
         new MainWindowLogin(idb).setVisible(true);
-        //new WindowAgentListAliens(idb).setVisible(true);
+        //new WindowAdminManageAlien(idb).setVisible(true);
         
         
        // new WindowTemplate().setVisible(true);

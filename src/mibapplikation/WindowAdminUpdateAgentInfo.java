@@ -25,6 +25,7 @@ public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
     public WindowAdminUpdateAgentInfo(InfDB idb) {
         initComponents();
         this.idb = idb;
+        txtaShowAgentInfo.setEditable(false);
         listAreas();
         jpInfo.setVisible(false);
 
@@ -46,7 +47,7 @@ public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
         lblAgentInfo = new javax.swing.JLabel();
         txtfAgentInfoInput = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtShowAgentInfo = new javax.swing.JTextArea();
+        txtaShowAgentInfo = new javax.swing.JTextArea();
         lblUpdateName = new javax.swing.JLabel();
         lblUpdatePhone = new javax.swing.JLabel();
         lblUpdatePw = new javax.swing.JLabel();
@@ -78,6 +79,7 @@ public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icons/astronomy.png")).getImage());
         setLocationByPlatform(true);
         setResizable(false);
 
@@ -106,11 +108,11 @@ public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        txtShowAgentInfo.setBackground(new java.awt.Color(79, 79, 79));
-        txtShowAgentInfo.setColumns(20);
-        txtShowAgentInfo.setForeground(new java.awt.Color(255, 255, 255));
-        txtShowAgentInfo.setRows(5);
-        jScrollPane1.setViewportView(txtShowAgentInfo);
+        txtaShowAgentInfo.setBackground(new java.awt.Color(79, 79, 79));
+        txtaShowAgentInfo.setColumns(20);
+        txtaShowAgentInfo.setForeground(new java.awt.Color(255, 255, 255));
+        txtaShowAgentInfo.setRows(5);
+        jScrollPane1.setViewportView(txtaShowAgentInfo);
 
         lblUpdateName.setForeground(new java.awt.Color(255, 255, 255));
         lblUpdateName.setText("Uppdatera namn:");
@@ -169,6 +171,7 @@ public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
         txtaPrintInfo.setColumns(20);
         txtaPrintInfo.setForeground(new java.awt.Color(255, 255, 255));
         txtaPrintInfo.setRows(5);
+        txtaPrintInfo.setFocusable(false);
         txtaPrintInfo.setRequestFocusEnabled(false);
         jScrollPane2.setViewportView(txtaPrintInfo);
 
@@ -180,6 +183,7 @@ public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
         txtaTitleInfo.setForeground(new java.awt.Color(255, 255, 255));
         txtaTitleInfo.setRows(5);
         txtaTitleInfo.setText("Följande område behöver tilldelas \nen ny områdeschef innan agenten\nkan tas bort");
+        txtaTitleInfo.setFocusable(false);
         txtaTitleInfo.setRequestFocusEnabled(false);
         jScrollPane3.setViewportView(txtaTitleInfo);
 
@@ -395,17 +399,17 @@ public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
 
     private void listAgentInfo(String agentId) {
         try {
-            txtShowAgentInfo.append("Agent id:\t" + agentId + "\n");
+            txtaShowAgentInfo.append("Agent id:\t" + agentId + "\n");
 
             String qAgentInfo = "SELECT namn, telefon, anstallningsdatum FROM agent WHERE agent_id = '" + agentId + "'";
             HashMap<String, String> agentInfo = idb.fetchRow(qAgentInfo);
-            txtShowAgentInfo.append("Namn:\t" + agentInfo.get("namn") + "\n");
-            txtShowAgentInfo.append("Telefon:\t" + agentInfo.get("telefon") + "\n");
-            txtShowAgentInfo.append("Anst.datum:\t" + agentInfo.get("anstallningsdatum") + "\n");
+            txtaShowAgentInfo.append("Namn:\t" + agentInfo.get("namn") + "\n");
+            txtaShowAgentInfo.append("Telefon:\t" + agentInfo.get("telefon") + "\n");
+            txtaShowAgentInfo.append("Anst.datum:\t" + agentInfo.get("anstallningsdatum") + "\n");
 
             String qAgentArea = "SELECT o.benamning FROM omrade o JOIN agent a ON o.omrades_id= a.omrade WHERE agent_id ='" + agentId + "'";
             String agentArea = idb.fetchSingle(qAgentArea);
-            txtShowAgentInfo.append("Område:\t" + agentArea);
+            txtaShowAgentInfo.append("Område:\t" + agentArea);
 
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
@@ -493,7 +497,7 @@ public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
         lblInfoMessage.setText(" ");
         lblUpdateMessage.setText(" ");
         lblDeleteMessage.setText(" ");
-        txtShowAgentInfo.setText("");
+        txtaShowAgentInfo.setText("");
         int loops = 0;
         if (Validation.validationTxt(txtfAgentInfoInput, lblInfoMessage, "Ange ett namn eller id för en agent")) {
             try {
@@ -775,8 +779,8 @@ public class WindowAdminUpdateAgentInfo extends javax.swing.JFrame {
     private javax.swing.JLabel lblUpdateName;
     private javax.swing.JLabel lblUpdatePhone;
     private javax.swing.JLabel lblUpdatePw;
-    private javax.swing.JTextArea txtShowAgentInfo;
     private javax.swing.JTextArea txtaPrintInfo;
+    private javax.swing.JTextArea txtaShowAgentInfo;
     private javax.swing.JTextArea txtaTitleInfo;
     private javax.swing.JTextField txtfAgentDeleteInput;
     private javax.swing.JTextField txtfAgentInfoInput;
