@@ -72,10 +72,7 @@
                                               <Component id="lblVehicle" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                          <Component id="lblYourEquipment" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="lblYourEquipment" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
