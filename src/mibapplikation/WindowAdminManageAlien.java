@@ -602,7 +602,7 @@ public class WindowAdminManageAlien extends javax.swing.JFrame {
     private int checkInput() {
         int loops = 0;
         try {
-            String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInputInfo.getText() + "' OR alien_id = '" + txtfAlienInputInfo.getText() + "'";
+            String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInputDelete.getText() + "' OR alien_id = '" + txtfAlienInputDelete.getText() + "'";
             ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
 
             for (String element : alienIdList) {
