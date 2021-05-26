@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Agent;
+package Agent_and_Admin;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -357,7 +357,7 @@ public class JfAgentRegAlien extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 468, Short.MAX_VALUE)
+            .addComponent(jpBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
         );
 
         pack();

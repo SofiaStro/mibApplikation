@@ -5,6 +5,7 @@
  */
 package Agent;
 
+import Agent_and_Admin.JfAgentRegAlien;
 import Agent_and_Admin.JfEquipment;
 import Agent_and_Admin.JfChangePw;
 import Agent_and_Admin.JfAreaChief;

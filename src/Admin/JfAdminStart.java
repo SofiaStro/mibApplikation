@@ -12,7 +12,7 @@ import Agent_and_Admin.JfAreaChief;
 import Agent_and_Admin.JfChangePw;
 import Agent_and_Admin.JfEquipment;
 import Agent_and_Admin.JfListAliens;
-import Agent.JfAgentRegAlien;
+import Agent_and_Admin.JfAgentRegAlien;
 import oru.inf.InfDB;
 
 /**
