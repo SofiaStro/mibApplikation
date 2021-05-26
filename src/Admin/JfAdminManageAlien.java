@@ -236,10 +236,10 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                     .addComponent(lblTitleShowInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblShowInfoAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnShowInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMessageInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtfShowAlienInput, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMessageDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblMessageDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMessageInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblUpdateAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,9 +288,9 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                                 .addGap(74, 74, 74)
                                 .addComponent(txtfShowAlienInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnShowInfo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblMessageInfo)))
+                                .addComponent(btnShowInfo)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblMessageInfo)
                         .addGap(28, 28, 28)
                         .addComponent(jsPrintInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -505,7 +505,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                 lblMessageChange.setText("Rutan för ras-specialitet är tom");
 //  
             } else {
-                if (currentRace != "") {
+                if (currentRace != "<Oidentifierad>") {
                     String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                     idb.delete(qDelete);
                 }
@@ -533,7 +533,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                 lblMessageChange.setText("Rutan för ras-specialitet är tom");
 
             } else {
-                if (currentRace != "") {
+                if (currentRace != "<Oidentifierad>") {
                     String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                     idb.delete(qDelete);
                 }
@@ -555,7 +555,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         String currentRace = Alien.getRace(alienId);
         try {
 
-            if (currentRace != "") {
+            if (currentRace != "<Oidentifierad>") {
                 String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                 idb.delete(qDelete);
             }
@@ -607,6 +607,23 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         int loops = 0;
         try {
             String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInputDelete.getText() + "' OR alien_id = '" + txtfAlienInputDelete.getText() + "'";
+            ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
+
+            for (String element : alienIdList) {
+                loops++;
+            }
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+        return loops;
+
+    }
+        private int checkInputShowInfo() {
+        int loops = 0;
+        try {
+            String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfShowAlienInput.getText() + "' OR alien_id = '" + txtfShowAlienInput.getText() + "'";
             ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
 
             for (String element : alienIdList) {
@@ -757,7 +774,9 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                                     setUnidentified(alienId);
                                 }
                             }
-                        }
+                        } 
+                        txtfShowAlienInput.setText(alienId);
+                        btnShowInfo.doClick();
                     }
 
                 } catch (InfException ex) {
@@ -815,8 +834,11 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
             try {
                 String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfShowAlienInput.getText() + "' OR alien_id = '" + txtfShowAlienInput.getText() + "'";
                 String alienId = idb.fetchSingle(qAlienId);
-
-                if (alienId == null) {
+                
+                if (checkInputShowInfo() > 1) {
+                lblMessageInfo.setText("Det finns mer än en alien med detta namn, vänligen ange ID");
+                }
+                else if (alienId == null) {
                     lblMessageInfo.setText("Alien namnet finns inte registrerat");
                 } else {
                     txtaPrintAlienInfo.append("Alien id:\t" + alienId + "\n");

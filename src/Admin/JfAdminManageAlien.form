@@ -72,10 +72,10 @@
                       <Component id="lblTitleShowInfo" alignment="0" min="-2" pref="243" max="-2" attributes="0"/>
                       <Component id="lblShowInfoAlien" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
                       <Component id="btnShowInfo" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                      <Component id="lblMessageInfo" alignment="0" min="-2" pref="238" max="-2" attributes="0"/>
                       <Component id="txtfShowAlienInput" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                       <Component id="btnDelete" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                       <Component id="lblMessageDelete" min="-2" pref="355" max="-2" attributes="0"/>
+                      <Component id="lblMessageInfo" alignment="0" min="-2" pref="342" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -135,10 +135,10 @@
                                   <Component id="txtfShowAlienInput" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="btnShowInfo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblMessageInfo" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblMessageInfo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Component id="jsPrintInfo" min="-2" pref="173" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
