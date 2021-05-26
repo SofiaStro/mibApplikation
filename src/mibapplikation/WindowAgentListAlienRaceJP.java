@@ -43,7 +43,7 @@ public class WindowAgentListAlienRaceJP extends javax.swing.JPanel {
         lblSelectRace.setForeground(new java.awt.Color(255, 255, 255));
         lblSelectRace.setText("Välj en ras:");
 
-        cbListRace.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Squid", "Boglodite", "Worm" }));
+        cbListRace.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Squid", "Boglodite", "Worm", "<Oidentifierad>" }));
         cbListRace.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbListRaceActionPerformed(evt);

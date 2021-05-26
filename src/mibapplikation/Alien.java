@@ -42,6 +42,9 @@ public class Alien {
             else if (alienWorm != null) {
                 ras = "Worm";
             }
+            else if(ras.equals("")){
+                ras = "<Oidentifierad>";
+            }
 
         } 
         catch (InfException ex) {
