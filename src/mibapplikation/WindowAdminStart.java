@@ -60,6 +60,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn20 = new javax.swing.JButton();
         btnRegAgent = new javax.swing.JButton();
         btn22 = new javax.swing.JButton();
+        btn21 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Galaxal");
@@ -208,6 +209,14 @@ public class WindowAdminStart extends javax.swing.JFrame {
         btn22.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn22.setText("jButton1");
 
+        btn21.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn21.setText("Hantera befogenheter");
+        btn21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn21ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
@@ -226,7 +235,8 @@ public class WindowAdminStart extends javax.swing.JFrame {
                             .addComponent(lblMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnDeleteAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn21, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnEquipmentList, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,7 +291,9 @@ public class WindowAdminStart extends javax.swing.JFrame {
                         .addComponent(btn20))
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addComponent(btn2)
-                        .addGap(132, 132, 132)
+                        .addGap(94, 94, 94)
+                        .addComponent(btn21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn12)))
@@ -378,6 +390,10 @@ public class WindowAdminStart extends javax.swing.JFrame {
         new WindowAgentListAliens(idb).setVisible(true);
     }//GEN-LAST:event_btn12ActionPerformed
 
+    private void btn21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn21ActionPerformed
+       new WindowAdminManageAuthority(idb).setVisible(true);
+    }//GEN-LAST:event_btn21ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -391,6 +407,7 @@ public class WindowAdminStart extends javax.swing.JFrame {
     private javax.swing.JButton btn17;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn20;
+    private javax.swing.JButton btn21;
     private javax.swing.JButton btn22;
     private javax.swing.JButton btn4;
     private javax.swing.JButton btn5;

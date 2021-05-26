@@ -61,6 +61,7 @@
                               <Component id="btn2" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btnDeleteAlien" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btn5" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="btn21" min="-2" pref="190" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -126,7 +127,9 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="btn2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                          <Component id="btn21" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btn11" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btn12" min="-2" max="-2" attributes="0"/>
@@ -360,6 +363,17 @@
             </Property>
             <Property name="text" type="java.lang.String" value="jButton1"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btn21">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="16" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Hantera befogenheter"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn21ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
