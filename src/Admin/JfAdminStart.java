@@ -6,7 +6,7 @@
 package Admin;
 
 import Admin.JfAdminManageAgent;
-import Admin.JfAdminEquipment;
+import Admin.JfAdminEquipmentStock;
 import mibapplikation.MainWindowLogin;
 import Agent_and_Admin.JfAreaChief;
 import Agent_and_Admin.JfChangePw;
@@ -20,21 +20,21 @@ import oru.inf.InfDB;
  * @author Blazl
  */
 public class JfAdminStart extends javax.swing.JFrame {
-    
-    private  InfDB idb;
-    private  String agentId;
-    private  String username;
+
+    private InfDB idb;
+    private String agentId;
+    private String username;
 
     /**
-     * Creates new form MainWindow
+     * Creates new form JfStart for admin
      */
     public JfAdminStart(InfDB idb, String agentId, String username) {
         initComponents();
-        this.idb= idb;
+        this.idb = idb;
         this.agentId = agentId;
-        this.username = username; 
+        this.username = username;
         lblWelcome.setText("Välkommen admin " + username + "!");
-        
+
     }
 
     /**
@@ -55,7 +55,7 @@ public class JfAdminStart extends javax.swing.JFrame {
         btnChangeAlien = new javax.swing.JButton();
         btnListAlien = new javax.swing.JButton();
         lblWelcome = new javax.swing.JLabel();
-        btnCompanyEquipment = new javax.swing.JButton();
+        btnEquipmentStore = new javax.swing.JButton();
         btnChangeAgent = new javax.swing.JButton();
         btnRegAgent = new javax.swing.JButton();
         btnChangeAuthority = new javax.swing.JButton();
@@ -69,7 +69,7 @@ public class JfAdminStart extends javax.swing.JFrame {
         jpBackground.setBackground(new java.awt.Color(40, 40, 40));
 
         btnOwnEquipment.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnOwnEquipment.setText("Registrera egen utrustning");
+        btnOwnEquipment.setText("Egen utrustning");
         btnOwnEquipment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOwnEquipmentActionPerformed(evt);
@@ -128,11 +128,11 @@ public class JfAdminStart extends javax.swing.JFrame {
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setText("Välkommen Admin");
 
-        btnCompanyEquipment.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnCompanyEquipment.setText("Hantera utrustning");
-        btnCompanyEquipment.addActionListener(new java.awt.event.ActionListener() {
+        btnEquipmentStore.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnEquipmentStore.setText("Hantera utrustningslager");
+        btnEquipmentStore.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCompanyEquipmentActionPerformed(evt);
+                btnEquipmentStoreActionPerformed(evt);
             }
         });
 
@@ -177,13 +177,13 @@ public class JfAdminStart extends javax.swing.JFrame {
                             .addComponent(btnRegAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnFindAreaChief, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
-                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCompanyEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnOwnEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRegAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnChangeAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnChangeAuthority, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(44, 44, 44))
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnEquipmentStore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRegAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnChangeAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnChangeAuthority, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnOwnEquipment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(55, 55, 55))
         );
         jpBackgroundLayout.setVerticalGroup(
             jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,7 +207,7 @@ public class JfAdminStart extends javax.swing.JFrame {
                     .addComponent(btnFindAreaChief)
                     .addComponent(btnOwnEquipment))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCompanyEquipment)
+                .addComponent(btnEquipmentStore)
                 .addGap(59, 59, 59)
                 .addComponent(btnChangePw)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -219,7 +219,7 @@ public class JfAdminStart extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jpBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,29 +230,24 @@ public class JfAdminStart extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed
-        // TODO add your handling code here:
         new JfChangePw(idb, agentId).setVisible(true);
     }//GEN-LAST:event_btnChangePwActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
         agentId = "";
         setVisible(false);
         new MainWindowLogin(idb).setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnOwnEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOwnEquipmentActionPerformed
-        // TODO add your handling code here:
         new JfEquipment(idb, agentId).setVisible(true);
     }//GEN-LAST:event_btnOwnEquipmentActionPerformed
 
-    private void btnCompanyEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompanyEquipmentActionPerformed
-        // TODO add your handling code here:
-         new JfAdminEquipment(idb).setVisible(true);
-    }//GEN-LAST:event_btnCompanyEquipmentActionPerformed
+    private void btnEquipmentStoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquipmentStoreActionPerformed
+        new JfAdminEquipmentStock(idb).setVisible(true);
+    }//GEN-LAST:event_btnEquipmentStoreActionPerformed
 
     private void btnRegAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAlienActionPerformed
-        // TODO add your handling code here:
         new JfAgentRegAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAlienActionPerformed
 
@@ -261,7 +256,6 @@ public class JfAdminStart extends javax.swing.JFrame {
     }//GEN-LAST:event_btnChangeAgentActionPerformed
 
     private void btnRegAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAgentActionPerformed
-   
         new JfAdminRegAgent(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAgentActionPerformed
 
@@ -270,31 +264,27 @@ public class JfAdminStart extends javax.swing.JFrame {
     }//GEN-LAST:event_btnChangeAlienActionPerformed
 
     private void btnListAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListAlienActionPerformed
-        // TODO add your handling code here:
         new JfListAliens(idb).setVisible(true);
     }//GEN-LAST:event_btnListAlienActionPerformed
 
     private void btnChangeAuthorityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeAuthorityActionPerformed
-       new JfAdminManageAuthority(idb).setVisible(true);
+        new JfAdminManageAuthority(idb).setVisible(true);
     }//GEN-LAST:event_btnChangeAuthorityActionPerformed
 
     private void btnFindAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindAreaChiefActionPerformed
-        // TODO add your handling code here:
         new JfAreaChief(idb).setVisible(true);
     }//GEN-LAST:event_btnFindAreaChiefActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChangeAgent;
     private javax.swing.JButton btnChangeAlien;
     private javax.swing.JButton btnChangeAuthority;
     private javax.swing.JButton btnChangePw;
-    private javax.swing.JButton btnCompanyEquipment;
+    private javax.swing.JButton btnEquipmentStore;
     private javax.swing.JButton btnFindAreaChief;
     private javax.swing.JButton btnListAlien;
     private javax.swing.JButton btnLogout;

@@ -29,17 +29,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jpBackground" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Component id="jpBackground" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="jpBackground">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="28" green="28" red="28" type="rgb"/>
@@ -49,65 +49,68 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblChangePw" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
-                      <Component id="btnMenu" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="btnMenu" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                          <Component id="lblTitle" min="-2" pref="182" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="146" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="97" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblTitleDelete" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
+                      <Component id="lblDeleteAlien" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
+                      <Component id="txtfAlienInputDelete" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Component id="jsPrintInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTitleShowInfo" alignment="0" min="-2" pref="243" max="-2" attributes="0"/>
+                      <Component id="lblShowInfoAlien" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
+                      <Component id="btnShowInfo" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                      <Component id="lblMessageInfo" alignment="0" min="-2" pref="238" max="-2" attributes="0"/>
+                      <Component id="txtfShowAlienInput" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Component id="btnDelete" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                      <Component id="lblMessageDelete" min="-2" pref="355" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblUpdateAlien" min="-2" pref="177" max="-2" attributes="0"/>
+                      <Component id="lblTitelUpdate" min="-2" pref="367" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="lblMessageInput" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtfAlienInputChange" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="lblAlienName" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
+                      <Component id="txtfPhoneInput" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                      <Component id="lblPw" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
+                      <Component id="txtfPwInput" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                      <Component id="txtfNameInput" min="-2" pref="134" max="-2" attributes="0"/>
+                      <Component id="lblAgent" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbListAgents" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Component id="lblLocation" min="-2" pref="163" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="cbListLocations" min="-2" pref="134" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblTitle1" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
-                              <Component id="lblAlien" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
-                              <Component id="txtfAlienInputDelete" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="btnDelete" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTitle" alignment="0" min="-2" pref="243" max="-2" attributes="0"/>
-                              <Component id="lblAlien2" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
-                              <Component id="btnShowInfo" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                              <Component id="lblMessageInfo" alignment="0" min="-2" pref="238" max="-2" attributes="0"/>
-                              <Component id="txtfAlienInputInfo" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblAlien1" min="-2" pref="177" max="-2" attributes="0"/>
-                              <Component id="lblTitel" min="-2" pref="367" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="lblMessageInput" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtfAlienInputChange" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="lblAlienName1" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
-                              <Component id="lblAlienPhone" alignment="0" min="-2" pref="311" max="-2" attributes="0"/>
-                              <Component id="txtfPhoneInput" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
-                              <Component id="lblPw" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
-                              <Component id="txtfPwInput" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
-                              <Component id="txtfNameInput" min="-2" pref="134" max="-2" attributes="0"/>
-                              <Component id="lblAgent" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbListAgents" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
                               <Component id="lblAlienRace" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                  <Component id="lblLocation" min="-2" pref="163" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="cbListRace" min="-2" pref="134" max="-2" attributes="0"/>
-                              <Component id="lblRaceSpecial" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtfRaceSpecial" min="-2" pref="134" max="-2" attributes="0"/>
-                              <Component id="cbListLocations" min="-2" pref="134" max="-2" attributes="0"/>
+                              <Component id="cbListRace" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblMessageDelete" min="-2" pref="289" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblMessageChange" min="-2" pref="310" max="-2" attributes="0"/>
-                              <Component id="btnSave" min="-2" pref="134" max="-2" attributes="0"/>
+                              <Component id="txtfRaceSpecial" min="-2" pref="134" max="-2" attributes="0"/>
+                              <Component id="lblRaceSpecial" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Component id="btnUpdate" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                      <Component id="lblMessageChange" alignment="0" min="-2" pref="310" max="-2" attributes="0"/>
+                      <Component id="lblAlienPhone" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
               </Group>
@@ -116,48 +119,51 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                  <Component id="lblChangePw" min="-2" pref="38" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="lblTitle" min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblTitle" min="-2" pref="38" max="-2" attributes="0"/>
+                                  <Component id="lblTitleShowInfo" min="-2" pref="38" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblAlien2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblShowInfoAlien" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                                  <Component id="txtfAlienInputInfo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtfShowAlienInput" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="btnShowInfo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="lblMessageInfo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" min="-2" pref="173" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="lblTitle1" min="-2" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="jsPrintInfo" min="-2" pref="173" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lblTitleDelete" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblAlien" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDeleteAlien" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtfAlienInputDelete" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                          <Component id="lblTitel" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="lblTitelUpdate" min="-2" pref="27" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblAlien1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUpdateAlien" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtfAlienInputChange" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblMessageInput" min="-2" pref="11" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblAlienName1" min="-2" pref="17" max="-2" attributes="0"/>
+                          <Component id="lblAlienName" min="-2" pref="17" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtfNameInput" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -177,36 +183,31 @@
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Component id="cbListAgents" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblAlienRace" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblAlienRace" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="lblRaceSpecial" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cbListRace" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblRaceSpecial" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtfRaceSpecial" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="cbListRace" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtfRaceSpecial" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lblMessageDelete" min="-2" pref="16" max="-2" attributes="0"/>
-                          <EmptySpace pref="7" max="32767" attributes="0"/>
-                          <Component id="btnMenu" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="25" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                          <Component id="lblMessageChange" min="-2" pref="12" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblMessageDelete" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                      <Component id="lblMessageChange" alignment="3" min="-2" pref="13" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                  <Component id="btnMenu" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblChangePw">
+        <Component class="javax.swing.JLabel" name="lblTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="22" style="1"/>
@@ -223,8 +224,9 @@
               <Font name="Segoe UI" size="11" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="ff" type="rgb"/>
+              <Color blue="32" green="32" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnMenu">
@@ -241,11 +243,12 @@
               <Font name="Segoe UI" size="11" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="ff" type="rgb"/>
+              <Color blue="32" green="32" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTitle">
+        <Component class="javax.swing.JLabel" name="lblTitleShowInfo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
@@ -264,7 +267,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnShowInfoActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+        <Container class="javax.swing.JScrollPane" name="jsPrintInfo">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -304,8 +307,9 @@
               <Font name="Segoe UI" size="11" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="ff" type="rgb"/>
+              <Color blue="32" green="32" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnDelete">
@@ -316,12 +320,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtfAlienInputInfo">
+        <Component class="javax.swing.JTextField" name="txtfShowAlienInput">
           <Properties>
             <Property name="columns" type="int" value="6"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblAlien">
+        <Component class="javax.swing.JLabel" name="lblDeleteAlien">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -329,7 +333,7 @@
             <Property name="text" type="java.lang.String" value="Ange aliens namn eller id:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTitle1">
+        <Component class="javax.swing.JLabel" name="lblTitleDelete">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
@@ -348,12 +352,12 @@
             <Property name="text" type="java.lang.String" value="xxxx"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnSave">
+        <Component class="javax.swing.JButton" name="btnUpdate">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Spara &#xe4;ndringar"/>
+            <Property name="text" type="java.lang.String" value="UPPDATERA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtfRaceSpecial">
@@ -451,7 +455,7 @@
             <Property name="columns" type="int" value="6"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblAlienName1">
+        <Component class="javax.swing.JLabel" name="lblAlienName">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -464,7 +468,7 @@
             <Property name="columns" type="int" value="6"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTitel">
+        <Component class="javax.swing.JLabel" name="lblTitelUpdate">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
@@ -490,7 +494,7 @@
             <Property name="columns" type="int" value="6"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblAlien1">
+        <Component class="javax.swing.JLabel" name="lblUpdateAlien">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -503,7 +507,7 @@
             <Property name="columns" type="int" value="6"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblAlien2">
+        <Component class="javax.swing.JLabel" name="lblShowInfoAlien">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>

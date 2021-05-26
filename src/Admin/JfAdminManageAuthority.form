@@ -29,20 +29,20 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jpBackground" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="jpBackground" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="jpBackground">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="28" green="28" red="28" type="rgb"/>
@@ -52,25 +52,69 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="152" pref="152" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblTitleChangeAreaChief" min="-2" pref="294" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblTitleAdminStatus" alignment="0" min="-2" pref="327" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="cbAdminAgentList" alignment="0" min="-2" pref="174" max="-2" attributes="0"/>
+                                              <Component id="lblAdminAgent" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblAdminStatus" min="-2" pref="115" max="-2" attributes="0"/>
+                                              <Component id="cbAdminStatusList" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
+                                          <Component id="btnSaveAdmin" min="-2" pref="101" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace pref="78" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="lblMessageAdmin" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblTitleHeadChief" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                              <Component id="lblChooesHeadChief" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMessageHeadChief" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btnSaveHeadChief" alignment="0" pref="140" max="32767" attributes="0"/>
+                                  <Component id="cbListAgentsHeadChief" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblTitle" min="-2" pref="255" max="-2" attributes="0"/>
                               <Component id="lblMessageAreaChief" min="-2" pref="380" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lblNewChief2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblNewChiefMessage" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNewChief1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="cbListAgentsArea" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                          <Component id="lblNewChief3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblChooseArea2" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="1" attributes="0">
                                               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                              <Component id="lblNewChiefMessage1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblChooesArea1" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Component id="cbListAreas" min="-2" pref="132" max="-2" attributes="0"/>
@@ -80,48 +124,11 @@
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblChangePw1" min="-2" pref="294" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblTitle" alignment="0" min="-2" pref="327" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="cbAgentListAdmin" alignment="0" min="-2" pref="174" max="-2" attributes="0"/>
-                                      <Component id="lblAgent" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblStatus" min="-2" pref="115" max="-2" attributes="0"/>
-                                      <Component id="cbStatusList" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="lblMessageAdmin" alignment="0" min="-2" pref="214" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="btnSaveAdmin" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace pref="81" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblChangePw2" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
-                              <Component id="lblNewChiefMessage2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbListAgentsHeadChief" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                              <Component id="btnSaveHeadChief" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                              <Component id="lblMessageHeadChief" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblChangePw" min="-2" pref="255" max="-2" attributes="0"/>
-                      <Component id="btnMenu" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                  <Component id="btnMenu" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -129,40 +136,40 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                  <Component id="lblChangePw" min="-2" pref="38" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                  <Component id="lblTitle" min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblTitle" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="lblTitleAdminStatus" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblAgent" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblAdminAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblAdminStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="cbAgentListAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbStatusList" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbAdminAgentList" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbAdminStatusList" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnSaveAdmin" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblMessageAdmin" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="42" max="32767" attributes="0"/>
-                          <Component id="lblChangePw1" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="lblTitleChangeAreaChief" min="-2" pref="29" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="lblNewChiefMessage" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNewChief1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                   <Component id="lblNewChief2" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                  <Component id="lblNewChief3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblChooseArea2" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="lblNewChiefMessage1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblChooesArea1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -178,15 +185,15 @@
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblChangePw2" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="lblTitleHeadChief" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblNewChiefMessage2" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblChooesHeadChief" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="cbListAgentsHeadChief" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnSaveHeadChief" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lblMessageHeadChief" min="-2" pref="9" max="-2" attributes="0"/>
+                          <Component id="lblMessageHeadChief" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -195,7 +202,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblChangePw">
+        <Component class="javax.swing.JLabel" name="lblTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="22" style="1"/>
@@ -220,11 +227,12 @@
               <Font name="Segoe UI" size="11" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="60" green="60" red="ff" type="rgb"/>
+              <Color blue="32" green="32" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbStatusList">
+        <Component class="javax.swing.JComboBox" name="cbAdminStatusList">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
@@ -238,7 +246,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblStatus">
+        <Component class="javax.swing.JLabel" name="lblAdminStatus">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -246,7 +254,7 @@
             <Property name="text" type="java.lang.String" value="V&#xe4;lj adminstatus"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTitle">
+        <Component class="javax.swing.JLabel" name="lblTitleAdminStatus">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
@@ -257,7 +265,7 @@
             <Property name="text" type="java.lang.String" value="&#xc4;ndra adminstatus p&#xe5; agent"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblAgent">
+        <Component class="javax.swing.JLabel" name="lblAdminAgent">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -265,7 +273,7 @@
             <Property name="text" type="java.lang.String" value="V&#xe4;lj agent"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbAgentListAdmin">
+        <Component class="javax.swing.JComboBox" name="cbAdminAgentList">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
@@ -279,7 +287,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnSaveAdmin">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Spara &#xe4;ndringar"/>
+            <Property name="text" type="java.lang.String" value="SPARA"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveAdminActionPerformed"/>
@@ -291,8 +299,9 @@
               <Font name="Segoe UI" size="11" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="60" green="60" red="ff" type="rgb"/>
+              <Color blue="32" green="32" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cbListAreas">
@@ -307,7 +316,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblNewChief3">
+        <Component class="javax.swing.JLabel" name="lblChooseArea2">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -315,7 +324,7 @@
             <Property name="text" type="java.lang.String" value=" valda agent ska vara chef &#xf6;ver:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblNewChiefMessage1">
+        <Component class="javax.swing.JLabel" name="lblChooesArea1">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -325,7 +334,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnSaveAreaChief">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Spara &#xe4;ndringar"/>
+            <Property name="text" type="java.lang.String" value="SPARA"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveAreaChiefActionPerformed"/>
@@ -351,7 +360,7 @@
             <Property name="text" type="java.lang.String" value="som ska bli omr&#xe5;deschef:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblNewChiefMessage">
+        <Component class="javax.swing.JLabel" name="lblNewChief1">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -359,7 +368,7 @@
             <Property name="text" type="java.lang.String" value="V&#xe4;lj namnet p&#xe5; den agent"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblChangePw1">
+        <Component class="javax.swing.JLabel" name="lblTitleChangeAreaChief">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
@@ -376,13 +385,14 @@
               <Font name="Segoe UI" size="11" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="60" green="60" red="ff" type="rgb"/>
+              <Color blue="32" green="32" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnSaveHeadChief">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Spara &#xe4;ndringar"/>
+            <Property name="text" type="java.lang.String" value="SPARA"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveHeadChiefActionPerformed"/>
@@ -400,7 +410,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblNewChiefMessage2">
+        <Component class="javax.swing.JLabel" name="lblChooesHeadChief">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -408,7 +418,7 @@
             <Property name="text" type="java.lang.String" value="V&#xe4;lj namnet p&#xe5; den agent som ska bli kontorschef"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblChangePw2">
+        <Component class="javax.swing.JLabel" name="lblTitleHeadChief">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>

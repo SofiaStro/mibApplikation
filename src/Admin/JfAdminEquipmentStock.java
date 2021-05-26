@@ -18,14 +18,14 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class JfAdminEquipment extends javax.swing.JFrame {
+public class JfAdminEquipmentStock extends javax.swing.JFrame {
 
     private InfDB idb;
 
     /**
      * Creates new form WindowAlienChangePw
      */
-    public JfAdminEquipment(InfDB idb) {
+    public JfAdminEquipmentStock(InfDB idb) {
         initComponents();
         this.idb = idb;
         txtaListEquipment.setEditable(false);

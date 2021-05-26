@@ -28,7 +28,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         this.idb = idb;
         txtaShowAgentInfo.setEditable(false);
         listAreas();
-        jpInfo.setVisible(false);
+        jpErrorMessageBox.setVisible(false);
 
     }
 
@@ -47,7 +47,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         lblTitel = new javax.swing.JLabel();
         lblAgentInfo = new javax.swing.JLabel();
         txtfAgentInfoInput = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        spShowInfoBox = new javax.swing.JScrollPane();
         txtaShowAgentInfo = new javax.swing.JTextArea();
         lblUpdateName = new javax.swing.JLabel();
         lblUpdatePhone = new javax.swing.JLabel();
@@ -66,12 +66,12 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         lblAgentDelete = new javax.swing.JLabel();
         txtfAgentDeleteInput = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
-        jpInfo = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtaPrintInfo = new javax.swing.JTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtaTitleInfo = new javax.swing.JTextArea();
-        btnChangeInfo = new javax.swing.JButton();
+        jpErrorMessageBox = new javax.swing.JPanel();
+        spListErrorInfo = new javax.swing.JScrollPane();
+        txtaPrintErrorInfo = new javax.swing.JTextArea();
+        spTitleErrorInfo = new javax.swing.JScrollPane();
+        txtaTitleErrorInfo = new javax.swing.JTextArea();
+        btnChangeErrorInfo = new javax.swing.JButton();
         lblAgentUpdate = new javax.swing.JLabel();
         txtfAgentUpdateInput = new javax.swing.JTextField();
         lblTitleDelete = new javax.swing.JLabel();
@@ -108,13 +108,13 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         lblAgentInfo.setForeground(new java.awt.Color(255, 255, 255));
         lblAgentInfo.setText("Ange en agents namn eller id:");
 
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        spShowInfoBox.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         txtaShowAgentInfo.setBackground(new java.awt.Color(79, 79, 79));
         txtaShowAgentInfo.setColumns(20);
         txtaShowAgentInfo.setForeground(new java.awt.Color(255, 255, 255));
         txtaShowAgentInfo.setRows(5);
-        jScrollPane1.setViewportView(txtaShowAgentInfo);
+        spShowInfoBox.setViewportView(txtaShowAgentInfo);
 
         lblUpdateName.setForeground(new java.awt.Color(255, 255, 255));
         lblUpdateName.setText("Uppdatera namn:");
@@ -141,7 +141,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         lblUpdateArea.setText("Uppdatera område: ");
 
         lblDeleteMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblDeleteMessage.setForeground(new java.awt.Color(255, 96, 96));
+        lblDeleteMessage.setForeground(new java.awt.Color(255, 50, 50));
         lblDeleteMessage.setText(" ");
 
         lblTitleUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -149,7 +149,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         lblTitleUpdate.setText("Uppdatera information");
 
         lblInfoMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblInfoMessage.setForeground(new java.awt.Color(255, 0, 0));
+        lblInfoMessage.setForeground(new java.awt.Color(255, 50, 50));
         lblInfoMessage.setText(" ");
 
         lblAgentDelete.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,59 +164,59 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
             }
         });
 
-        jpInfo.setBackground(new java.awt.Color(79, 79, 79));
-        jpInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0), 2));
+        jpErrorMessageBox.setBackground(new java.awt.Color(79, 79, 79));
+        jpErrorMessageBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 50, 50), 2));
 
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        spListErrorInfo.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        txtaPrintInfo.setBackground(new java.awt.Color(40, 40, 40));
-        txtaPrintInfo.setColumns(20);
-        txtaPrintInfo.setForeground(new java.awt.Color(255, 255, 255));
-        txtaPrintInfo.setRows(5);
-        txtaPrintInfo.setFocusable(false);
-        txtaPrintInfo.setRequestFocusEnabled(false);
-        jScrollPane2.setViewportView(txtaPrintInfo);
+        txtaPrintErrorInfo.setBackground(new java.awt.Color(40, 40, 40));
+        txtaPrintErrorInfo.setColumns(20);
+        txtaPrintErrorInfo.setForeground(new java.awt.Color(255, 255, 255));
+        txtaPrintErrorInfo.setRows(5);
+        txtaPrintErrorInfo.setFocusable(false);
+        txtaPrintErrorInfo.setRequestFocusEnabled(false);
+        spListErrorInfo.setViewportView(txtaPrintErrorInfo);
 
-        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        spTitleErrorInfo.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        spTitleErrorInfo.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        txtaTitleInfo.setBackground(new java.awt.Color(40, 40, 40));
-        txtaTitleInfo.setColumns(20);
-        txtaTitleInfo.setForeground(new java.awt.Color(255, 255, 255));
-        txtaTitleInfo.setRows(5);
-        txtaTitleInfo.setText("Följande område behöver tilldelas \nen ny områdeschef innan agenten\nkan tas bort");
-        txtaTitleInfo.setFocusable(false);
-        txtaTitleInfo.setRequestFocusEnabled(false);
-        jScrollPane3.setViewportView(txtaTitleInfo);
+        txtaTitleErrorInfo.setBackground(new java.awt.Color(40, 40, 40));
+        txtaTitleErrorInfo.setColumns(20);
+        txtaTitleErrorInfo.setForeground(new java.awt.Color(255, 255, 255));
+        txtaTitleErrorInfo.setRows(5);
+        txtaTitleErrorInfo.setText("Följande område behöver tilldelas \nen ny områdeschef innan agenten\nkan tas bort");
+        txtaTitleErrorInfo.setFocusable(false);
+        txtaTitleErrorInfo.setRequestFocusEnabled(false);
+        spTitleErrorInfo.setViewportView(txtaTitleErrorInfo);
 
-        btnChangeInfo.setText("Ändra områdeschef");
-        btnChangeInfo.addActionListener(new java.awt.event.ActionListener() {
+        btnChangeErrorInfo.setText("Ändra områdeschef");
+        btnChangeErrorInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnChangeInfoActionPerformed(evt);
+                btnChangeErrorInfoActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jpInfoLayout = new javax.swing.GroupLayout(jpInfo);
-        jpInfo.setLayout(jpInfoLayout);
-        jpInfoLayout.setHorizontalGroup(
-            jpInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpInfoLayout.createSequentialGroup()
+        javax.swing.GroupLayout jpErrorMessageBoxLayout = new javax.swing.GroupLayout(jpErrorMessageBox);
+        jpErrorMessageBox.setLayout(jpErrorMessageBoxLayout);
+        jpErrorMessageBoxLayout.setHorizontalGroup(
+            jpErrorMessageBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpErrorMessageBoxLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jpInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnChangeInfo)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(jpErrorMessageBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnChangeErrorInfo)
+                    .addComponent(spTitleErrorInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                    .addComponent(spListErrorInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jpInfoLayout.setVerticalGroup(
-            jpInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpInfoLayout.createSequentialGroup()
+        jpErrorMessageBoxLayout.setVerticalGroup(
+            jpErrorMessageBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpErrorMessageBoxLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(spTitleErrorInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(spListErrorInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnChangeInfo)
+                .addComponent(btnChangeErrorInfo)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -232,7 +232,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         lblTitleShowInfo.setText("Visa information");
 
         lblUpdateMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblUpdateMessage.setForeground(new java.awt.Color(255, 96, 96));
+        lblUpdateMessage.setForeground(new java.awt.Color(255, 50, 50));
         lblUpdateMessage.setText(" ");
 
         javax.swing.GroupLayout jpBackgroundLayout = new javax.swing.GroupLayout(jpBackground);
@@ -290,8 +290,8 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
                                     .addGap(3, 3, 3))))
                         .addGap(112, 112, 112)
                         .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jpInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(spShowInfoBox, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jpErrorMessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(137, Short.MAX_VALUE))
         );
         jpBackgroundLayout.setVerticalGroup(
@@ -333,7 +333,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
                         .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtfDateInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblUpdateDate)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spShowInfoBox, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpBackgroundLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -356,7 +356,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
                         .addComponent(lblDeleteMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpBackgroundLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(jpInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jpErrorMessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(27, 27, 27)
                 .addComponent(btnMenu)
                 .addGap(35, 35, 35))
@@ -378,7 +378,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
 
     private void correctValues() {
 
-        lblUpdateMessage.setForeground(Color.GREEN);
+        lblUpdateMessage.setForeground(new Color(50,255,50));
         lblUpdateMessage.setText("Dina ändringar är sparade");
 
     }
@@ -539,17 +539,17 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         try {
             String qAgentId = "SELECT agent_id FROM agent WHERE namn = '" + txtfAgentDeleteInput.getText() + "' OR agent_id = '" + txtfAgentDeleteInput.getText() + "'";
             String resultAgentId = idb.fetchSingle(qAgentId);
- 
-            if(resultAgentId != null){
+
+            if (resultAgentId != null) {
                 agentId = resultAgentId;
             }
-            
+
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
-  
+
         return agentId;
     }
 
@@ -560,11 +560,10 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
             String qAgentId = "SELECT agent_id FROM agent WHERE namn = '" + txtfAgentDeleteInput.getText() + "' OR agent_id = '" + txtfAgentDeleteInput.getText() + "'";
             ArrayList<String> agentIdList = idb.fetchColumn(qAgentId);
 
-
             for (String element : agentIdList) {
                 loops++;
             }
-            if(loops > 1 ){
+            if (loops > 1) {
                 isDoublet = true;
             }
         } catch (InfException ex) {
@@ -577,8 +576,8 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
     }
 
     private boolean checkAgentIsContact() {
- 
-        txtaPrintInfo.setText("");
+
+        txtaPrintErrorInfo.setText("");
         String agentId = getAgentId();
         boolean isContactAgent = false;
 
@@ -588,13 +587,13 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
 
             if (result.size() > 0) {
 
-                txtaTitleInfo.setText("Följande aliens behöver tilldelas\n"
+                txtaTitleErrorInfo.setText("Följande aliens behöver tilldelas\n"
                         + "ny kontaktperson innan \n"
                         + "agenten kan tas bort");
                 for (HashMap<String, String> element : result) {
-                    txtaPrintInfo.append(" -" + element.get("alien_id") + " " + element.get("namn") + "\n");
+                    txtaPrintErrorInfo.append(" • " + element.get("namn") + " ("+ element.get("alien_id") + ")\n");
                 }
-                btnChangeInfo.setText("Ändra info om alien");
+                btnChangeErrorInfo.setText("Ändra info om alien");
 
                 isContactAgent = true;
             }
@@ -608,7 +607,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
     }
 
     private boolean checkAgentIsAreaChief() {
-        txtaPrintInfo.setText("");
+        txtaPrintErrorInfo.setText("");
         String agentId = getAgentId();
         boolean isAreaChief = false;
 
@@ -620,11 +619,11 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
 
             if (result != null) {
 
-                txtaTitleInfo.setText("Följande område behöver tilldelas \n"
+                txtaTitleErrorInfo.setText("Följande område behöver tilldelas \n"
                         + "en ny områdeschef innan agenten\n"
                         + "kan tas bort");
-                txtaPrintInfo.append(" -" + result);
-                btnChangeInfo.setText("Ändra områdeschef");
+                txtaPrintErrorInfo.append(" • "  + result);
+                btnChangeErrorInfo.setText("Ändra områdeschef");
 
                 isAreaChief = true;
             }
@@ -661,13 +660,13 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         }
 
     }
-    
+
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         //spara ändringar knappen
         lblInfoMessage.setText(" ");
         lblUpdateMessage.setText(" ");
         lblDeleteMessage.setText(" ");
-        lblUpdateMessage.setForeground(Color.RED);
+        lblUpdateMessage.setForeground(new Color(255,50,50));
         int loops = 0;
         if (Validation.validationTxt(txtfAgentUpdateInput, lblUpdateMessage, "Ange ett namn eller id för en agent")) {
             if (txtfNameInput.getText().isEmpty() && txtfPhoneInput.getText().isEmpty() && txtfPasswordInput.getText().isEmpty()
@@ -718,24 +717,24 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         lblInfoMessage.setText(" ");
         lblUpdateMessage.setText(" ");
         lblDeleteMessage.setText(" ");
-        lblDeleteMessage.setForeground(Color.RED);
-        jpInfo.setVisible(false);
+        lblDeleteMessage.setForeground(new Color(255,50,50));
+        jpErrorMessageBox.setVisible(false);
 
-        if(Validation.validationTxt(txtfAgentDeleteInput, lblDeleteMessage, "Ange agentnamn eller id")){
+        if (Validation.validationTxt(txtfAgentDeleteInput, lblDeleteMessage, "Ange agentnamn eller id")) {
             if (checkAgentDoublet()) {
                 lblDeleteMessage.setText("Det finns mer än en agent med detta namn, vänligen ange id");
 
             } else if (getAgentId().equals("")) {
                 lblDeleteMessage.setText("Agentnamnet eller id:t finns inte registrerat");
 
-            } else if(checkAgentIsContact()){
-                jpInfo.setVisible(true);
-            } else if(checkAgentIsAreaChief()){
-                jpInfo.setVisible(true);
-            }else{
+            } else if (checkAgentIsContact()) {
+                jpErrorMessageBox.setVisible(true);
+            } else if (checkAgentIsAreaChief()) {
+                jpErrorMessageBox.setVisible(true);
+            } else {
                 deleteAgent();
 
-                lblDeleteMessage.setForeground(Color.GREEN);
+                lblDeleteMessage.setForeground(new Color(50,255,50));
                 lblDeleteMessage.setText("Agenten har tagits bort!");
 
             }
@@ -743,29 +742,26 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void btnChangeInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeInfoActionPerformed
+    private void btnChangeErrorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeErrorInfoActionPerformed
         // TODO add your handling code here:
-        if(btnChangeInfo.getText().equals("Ändra områdeschef")){
+        if (btnChangeErrorInfo.getText().equals("Ändra områdeschef")) {
             new JfAdminManageAuthority(idb).setVisible(true);
         }
-        if(btnChangeInfo.getText().equals("Ändra info om alien")){
+        if (btnChangeErrorInfo.getText().equals("Ändra info om alien")) {
             new JfAdminManageAlien(idb).setVisible(true);
         }
-    }//GEN-LAST:event_btnChangeInfoActionPerformed
+    }//GEN-LAST:event_btnChangeErrorInfoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnChangeInfo;
+    private javax.swing.JButton btnChangeErrorInfo;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnShowInfo;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cbListAreas;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPanel jpBackground;
-    private javax.swing.JPanel jpInfo;
+    private javax.swing.JPanel jpErrorMessageBox;
     private javax.swing.JLabel lblAgentDelete;
     private javax.swing.JLabel lblAgentInfo;
     private javax.swing.JLabel lblAgentUpdate;
@@ -781,9 +777,12 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
     private javax.swing.JLabel lblUpdateName;
     private javax.swing.JLabel lblUpdatePhone;
     private javax.swing.JLabel lblUpdatePw;
-    private javax.swing.JTextArea txtaPrintInfo;
+    private javax.swing.JScrollPane spListErrorInfo;
+    private javax.swing.JScrollPane spShowInfoBox;
+    private javax.swing.JScrollPane spTitleErrorInfo;
+    private javax.swing.JTextArea txtaPrintErrorInfo;
     private javax.swing.JTextArea txtaShowAgentInfo;
-    private javax.swing.JTextArea txtaTitleInfo;
+    private javax.swing.JTextArea txtaTitleErrorInfo;
     private javax.swing.JTextField txtfAgentDeleteInput;
     private javax.swing.JTextField txtfAgentInfoInput;
     private javax.swing.JTextField txtfAgentUpdateInput;

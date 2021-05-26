@@ -29,7 +29,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jpBackground" min="-2" pref="497" max="-2" attributes="0"/>
+          <Component id="jpBackground" min="-2" pref="510" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -63,16 +63,16 @@
                               <Component id="btnFindAreaChief" min="-2" pref="190" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnCompanyEquipment" min="-2" pref="190" max="-2" attributes="0"/>
-                              <Component id="btnOwnEquipment" min="-2" pref="190" max="-2" attributes="0"/>
-                              <Component id="btnRegAgent" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                              <Component id="btnChangeAgent" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                              <Component id="btnChangeAuthority" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnEquipmentStore" max="32767" attributes="0"/>
+                              <Component id="btnRegAgent" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnChangeAgent" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnChangeAuthority" max="32767" attributes="0"/>
+                              <Component id="btnOwnEquipment" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -102,7 +102,7 @@
                       <Component id="btnOwnEquipment" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnCompanyEquipment" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEquipmentStore" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                   <Component id="btnChangePw" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -118,7 +118,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Registrera egen utrustning"/>
+            <Property name="text" type="java.lang.String" value="Egen utrustning"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOwnEquipmentActionPerformed"/>
@@ -201,15 +201,15 @@
             <Property name="text" type="java.lang.String" value="V&#xe4;lkommen Admin"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnCompanyEquipment">
+        <Component class="javax.swing.JButton" name="btnEquipmentStore">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Hantera utrustning"/>
+            <Property name="text" type="java.lang.String" value="Hantera utrustningslager"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCompanyEquipmentActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEquipmentStoreActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnChangeAgent">

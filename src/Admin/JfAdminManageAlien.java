@@ -24,7 +24,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
     private InfDB idb;
 
     /**
-     * Creates new form WindowAlienChangePw
+     * Creates new form JfAdminRegAgent for Admin
      */
     public JfAdminManageAlien(InfDB idb) {
         initComponents();
@@ -45,22 +45,22 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblChangePw = new javax.swing.JLabel();
+        jpBackground = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
         lblMessageChange = new javax.swing.JLabel();
         btnMenu = new javax.swing.JButton();
         lblMessageInfo = new javax.swing.JLabel();
-        lblTitle = new javax.swing.JLabel();
+        lblTitleShowInfo = new javax.swing.JLabel();
         btnShowInfo = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jsPrintInfo = new javax.swing.JScrollPane();
         txtaPrintAlienInfo = new javax.swing.JTextArea();
         lblMessageDelete = new javax.swing.JLabel();
         btnDelete = new javax.swing.JButton();
-        txtfAlienInputInfo = new javax.swing.JTextField();
-        lblAlien = new javax.swing.JLabel();
-        lblTitle1 = new javax.swing.JLabel();
+        txtfShowAlienInput = new javax.swing.JTextField();
+        lblDeleteAlien = new javax.swing.JLabel();
+        lblTitleDelete = new javax.swing.JLabel();
         lblRaceSpecial = new javax.swing.JLabel();
-        btnSave = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
         txtfRaceSpecial = new javax.swing.JTextField();
         lblAlienRace = new javax.swing.JLabel();
         lblAgent = new javax.swing.JLabel();
@@ -72,14 +72,14 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         txtfPwInput = new javax.swing.JTextField();
         lblAlienPhone = new javax.swing.JLabel();
         txtfPhoneInput = new javax.swing.JTextField();
-        lblAlienName1 = new javax.swing.JLabel();
+        lblAlienName = new javax.swing.JLabel();
         txtfNameInput = new javax.swing.JTextField();
-        lblTitel = new javax.swing.JLabel();
+        lblTitelUpdate = new javax.swing.JLabel();
         lblMessageInput = new javax.swing.JLabel();
         txtfAlienInputDelete = new javax.swing.JTextField();
-        lblAlien1 = new javax.swing.JLabel();
+        lblUpdateAlien = new javax.swing.JLabel();
         txtfAlienInputChange = new javax.swing.JTextField();
-        lblAlien2 = new javax.swing.JLabel();
+        lblShowInfoAlien = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
@@ -87,14 +87,15 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(40, 40, 40));
+        jpBackground.setBackground(new java.awt.Color(40, 40, 40));
 
-        lblChangePw.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        lblChangePw.setForeground(new java.awt.Color(255, 255, 255));
-        lblChangePw.setText("Korrigera alien");
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("Korrigera alien");
 
         lblMessageChange.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessageChange.setForeground(new java.awt.Color(255, 0, 0));
+        lblMessageChange.setForeground(new java.awt.Color(255, 50, 50));
+        lblMessageChange.setText(" ");
 
         btnMenu.setText("MENY");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -104,11 +105,12 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         });
 
         lblMessageInfo.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessageInfo.setForeground(new java.awt.Color(255, 0, 0));
+        lblMessageInfo.setForeground(new java.awt.Color(255, 50, 50));
+        lblMessageInfo.setText(" ");
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("Se info om Alien");
+        lblTitleShowInfo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTitleShowInfo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitleShowInfo.setText("Se info om Alien");
 
         btnShowInfo.setText("VISA INFO");
         btnShowInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -117,8 +119,8 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setRequestFocusEnabled(false);
+        jsPrintInfo.setForeground(new java.awt.Color(255, 255, 255));
+        jsPrintInfo.setRequestFocusEnabled(false);
 
         txtaPrintAlienInfo.setBackground(new java.awt.Color(79, 79, 79));
         txtaPrintAlienInfo.setColumns(20);
@@ -127,10 +129,11 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         txtaPrintAlienInfo.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         txtaPrintAlienInfo.setEnabled(false);
         txtaPrintAlienInfo.setSelectedTextColor(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(txtaPrintAlienInfo);
+        jsPrintInfo.setViewportView(txtaPrintAlienInfo);
 
         lblMessageDelete.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessageDelete.setForeground(new java.awt.Color(255, 0, 0));
+        lblMessageDelete.setForeground(new java.awt.Color(255, 50, 50));
+        lblMessageDelete.setText(" ");
 
         btnDelete.setText("TA BORT");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -139,22 +142,22 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
             }
         });
 
-        txtfAlienInputInfo.setColumns(6);
+        txtfShowAlienInput.setColumns(6);
 
-        lblAlien.setForeground(new java.awt.Color(255, 255, 255));
-        lblAlien.setText("Ange aliens namn eller id:");
+        lblDeleteAlien.setForeground(new java.awt.Color(255, 255, 255));
+        lblDeleteAlien.setText("Ange aliens namn eller id:");
 
-        lblTitle1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle1.setText("Ta bort alien");
+        lblTitleDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTitleDelete.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitleDelete.setText("Ta bort alien");
 
         lblRaceSpecial.setForeground(new java.awt.Color(255, 255, 255));
         lblRaceSpecial.setText("xxxx");
 
-        btnSave.setText("Spara ändringar");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setText("UPPDATERA");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
 
@@ -188,125 +191,129 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
 
         txtfPhoneInput.setColumns(6);
 
-        lblAlienName1.setForeground(new java.awt.Color(255, 255, 255));
-        lblAlienName1.setText("Uppdatera namn:");
+        lblAlienName.setForeground(new java.awt.Color(255, 255, 255));
+        lblAlienName.setText("Uppdatera namn:");
 
         txtfNameInput.setColumns(6);
 
-        lblTitel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblTitel.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitel.setText("Ändra information om en alien");
+        lblTitelUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTitelUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitelUpdate.setText("Ändra information om en alien");
 
         lblMessageInput.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblMessageInput.setForeground(new java.awt.Color(255, 0, 0));
 
         txtfAlienInputDelete.setColumns(6);
 
-        lblAlien1.setForeground(new java.awt.Color(255, 255, 255));
-        lblAlien1.setText("Ange aliens namn eller id:");
+        lblUpdateAlien.setForeground(new java.awt.Color(255, 255, 255));
+        lblUpdateAlien.setText("Ange aliens namn eller id:");
 
         txtfAlienInputChange.setColumns(6);
 
-        lblAlien2.setForeground(new java.awt.Color(255, 255, 255));
-        lblAlien2.setText("Ange aliens namn eller id:");
+        lblShowInfoAlien.setForeground(new java.awt.Color(255, 255, 255));
+        lblShowInfoAlien.setText("Ange aliens namn eller id:");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMenu))
+        javax.swing.GroupLayout jpBackgroundLayout = new javax.swing.GroupLayout(jpBackground);
+        jpBackground.setLayout(jpBackgroundLayout);
+        jpBackgroundLayout.setHorizontalGroup(
+            jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(btnMenu))
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 146, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtfAlienInputDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDelete)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAlien2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnShowInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMessageInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtfAlienInputInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(81, 81, 81)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAlien1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(lblMessageInput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtfAlienInputChange, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblAlienName1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAlienPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtfPhoneInput, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPw, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtfPwInput, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtfNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAgent)
-                            .addComponent(cbListAgents, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBackgroundLayout.createSequentialGroup()
+                .addGap(0, 97, Short.MAX_VALUE)
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTitleDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDeleteAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtfAlienInputDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jsPrintInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitleShowInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblShowInfoAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnShowInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMessageInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtfShowAlienInput, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMessageDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblUpdateAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitelUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lblMessageInput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtfAlienInputChange, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAlienName, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtfPhoneInput, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPw, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtfPwInput, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtfNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAgent)
+                    .addComponent(cbListAgents, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(lblLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbListLocations, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAlienRace, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(lblLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cbListRace, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblRaceSpecial)
+                            .addComponent(cbListRace, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtfRaceSpecial, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbListLocations, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblMessageDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMessageChange, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblRaceSpecial)))
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMessageChange, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAlienPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(77, 77, 77))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jpBackgroundLayout.setVerticalGroup(
+            jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                .addComponent(lblTitleShowInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblAlien2))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblShowInfoAlien))
+                            .addGroup(jpBackgroundLayout.createSequentialGroup()
                                 .addGap(74, 74, 74)
-                                .addComponent(txtfAlienInputInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtfShowAlienInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnShowInfo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblMessageInfo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(40, 40, 40)
-                        .addComponent(lblTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblMessageInfo)))
+                        .addGap(28, 28, 28)
+                        .addComponent(jsPrintInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblTitleDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblAlien)
+                        .addComponent(lblDeleteAlien)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtfAlienInputDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDelete))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnDelete)
+                            .addComponent(btnUpdate)))
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblTitelUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblAlien1)
+                        .addComponent(lblUpdateAlien)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtfAlienInputChange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblMessageInput, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblAlienName1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblAlienName, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtfNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -326,36 +333,31 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(cbListAgents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblAlienRace, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAlienRace, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblRaceSpecial))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbListRace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblRaceSpecial)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtfRaceSpecial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblMessageDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                        .addComponent(btnMenu)
-                        .addContainerGap(25, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnSave)
-                        .addGap(1, 1, 1)
-                        .addComponent(lblMessageChange, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbListRace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtfRaceSpecial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMessageDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMessageChange, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(btnMenu)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -372,7 +374,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
 
     private void correctValues() {
 
-        lblMessageChange.setForeground(Color.GREEN);
+        lblMessageChange.setForeground(new Color(50,255,50));
         lblMessageChange.setText("Dina ändringar är sparade");
 
     }
@@ -618,22 +620,6 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         return loops;
 
     }
-//      private String getAlienIdDelete() {
-//        String alienId = "";
-//        try {
-//            String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInputDelete.getText() + "' OR alien_id = '" + txtfAlienInputDelete.getText() + "'";
-//            String resultAlienId = idb.fetchSingle(qAlienId);
-//            if(resultAlienId != null){
-//                alienId = resultAlienId;
-//            }
-//            
-//        } catch (InfException ex) {
-//            System.out.println("Databasfel" + ex.getMessage());
-//        } catch (Exception ex) {
-//            System.out.println("Random fel" + ex.getMessage());
-//        }
-//        return alienId;
-//    }
 
     private void deleteSquid() {
         String alienId = getAlienId();
@@ -704,10 +690,12 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbListRaceActionPerformed
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        lblMessageInput.setText("");
-        lblMessageChange.setText("");
-        lblMessageChange.setForeground(Color.RED);
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        lblMessageInfo.setText(" ");
+        lblMessageInput.setText(" ");
+        lblMessageChange.setText(" ");
+        lblMessageDelete.setText(" ");
+        lblMessageChange.setForeground(new Color(255,50,50));
         int loops = 0;
 
         if (Validation.validationTxt(txtfAlienInputChange, lblMessageInput, "Ange aliennamn eller id")) {
@@ -780,12 +768,14 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
 
             }
         }
-    }//GEN-LAST:event_btnSaveActionPerformed
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-
+        lblMessageInfo.setText(" ");
+        lblMessageInput.setText(" ");
+        lblMessageChange.setText(" ");
         lblMessageDelete.setText(" ");
-        lblMessageDelete.setForeground(Color.RED);
+        lblMessageDelete.setForeground(new Color(255,50,50));
 
         if (Validation.validationTxt(txtfAlienInputDelete, lblMessageDelete, "Ange aliennamn eller id")) {
             if (checkInput() > 1) {
@@ -802,11 +792,11 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                     deleteBoglodite();
                 } else if (race.equals("Worm")) {
                     deleteWorm();
-                } else if (race.equals("<Oidentifierad>")){
+                } else if (race.equals("<Oidentifierad>")) {
                     deleteUnidentified();
                 }
 
-                lblMessageDelete.setForeground(Color.GREEN);
+                lblMessageDelete.setForeground(new Color(50,255,50));
                 lblMessageDelete.setText("Alien har tagits bort!");
 
             }
@@ -816,10 +806,14 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
     private void btnShowInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowInfoActionPerformed
         txtaPrintAlienInfo.setText("");
         lblMessageInfo.setText(" ");
+        lblMessageInput.setText(" ");
+        lblMessageChange.setText(" ");
+        lblMessageDelete.setText(" ");
+        
         //Även här använda sig av färdiga metoderna för "getId" och "checkInput".
-        if (Validation.validationTxt(txtfAlienInputInfo, lblMessageInfo, "Ange aliennamn eller id")) {
+        if (Validation.validationTxt(txtfShowAlienInput, lblMessageInfo, "Ange aliennamn eller id")) {
             try {
-                String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInputInfo.getText() + "' OR alien_id = '" + txtfAlienInputInfo.getText() + "'";
+                String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfShowAlienInput.getText() + "' OR alien_id = '" + txtfShowAlienInput.getText() + "'";
                 String alienId = idb.fetchSingle(qAlienId);
 
                 if (alienId == null) {
@@ -856,7 +850,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                         alienEgenskap = idb.fetchSingle(qAlienBoglodite);
                         txtaPrintAlienInfo.append("Egenskap:\t" + alienEgenskap + " st boogies\n");
                     }
-                    
+
                 }
             } catch (InfException ex) {
                 System.out.println("Databasfel" + ex.getMessage());
@@ -876,21 +870,18 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnMenu;
-    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnShowInfo;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cbListAgents;
     private javax.swing.JComboBox<String> cbListLocations;
     private javax.swing.JComboBox<String> cbListRace;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jpBackground;
+    private javax.swing.JScrollPane jsPrintInfo;
     private javax.swing.JLabel lblAgent;
-    private javax.swing.JLabel lblAlien;
-    private javax.swing.JLabel lblAlien1;
-    private javax.swing.JLabel lblAlien2;
-    private javax.swing.JLabel lblAlienName1;
+    private javax.swing.JLabel lblAlienName;
     private javax.swing.JLabel lblAlienPhone;
     private javax.swing.JLabel lblAlienRace;
-    private javax.swing.JLabel lblChangePw;
+    private javax.swing.JLabel lblDeleteAlien;
     private javax.swing.JLabel lblLocation;
     private javax.swing.JLabel lblMessageChange;
     private javax.swing.JLabel lblMessageDelete;
@@ -898,16 +889,19 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lblMessageInput;
     private javax.swing.JLabel lblPw;
     private javax.swing.JLabel lblRaceSpecial;
-    private javax.swing.JLabel lblTitel;
+    private javax.swing.JLabel lblShowInfoAlien;
+    private javax.swing.JLabel lblTitelUpdate;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JLabel lblTitle1;
+    private javax.swing.JLabel lblTitleDelete;
+    private javax.swing.JLabel lblTitleShowInfo;
+    private javax.swing.JLabel lblUpdateAlien;
     private javax.swing.JTextArea txtaPrintAlienInfo;
     private javax.swing.JTextField txtfAlienInputChange;
     private javax.swing.JTextField txtfAlienInputDelete;
-    private javax.swing.JTextField txtfAlienInputInfo;
     private javax.swing.JTextField txtfNameInput;
     private javax.swing.JTextField txtfPhoneInput;
     private javax.swing.JTextField txtfPwInput;
     private javax.swing.JTextField txtfRaceSpecial;
+    private javax.swing.JTextField txtfShowAlienInput;
     // End of variables declaration//GEN-END:variables
 }

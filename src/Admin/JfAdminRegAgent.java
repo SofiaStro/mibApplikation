@@ -26,21 +26,15 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
     private InfDB idb;
 
     /**
-     * Creates new form WindowAlienChangePw
+     * Creates new form JfRegAgent for Admin
      */
     public JfAdminRegAgent(InfDB idb) {
         initComponents();
         this.idb = idb;
-        
+
         txtaMessage.setEditable(false);
         setPrivileges();
         setArea();
-
-        //ta bort nedan och lägg till i actionBtn när klar
-        getNewAgentId();
-        getNewPw();
-        getSystemDate();
-
     }
 
     private void setPrivileges() {
@@ -78,7 +72,6 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
             String query = "SELECT agent_id FROM agent";
             ArrayList<String> result = idb.fetchColumn(query);
             int[] intResult = new int[result.size()];
-            System.out.println("intResult = " + intResult.length);
 
             for (int i = 0; i < result.size(); i++) {
                 intResult[i] = Integer.parseInt(result.get(i));
@@ -91,8 +84,6 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
             int newIdInt = lastNr + 1;
             newId = String.valueOf(newIdInt);
 
-            System.out.println("Nytt agent ID: " + newId);
-
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
         } catch (Exception ex) {
@@ -100,13 +91,10 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
         }
 
         return newId;
-
     }
 
     private String getNewPw() {
         String newPw = RandomStringUtils.randomAlphanumeric(6);
-
-        System.out.println("Lösen: " + newPw);
 
         return newPw;
     }
@@ -114,7 +102,6 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
     private String getPrivileges() {
         String privilege = "";
         String getListItem = cbPrivileges.getSelectedItem().toString();
-        System.out.println("Variabeln getListItem = " + getListItem);
 
         switch (getListItem) {
             case "Standard":
@@ -126,14 +113,12 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
 
         }
 
-        System.out.println("Agent behörighet: " + privilege);
         return privilege;
     }
 
     private String getSystemDate() {
         LocalDate localDate = LocalDate.now();
         String currentDate = String.valueOf(localDate);
-        System.out.println("Datum: " + currentDate);
 
         return currentDate;
     }
@@ -147,7 +132,6 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
         try {
             String getAreaId = idb.fetchSingle(query);
             areaId = getAreaId;
-            System.out.println("Områdes ID: " + "(" + areaId + ")");
 
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
@@ -241,7 +225,8 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
         lblWorkArea.setText("Arbetar på område:");
 
         lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessage.setForeground(new java.awt.Color(255, 96, 96));
+        lblMessage.setForeground(new java.awt.Color(255, 50, 50));
+        lblMessage.setText(" ");
 
         javax.swing.GroupLayout jpBackgroundLayout = new javax.swing.GroupLayout(jpBackground);
         jpBackground.setLayout(jpBackgroundLayout);
@@ -255,25 +240,24 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpBackgroundLayout.createSequentialGroup()
-                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lblName)
                                     .addComponent(lblPhone)
-                                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblPrivileges)
-                                    .addComponent(cbPrivileges, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblWorkArea)
-                                    .addComponent(cbAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtName)
+                                    .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                                    .addComponent(cbPrivileges, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbAreas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                                 .addComponent(spMessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jpBackgroundLayout.createSequentialGroup()
-                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnMenu)
-                                    .addGroup(jpBackgroundLayout.createSequentialGroup()
-                                        .addComponent(btnSave)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 45, Short.MAX_VALUE)))))
+                                .addComponent(btnMenu)
+                                .addGap(0, 318, Short.MAX_VALUE))
+                            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGap(47, 47, 47))
         );
         jpBackgroundLayout.setVerticalGroup(
@@ -313,7 +297,7 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+            .addComponent(jpBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,13 +311,11 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
 
         getPrivileges();
         getAreaId();
-        lblMessage.setForeground(new Color(255, 96, 96, 255));
+        lblMessage.setForeground(new Color(255, 50,50));
         String getName = txtName.getText();
         String name = WordUtils.capitalize(getName);
 
         String phone = txtPhone.getText();
-        System.out.println("Agent namn: " + name);
-        System.out.println("Agent telefonnr: " + phone);
 
         if (Validation.validationTxtPhone(txtPhone, lblMessage) //kolla om databasen får ett värde om man endast skriver mellanslag
                 && Validation.validationTxt(txtName, lblMessage, "Ange namn")
@@ -357,8 +339,8 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
 
                 idb.insert(query);
                 //idb.insert(queryBoglodite);
-                
-                lblMessage.setForeground(Color.green);
+
+                lblMessage.setForeground(new Color(50,255,50));
                 lblMessage.setText("Registrering slutförd!");
                 txtaMessage.setText("Registrerad agent\n"
                         + "---------------------------\n"
@@ -373,8 +355,6 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
                         + "Behörighet: " + getPrivileges() + "\n"
                         + "\n"
                         + "Arbetar på: " + cbAreas.getSelectedItem());
-                
-                
 
             } catch (InfException ex) {
                 System.out.println("Databasfel" + ex.getMessage());

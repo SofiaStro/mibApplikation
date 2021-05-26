@@ -5,7 +5,6 @@
  */
 package Admin;
 
-
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,12 +23,12 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
     private InfDB idb;
 
     /**
-     * Creates new form WindowAlienChangePw
+     * Creates new form JfAdminManageAuthority
      */
     public JfAdminManageAuthority(InfDB idb) {
         initComponents();
-        this.idb=idb;
-        listAllAgentsAdmin(); 
+        this.idb = idb;
+        listAllAgentsAdmin();
         listAllAgentsHeadChief();
         listAllAgentsAreaChief();
         listAllAreas();
@@ -45,30 +44,30 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblChangePw = new javax.swing.JLabel();
+        jpBackground = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
         btnMenu = new javax.swing.JButton();
         lblMessageAdmin = new javax.swing.JLabel();
-        cbStatusList = new javax.swing.JComboBox<>();
-        lblStatus = new javax.swing.JLabel();
-        lblTitle = new javax.swing.JLabel();
-        lblAgent = new javax.swing.JLabel();
-        cbAgentListAdmin = new javax.swing.JComboBox<>();
+        cbAdminStatusList = new javax.swing.JComboBox<>();
+        lblAdminStatus = new javax.swing.JLabel();
+        lblTitleAdminStatus = new javax.swing.JLabel();
+        lblAdminAgent = new javax.swing.JLabel();
+        cbAdminAgentList = new javax.swing.JComboBox<>();
         btnSaveAdmin = new javax.swing.JButton();
         lblMessageAreaChief = new javax.swing.JLabel();
         cbListAreas = new javax.swing.JComboBox<>();
-        lblNewChief3 = new javax.swing.JLabel();
-        lblNewChiefMessage1 = new javax.swing.JLabel();
+        lblChooseArea2 = new javax.swing.JLabel();
+        lblChooesArea1 = new javax.swing.JLabel();
         btnSaveAreaChief = new javax.swing.JButton();
         cbListAgentsArea = new javax.swing.JComboBox<>();
         lblNewChief2 = new javax.swing.JLabel();
-        lblNewChiefMessage = new javax.swing.JLabel();
-        lblChangePw1 = new javax.swing.JLabel();
+        lblNewChief1 = new javax.swing.JLabel();
+        lblTitleChangeAreaChief = new javax.swing.JLabel();
         lblMessageHeadChief = new javax.swing.JLabel();
         btnSaveHeadChief = new javax.swing.JButton();
         cbListAgentsHeadChief = new javax.swing.JComboBox<>();
-        lblNewChiefMessage2 = new javax.swing.JLabel();
-        lblChangePw2 = new javax.swing.JLabel();
+        lblChooesHeadChief = new javax.swing.JLabel();
+        lblTitleHeadChief = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Galaxal");
@@ -76,11 +75,11 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(40, 40, 40));
+        jpBackground.setBackground(new java.awt.Color(40, 40, 40));
 
-        lblChangePw.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        lblChangePw.setForeground(new java.awt.Color(255, 255, 255));
-        lblChangePw.setText("Hantera befogenhet");
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("Hantera befogenhet");
 
         btnMenu.setText("MENY");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -90,23 +89,24 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
         });
 
         lblMessageAdmin.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessageAdmin.setForeground(new java.awt.Color(255, 96, 96));
+        lblMessageAdmin.setForeground(new java.awt.Color(255, 50, 50));
+        lblMessageAdmin.setText(" ");
 
-        cbStatusList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "JA", "NEJ" }));
+        cbAdminStatusList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "JA", "NEJ" }));
 
-        lblStatus.setForeground(new java.awt.Color(255, 255, 255));
-        lblStatus.setText("Välj adminstatus");
+        lblAdminStatus.setForeground(new java.awt.Color(255, 255, 255));
+        lblAdminStatus.setText("Välj adminstatus");
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("Ändra adminstatus på agent");
+        lblTitleAdminStatus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTitleAdminStatus.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitleAdminStatus.setText("Ändra adminstatus på agent");
 
-        lblAgent.setForeground(new java.awt.Color(255, 255, 255));
-        lblAgent.setText("Välj agent");
+        lblAdminAgent.setForeground(new java.awt.Color(255, 255, 255));
+        lblAdminAgent.setText("Välj agent");
 
-        cbAgentListAdmin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
+        cbAdminAgentList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
 
-        btnSaveAdmin.setText("Spara ändringar");
+        btnSaveAdmin.setText("SPARA");
         btnSaveAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveAdminActionPerformed(evt);
@@ -114,17 +114,18 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
         });
 
         lblMessageAreaChief.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessageAreaChief.setForeground(new java.awt.Color(255, 96, 96));
+        lblMessageAreaChief.setForeground(new java.awt.Color(255, 50, 50));
+        lblMessageAreaChief.setText(" ");
 
         cbListAreas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
 
-        lblNewChief3.setForeground(new java.awt.Color(255, 255, 255));
-        lblNewChief3.setText(" valda agent ska vara chef över:");
+        lblChooseArea2.setForeground(new java.awt.Color(255, 255, 255));
+        lblChooseArea2.setText(" valda agent ska vara chef över:");
 
-        lblNewChiefMessage1.setForeground(new java.awt.Color(255, 255, 255));
-        lblNewChiefMessage1.setText("Välj namnet på det område den");
+        lblChooesArea1.setForeground(new java.awt.Color(255, 255, 255));
+        lblChooesArea1.setText("Välj namnet på det område den");
 
-        btnSaveAreaChief.setText("Spara ändringar");
+        btnSaveAreaChief.setText("SPARA");
         btnSaveAreaChief.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveAreaChiefActionPerformed(evt);
@@ -136,17 +137,18 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
         lblNewChief2.setForeground(new java.awt.Color(255, 255, 255));
         lblNewChief2.setText("som ska bli områdeschef:");
 
-        lblNewChiefMessage.setForeground(new java.awt.Color(255, 255, 255));
-        lblNewChiefMessage.setText("Välj namnet på den agent");
+        lblNewChief1.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewChief1.setText("Välj namnet på den agent");
 
-        lblChangePw1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblChangePw1.setForeground(new java.awt.Color(255, 255, 255));
-        lblChangePw1.setText("Ändra områdeschef");
+        lblTitleChangeAreaChief.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTitleChangeAreaChief.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitleChangeAreaChief.setText("Ändra områdeschef");
 
         lblMessageHeadChief.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        lblMessageHeadChief.setForeground(new java.awt.Color(255, 96, 96));
+        lblMessageHeadChief.setForeground(new java.awt.Color(255, 50, 50));
+        lblMessageHeadChief.setText(" ");
 
-        btnSaveHeadChief.setText("Spara ändringar");
+        btnSaveHeadChief.setText("SPARA");
         btnSaveHeadChief.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveHeadChiefActionPerformed(evt);
@@ -155,106 +157,110 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
 
         cbListAgentsHeadChief.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
 
-        lblNewChiefMessage2.setForeground(new java.awt.Color(255, 255, 255));
-        lblNewChiefMessage2.setText("Välj namnet på den agent som ska bli kontorschef");
+        lblChooesHeadChief.setForeground(new java.awt.Color(255, 255, 255));
+        lblChooesHeadChief.setText("Välj namnet på den agent som ska bli kontorschef");
 
-        lblChangePw2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblChangePw2.setForeground(new java.awt.Color(255, 255, 255));
-        lblChangePw2.setText("Ändra kontorschef");
+        lblTitleHeadChief.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTitleHeadChief.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitleHeadChief.setText("Ändra kontorschef");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpBackgroundLayout = new javax.swing.GroupLayout(jpBackground);
+        jpBackground.setLayout(jpBackgroundLayout);
+        jpBackgroundLayout.setHorizontalGroup(
+            jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpBackgroundLayout.createSequentialGroup()
                 .addGap(152, 152, 152)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addComponent(lblTitleChangeAreaChief, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblTitleAdminStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cbAdminAgentList, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblAdminAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(28, 28, 28)
+                                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblAdminStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cbAdminStatusList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                        .addGap(173, 173, 173)
+                                        .addComponent(btnSaveAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE))
+                            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                .addComponent(lblMessageAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(111, 111, 111)))
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTitleHeadChief, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblChooesHeadChief)
+                            .addComponent(lblMessageHeadChief, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnSaveHeadChief, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                .addComponent(cbListAgentsHeadChief, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(69, 69, 69))
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblMessageAreaChief, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblNewChief2)
-                                    .addComponent(lblNewChiefMessage)
+                                    .addComponent(lblNewChief1)
                                     .addComponent(cbListAgentsArea, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblNewChief3)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblChooseArea2)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBackgroundLayout.createSequentialGroup()
                                             .addGap(4, 4, 4)
-                                            .addComponent(lblNewChiefMessage1)))
+                                            .addComponent(lblChooesArea1)))
                                     .addComponent(cbListAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnSaveAreaChief, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblChangePw1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbAgentListAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbStatusList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lblMessageAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnSaveAdmin)
-                                .addGap(53, 53, 53)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblChangePw2, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNewChiefMessage2)
-                            .addComponent(cbListAgentsHeadChief, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSaveHeadChief, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMessageHeadChief, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(69, 69, 69))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMenu))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(btnMenu)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblChangePw, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jpBackgroundLayout.setVerticalGroup(
+            jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addComponent(lblTitleAdminStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAgent)
-                            .addComponent(lblStatus))
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAdminAgent)
+                            .addComponent(lblAdminStatus))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbAgentListAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbStatusList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbAdminAgentList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbAdminStatusList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(btnSaveAdmin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblMessageAdmin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                        .addComponent(lblChangePw1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblTitleChangeAreaChief, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblNewChiefMessage)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpBackgroundLayout.createSequentialGroup()
+                                .addComponent(lblNewChief1)
                                 .addGap(1, 1, 1)
                                 .addComponent(lblNewChief2))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jpBackgroundLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(lblNewChief3))
-                            .addComponent(lblNewChiefMessage1))
+                                .addComponent(lblChooseArea2))
+                            .addComponent(lblChooesArea1))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cbListAreas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbListAgentsArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
@@ -264,16 +270,16 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnMenu)
                         .addGap(34, 34, 34))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblChangePw2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
+                        .addComponent(lblTitleHeadChief, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNewChiefMessage2)
+                        .addComponent(lblChooesHeadChief)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbListAgentsHeadChief, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnSaveHeadChief)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblMessageHeadChief, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblMessageHeadChief)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -281,13 +287,13 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jpBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -296,14 +302,14 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
     private void listAllAgentsAdmin() {
 
         try {
-            String query = 
-                    "SELECT agent_id, namn, benamning FROM agent a\n"
+            String query
+                    = "SELECT agent_id, namn, benamning FROM agent a\n"
                     + "JOIN omrade o ON a.omrade = o.omrades_id\n"
                     + "ORDER BY benamning, namn";
             ArrayList<HashMap<String, String>> agentList = idb.fetchRows(query);
 
             for (HashMap<String, String> element : agentList) {
-                cbAgentListAdmin.addItem(element.get("namn") + " (" + element.get("agent_id") + ") " + element.get("benamning"));
+                cbAdminAgentList.addItem(element.get("namn") + " (" + element.get("agent_id") + ") " + element.get("benamning"));
             }
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
@@ -311,11 +317,12 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
-        private void listAllAgentsHeadChief() {
+
+    private void listAllAgentsHeadChief() {
 
         try {
-            String query = 
-                    "SELECT agent_id, namn, benamning FROM agent a\n"
+            String query
+                    = "SELECT agent_id, namn, benamning FROM agent a\n"
                     + "JOIN omrade o ON a.omrade = o.omrades_id\n"
                     + "ORDER BY benamning, namn";
             ArrayList<HashMap<String, String>> agentList = idb.fetchRows(query);
@@ -329,11 +336,12 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
-            private void listAllAgentsAreaChief() {
+
+    private void listAllAgentsAreaChief() {
 
         try {
-            String query = 
-                    "SELECT agent_id, namn, benamning FROM agent a\n"
+            String query
+                    = "SELECT agent_id, namn, benamning FROM agent a\n"
                     + "JOIN omrade o ON a.omrade = o.omrades_id\n"
                     + "ORDER BY benamning, namn";
             ArrayList<HashMap<String, String>> agentList = idb.fetchRows(query);
@@ -347,7 +355,8 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
-     public void listAllAreas() {
+
+    public void listAllAreas() {
 
         try {
             String query = "Select benamning from omrade";
@@ -364,7 +373,7 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
         }
 
     }
-    
+
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
         setVisible(false);
@@ -373,21 +382,23 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
 
     private void btnSaveAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveAdminActionPerformed
         String status = "";
-        lblMessageAdmin.setText("");
-        lblMessageAdmin.setForeground(Color.RED);
+        lblMessageAdmin.setText(" ");
+        lblMessageAreaChief.setText(" ");
+        lblMessageHeadChief.setText(" ");
+        lblMessageAdmin.setForeground(new Color(255,50,50));
 
-        if (!cbAgentListAdmin.getSelectedItem().equals("-----") && !cbStatusList.getSelectedItem().equals("-----")) {
+        if (!cbAdminAgentList.getSelectedItem().equals("-----") && !cbAdminStatusList.getSelectedItem().equals("-----")) {
 
-            lblMessageAdmin.setForeground(Color.GREEN);
+            lblMessageAdmin.setForeground(new Color(50,255,50));
             lblMessageAdmin.setText("Du har nu bytt status!");
 
-            if (cbStatusList.getSelectedItem().equals("JA")) {
+            if (cbAdminStatusList.getSelectedItem().equals("JA")) {
                 status = "J";
-            } else if (cbStatusList.getSelectedItem().equals("NEJ")) {
+            } else if (cbAdminStatusList.getSelectedItem().equals("NEJ")) {
                 status = "N";
             }
 
-            Object getAgentListItem = cbAgentListAdmin.getSelectedItem();
+            Object getAgentListItem = cbAdminAgentList.getSelectedItem();
             String agentListItem = getAgentListItem.toString();
             String agentId = StringUtils.substringBetween(agentListItem, "(", ")");
 
@@ -399,9 +410,9 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
             } catch (Exception ex) {
                 System.out.println("Random fel" + ex.getMessage());
             }
-        } else if (cbAgentListAdmin.getSelectedItem().equals("-----") && !cbStatusList.getSelectedItem().equals("-----")) {
+        } else if (cbAdminAgentList.getSelectedItem().equals("-----") && !cbAdminStatusList.getSelectedItem().equals("-----")) {
             lblMessageAdmin.setText("Du måste välja en agent!");
-        } else if (!cbAgentListAdmin.getSelectedItem().equals("-----") && cbStatusList.getSelectedItem().equals("-----")) {
+        } else if (!cbAdminAgentList.getSelectedItem().equals("-----") && cbAdminStatusList.getSelectedItem().equals("-----")) {
             lblMessageAdmin.setText("Du måste välja en status!");
         } else {
             lblMessageAdmin.setText("Du måste välja en agent och en status!");
@@ -409,13 +420,14 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveAdminActionPerformed
 
     private void btnSaveAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveAreaChiefActionPerformed
-
-        lblMessageAreaChief.setText("");
-        lblMessageAreaChief.setForeground(Color.RED);
+        lblMessageAdmin.setText(" ");
+        lblMessageAreaChief.setText(" ");
+        lblMessageHeadChief.setText(" ");
+        lblMessageAreaChief.setForeground(new Color(255,50,50));
         boolean isChief = false;
 
         if (Validation.validationCb(cbListAgentsArea, lblMessageAreaChief)
-            && Validation.validationCb(cbListAreas, lblMessageAreaChief)) {
+                && Validation.validationCb(cbListAreas, lblMessageAreaChief)) {
 
             try {
 
@@ -424,9 +436,9 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
                 String agentid = StringUtils.substringBetween(agentListItem, "(", ")");
 
                 String qCurrentChief = "SELECT a.agent_id FROM AGENT a \n "
-                + "JOIN omradeschef oc ON a.agent_id = oc.agent_id\n"
-                + "JOIN omrade o on oc.omrade = o.omrades_id\n"
-                + "WHERE benamning =" + "'" + cbListAreas.getSelectedItem() + "'";
+                        + "JOIN omradeschef oc ON a.agent_id = oc.agent_id\n"
+                        + "JOIN omrade o on oc.omrade = o.omrades_id\n"
+                        + "WHERE benamning =" + "'" + cbListAreas.getSelectedItem() + "'";
 
                 String currentChief = idb.fetchSingle(qCurrentChief);
 
@@ -446,7 +458,7 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
 
                     String qUpdate = "UPDATE Omradeschef SET AGENT_ID = '" + agentid + "'WHERE Agent_ID = '" + currentChief + "'";
                     idb.update(qUpdate);
-                    lblMessageAreaChief.setForeground(Color.GREEN);
+                    lblMessageAreaChief.setForeground(new Color(50,255,50));
                     lblMessageAreaChief.setText("Områdeschefen är uppdaterad!");
 
                 } else {
@@ -462,9 +474,10 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveAreaChiefActionPerformed
 
     private void btnSaveHeadChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveHeadChiefActionPerformed
-
-        lblMessageHeadChief.setText("");
-        lblMessageHeadChief.setForeground(Color.RED);
+        lblMessageAdmin.setText(" ");
+        lblMessageAreaChief.setText(" ");
+        lblMessageHeadChief.setText(" ");
+        lblMessageHeadChief.setForeground(new Color(255,50,50));
         if (Validation.validationCb(cbListAgentsHeadChief, lblMessageHeadChief)) {
 
             Object getAgentListItem = cbListAgentsHeadChief.getSelectedItem();
@@ -480,7 +493,7 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
 
                     String qUpdate = "UPDATE kontorschef SET AGENT_ID = '" + agentid + "'WHERE Agent_ID = '" + chief + "'";
                     idb.update(qUpdate);
-                    lblMessageHeadChief.setForeground(Color.GREEN);
+                    lblMessageHeadChief.setForeground(new Color(50,255,50));
                     lblMessageHeadChief.setText("Agenten har registrerats som kontorschef");
                 }
 
@@ -498,25 +511,25 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
     private javax.swing.JButton btnSaveAdmin;
     private javax.swing.JButton btnSaveAreaChief;
     private javax.swing.JButton btnSaveHeadChief;
-    private javax.swing.JComboBox<String> cbAgentListAdmin;
+    private javax.swing.JComboBox<String> cbAdminAgentList;
+    private javax.swing.JComboBox<String> cbAdminStatusList;
     private javax.swing.JComboBox<String> cbListAgentsArea;
     private javax.swing.JComboBox<String> cbListAgentsHeadChief;
     private javax.swing.JComboBox<String> cbListAreas;
-    private javax.swing.JComboBox<String> cbStatusList;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblAgent;
-    private javax.swing.JLabel lblChangePw;
-    private javax.swing.JLabel lblChangePw1;
-    private javax.swing.JLabel lblChangePw2;
+    private javax.swing.JPanel jpBackground;
+    private javax.swing.JLabel lblAdminAgent;
+    private javax.swing.JLabel lblAdminStatus;
+    private javax.swing.JLabel lblChooesArea1;
+    private javax.swing.JLabel lblChooesHeadChief;
+    private javax.swing.JLabel lblChooseArea2;
     private javax.swing.JLabel lblMessageAdmin;
     private javax.swing.JLabel lblMessageAreaChief;
     private javax.swing.JLabel lblMessageHeadChief;
+    private javax.swing.JLabel lblNewChief1;
     private javax.swing.JLabel lblNewChief2;
-    private javax.swing.JLabel lblNewChief3;
-    private javax.swing.JLabel lblNewChiefMessage;
-    private javax.swing.JLabel lblNewChiefMessage1;
-    private javax.swing.JLabel lblNewChiefMessage2;
-    private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblTitleAdminStatus;
+    private javax.swing.JLabel lblTitleChangeAreaChief;
+    private javax.swing.JLabel lblTitleHeadChief;
     // End of variables declaration//GEN-END:variables
 }
