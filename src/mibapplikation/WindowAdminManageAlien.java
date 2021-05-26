@@ -582,15 +582,16 @@ public class WindowAdminManageAlien extends javax.swing.JFrame {
         }
 
     }
+
     private String getAlienId() {
         String alienId = "";
         try {
-            String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInputInfo.getText() + "' OR alien_id = '" + txtfAlienInputInfo.getText() + "'";
+            String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInputDelete.getText() + "' OR alien_id = '" + txtfAlienInputDelete.getText() + "'";
             String resultAlienId = idb.fetchSingle(qAlienId);
-            if(resultAlienId != null){
+            if (resultAlienId != null) {
                 alienId = resultAlienId;
             }
-            
+
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
         } catch (Exception ex) {
@@ -616,41 +617,23 @@ public class WindowAdminManageAlien extends javax.swing.JFrame {
         return loops;
 
     }
-      private String getAlienIdDelete() {
-        String alienId = "";
-        try {
-            String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInputDelete.getText() + "' OR alien_id = '" + txtfAlienInputDelete.getText() + "'";
-            String resultAlienId = idb.fetchSingle(qAlienId);
-            if(resultAlienId != null){
-                alienId = resultAlienId;
-            }
-            
-        } catch (InfException ex) {
-            System.out.println("Databasfel" + ex.getMessage());
-        } catch (Exception ex) {
-            System.out.println("Random fel" + ex.getMessage());
-        }
-        return alienId;
-    }
+//      private String getAlienIdDelete() {
+//        String alienId = "";
+//        try {
+//            String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInputDelete.getText() + "' OR alien_id = '" + txtfAlienInputDelete.getText() + "'";
+//            String resultAlienId = idb.fetchSingle(qAlienId);
+//            if(resultAlienId != null){
+//                alienId = resultAlienId;
+//            }
+//            
+//        } catch (InfException ex) {
+//            System.out.println("Databasfel" + ex.getMessage());
+//        } catch (Exception ex) {
+//            System.out.println("Random fel" + ex.getMessage());
+//        }
+//        return alienId;
+//    }
 
-    private int checkInputDelete() {
-        int loops = 0;
-        try {
-            String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInputDelete.getText() + "' OR alien_id = '" + txtfAlienInputDelete.getText() + "'";
-            ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
-
-            for (String element : alienIdList) {
-                loops++;
-            }
-        } catch (InfException ex) {
-            System.out.println("Databasfel" + ex.getMessage());
-        } catch (Exception ex) {
-            System.out.println("Random fel" + ex.getMessage());
-        }
-        return loops;
-
-    }
-  
     private void deleteSquid() {
         String alienId = getAlienId();
         try {
@@ -665,7 +648,7 @@ public class WindowAdminManageAlien extends javax.swing.JFrame {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
-    
+
     private void deleteBoglodite() {
         String alienId = getAlienId();
         try {
@@ -680,14 +663,27 @@ public class WindowAdminManageAlien extends javax.swing.JFrame {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
-    
-        private void deleteWorm() {
+
+    private void deleteWorm() {
         String alienId = getAlienId();
         try {
             String qAlien = "DELETE FROM alien WHERE alien_id = '" + alienId + "'";
             idb.delete(qAlien);
             String qWorm = "DELETE FROM worm WHERE alien_id = '" + alienId + "'";
             idb.delete(qWorm);
+
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+    }
+
+    private void deleteUnidentified() {
+        String alienId = getAlienId();
+        try {
+            String qAlien = "DELETE FROM alien WHERE alien_id = '" + alienId + "'";
+            idb.delete(qAlien);
 
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
@@ -715,13 +711,13 @@ public class WindowAdminManageAlien extends javax.swing.JFrame {
 
         if (Validation.validationTxt(txtfAlienInputChange, lblMessageInput, "Ange aliennamn eller id")) {
             if (txtfNameInput.getText().isEmpty() && txtfPhoneInput.getText().isEmpty()
-                && txtfPwInput.getText().isEmpty()
-                && cbListLocations.getSelectedItem().equals("-----")
-                && cbListAgents.getSelectedItem().equals("-----")
-                && cbListRace.getSelectedItem().equals("-----")) {
+                    && txtfPwInput.getText().isEmpty()
+                    && cbListLocations.getSelectedItem().equals("-----")
+                    && cbListAgents.getSelectedItem().equals("-----")
+                    && cbListRace.getSelectedItem().equals("-----")) {
                 lblMessageChange.setText("Välj minst en ruta att uppdatera för den valda alien");
             } else {
-        //Lägg till metodanrop som hämtar id och gör kollen för "flera med samma namn" istället. 
+                //Lägg till metodanrop som hämtar id och gör kollen för "flera med samma namn" istället. 
                 try {
                     String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInputChange.getText() + "' OR alien_id = '" + txtfAlienInputChange.getText() + "'";
                     ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
@@ -791,10 +787,10 @@ public class WindowAdminManageAlien extends javax.swing.JFrame {
         lblMessageDelete.setForeground(Color.RED);
 
         if (Validation.validationTxt(txtfAlienInputDelete, lblMessageDelete, "Ange aliennamn eller id")) {
-            if (checkInputDelete() > 1) {
+            if (checkInput() > 1) {
                 lblMessageDelete.setText("Det finns mer än en alien med detta namn, vänligen ange ID");
 
-            } else if (getAlienIdDelete().equals("")) {
+            } else if (getAlienId().equals("")) {
                 lblMessageDelete.setText("Alien namnet eller id:t finns inte registrerat");
 
             } else {
@@ -805,10 +801,12 @@ public class WindowAdminManageAlien extends javax.swing.JFrame {
                     deleteBoglodite();
                 } else if (race.equals("Worm")) {
                     deleteWorm();
+                } else if (race.equals("")){
+                    deleteUnidentified();
                 }
 
-                lblMessageChange.setForeground(Color.GREEN);
-                lblMessageChange.setText("Alien har tagits bort!");
+                lblMessageDelete.setForeground(Color.GREEN);
+                lblMessageDelete.setText("Alien har tagits bort!");
 
             }
         }
@@ -817,7 +815,7 @@ public class WindowAdminManageAlien extends javax.swing.JFrame {
     private void btnShowInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowInfoActionPerformed
         txtaPrintAlienInfo.setText("");
         lblMessageInfo.setText(" ");
-
+        //Även här använda sig av färdiga metoderna för "getId" och "checkInput".
         if (Validation.validationTxt(txtfAlienInputInfo, lblMessageInfo, "Ange aliennamn eller id")) {
             try {
                 String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInputInfo.getText() + "' OR alien_id = '" + txtfAlienInputInfo.getText() + "'";
@@ -870,8 +868,6 @@ public class WindowAdminManageAlien extends javax.swing.JFrame {
         setVisible(false);
         //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
-
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
