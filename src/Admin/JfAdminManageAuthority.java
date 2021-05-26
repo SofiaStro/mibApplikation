@@ -426,8 +426,8 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
         lblMessageAreaChief.setForeground(new Color(255,50,50));
         boolean isChief = false;
 
-        if (Validation.validationCb(cbListAgentsArea, lblMessageAreaChief)
-                && Validation.validationCb(cbListAreas, lblMessageAreaChief)) {
+        if (Validation.validationCb(cbListAgentsArea, lblMessageAreaChief, "Välj agent")
+                && Validation.validationCb(cbListAreas, lblMessageAreaChief, "Välj område")) {
 
             try {
 
@@ -478,7 +478,7 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
         lblMessageAreaChief.setText(" ");
         lblMessageHeadChief.setText(" ");
         lblMessageHeadChief.setForeground(new Color(255,50,50));
-        if (Validation.validationCb(cbListAgentsHeadChief, lblMessageHeadChief)) {
+        if (Validation.validationCb(cbListAgentsHeadChief, lblMessageHeadChief, "Välj kontorschef")) {
 
             Object getAgentListItem = cbListAgentsHeadChief.getSelectedItem();
             String agentListItem = getAgentListItem.toString();
