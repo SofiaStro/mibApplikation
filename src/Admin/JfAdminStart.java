@@ -279,9 +279,7 @@ public class JfAdminStart extends javax.swing.JFrame {
         new JfAreaChief(idb).setVisible(true);
     }//GEN-LAST:event_btnFindAreaChiefActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChangeAgent;

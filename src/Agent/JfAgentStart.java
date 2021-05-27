@@ -220,9 +220,7 @@ public class JfAgentStart extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlienListsActionPerformed
 
 
-    /**
-     * @param args the command line arguments
-     */
+
     
     
 
