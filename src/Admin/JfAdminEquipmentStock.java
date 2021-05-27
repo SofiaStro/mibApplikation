@@ -6,6 +6,7 @@ import java.util.HashMap;
 import mibapplikation.Validation;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import org.apache.commons.text.WordUtils;
 
 /**
  * Admin kan lägga till och ta bort utrusning ifrån verksamhetens
@@ -355,7 +356,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
     private void addWeaponEquipment() {
         String newId = getNewEquipmentId();
         try {
-            String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + getEquipmentName() + "')";
+            String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + WordUtils.capitalize(getEquipmentName()) + "')";
             idb.insert(queryAddEquip);
 
             String queryAddWeaponCapacity = "INSERT INTO vapen(utrustnings_id, kaliber) VALUES ('" + newId + "','" + txtfEquipCapacity.getText() + "')";
@@ -371,7 +372,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
     private void addTechEquipment() {
         String newId = getNewEquipmentId();
         try {
-            String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + getEquipmentName() + "')";
+            String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + WordUtils.capitalize(getEquipmentName()) + "')";
             idb.insert(queryAddEquip);
 
             String queryAddWeaponCapacity = "INSERT INTO teknik (utrustnings_id, kraftkalla) VALUES ('" + newId + "','" + txtfEquipCapacity.getText() + "')";
@@ -387,7 +388,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
     private void addCommsEquipment() {
         String newId = getNewEquipmentId();
         try {
-            String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + getEquipmentName() + "')";
+            String queryAddEquip = "INSERT INTO utrustning(utrustnings_id, benamning) VALUES ('" + newId + "','" + WordUtils.capitalize(getEquipmentName()) + "')";
             idb.insert(queryAddEquip);
 
             String queryAddWeaponCapacity = "INSERT INTO kommunikation (utrustnings_id, overforingsteknik) VALUES ('" + newId + "','" + txtfEquipCapacity.getText() + "')";
