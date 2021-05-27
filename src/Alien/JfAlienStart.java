@@ -108,24 +108,6 @@ public class JfAlienStart extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * Rensar minnet på skräp som inte används och stänger sen ner alla
-     * nuvarande fönster. Därefter skapas en ny instans av login-fönstret.
-     */
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        System.gc();
-        for (Window element : Window.getWindows()) {
-            element.dispose();
-        }
-
-        new MainWindowLogin(idb).setVisible(true);
-
-    }//GEN-LAST:event_btnLogoutActionPerformed
-
-    private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed
-        new JfAlienChangePw(idb, alienId).setVisible(true);
-    }//GEN-LAST:event_btnChangePwActionPerformed
     private void getAreaChief() {
         try {
             String query
@@ -152,6 +134,25 @@ public class JfAlienStart extends javax.swing.JFrame {
         }
 
     }
+
+    /**
+     * Rensar minnet på skräp som inte används och stänger sen ner alla
+     * nuvarande fönster. Därefter skapas en ny instans av login-fönstret.
+     */
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        System.gc();
+        for (Window element : Window.getWindows()) {
+            element.dispose();
+        }
+
+        new MainWindowLogin(idb).setVisible(true);
+
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed
+        new JfAlienChangePw(idb, alienId).setVisible(true);
+    }//GEN-LAST:event_btnChangePwActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;

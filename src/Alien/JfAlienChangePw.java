@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Alien;
 
 import java.awt.Color;
@@ -11,17 +6,15 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Fönster för att ändra lösenord som alien
  *
- * @author strom
+ * @author Grupp 8
  */
 public class JfAlienChangePw extends javax.swing.JFrame {
 
     private String alienId;
     private InfDB idb;
 
-    /**
-     * Creates new form WindowAlienChangePw
-     */
     public JfAlienChangePw(InfDB idb, String alienId) {
         initComponents();
         this.idb = idb;
@@ -156,11 +149,12 @@ public class JfAlienChangePw extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         lblMessage.setText("");
-        lblMessage.setForeground(new Color(255,50,50));
-        if(Validation.validationTxt(pwOldPw, lblMessage, "Ange ditt nuvarande lösenord")
+        //Sätter färgen på Jlabel till röd
+        lblMessage.setForeground(new Color(255, 50, 50));
+        if (Validation.validationTxt(pwOldPw, lblMessage, "Ange ditt nuvarande lösenord")
                 && Validation.validationTxt(pwNewPw, lblMessage, "Ange ditt nya lösenord")
-                && Validation.validationTxtNrOfChar(pwNewPw, lblMessage, 6, "Det nya lösenordet får vara max 6 tecken")){
-            try{
+                && Validation.validationTxtNrOfChar(pwNewPw, lblMessage, 6, "Det nya lösenordet får vara max 6 tecken")) {
+            try {
                 char[] pwOldArray = pwOldPw.getPassword();
                 String oldPassword = new String(pwOldArray);
 
@@ -170,13 +164,13 @@ public class JfAlienChangePw extends javax.swing.JFrame {
                 String query = "SELECT losenord FROM alien WHERE alien_id =" + "'" + alienId + "'";
                 String result = idb.fetchSingle(query);
 
-                if(oldPassword.equals(result)){
+                if (oldPassword.equals(result)) {
                     String qSetPassword = "UPDATE alien SET losenord =" + "'" + newPassword + "'" + "WHERE alien_id = " + "'" + alienId + "'";
                     idb.update(qSetPassword);
-                    lblMessage.setForeground(new Color(50,255,50));
+                    //Sätter färgen på Jlabel till grön
+                    lblMessage.setForeground(new Color(50, 255, 50));
                     lblMessage.setText("Ditt lösenord är nu ändrat!");
-                }
-                else{
+                } else {
                     pwOldPw.requestFocus();
                     lblMessage.setText("Nuvarande lösenord är felaktigt!");
                 }
@@ -184,24 +178,19 @@ public class JfAlienChangePw extends javax.swing.JFrame {
                 pwNewPw.setText("");
                 pwOldArray = null;
                 pwNewArray = null;
-            }
-            catch (InfException ex){
+            } catch (InfException ex) {
                 System.out.println("Databasfel" + ex.getMessage());
-            }
-            catch (Exception ex){
+            } catch (Exception ex) {
                 System.out.println("Random fel" + ex.getMessage());
             }
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
         setVisible(false);
-        //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void pwNewPwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwNewPwActionPerformed
-        // TODO add your handling code here:
         btnSave.doClick();
     }//GEN-LAST:event_pwNewPwActionPerformed
 

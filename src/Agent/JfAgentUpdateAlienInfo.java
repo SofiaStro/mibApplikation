@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Agent;
 
 import java.awt.Color;
@@ -14,19 +9,18 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Fönster för att uppdatera information om en alien som standard-agent.
  *
- * @author strom
+ * @author Grupp 8
  */
 public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
 
     private InfDB idb;
 
-    /**
-     * Creates new form WindowAlienChangePw
-     */
     public JfAgentUpdateAlienInfo(InfDB idb) {
         initComponents();
         this.idb = idb;
+        //Metoden .setEditable(false) gör så att det inte går att skriva i text arean. 
         txtaPrintAlienInfo.setEditable(false);
         hideText();
 
@@ -279,158 +273,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnShowInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowInfoActionPerformed
-        txtaPrintAlienInfo.setText("");
-        lblMessageUpdate.setText(" ");
-        lblMessageInfo.setText(" ");
-        lblMessageInfo.setForeground(new Color(255, 50, 50));
-        int loops = 0;
-
-        if (Validation.validationTxt(txtfAlienInfo, lblMessageInfo, "Ange aliennamn eller id")) {
-            try {
-                String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInfo.getText() + "' OR alien_id = '" + txtfAlienInfo.getText() + "'";
-                ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
-                String alienId = idb.fetchSingle(qAlienId);
-
-                for (String element : alienIdList) {
-                    loops++;
-                }
-                if (loops > 1) {
-                    lblMessageInfo.setText("Det finns mer än en alien med detta namn, var vänligen ange ID");
-                } else if (alienId == null) {
-                    lblMessageInfo.setText("Alien namet finns inte registrerat");
-                } else {
-                    txtaPrintAlienInfo.append("Alien id:\t" + alienId + "\n");
-
-                    String qAlienInfo = "SELECT namn, telefon, registreringsdatum FROM alien WHERE alien_id = '" + alienId + "'";
-                    HashMap<String, String> alienInfo = idb.fetchRow(qAlienInfo);
-                    txtaPrintAlienInfo.append("Namn:\t" + alienInfo.get("namn") + "\n");
-                    txtaPrintAlienInfo.append("Telefon:\t" + alienInfo.get("telefon") + "\n");
-                    txtaPrintAlienInfo.append("Registrerad:\t" + alienInfo.get("registreringsdatum") + "\n");
-
-                    String qAlienPlats = "SELECT benamning FROM plats p JOIN alien a ON p.plats_id = a.plats WHERE alien_id = '" + alienId + "'";
-                    String alienPlats = idb.fetchSingle(qAlienPlats);
-                    String qAlienOmrade = "SELECT o.benamning FROM omrade o JOIN plats p ON o.omrades_id = p.finns_i WHERE p.benamning = '" + alienPlats + "'";
-                    String alienOmrade = idb.fetchSingle(qAlienOmrade);
-                    txtaPrintAlienInfo.append("Befinner sig:\t" + alienPlats + " (" + alienOmrade + ")" + "\n");
-
-                    String qAlienKontakt = "SELECT ag.namn FROM agent ag JOIN alien al ON ag.agent_id = al.ansvarig_agent WHERE alien_id = '" + alienId + "'";
-                    String alienKontakt = idb.fetchSingle(qAlienKontakt);
-                    txtaPrintAlienInfo.append("Kontakt:\t" + alienKontakt + "\n");
-
-                    String ras = ValidationRace.getRace(alienId);
-                    txtaPrintAlienInfo.append("Ras:\t" + ras + "\n");
-
-                    String alienEgenskap = "";
-                    if (ras.equals("Squid")) {
-                        String qAlienSquid = "SELECT antal_armar FROM squid WHERE alien_id = '" + alienId + "'";
-                        alienEgenskap = idb.fetchSingle(qAlienSquid);
-                        txtaPrintAlienInfo.append("Egenskap:\t" + alienEgenskap + " st armar\n");
-                    } else if (ras.equals("Boglodite")) {
-                        String qAlienBoglodite = "SELECT antal_boogies FROM boglodite WHERE alien_id = '" + alienId + "'";
-                        alienEgenskap = idb.fetchSingle(qAlienBoglodite);
-                        txtaPrintAlienInfo.append("Egenskap:\t" + alienEgenskap + " st boogies\n");
-                    }
-
-                }
-            } catch (InfException ex) {
-                System.out.println("Databasfel" + ex.getMessage());
-            } catch (Exception ex) {
-                System.out.println("Random fel" + ex.getMessage());
-            }
-
-        }
-
-
-    }//GEN-LAST:event_btnShowInfoActionPerformed
-
-    private void cbListRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListRaceActionPerformed
-        if (cbListRace.getSelectedItem().equals("Squid")) {
-            showText();
-            lblRaceSpecial.setText("Ange antal armar:");
-        } else if (cbListRace.getSelectedItem().equals("Boglodite")) {
-            showText();
-            lblRaceSpecial.setText("Ange antal boogies:");
-        } else {
-            hideText();
-        }
-
-    }//GEN-LAST:event_cbListRaceActionPerformed
-
-    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-    }//GEN-LAST:event_btnMenuActionPerformed
-
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        lblMessageInfo.setText(" ");
-        lblMessageUpdate.setText(" ");
-        lblMessageUpdate.setForeground(new Color(255, 50, 50));
-        int loops = 0;
-
-        if (Validation.validationTxt(txtfAlienUpdate, lblMessageUpdate, "Ange aliennamn eller id")) {
-            if (txtfUpdateName.getText().isEmpty() && txtfUpdatePhone.getText().isEmpty()
-                    && cbListRace.getSelectedItem().equals("-----")) {
-                lblMessageUpdate.setText("Välj minst en ruta att uppdatera för den valda alien");
-            } else {
-                try {
-                    String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienUpdate.getText() + "' OR alien_id = '" + txtfAlienUpdate.getText() + "'";
-                    ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
-                    String alienId = idb.fetchSingle(qAlienId);
-
-                    for (String element : alienIdList) {
-                        loops++;
-                    }
-                    if (loops > 1) {
-                        lblMessageUpdate.setText("Det finns mer än en alien med detta namn, var vänligen ange ID");
-
-                    } else if (alienId == null) {
-                        lblMessageUpdate.setText("Alien namnet finns inte registrerat");
-
-                    } else {
-
-                        if (!txtfUpdateName.getText().isEmpty()) {
-                            setAlienName(alienId);
-                        }
-                        if (!txtfUpdatePhone.getText().isEmpty()) {
-                            setPhone(alienId);
-                        }
-                        if (!cbListRace.getSelectedItem().equals("-----")) {
-
-                            String currentRace = ValidationRace.getRace(alienId);
-
-                            if (currentRace.equals(cbListRace.getSelectedItem())) {
-                                lblMessageUpdate.setText("Alien är redan registrerad som den här rasen.");
-                            } else {
-
-                                if (cbListRace.getSelectedItem().equals("Boglodite")) {
-                                    setBoglodite(alienId);
-                                } else if (cbListRace.getSelectedItem().equals("Squid")) {
-                                    setSquid(alienId);
-                                } else if (cbListRace.getSelectedItem().equals("Worm")) {
-                                    setWorm(alienId);
-                                } else if (cbListRace.getSelectedItem().equals("<Oidentifierad>")) {
-                                    setUnidentified(alienId);
-                                }
-                            }
-                        }
-                        txtfAlienInfo.setText(alienId);
-                        btnShowInfo.doClick();
-
-                    }
-
-                } catch (InfException ex) {
-                    System.out.println("Databasfel" + ex.getMessage());
-                } catch (Exception ex) {
-                    System.out.println("Random fel" + ex.getMessage());
-                }
-
-            }
-        }
-    }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void hideText() {
+  private void hideText() {
         lblRaceSpecial.setVisible(false);
         txtfRaceSpecial.setVisible(false);
     }
@@ -441,7 +284,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
     }
 
     private void correctValues() {
-
+        //Sätter färgen på Jlabeln till grön.
         lblMessageUpdate.setForeground(new Color(50, 255, 50));
         lblMessageUpdate.setText("Dina ändringar är sparade");
 
@@ -567,6 +410,157 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
+    private void btnShowInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowInfoActionPerformed
+        txtaPrintAlienInfo.setText("");
+        lblMessageUpdate.setText(" ");
+        lblMessageInfo.setText(" ");
+        //Sätter färgen på Jlabel till röd
+        lblMessageInfo.setForeground(new Color(255, 50, 50));
+        int loops = 0;
+
+        if (Validation.validationTxt(txtfAlienInfo, lblMessageInfo, "Ange aliennamn eller id")) {
+            try {
+                String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInfo.getText() + "' OR alien_id = '" + txtfAlienInfo.getText() + "'";
+                ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
+                String alienId = idb.fetchSingle(qAlienId);
+                //For-each loop som används för att se om det finns flera aliens i databasen med samma namn
+                for (String element : alienIdList) {
+                    loops++;
+                }
+                if (loops > 1) {
+                    lblMessageInfo.setText("Det finns mer än en alien med detta namn, var vänligen ange ID");
+                } else if (alienId == null) {
+                    lblMessageInfo.setText("Alien namet finns inte registrerat");
+                } else {
+                    txtaPrintAlienInfo.append("Alien id:\t" + alienId + "\n");
+
+                    String qAlienInfo = "SELECT namn, telefon, registreringsdatum FROM alien WHERE alien_id = '" + alienId + "'";
+                    HashMap<String, String> alienInfo = idb.fetchRow(qAlienInfo);
+                    txtaPrintAlienInfo.append("Namn:\t" + alienInfo.get("namn") + "\n");
+                    txtaPrintAlienInfo.append("Telefon:\t" + alienInfo.get("telefon") + "\n");
+                    txtaPrintAlienInfo.append("Registrerad:\t" + alienInfo.get("registreringsdatum") + "\n");
+
+                    String qAlienPlats = "SELECT benamning FROM plats p JOIN alien a ON p.plats_id = a.plats WHERE alien_id = '" + alienId + "'";
+                    String alienPlats = idb.fetchSingle(qAlienPlats);
+                    String qAlienOmrade = "SELECT o.benamning FROM omrade o JOIN plats p ON o.omrades_id = p.finns_i WHERE p.benamning = '" + alienPlats + "'";
+                    String alienOmrade = idb.fetchSingle(qAlienOmrade);
+                    txtaPrintAlienInfo.append("Befinner sig:\t" + alienPlats + " (" + alienOmrade + ")" + "\n");
+
+                    String qAlienKontakt = "SELECT ag.namn FROM agent ag JOIN alien al ON ag.agent_id = al.ansvarig_agent WHERE alien_id = '" + alienId + "'";
+                    String alienKontakt = idb.fetchSingle(qAlienKontakt);
+                    txtaPrintAlienInfo.append("Kontakt:\t" + alienKontakt + "\n");
+
+                    String ras = ValidationRace.getRace(alienId);
+                    txtaPrintAlienInfo.append("Ras:\t" + ras + "\n");
+
+                    String alienEgenskap = "";
+                    if (ras.equals("Squid")) {
+                        String qAlienSquid = "SELECT antal_armar FROM squid WHERE alien_id = '" + alienId + "'";
+                        alienEgenskap = idb.fetchSingle(qAlienSquid);
+                        txtaPrintAlienInfo.append("Egenskap:\t" + alienEgenskap + " st armar\n");
+                    } else if (ras.equals("Boglodite")) {
+                        String qAlienBoglodite = "SELECT antal_boogies FROM boglodite WHERE alien_id = '" + alienId + "'";
+                        alienEgenskap = idb.fetchSingle(qAlienBoglodite);
+                        txtaPrintAlienInfo.append("Egenskap:\t" + alienEgenskap + " st boogies\n");
+                    }
+
+                }
+            } catch (InfException ex) {
+                System.out.println("Databasfel" + ex.getMessage());
+            } catch (Exception ex) {
+                System.out.println("Random fel" + ex.getMessage());
+            }
+
+        }
+
+
+    }//GEN-LAST:event_btnShowInfoActionPerformed
+
+    private void cbListRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListRaceActionPerformed
+        if (cbListRace.getSelectedItem().equals("Squid")) {
+            showText();
+            lblRaceSpecial.setText("Ange antal armar:");
+        } else if (cbListRace.getSelectedItem().equals("Boglodite")) {
+            showText();
+            lblRaceSpecial.setText("Ange antal boogies:");
+        } else {
+            hideText();
+        }
+
+    }//GEN-LAST:event_cbListRaceActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        lblMessageInfo.setText(" ");
+        lblMessageUpdate.setText(" ");
+        lblMessageUpdate.setForeground(new Color(255, 50, 50));
+        int loops = 0;
+
+        if (Validation.validationTxt(txtfAlienUpdate, lblMessageUpdate, "Ange aliennamn eller id")) {
+            if (txtfUpdateName.getText().isEmpty() && txtfUpdatePhone.getText().isEmpty()
+                    && cbListRace.getSelectedItem().equals("-----")) {
+                lblMessageUpdate.setText("Välj minst en ruta att uppdatera för den valda alien");
+            } else {
+                try {
+                    String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienUpdate.getText() + "' OR alien_id = '" + txtfAlienUpdate.getText() + "'";
+                    ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
+                    String alienId = idb.fetchSingle(qAlienId);
+
+                    for (String element : alienIdList) {
+                        loops++;
+                    }
+                    if (loops > 1) {
+                        lblMessageUpdate.setText("Det finns mer än en alien med detta namn, var vänligen ange ID");
+
+                    } else if (alienId == null) {
+                        lblMessageUpdate.setText("Alien namnet finns inte registrerat");
+
+                    } else {
+
+                        if (!txtfUpdateName.getText().isEmpty()) {
+                            setAlienName(alienId);
+                        }
+                        if (!txtfUpdatePhone.getText().isEmpty()) {
+                            setPhone(alienId);
+                        }
+                        if (!cbListRace.getSelectedItem().equals("-----")) {
+
+                            String currentRace = ValidationRace.getRace(alienId);
+
+                            if (currentRace.equals(cbListRace.getSelectedItem())) {
+                                lblMessageUpdate.setText("Alien är redan registrerad som den här rasen.");
+                            } else {
+
+                                if (cbListRace.getSelectedItem().equals("Boglodite")) {
+                                    setBoglodite(alienId);
+                                } else if (cbListRace.getSelectedItem().equals("Squid")) {
+                                    setSquid(alienId);
+                                } else if (cbListRace.getSelectedItem().equals("Worm")) {
+                                    setWorm(alienId);
+                                } else if (cbListRace.getSelectedItem().equals("<Oidentifierad>")) {
+                                    setUnidentified(alienId);
+                                }
+                            }
+                        }
+                        /**När man uppdaterat information om en vald alien 
+                        kommer information om den skrivas ut i TextArean.*/
+                        txtfAlienInfo.setText(alienId);
+                        btnShowInfo.doClick();
+
+                    }
+
+                } catch (InfException ex) {
+                    System.out.println("Databasfel" + ex.getMessage());
+                } catch (Exception ex) {
+                    System.out.println("Random fel" + ex.getMessage());
+                }
+
+            }
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
