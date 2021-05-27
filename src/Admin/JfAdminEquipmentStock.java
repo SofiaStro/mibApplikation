@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Admin;
 
 import java.awt.Color;
@@ -13,23 +8,26 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Admin kan lägga till och ta bort utrusning ifrån verksamhetens
+ * utrustningslager
  *
- * @author strom
+ * @author Grupp 8
  */
 public class JfAdminEquipmentStock extends javax.swing.JFrame {
 
     private InfDB idb;
 
     /**
-     * Creates new form WindowAlienChangePw
+     * setEditable(false) gör att det inte går att skriva i angiven text area
+     * setVisible(false) gör att angivet textfält inte visas
      */
     public JfAdminEquipmentStock(InfDB idb) {
         initComponents();
         this.idb = idb;
         txtaListEquipment.setEditable(false);
+        txtfEquipCapacity.setVisible(false);
         printEquipmentList();
         setEquipmentList();
-        txtfEquipCapacity.setVisible(false);
     }
 
     /**
@@ -244,7 +242,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-     public String getEquipmentType(String equipmentId) {
+    public String getEquipmentType(String equipmentId) {
 
         String equipmentType = "";
         try {
@@ -259,23 +257,19 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
 
             if (equipmentWeapon != null) {
                 equipmentType = "Vapen";
-            } 
-            else if (equipmentTech != null) {
+            } else if (equipmentTech != null) {
                 equipmentType = "Teknik";
-            } 
-            else if (equipmentComms != null) {
+            } else if (equipmentComms != null) {
                 equipmentType = "Kommunikation";
             }
-        } 
-        catch (InfException ex) {
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        } 
-        catch (Exception ex) {
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
         return equipmentType;
     }
-     
+
     private void printEquipmentList() {
         txtaListEquipment.setText("");
 
@@ -339,6 +333,20 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         return newId;
     }
 
+    private String getEquipmentId() {
+        String equipmentId = "";
+        try {
+            String query = "SELECT utrustnings_id FROM utrustning WHERE benamning = '" + cbListEquipment.getSelectedItem() + "'";
+            String result = idb.fetchSingle(query);
+            equipmentId = result;
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+        return equipmentId;
+    }
+
     private String getEquipmentName() {
         String equipmentName = txtfEquipName.getText();
         return equipmentName;
@@ -390,20 +398,6 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
             System.out.println("Random fel" + ex.getMessage());
         }
 
-    }
-
-    private String getEquipmentId() {
-        String equipmentId = "";
-        try {
-            String query = "SELECT utrustnings_id FROM utrustning WHERE benamning = '" + cbListEquipment.getSelectedItem() + "'";
-            String result = idb.fetchSingle(query);
-            equipmentId = result;
-        } catch (InfException ex) {
-            System.out.println("Databasfel" + ex.getMessage());
-        } catch (Exception ex) {
-            System.out.println("Random fel" + ex.getMessage());
-        }
-        return equipmentId;
     }
 
     private void deleteWeaponEquipment() {
@@ -473,22 +467,26 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
                         equipmentExist = true;
                     }
                 }
+
                 if (equipmentExist) {
                     lblMessageAdd.setText("Utrustningen finns redan!");
                 } else {
 
-                    if (cbEquipCategory.getSelectedItem().equals("Vapen") && Validation.validationNumbers(txtfEquipCapacity, lblMessageAdd, "Kaliber måste var en siffra!")) {
+                    if (cbEquipCategory.getSelectedItem().equals("Vapen")
+                            && Validation.validationNumbers(txtfEquipCapacity, lblMessageAdd, "Kaliber måste var en siffra!")) {
                         addWeaponEquipment();
                         equipmentAdded = true;
-                    } else if (cbEquipCategory.getSelectedItem().equals("Teknik") && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessageAdd, 20, "Kraftkälla får max vara 20 tecken")) {
+                    } else if (cbEquipCategory.getSelectedItem().equals("Teknik")
+                            && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessageAdd, 20, "Kraftkälla får max vara 20 tecken")) {
                         addTechEquipment();
                         equipmentAdded = true;
-                    } else if (cbEquipCategory.getSelectedItem().equals("Kommunikation") && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessageAdd, 20, "Överföringsteknik får max vara 20 tecken")) {
+                    } else if (cbEquipCategory.getSelectedItem().equals("Kommunikation")
+                            && Validation.validationTxtNrOfChar(txtfEquipCapacity, lblMessageAdd, 20, "Överföringsteknik får max vara 20 tecken")) {
                         addCommsEquipment();
                         equipmentAdded = true;
                     }
-
                 }
+
                 if (equipmentAdded) {
                     lblMessageAdd.setForeground(new Color(50, 255, 50));
                     lblMessageAdd.setText("Utrustningen har lagts till!");
@@ -508,13 +506,10 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
         setVisible(false);
-        //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
         lblMessageAdd.setText(" ");
         lblMessageDelete.setText(" ");
         lblMessageDelete.setForeground(new Color(255, 50, 50));
@@ -555,8 +550,6 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void cbEquipCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEquipCategoryActionPerformed
-        // TODO add your handling code here:
-
         if (cbEquipCategory.getSelectedItem().equals("Vapen")) {
             txtfEquipCapacity.setVisible(true);
             lblEquipCapacity.setText("Kaliber:");
@@ -570,7 +563,6 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
             txtfEquipCapacity.setVisible(false);
             lblEquipCapacity.setText(" ");
         }
-
     }//GEN-LAST:event_cbEquipCategoryActionPerformed
 
 

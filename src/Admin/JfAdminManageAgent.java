@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Admin;
 
 import java.awt.Color;
@@ -13,23 +8,25 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Visar information om angiven agent, uppdaterar information om angiven agent
+ * samt tar bor angiven agnet
  *
- * @author strom
+ * @author Grupp 8
  */
 public class JfAdminManageAgent extends javax.swing.JFrame {
 
     private InfDB idb;
 
     /**
-     * Creates new form WindowAlienChangePw
+     * setEditable(false) gör att det inte går att skriva i angiven text area
+     * setVisible(false) gör att angiven panel inte visas
      */
     public JfAdminManageAgent(InfDB idb) {
         initComponents();
         this.idb = idb;
         txtaShowAgentInfo.setEditable(false);
-        listAreas();
         jpErrorMessageBox.setVisible(false);
-
+        listAreas();
     }
 
     /**
@@ -383,149 +380,12 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnChangeErrorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeErrorInfoActionPerformed
-        // TODO add your handling code here:
-        if (btnChangeErrorInfo.getText().equals("Ändra områdeschef")) {
-            new JfAdminManageAuthority(idb).setVisible(true);
-        }
-        if (btnChangeErrorInfo.getText().equals("Ändra info om alien")) {
-            new JfAdminManageAlien(idb).setVisible(true);
-        }
-        if (btnChangeErrorInfo.getText().equals("Ändra kontorschef")) {
-            new JfAdminManageAuthority(idb).setVisible(true);
-        }
-    }//GEN-LAST:event_btnChangeErrorInfoActionPerformed
-
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        lblInfoMessage.setText(" ");
-        lblUpdateMessage.setText(" ");
-        lblDeleteMessage.setText(" ");
-        lblDeleteMessage.setForeground(new Color(255,50,50));
-        jpErrorMessageBox.setVisible(false);
-
-        if (Validation.validationTxt(txtfAgentDeleteInput, lblDeleteMessage, "Ange agentnamn eller id")) {
-            if (checkAgentDoublet()) {
-                lblDeleteMessage.setText("Det finns mer än en agent med detta namn, vänligen ange id");
-
-            } else if (getAgentId().equals("")) {
-                lblDeleteMessage.setText("Agentnamnet eller id:t finns inte registrerat");
-
-            } else if (checkAgentIsContact()) {
-                jpErrorMessageBox.setVisible(true);
-            } else if (checkAgentIsAreaChief()) {
-                jpErrorMessageBox.setVisible(true);
-            } else if (checkAgentIsHeadChief()){
-                jpErrorMessageBox.setVisible(true);
-            }else{
-                deleteAgent();
-
-                lblDeleteMessage.setForeground(new Color(50,255,50));
-                lblDeleteMessage.setText("Agenten har tagits bort!");
-
-            }
-        }
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        //spara ändringar knappen
-        lblInfoMessage.setText(" ");
-        lblUpdateMessage.setText(" ");
-        lblDeleteMessage.setText(" ");
-        lblUpdateMessage.setForeground(new Color(255,50,50));
-        int loops = 0;
-        if (Validation.validationTxt(txtfAgentUpdateInput, lblUpdateMessage, "Ange ett namn eller id för en agent")) {
-            if (txtfNameInput.getText().isEmpty() && txtfPhoneInput.getText().isEmpty() && txtfPasswordInput.getText().isEmpty()
-                && txtfDateInput.getText().isEmpty() && cbListAreas.getSelectedItem().equals("-----")) {
-                lblUpdateMessage.setText("Du måste välja minst en sak att uppdatera för den valda agenten");
-            } else {
-                try {
-                    String qAgentId = "SELECT agent_id FROM agent WHERE namn = '" + txtfAgentUpdateInput.getText() + "' OR agent_id = '" + txtfAgentUpdateInput.getText() + "'";
-                    ArrayList<String> agentIdList = idb.fetchColumn(qAgentId);
-                    String agentId = idb.fetchSingle(qAgentId);
-
-                    for (String element : agentIdList) {
-                        loops++;
-                    }
-
-                    if (loops > 1) {
-                        lblUpdateMessage.setText("Det finns mer än en agent med detta namn, var vänligen ange ID");
-
-                    } else if (agentId == null) {
-                        lblUpdateMessage.setText("Agentens namn finns inte registrerat");
-                    } else {
-                        if (!txtfNameInput.getText().isEmpty()) {
-                            setAgentName(agentId);
-                        }
-                        if (!txtfPhoneInput.getText().isEmpty()) {
-                            setPhone(agentId);
-                        }
-                        if (!txtfPasswordInput.getText().isEmpty()) {
-                            setPassword(agentId);
-                        }
-                        if (!txtfDateInput.getText().isEmpty()) {
-                            setDate(agentId);
-                        }
-                        if (!cbListAreas.getSelectedItem().equals("-----")) {
-                            setAgentLocation(agentId);
-                        }
-                        txtfAgentInfoInput.setText(agentId);
-                        btnShowInfo.doClick();
-                    }
-                } catch (InfException ex) {
-                    System.out.println("Databasfel" + ex.getMessage());
-                } catch (Exception ex) {
-                    System.out.println("Random fel" + ex.getMessage());
-                }
-              
-            }
-        }
-    }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-        //dispose();
-    }//GEN-LAST:event_btnMenuActionPerformed
-
-    private void btnShowInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowInfoActionPerformed
-        //visa info knappen
-        lblInfoMessage.setText(" ");
-        lblUpdateMessage.setText(" ");
-        lblDeleteMessage.setText(" ");
-        txtaShowAgentInfo.setText("");
-        int loops = 0;
-        if (Validation.validationTxt(txtfAgentInfoInput, lblInfoMessage, "Ange ett namn eller id för en agent")) {
-            try {
-                String qAgentId = "SELECT agent_id FROM agent WHERE namn = '" + txtfAgentInfoInput.getText() + "' OR agent_id = '" + txtfAgentInfoInput.getText() + "'";
-                ArrayList<String> agentIdList = idb.fetchColumn(qAgentId);
-                String agentId = idb.fetchSingle(qAgentId);
-
-                for (String element : agentIdList) {
-                    loops++;
-                }
-
-                if (loops > 1) {
-                    lblInfoMessage.setText("Det finns mer än en agent med detta namn, var vänligen ange ID");
-
-                }
-                if (agentId == null) {
-                    lblInfoMessage.setText("Agentens namn finns inte registrerat");
-                } else {
-                    listAgentInfo(agentId);
-                }
-            } catch (InfException ex) {
-                System.out.println("Databasfel" + ex.getMessage());
-            } catch (Exception ex) {
-                System.out.println("Random fel" + ex.getMessage());
-            }
-        }
-    }//GEN-LAST:event_btnShowInfoActionPerformed
-
+    /**
+     * setForground sätter textfärgen på det angivna fältet
+     */
     private void correctValues() {
-
-        lblUpdateMessage.setForeground(new Color(50,255,50));
+        lblUpdateMessage.setForeground(new Color(50, 255, 50));
         lblUpdateMessage.setText("Dina ändringar är sparade");
-
     }
 
     private void listAreas() {
@@ -535,7 +395,6 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
 
             for (String element : result) {
                 cbListAreas.addItem(element);
-
             }
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
@@ -562,9 +421,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
             System.out.println("Databasfel" + ex.getMessage());
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
-
         }
-
     }
 
     private void setAgentName(String agentId) {
@@ -639,6 +496,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
+
     private String getAgentId() {
         String agentId = "";
         try {
@@ -696,7 +554,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
                         + "ny kontaktperson innan \n"
                         + "agenten kan tas bort");
                 for (HashMap<String, String> element : result) {
-                    txtaPrintErrorInfo.append(" • " + element.get("namn") + " ("+ element.get("alien_id") + ")\n");
+                    txtaPrintErrorInfo.append(" • " + element.get("namn") + " (" + element.get("alien_id") + ")\n");
                 }
                 btnChangeErrorInfo.setText("Ändra info om alien");
 
@@ -727,7 +585,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
                 txtaTitleErrorInfo.setText("Följande område behöver tilldelas \n"
                         + "en ny områdeschef innan agenten\n"
                         + "kan tas bort");
-                txtaPrintErrorInfo.append(" • "  + result);
+                txtaPrintErrorInfo.append(" • " + result);
                 btnChangeErrorInfo.setText("Ändra områdeschef");
 
                 isAreaChief = true;
@@ -740,8 +598,8 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         }
         return isAreaChief;
     }
-    
-     private boolean checkAgentIsHeadChief() {
+
+    private boolean checkAgentIsHeadChief() {
         txtaPrintErrorInfo.setText("");
         String agentId = getAgentId();
         boolean isHeadChief = false;
@@ -792,6 +650,136 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         }
 
     }
+    private void btnChangeErrorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeErrorInfoActionPerformed
+        if (btnChangeErrorInfo.getText().equals("Ändra områdeschef")) {
+            new JfAdminManageAuthority(idb).setVisible(true);
+        }
+        if (btnChangeErrorInfo.getText().equals("Ändra info om alien")) {
+            new JfAdminManageAlien(idb).setVisible(true);
+        }
+        if (btnChangeErrorInfo.getText().equals("Ändra kontorschef")) {
+            new JfAdminManageAuthority(idb).setVisible(true);
+        }
+    }//GEN-LAST:event_btnChangeErrorInfoActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        lblInfoMessage.setText(" ");
+        lblUpdateMessage.setText(" ");
+        lblDeleteMessage.setText(" ");
+        lblDeleteMessage.setForeground(new Color(255, 50, 50));
+        jpErrorMessageBox.setVisible(false);
+
+        if (Validation.validationTxt(txtfAgentDeleteInput, lblDeleteMessage, "Ange agentnamn eller id")) {
+            if (checkAgentDoublet()) {
+                lblDeleteMessage.setText("Det finns mer än en agent med detta namn, vänligen ange id");
+
+            } else if (getAgentId().equals("")) {
+                lblDeleteMessage.setText("Agentnamnet eller id:t finns inte registrerat");
+
+            } else if (checkAgentIsContact()) {
+                jpErrorMessageBox.setVisible(true);
+            } else if (checkAgentIsAreaChief()) {
+                jpErrorMessageBox.setVisible(true);
+            } else if (checkAgentIsHeadChief()) {
+                jpErrorMessageBox.setVisible(true);
+            } else {
+                deleteAgent();
+                lblDeleteMessage.setForeground(new Color(50, 255, 50));
+                lblDeleteMessage.setText("Agenten har tagits bort!");
+            }
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        lblInfoMessage.setText(" ");
+        lblUpdateMessage.setText(" ");
+        lblDeleteMessage.setText(" ");
+        lblUpdateMessage.setForeground(new Color(255, 50, 50));
+        int loops = 0;
+        if (Validation.validationTxt(txtfAgentUpdateInput, lblUpdateMessage, "Ange ett namn eller id för en agent")) {
+            if (txtfNameInput.getText().isEmpty() && txtfPhoneInput.getText().isEmpty() && txtfPasswordInput.getText().isEmpty()
+                    && txtfDateInput.getText().isEmpty() && cbListAreas.getSelectedItem().equals("-----")) {
+                lblUpdateMessage.setText("Du måste välja minst en sak att uppdatera för den valda agenten");
+            } else {
+                try {
+                    String qAgentId = "SELECT agent_id FROM agent WHERE namn = '" + txtfAgentUpdateInput.getText() + "' OR agent_id = '" + txtfAgentUpdateInput.getText() + "'";
+                    ArrayList<String> agentIdList = idb.fetchColumn(qAgentId);
+                    String agentId = idb.fetchSingle(qAgentId);
+
+                    for (String element : agentIdList) {
+                        loops++;
+                    }
+
+                    if (loops > 1) {
+                        lblUpdateMessage.setText("Det finns mer än en agent med detta namn, var vänligen ange ID");
+
+                    } else if (agentId == null) {
+                        lblUpdateMessage.setText("Agentens namn finns inte registrerat");
+                    } else {
+                        if (!txtfNameInput.getText().isEmpty()) {
+                            setAgentName(agentId);
+                        }
+                        if (!txtfPhoneInput.getText().isEmpty()) {
+                            setPhone(agentId);
+                        }
+                        if (!txtfPasswordInput.getText().isEmpty()) {
+                            setPassword(agentId);
+                        }
+                        if (!txtfDateInput.getText().isEmpty()) {
+                            setDate(agentId);
+                        }
+                        if (!cbListAreas.getSelectedItem().equals("-----")) {
+                            setAgentLocation(agentId);
+                        }
+                        txtfAgentInfoInput.setText(agentId);
+                        btnShowInfo.doClick();
+                    }
+                } catch (InfException ex) {
+                    System.out.println("Databasfel" + ex.getMessage());
+                } catch (Exception ex) {
+                    System.out.println("Random fel" + ex.getMessage());
+                }
+
+            }
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnShowInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowInfoActionPerformed
+        lblInfoMessage.setText(" ");
+        lblUpdateMessage.setText(" ");
+        lblDeleteMessage.setText(" ");
+        txtaShowAgentInfo.setText("");
+        int loops = 0;
+        if (Validation.validationTxt(txtfAgentInfoInput, lblInfoMessage, "Ange ett namn eller id för en agent")) {
+            try {
+                String qAgentId = "SELECT agent_id FROM agent WHERE namn = '" + txtfAgentInfoInput.getText() + "' OR agent_id = '" + txtfAgentInfoInput.getText() + "'";
+                ArrayList<String> agentIdList = idb.fetchColumn(qAgentId);
+                String agentId = idb.fetchSingle(qAgentId);
+
+                for (String element : agentIdList) {
+                    loops++;
+                }
+
+                if (loops > 1) {
+                    lblInfoMessage.setText("Det finns mer än en agent med detta namn, var vänligen ange ID");
+
+                }
+                if (agentId == null) {
+                    lblInfoMessage.setText("Agentens namn finns inte registrerat");
+                } else {
+                    listAgentInfo(agentId);
+                }
+            } catch (InfException ex) {
+                System.out.println("Databasfel" + ex.getMessage());
+            } catch (Exception ex) {
+                System.out.println("Random fel" + ex.getMessage());
+            }
+        }
+    }//GEN-LAST:event_btnShowInfoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

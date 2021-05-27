@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Admin;
 
 import java.awt.Color;
@@ -14,17 +9,15 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Möjlighet att ändra befogenhet för en specifik agent till admin, kontorschef
+ * samt områdeschef
  *
- * @author strom
+ * @author Grupp 8
  */
 public class JfAdminManageAuthority extends javax.swing.JFrame {
 
-    private String alienId;
     private InfDB idb;
 
-    /**
-     * Creates new form JfAdminManageAuthority
-     */
     public JfAdminManageAuthority(InfDB idb) {
         initComponents();
         this.idb = idb;
@@ -32,7 +25,6 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
         listAllAgentsHeadChief();
         listAllAgentsAreaChief();
         listAllAreas();
-
     }
 
     /**
@@ -320,10 +312,10 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
         cbListAgentsHeadChief.addItem("-----");
         try {
             String query
-                    = "SELECT a.agent_id, namn, benamning FROM agent a\n" +
-"JOIN omrade o ON a.omrade = o.omrades_id\n" +
-"JOIN kontorschef k ON a.agent_id != k.agent_id\n" +
-"ORDER BY benamning,namn";
+                    = "SELECT a.agent_id, namn, benamning FROM agent a\n"
+                    + "JOIN omrade o ON a.omrade = o.omrades_id\n"
+                    + "JOIN kontorschef k ON a.agent_id != k.agent_id\n"
+                    + "ORDER BY benamning,namn";
             ArrayList<HashMap<String, String>> agentList = idb.fetchRows(query);
 
             for (HashMap<String, String> element : agentList) {
@@ -342,11 +334,11 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
 
         try {
             String query
-                    = "SELECT a.agent_id, namn, benamning FROM agent a\n" +
-"JOIN omrade o ON a.omrade = o.omrades_id\n" +
-"LEFT JOIN omradeschef oc ON oc.agent_id = a.agent_id\n" +
-"WHERE oc.agent_id IS NULL\n" +
-"ORDER BY benamning, namn";
+                    = "SELECT a.agent_id, namn, benamning FROM agent a\n"
+                    + "JOIN omrade o ON a.omrade = o.omrades_id\n"
+                    + "LEFT JOIN omradeschef oc ON oc.agent_id = a.agent_id\n"
+                    + "WHERE oc.agent_id IS NULL\n"
+                    + "ORDER BY benamning, namn";
             ArrayList<HashMap<String, String>> agentList = idb.fetchRows(query);
 
             for (HashMap<String, String> element : agentList) {
@@ -360,27 +352,22 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
     }
 
     public void listAllAreas() {
-
         try {
             String query = "Select benamning from omrade";
             ArrayList<String> result = idb.fetchColumn(query);
 
             for (String element : result) {
                 cbListAreas.addItem(element);
-
             }
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
-
     }
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
         setVisible(false);
-        //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void btnSaveAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveAdminActionPerformed
@@ -388,11 +375,11 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
         lblMessageAdmin.setText(" ");
         lblMessageAreaChief.setText(" ");
         lblMessageHeadChief.setText(" ");
-        lblMessageAdmin.setForeground(new Color(255,50,50));
+        lblMessageAdmin.setForeground(new Color(255, 50, 50));
 
-        if (!cbAdminAgentList.getSelectedItem().equals("-----") && !cbAdminStatusList.getSelectedItem().equals("-----")) {
+        if (Validation.validationCb(cbAdminAgentList, lblMessageAdmin, "Välj agent!") && Validation.validationCb(cbAdminStatusList, lblMessageAdmin, "Välj status!")) {
 
-            lblMessageAdmin.setForeground(new Color(50,255,50));
+            lblMessageAdmin.setForeground(new Color(50, 255, 50));
             lblMessageAdmin.setText("Du har nu bytt status!");
 
             if (cbAdminStatusList.getSelectedItem().equals("JA")) {
@@ -401,6 +388,8 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
                 status = "N";
             }
 
+            //toString() gör om angivet värde till en sträng
+            //substringBetween - metod som returnerar en del av en sträng mellan de specificerade karaktärerna.
             Object getAgentListItem = cbAdminAgentList.getSelectedItem();
             String agentListItem = getAgentListItem.toString();
             String agentId = StringUtils.substringBetween(agentListItem, "(", ")");
@@ -413,12 +402,6 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
             } catch (Exception ex) {
                 System.out.println("Random fel" + ex.getMessage());
             }
-        } else if (cbAdminAgentList.getSelectedItem().equals("-----") && !cbAdminStatusList.getSelectedItem().equals("-----")) {
-            lblMessageAdmin.setText("Välja agent!");
-        } else if (!cbAdminAgentList.getSelectedItem().equals("-----") && cbAdminStatusList.getSelectedItem().equals("-----")) {
-            lblMessageAdmin.setText("Välja status!");
-        } else {
-            lblMessageAdmin.setText("Välja agent och status!");
         }
     }//GEN-LAST:event_btnSaveAdminActionPerformed
 
@@ -426,14 +409,12 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
         lblMessageAdmin.setText(" ");
         lblMessageAreaChief.setText(" ");
         lblMessageHeadChief.setText(" ");
-        lblMessageAreaChief.setForeground(new Color(255,50,50));
+        lblMessageAreaChief.setForeground(new Color(255, 50, 50));
         boolean isChief = false;
 
         if (Validation.validationCb(cbListAgentsArea, lblMessageAreaChief, "Välj agent")
                 && Validation.validationCb(cbListAreas, lblMessageAreaChief, "Välj område")) {
-
             try {
-
                 Object getAgentListItem = cbListAgentsArea.getSelectedItem();
                 String agentListItem = getAgentListItem.toString();
                 String agentid = StringUtils.substringBetween(agentListItem, "(", ")");
@@ -442,11 +423,9 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
                         + "JOIN omradeschef oc ON a.agent_id = oc.agent_id\n"
                         + "JOIN omrade o on oc.omrade = o.omrades_id\n"
                         + "WHERE benamning =" + "'" + cbListAreas.getSelectedItem() + "'";
-
                 String currentChief = idb.fetchSingle(qCurrentChief);
 
                 String allChiefs = "SELECT agent_id FROM AGENT JOIN omradeschef USING (agent_id)";
-
                 ArrayList<String> chiefs = idb.fetchColumn(allChiefs);
 
                 for (String element : chiefs) {
@@ -456,19 +435,16 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
                         break;
                     }
                 }
-
+                
                 if (isChief == false) {
-
                     String qUpdate = "UPDATE Omradeschef SET AGENT_ID = '" + agentid + "'WHERE Agent_ID = '" + currentChief + "'";
                     idb.update(qUpdate);
-                    lblMessageAreaChief.setForeground(new Color(50,255,50));
+                    lblMessageAreaChief.setForeground(new Color(50, 255, 50));
                     lblMessageAreaChief.setText("Områdeschefen är uppdaterad!");
                     listAllAgentsAreaChief();
-
                 } else {
                     lblMessageAreaChief.setText("Agenten är redan chef för ett område");
                 }
-
             } catch (InfException ex) {
                 System.out.println("Databasfel" + ex.getMessage());
             } catch (Exception ex) {
@@ -481,9 +457,8 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
         lblMessageAdmin.setText(" ");
         lblMessageAreaChief.setText(" ");
         lblMessageHeadChief.setText(" ");
-        lblMessageHeadChief.setForeground(new Color(255,50,50));
+        lblMessageHeadChief.setForeground(new Color(255, 50, 50));
         if (Validation.validationCb(cbListAgentsHeadChief, lblMessageHeadChief, "Välj kontorschef")) {
-
             Object getAgentListItem = cbListAgentsHeadChief.getSelectedItem();
             String agentListItem = getAgentListItem.toString();
             String agentid = StringUtils.substringBetween(agentListItem, "(", ")");
@@ -494,14 +469,12 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
                 if (chief.equals(agentid)) {
                     lblMessageHeadChief.setText("Den här agenten är redan kontorschef");
                 } else {
-
                     String qUpdate = "UPDATE kontorschef SET AGENT_ID = '" + agentid + "'WHERE Agent_ID = '" + chief + "'";
                     idb.update(qUpdate);
-                    lblMessageHeadChief.setForeground(new Color(50,255,50));
+                    lblMessageHeadChief.setForeground(new Color(50, 255, 50));
                     lblMessageHeadChief.setText("Agenten har registrerats som kontorschef");
                     listAllAgentsHeadChief();
                 }
-
             } catch (InfException ex) {
                 System.out.println("Databasfel" + ex.getMessage());
             } catch (Exception ex) {

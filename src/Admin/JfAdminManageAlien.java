@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Admin;
 
 import java.awt.Color;
@@ -15,16 +10,17 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Visar information om angiven alien, uppdaterar information om angiven alien
+ * samt tar bor angiven alien
  *
- * @author strom
+ * @author Grupp 8
  */
 public class JfAdminManageAlien extends javax.swing.JFrame {
 
-    private String alienId;
     private InfDB idb;
 
     /**
-     * Creates new form JfAdminRegAgent for Admin
+     * setEditable(false) gör att det inte går att skriva i angiven text area
      */
     public JfAdminManageAlien(InfDB idb) {
         initComponents();
@@ -33,7 +29,6 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         hideText();
         listAgents();
         listLocations();
-
     }
 
     /**
@@ -372,11 +367,13 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         txtfRaceSpecial.setVisible(true);
     }
 
+    /**
+     * setForground sätter textfärgen på det angivna fältet
+     */
     private void correctValues() {
 
-        lblMessageChange.setForeground(new Color(50,255,50));
+        lblMessageChange.setForeground(new Color(50, 255, 50));
         lblMessageChange.setText("Dina ändringar är sparade");
-
     }
 
     private void listLocations() {
@@ -503,9 +500,8 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
             lblRaceSpecial.setText("Ange antal boogies: ");
             if (txtfRaceSpecial.getText().isEmpty()) {
                 lblMessageChange.setText("Rutan för ras-specialitet är tom");
-//  
             } else {
-                if (currentRace != "<Oidentifierad>") {
+                if (!currentRace.equals("<Oidentifierad>")) {
                     String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                     idb.delete(qDelete);
                 }
@@ -533,7 +529,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                 lblMessageChange.setText("Rutan för ras-specialitet är tom");
 
             } else {
-                if (currentRace != "<Oidentifierad>") {
+                if (!currentRace.equals("<Oidentifierad>")) {
                     String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                     idb.delete(qDelete);
                 }
@@ -555,7 +551,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         String currentRace = ValidationRace.getRace(alienId);
         try {
 
-            if (currentRace != "<Oidentifierad>") {
+            if (!currentRace.equals("<Oidentifierad>")) {
                 String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                 idb.delete(qDelete);
             }
@@ -573,7 +569,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
     private void setUnidentified(String alienId) {
         String currentRace = ValidationRace.getRace(alienId);
         try {
-            if (currentRace != "<Oidentifierad>") {
+            if (!currentRace.equals("<Oidentifierad>")) {
                 String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                 idb.delete(qDelete);
                 correctValues();
@@ -620,7 +616,8 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         return loops;
 
     }
-        private int checkInputShowInfo() {
+
+    private int checkInputShowInfo() {
         int loops = 0;
         try {
             String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfShowAlienInput.getText() + "' OR alien_id = '" + txtfShowAlienInput.getText() + "'";
@@ -712,7 +709,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         lblMessageInput.setText(" ");
         lblMessageChange.setText(" ");
         lblMessageDelete.setText(" ");
-        lblMessageChange.setForeground(new Color(255,50,50));
+        lblMessageChange.setForeground(new Color(255, 50, 50));
         int loops = 0;
 
         if (Validation.validationTxt(txtfAlienInputChange, lblMessageInput, "Ange aliennamn eller id")) {
@@ -723,7 +720,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                     && cbListRace.getSelectedItem().equals("-----")) {
                 lblMessageChange.setText("Välj minst en ruta att uppdatera för den valda alien");
             } else {
-                //Lägg till metodanrop som hämtar id och gör kollen för "flera med samma namn" istället. 
+
                 try {
                     String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInputChange.getText() + "' OR alien_id = '" + txtfAlienInputChange.getText() + "'";
                     ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
@@ -774,7 +771,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                                     setUnidentified(alienId);
                                 }
                             }
-                        } 
+                        }
                         txtfShowAlienInput.setText(alienId);
                         btnShowInfo.doClick();
                     }
@@ -794,7 +791,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         lblMessageInput.setText(" ");
         lblMessageChange.setText(" ");
         lblMessageDelete.setText(" ");
-        lblMessageDelete.setForeground(new Color(255,50,50));
+        lblMessageDelete.setForeground(new Color(255, 50, 50));
 
         if (Validation.validationTxt(txtfAlienInputDelete, lblMessageDelete, "Ange aliennamn eller id")) {
             if (checkInput() > 1) {
@@ -815,7 +812,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                     deleteUnidentified();
                 }
 
-                lblMessageDelete.setForeground(new Color(50,255,50));
+                lblMessageDelete.setForeground(new Color(50, 255, 50));
                 lblMessageDelete.setText("Alien har tagits bort!");
 
             }
@@ -828,40 +825,44 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         lblMessageInput.setText(" ");
         lblMessageChange.setText(" ");
         lblMessageDelete.setText(" ");
-        
-        //Även här använda sig av färdiga metoderna för "getId" och "checkInput".
+
         if (Validation.validationTxt(txtfShowAlienInput, lblMessageInfo, "Ange aliennamn eller id")) {
             try {
                 String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfShowAlienInput.getText() + "' OR alien_id = '" + txtfShowAlienInput.getText() + "'";
                 String alienId = idb.fetchSingle(qAlienId);
-                
+
                 if (checkInputShowInfo() > 1) {
-                lblMessageInfo.setText("Det finns mer än en alien med detta namn, vänligen ange ID");
-                }
-                else if (alienId == null) {
+                    lblMessageInfo.setText("Det finns mer än en alien med detta namn, vänligen ange ID");
+                } else if (alienId == null) {
                     lblMessageInfo.setText("Alien namnet finns inte registrerat");
                 } else {
+                    //Skriver ut alien id
                     txtaPrintAlienInfo.append("Alien id:\t" + alienId + "\n");
 
+                    //Skriver ur alien namn, telefon och registreringsdatum
                     String qAlienInfo = "SELECT namn, telefon, registreringsdatum FROM alien WHERE alien_id = '" + alienId + "'";
                     HashMap<String, String> alienInfo = idb.fetchRow(qAlienInfo);
                     txtaPrintAlienInfo.append("Namn:\t" + alienInfo.get("namn") + "\n");
                     txtaPrintAlienInfo.append("Telefon:\t" + alienInfo.get("telefon") + "\n");
                     txtaPrintAlienInfo.append("Registrerad:\t" + alienInfo.get("registreringsdatum") + "\n");
 
+                    //Skriver ut platsen och området där alien befinner sig
                     String qAlienPlats = "SELECT benamning FROM plats p JOIN alien a ON p.plats_id = a.plats WHERE alien_id = '" + alienId + "'";
                     String alienPlats = idb.fetchSingle(qAlienPlats);
                     String qAlienOmrade = "SELECT o.benamning FROM omrade o JOIN plats p ON o.omrades_id = p.finns_i WHERE p.benamning = '" + alienPlats + "'";
                     String alienOmrade = idb.fetchSingle(qAlienOmrade);
                     txtaPrintAlienInfo.append("Befinner sig:\t" + alienPlats + " (" + alienOmrade + ")" + "\n");
 
+                    //Skriver ut kontaktagetn alien har
                     String qAlienKontakt = "SELECT ag.namn FROM agent ag JOIN alien al ON ag.agent_id = al.ansvarig_agent WHERE alien_id = '" + alienId + "'";
                     String alienKontakt = idb.fetchSingle(qAlienKontakt);
                     txtaPrintAlienInfo.append("Kontakt:\t" + alienKontakt + "\n");
 
+                    //Skriver ut rasen på alien
                     String ras = ValidationRace.getRace(alienId);
                     txtaPrintAlienInfo.append("Ras:\t" + ras + "\n");
 
+                    //Skriver ut rasegenskapen
                     String alienEgenskap = "";
                     if (ras.equals("Squid")) {
                         String qAlienSquid = "SELECT antal_armar FROM squid WHERE alien_id = '" + alienId + "'";
@@ -883,9 +884,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnShowInfoActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
         setVisible(false);
-        //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
 
