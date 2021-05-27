@@ -262,7 +262,7 @@ public class JfRegAlien extends javax.swing.JFrame {
         txtRaceSpecial.setColumns(5);
 
         lblRaceSpecial.setForeground(new java.awt.Color(255, 255, 255));
-        lblRaceSpecial.setText("Antal xxx:");
+        lblRaceSpecial.setText(" ");
 
         lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblMessage.setForeground(new java.awt.Color(255, 50, 50));
