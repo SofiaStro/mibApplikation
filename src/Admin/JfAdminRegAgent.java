@@ -105,10 +105,10 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
 
         switch (getListItem) {
             case "Standard":
-                privilege = "Standard";
+                privilege = "N";
                 break;
             case "Administratör":
-                privilege = "Admin";
+                privilege = "J";
                 break;
 
         }
@@ -233,11 +233,12 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
         jpBackgroundLayout.setHorizontalGroup(
             jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBackgroundLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(21, 21, 21)
                 .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpBackgroundLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
+                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jpBackgroundLayout.createSequentialGroup()
                         .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpBackgroundLayout.createSequentialGroup()
                                 .addComponent(btnMenu)
@@ -261,8 +262,8 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
                                     .addGroup(jpBackgroundLayout.createSequentialGroup()
                                         .addGap(0, 20, Short.MAX_VALUE)
                                         .addComponent(spMessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lblMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                .addGap(47, 47, 47))
+                                    .addComponent(lblMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(47, 47, 47))))
         );
         jpBackgroundLayout.setVerticalGroup(
             jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,7 +293,7 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
                 .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
                     .addComponent(lblMessage))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(btnMenu)
                 .addGap(22, 22, 22))
         );
@@ -340,8 +341,11 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
                         + "'" + getPrivileges() + "'" + ", "
                         + "'" + newPw + "'" + ", "
                         + "'" + getAreaId() + "'" + ")";
+                String queryFieldAgent ="INSERT INTO faltagent (agent_id)\n"
+                        +"VALUES (" + agentId + ")";
 
                 idb.insert(query);
+                idb.insert(queryFieldAgent);
                 //idb.insert(queryBoglodite);
 
                 lblMessage.setForeground(new Color(50,255,50));
@@ -356,7 +360,7 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
                         + "\n"
                         + "Telefon: " + phone + "\n"
                         + "\n"
-                        + "Behörighet: " + getPrivileges() + "\n"
+                        + "Behörighet: " + cbPrivileges.getSelectedItem() + "\n"
                         + "\n"
                         + "Arbetar på: " + cbAreas.getSelectedItem());
 
