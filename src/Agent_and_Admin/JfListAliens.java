@@ -89,6 +89,7 @@ public class JfListAliens extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Icons/astronomy.png")).getImage());
+        setLocationByPlatform(true);
         setResizable(false);
 
         jpBackground.setBackground(new java.awt.Color(40, 40, 40));
