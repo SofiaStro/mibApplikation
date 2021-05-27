@@ -156,8 +156,22 @@ public class JfRegAlien extends javax.swing.JFrame {
     }
 
     private String getRaceSpecial() {
-        String raceSpecial = txtRaceSpecial.getText();
+        String raceSpecial = "";
+        if (lblRaceSpecial.isShowing() == true) {
+            raceSpecial = lblRaceSpecial.getText();
+        } else {
+            raceSpecial = "";
+        }
+        return raceSpecial;
+    }
 
+    private String getRaceSpecialNr() {
+        String raceSpecial = "";
+        if (txtRaceSpecial.isShowing() == true) {
+            raceSpecial = txtRaceSpecial.getText();
+        } else {
+            raceSpecial = "";
+        }
         return raceSpecial;
     }
 
@@ -379,8 +393,6 @@ public class JfRegAlien extends javax.swing.JFrame {
         Object getRaceListItem = cbRace.getSelectedItem();
         String race = getRaceListItem.toString();
 
-        String raceSpecial = lblRaceSpecial.getText();
-
         if (Validation.validationTxtPhone(txtPhone, lblMessage)
                 && Validation.validationTxt(txtName, lblMessage, "Ange namn")
                 && Validation.validationCb(cbRace, lblMessage, "Ange Ras")
@@ -388,8 +400,8 @@ public class JfRegAlien extends javax.swing.JFrame {
                 && Validation.validationCb(cbAgentInCharge, lblMessage, "Ange ansvarig agent")) {
 
             if (txtRaceSpecial.isShowing() == true) {
-                if (!Validation.validationTxt(txtRaceSpecial, lblMessage, "Ange " + raceSpecial.substring(0, raceSpecial.length() - 1))
-                        || !Validation.validationNumbers(txtRaceSpecial, lblMessage, raceSpecial.substring(0, raceSpecial.length() - 1) + " måste vara en siffra")) {
+                if (!Validation.validationTxt(txtRaceSpecial, lblMessage, "Ange " + getRaceSpecial().substring(0, getRaceSpecial().length() - 1))
+                        || !Validation.validationNumbers(txtRaceSpecial, lblMessage, getRaceSpecial().substring(0, getRaceSpecial().length() - 1) + " måste vara en siffra")) {
 
                     return;
                 }
@@ -410,11 +422,11 @@ public class JfRegAlien extends javax.swing.JFrame {
                 String querySquid = "INSERT INTO squid (alien_id, antal_armar)\n"
                         + "VALUES ("
                         + alienId + ", "
-                        + "'" + getRaceSpecial() + "'" + ")";
+                        + "'" + getRaceSpecialNr() + "'" + ")";
                 String queryBoglodite = "INSERT INTO boglodite (alien_id, antal_boogies)\n"
                         + "VALUES ("
                         + alienId + ", "
-                        + "'" + getRaceSpecial() + "'" + ")";
+                        + "'" + getRaceSpecialNr() + "'" + ")";
                 String queryWorm = "INSERT INTO worm (alien_id)\n"
                         + "VALUES ("
                         + alienId + ")";
@@ -444,7 +456,7 @@ public class JfRegAlien extends javax.swing.JFrame {
                         + "Lösenord: " + newPw + "\n"
                         + "\n"
                         + "Ras: " + race + "\n"
-                        + lblRaceSpecial.getText() + " " + getRaceSpecial() + "\n"
+                        + getRaceSpecial() + " " + getRaceSpecialNr() + "\n"
                         + "\n"
                         + "Telefon: " + phone + "\n"
                         + "\n"
