@@ -292,7 +292,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
                                 .addGap(84, 84, 84))
                             .addGroup(jpBackgroundLayout.createSequentialGroup()
                                 .addComponent(lblInfoMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(jpBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(spShowInfoBox, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jpErrorMessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -671,7 +671,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
 
         if (Validation.validationTxt(txtfAgentDeleteInput, lblDeleteMessage, "Ange agentnamn eller id")) {
             if (checkAgentDoublet()) {
-                lblDeleteMessage.setText("Det finns mer än en agent med detta namn, vänligen ange id");
+                lblDeleteMessage.setText("Det finns mer än en agent med detta namn, ange id");
 
             } else if (getAgentId().equals("")) {
                 lblDeleteMessage.setText("Agentnamnet eller id:t finns inte registrerat");
@@ -699,7 +699,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
         if (Validation.validationTxt(txtfAgentUpdateInput, lblUpdateMessage, "Ange ett namn eller id för en agent")) {
             if (txtfNameInput.getText().isEmpty() && txtfPhoneInput.getText().isEmpty() && txtfPasswordInput.getText().isEmpty()
                     && txtfDateInput.getText().isEmpty() && cbListAreas.getSelectedItem().equals("-----")) {
-                lblUpdateMessage.setText("Du måste välja minst en sak att uppdatera för den valda agenten");
+                lblUpdateMessage.setText("Välj minst en sak för den valda agenten");
             } else {
                 try {
                     String qAgentId = "SELECT agent_id FROM agent WHERE namn = '" + txtfAgentUpdateInput.getText() + "' OR agent_id = '" + txtfAgentUpdateInput.getText() + "'";
@@ -711,7 +711,7 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
                     }
 
                     if (loops > 1) {
-                        lblUpdateMessage.setText("Det finns mer än en agent med detta namn, var vänligen ange ID");
+                        lblUpdateMessage.setText("Det finns mer än en agent med detta namn, ange ID");
 
                     } else if (agentId == null) {
                         lblUpdateMessage.setText("Agentens namn finns inte registrerat");
@@ -764,10 +764,10 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
                 }
 
                 if (loops > 1) {
-                    lblInfoMessage.setText("Det finns mer än en agent med detta namn, var vänligen ange ID");
+                    lblInfoMessage.setText("Det finns mer än en agent med detta namn, ange ID");
 
                 }
-                if (agentId == null) {
+                else if (agentId == null) {
                     lblInfoMessage.setText("Agentens namn finns inte registrerat");
                 } else {
                     listAgentInfo(agentId);
