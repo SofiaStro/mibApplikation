@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Agent_and_Admin;
 
 import java.awt.Color;
@@ -17,22 +12,19 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Fönster för att registrera och lägga till en ny alien i databasen.
  *
- * @author strom
+ * @author Grupp 8
  */
 public class JfRegAlien extends javax.swing.JFrame {
 
-    
     private InfDB idb;
-    
 
-    /**
-     * Creates new form WindowAlienChangePw
-     */
     public JfRegAlien(InfDB idb) {
         initComponents();
         this.idb = idb;
-        
+
+        //Gör att man endast kan selecta text, och ej skriva i textrutan.
         txtaMessage.setEditable(false);
         setRace();
         setLocation();
@@ -96,7 +88,6 @@ public class JfRegAlien extends javax.swing.JFrame {
             String query = "SELECT alien_id FROM alien";
             ArrayList<String> result = idb.fetchColumn(query);
             int[] intResult = new int[result.size()];
-            System.out.println("intResult = " + intResult.length);
 
             for (int i = 0; i < result.size(); i++) {
                 intResult[i] = Integer.parseInt(result.get(i));
@@ -109,8 +100,6 @@ public class JfRegAlien extends javax.swing.JFrame {
             int newIdInt = lastNr + 1;
             newId = String.valueOf(newIdInt);
 
-            System.out.println("Nytt alien ID: " + newId);
-
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
         } catch (Exception ex) {
@@ -122,9 +111,9 @@ public class JfRegAlien extends javax.swing.JFrame {
     }
 
     private String getNewPw() {
-        String newPw = RandomStringUtils.randomAlphanumeric(6);
 
-        System.out.println("Lösen: " + newPw);
+        //Metod som returnerar en slumpmässigt sträng som innehåller bokstäver och siffror.
+        String newPw = RandomStringUtils.randomAlphanumeric(6);
 
         return newPw;
     }
@@ -133,16 +122,17 @@ public class JfRegAlien extends javax.swing.JFrame {
 
         Object getListItem = cbAgentInCharge.getSelectedItem();
         String getString = String.valueOf(getListItem);
+        //Metod som returnerar en del av en sträng mellan de specificerade karaktärerna.
         String agentId = StringUtils.substringBetween(getString, "(", ")");
 
-        System.out.println("Agent ID: " + agentId);
         return agentId;
     }
 
     private String getSystemDate() {
+        //Local date hanterar format för datum. Metoden .now returnerar
+        //ditt systems nuvarande datum.
         LocalDate localDate = LocalDate.now();
         String currentDate = String.valueOf(localDate);
-        System.out.println("Datum: " + currentDate);
 
         return currentDate;
     }
@@ -156,7 +146,6 @@ public class JfRegAlien extends javax.swing.JFrame {
         try {
             String getLocationId = idb.fetchSingle(query);
             locationId = getLocationId;
-            System.out.println("Plats ID: " + "(" + locationId + ")");
 
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
@@ -377,20 +366,19 @@ public class JfRegAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-       
+
         getAgentInChargeId();
         getLocationId();
 
         String getName = txtName.getText();
+        //Metod som gör om första bokstaven för varje ord i en sträng till versal.
         String name = WordUtils.capitalize(getName);
 
         String phone = txtPhone.getText();
-        System.out.println("Alien namn: " + name);
-        System.out.println("Alien telefonnr: " + phone);
 
         Object getRaceListItem = cbRace.getSelectedItem();
         String race = getRaceListItem.toString();
-       
+
         String raceSpecial = lblRaceSpecial.getText();
 
         if (Validation.validationTxtPhone(txtPhone, lblMessage) //kolla om databasen får ett värde om man endast skriver mellanslag
@@ -444,10 +432,10 @@ public class JfRegAlien extends javax.swing.JFrame {
                         idb.insert(queryWorm);
                         break;
                 }
-                
-                lblMessage.setForeground(new Color(50,255,50));
+                //Ger texten i lblMessage en ny färg.
+                lblMessage.setForeground(new Color(50, 255, 50));
                 lblMessage.setText("Registrering slutförd!");
-                txtaMessage.setText("Registrering slutförd\n" 
+                txtaMessage.setText("Registrering slutförd\n"
                         + "------------------------------------------\n"
                         + "ID: " + alienId + "\n"
                         + "\n"
@@ -462,7 +450,8 @@ public class JfRegAlien extends javax.swing.JFrame {
                         + "\n"
                         + "Plats: " + cbLocation.getSelectedItem() + "\n"
                         + "\n"
-                        + "Ansvarig agent: " + StringUtils.substringBefore(cbAgentInCharge.getSelectedItem().toString(), " ("));
+                        + "Ansvarig agent: " + StringUtils.substringBefore(cbAgentInCharge.getSelectedItem().toString(), " (")); //Metod som
+                //returnerar delen av en sträng före det angivna tecknet.
 
             } catch (InfException ex) {
                 System.out.println("Databasfel" + ex.getMessage());
@@ -473,13 +462,11 @@ public class JfRegAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
         setVisible(false);
-
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void cbRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaceActionPerformed
-        // TODO add your handling code here:
+
         if (cbRace.getSelectedItem().equals("Squid") || cbRace.getSelectedItem().equals("Boglodite")) {
             txtRaceSpecial.setVisible(true);
             lblRaceSpecial.setVisible(true);

@@ -1,101 +1,75 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Agent_and_Admin;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.util.ArrayList;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import oru.inf.InfDB;
 
-
-
 /**
+ * Ett fönster som tar in 3 andra "fönster"(JPanels) som innehåller specifika
+ * funktioner. Dessa 3 fönster kan man välja emellan genom ComboBox-listan i
+ * denna klass.
  *
- * @author Blazl
+ * @author Grupp 8
  */
 public class JfListAliens extends javax.swing.JFrame {
-    
+
     private InfDB idb;
-//    private JPanel panelMain;
+
     private JpListAlienDates datesWindow;
     private JpListAlienLocation locationWindow;
     private JpListAlienRace raceWindow;
-    
-    /**
-     * Creates new form WindowAgentListAliens
-     */
+
     public JfListAliens(InfDB idb) {
-//        setLayout(null);
-//        setPreferredSize(new Dimension(420,90));
-//        setResizable(false);
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-//        panelMain = new JPanel();
-//        panelMain.setBackground(Color.WHITE);
-//        panelMain.setBounds(0, 0, 1000, 500);
-//        panelMain.setPreferredSize(new Dimension(1000,500));
-//        add(panelMain);
+
         initComponents();
         setListNames();
         createDatesWindow(idb);
         createLocationWindow(idb);
         createRaceWindow(idb);
-        
-        
-        
-        
+
     }
-    
-    private void setListNames(){
-        
-         ArrayList<String> list = new ArrayList<String>();
+
+    private void setListNames() {
+
+        ArrayList<String> list = new ArrayList<String>();
         list.add("Plats");
         list.add("Ras");
         list.add("Tidsperiod");
-        
 
         for (String element : list) {
             cbLists.addItem(element);
         }
-    
+
     }
-    
-    private void createDatesWindow(InfDB idb){
-        
-        
+
+    private void createDatesWindow(InfDB idb) {
+
         datesWindow = new JpListAlienDates(idb);
+        //setBounds specifierar var den nya panelen ska placeras
+        //och storleken.(x,y,bredd,höjd) x,y är för övre vänstra hörnet.
         datesWindow.setBounds(300, 0, 360, 420);
+        //.add lägger till komponenten inom parantes till det först nämnda objektet. 
         jpBackground.add(datesWindow);
         datesWindow.setVisible(false);
-        
+
     }
-    
-    private void createRaceWindow(InfDB idb){
-        
-        
+
+    private void createRaceWindow(InfDB idb) {
+
         raceWindow = new JpListAlienRace(idb);
         raceWindow.setBounds(280, 7, 360, 420);
         jpBackground.add(raceWindow);
         raceWindow.setVisible(false);
-        
+
     }
-    
-    private void createLocationWindow(InfDB idb){
-        
-        
+
+    private void createLocationWindow(InfDB idb) {
+
         locationWindow = new JpListAlienLocation(idb);
         locationWindow.setBounds(280, 7, 360, 420);
         jpBackground.add(locationWindow);
         locationWindow.setVisible(false);
-        
+
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -203,33 +177,31 @@ public class JfListAliens extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void cbListsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListsActionPerformed
-        // TODO add your handling code here:
+
         switch (cbLists.getSelectedItem().toString()) {
-                    case "Plats":
-                        datesWindow.setVisible(false);
-                        raceWindow.setVisible(false);
-                        locationWindow.setVisible(true);
-                        break;
-                    case "Ras":
-                        datesWindow.setVisible(false);
-                        locationWindow.setVisible(false);
-                        raceWindow.setVisible(true);
-                        break;
-                    case "Tidsperiod":
-                        locationWindow.setVisible(false);
-                        raceWindow.setVisible(false);
-                        datesWindow.setVisible(true);
-                        break;
-                }
-        
+            case "Plats":
+                datesWindow.setVisible(false);
+                raceWindow.setVisible(false);
+                locationWindow.setVisible(true);
+                break;
+            case "Ras":
+                datesWindow.setVisible(false);
+                locationWindow.setVisible(false);
+                raceWindow.setVisible(true);
+                break;
+            case "Tidsperiod":
+                locationWindow.setVisible(false);
+                raceWindow.setVisible(false);
+                datesWindow.setVisible(true);
+                break;
+        }
+
     }//GEN-LAST:event_cbListsActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMenu;

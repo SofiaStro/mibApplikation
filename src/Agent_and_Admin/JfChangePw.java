@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Agent_and_Admin;
 
 import java.awt.Color;
@@ -11,17 +6,15 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Fönster för att ändra nuvarande lösenord för en agent.
  *
- * @author strom
+ * @author Grupp 8
  */
 public class JfChangePw extends javax.swing.JFrame {
 
     private String agentId;
     private InfDB idb;
 
-    /**
-     * Creates new form WindowAlienChangePw
-     */
     public JfChangePw(InfDB idb, String agentId) {
         initComponents();
         this.idb = idb;
@@ -157,10 +150,10 @@ public class JfChangePw extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // Om ID stämmer med old lösenord
         // Byt till nya lösenordet
-        if(Validation.validationTxt(pwOldPw, lblMessage, "Ange ditt nuvarande lösenord") 
+        if (Validation.validationTxt(pwOldPw, lblMessage, "Ange ditt nuvarande lösenord")
                 && Validation.validationTxt(pwNewPw, lblMessage, "Ange ditt nya lösenord")
-                && Validation.validationTxtNrOfChar(pwNewPw, lblMessage, 6, "Det nya lösenordet får vara max 6 tecken")){
-            try{
+                && Validation.validationTxtNrOfChar(pwNewPw, lblMessage, 6, "Det nya lösenordet får vara max 6 tecken")) {
+            try {
                 char[] pwOldArray = pwOldPw.getPassword();
                 String oldPassword = new String(pwOldArray);
 
@@ -170,39 +163,34 @@ public class JfChangePw extends javax.swing.JFrame {
                 String query = "SELECT losenord FROM agent WHERE agent_id =" + "'" + agentId + "'";
                 String result = idb.fetchSingle(query);
 
-                if(oldPassword.equals(result)){
+                if (oldPassword.equals(result)) {
                     String qSetPassword = "UPDATE agent SET losenord =" + "'" + newPassword + "'" + "WHERE agent_id = " + "'" + agentId + "'";
                     idb.update(qSetPassword);
-                    lblMessage.setForeground(new Color(50,255,50));
+                    //Ger texten i lblMessage en ny färg.
+                    lblMessage.setForeground(new Color(50, 255, 50));
                     lblMessage.setText("Ditt lösenord har ändrats!");
-                }
-                else{
+                } else {
                     pwOldPw.requestFocus();
-                    lblMessage.setForeground(new Color(255,50,50));
+                    lblMessage.setForeground(new Color(255, 50, 50));
                     lblMessage.setText("Nuvarande lösenord är felaktigt!");
                 }
                 pwOldPw.setText("");
                 pwNewPw.setText("");
                 pwOldArray = null;
                 pwNewArray = null;
-            }
-            catch (InfException ex){
+            } catch (InfException ex) {
                 System.out.println("Databasfel" + ex.getMessage());
-            }
-            catch (Exception ex){
+            } catch (Exception ex) {
                 System.out.println("Random fel" + ex.getMessage());
             }
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
         setVisible(false);
-        //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void pwNewPwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwNewPwActionPerformed
-        // TODO add your handling code here:
         btnSave.doClick();
     }//GEN-LAST:event_pwNewPwActionPerformed
 

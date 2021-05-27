@@ -1,30 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Agent_and_Admin;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import mibapplikation.Validation;
+
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Visar områdeschefen för ett angivet område.
  *
- * @author strom
+ * @author Grupp 8
  */
 public class JfAreaChief extends javax.swing.JFrame {
 
     private InfDB idb;
 
-    /**
-     * Creates new form WindowAlienChangePw
-     */
     public JfAreaChief(InfDB idb) {
         initComponents();
         this.idb = idb;
+        //Gör att man endast kan selecta text, och ej skriva i textrutan.
         txtaShowAreaChief.setEditable(false);
         listAreas();
 
@@ -136,6 +130,9 @@ public class JfAreaChief extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Fyller JCombo boxen med alla områden som finns i databasen.
+     */
     public void listAreas() {
 
         try {
@@ -155,34 +152,31 @@ public class JfAreaChief extends javax.swing.JFrame {
     }
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
         setVisible(false);
-        //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void cbListAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListAreasActionPerformed
         txtaShowAreaChief.setText("");
 
-        
-            try {
-                String query = "SELECT namn, telefon FROM Agent \n"
-                        + "JOIN omradeschef oc USING (Agent_ID) \n"
-                        + "JOIN Omrade o ON oc.Omrade = o.Omrades_ID \n"
-                        + "WHERE o.Benamning = " + "'" + cbListAreas.getSelectedItem() + "'";
+        try {
+            String query = "SELECT namn, telefon FROM Agent \n"
+                    + "JOIN omradeschef oc USING (Agent_ID) \n"
+                    + "JOIN Omrade o ON oc.Omrade = o.Omrades_ID \n"
+                    + "WHERE o.Benamning = " + "'" + cbListAreas.getSelectedItem() + "'";
 
-                HashMap<String, String> areaChief = idb.fetchRow(query);
-                String namn = areaChief.get("namn");
-                String telefon = areaChief.get("telefon");
+            HashMap<String, String> areaChief = idb.fetchRow(query);
+            String namn = areaChief.get("namn");
+            String telefon = areaChief.get("telefon");
 
-                txtaShowAreaChief.setText("Områdeschef:\t" + namn + "\n"
-                        + "Telefon:\t" + telefon);
+            txtaShowAreaChief.setText("Områdeschef:\t" + namn + "\n"
+                    + "Telefon:\t" + telefon);
 
-            } catch (InfException ex) {
-                System.out.println("Databasfel" + ex.getMessage());
-            } catch (Exception ex) {
-                System.out.println("Random fel" + ex.getMessage());
-            }
-        
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+
     }//GEN-LAST:event_cbListAreasActionPerformed
 
 

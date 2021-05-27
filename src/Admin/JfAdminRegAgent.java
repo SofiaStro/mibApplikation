@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Admin;
 
 import java.awt.Color;
@@ -15,20 +10,19 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Fönster för att registrera och lägga till en agent i databasen.
  *
- * @author strom
+ * @author Grupp 8
  */
 public class JfAdminRegAgent extends javax.swing.JFrame {
 
     private InfDB idb;
 
-    /**
-     * Creates new form JfRegAgent for Admin
-     */
     public JfAdminRegAgent(InfDB idb) {
         initComponents();
         this.idb = idb;
 
+        //Gör att man endast kan selecta text, men ej skriva i textrutan.
         txtaMessage.setEditable(false);
         setPrivileges();
         setArea();
@@ -91,6 +85,7 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
     }
 
     private String getNewPw() {
+        //Returnerar en slumpmässigt sträng som innehåller bokstäver och siffror.
         String newPw = RandomStringUtils.randomAlphanumeric(6);
 
         return newPw;
@@ -114,6 +109,8 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
     }
 
     private String getSystemDate() {
+        //LocalDate hanterar format för datum. Metoden .now returnerar
+        //ditt systems nuvarande datum.
         LocalDate localDate = LocalDate.now();
         String currentDate = String.valueOf(localDate);
 
@@ -313,8 +310,10 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
 
         getPrivileges();
         getAreaId();
-        lblMessage.setForeground(new Color(255, 50,50));
+        //Ger texten i lblMessage en ny färg.
+        lblMessage.setForeground(new Color(255, 50, 50));
         String getName = txtName.getText();
+        //Metod som omvandlar färsta bokstaven för varje ord till versal.
         String name = WordUtils.capitalize(getName);
 
         String phone = txtPhone.getText();
@@ -336,14 +335,13 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
                         + "'" + getPrivileges() + "'" + ", "
                         + "'" + newPw + "'" + ", "
                         + "'" + getAreaId() + "'" + ")";
-                String queryFieldAgent ="INSERT INTO faltagent (agent_id)\n"
-                        +"VALUES (" + agentId + ")";
+                String queryFieldAgent = "INSERT INTO faltagent (agent_id)\n"
+                        + "VALUES (" + agentId + ")";
 
                 idb.insert(query);
                 idb.insert(queryFieldAgent);
-                
 
-                lblMessage.setForeground(new Color(50,255,50));
+                lblMessage.setForeground(new Color(50, 255, 50));
                 lblMessage.setText("Registrering slutförd!");
                 txtaMessage.setText("Registrerad agent\n"
                         + "---------------------------\n"
@@ -368,7 +366,6 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_btnMenuActionPerformed
 

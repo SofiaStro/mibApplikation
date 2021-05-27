@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Agent_and_Admin;
 
 import java.awt.Color;
@@ -13,21 +8,20 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Fönster för att lägga till utrustning till en agents arsenal.
  *
- * @author strom
+ * @author Grupp 8
  */
 public class JfEquipment extends javax.swing.JFrame {
 
     private String agentId;
     private InfDB idb;
 
-    /**
-     * Creates new form WindowAlienChangePw
-     */
     public JfEquipment(InfDB idb, String agentId) {
         initComponents();
         this.idb = idb;
         this.agentId = agentId;
+        //Gör att man endast kan selecta text, och ej skriva i textrutan.
         txtaMyEquipment.setEditable(false);
         listMyEquipment();
         setWeapons();
@@ -261,11 +255,11 @@ public class JfEquipment extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        //LAGGAS TILL FÖR AGENT_ID
-        //KONTROLLERA VILKA BOXAR SOM ÄR VALDA
-        //REGISTERA DAGEN
+        //Ger texten i lblMessage en ny färg.
         lblMessage.setForeground(new Color(255, 50, 50));
         try {
+            //LocalDate hanterar format för datum, samt ger tillgång till metoder som till exempel .now()
+            //vilket returnerar ditt systems nuvarande datum.
             LocalDate getDate = LocalDate.now();
             String date = getDate.toString();
             if (!Validation.validationCb(cbWeapons, lblMessage, " ")
@@ -303,6 +297,7 @@ public class JfEquipment extends javax.swing.JFrame {
                             + "VALUES (" + agentId + "," + utrustningsId + ",'" + date + "')";
                     idb.insert(qAddEquip);
                 }
+                //Ger texten i lblMessage en ny färg.
                 lblMessage.setForeground(new Color(50, 255, 50));
                 lblMessage.setText("Utrusting har registrerats");
             }
@@ -317,9 +312,7 @@ public class JfEquipment extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
         setVisible(false);
-        //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
 
