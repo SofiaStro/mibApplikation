@@ -13,6 +13,7 @@ import Agent_and_Admin.JfChangePw;
 import Agent_and_Admin.JfEquipment;
 import Agent_and_Admin.JfListAliens;
 import Agent_and_Admin.JfAgentRegAlien;
+import java.awt.Window;
 import oru.inf.InfDB;
 
 /**
@@ -234,8 +235,11 @@ public class JfAdminStart extends javax.swing.JFrame {
     }//GEN-LAST:event_btnChangePwActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        agentId = "";
-        setVisible(false);
+        System.gc();
+        for (Window element : Window.getWindows()){
+            element.dispose();
+        }
+        
         new MainWindowLogin(idb).setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 

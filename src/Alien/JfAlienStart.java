@@ -5,7 +5,9 @@
  */
 package Alien;
 
+import java.awt.Window;
 import java.util.HashMap;
+import mibapplikation.Database;
 import mibapplikation.MainWindowLogin;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -113,9 +115,14 @@ public class JfAlienStart extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        alienId = "";
-        setVisible(false);
+        
+        System.gc();
+        for (Window element : Window.getWindows()){
+            element.dispose();
+        }
+        
         new MainWindowLogin(idb).setVisible(true);
+        
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed

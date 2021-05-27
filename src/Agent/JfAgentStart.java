@@ -10,6 +10,7 @@ import Agent_and_Admin.JfEquipment;
 import Agent_and_Admin.JfChangePw;
 import Agent_and_Admin.JfAreaChief;
 import Agent_and_Admin.JfListAliens;
+import java.awt.Window;
 import java.util.ArrayList;
 import mibapplikation.MainWindowLogin;
 import oru.inf.InfDB;
@@ -187,8 +188,11 @@ public class JfAgentStart extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        agentId = "";
-        setVisible(false);
+        System.gc();
+        for (Window element : Window.getWindows()){
+            element.dispose();
+        }
+        
         new MainWindowLogin(idb).setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
