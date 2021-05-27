@@ -24,6 +24,7 @@ public class Database {
         }
 
         new MainWindowLogin(idb).setVisible(true);
+        new ValidationRace(idb);
 
     }
 

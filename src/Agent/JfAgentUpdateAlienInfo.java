@@ -545,12 +545,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
                                 }
                             }
                         }
-                        /**
-                         * När man uppdaterat information om en vald alien
-                         * kommer information om den skrivas ut i TextArean.
-                         */
-                        txtfAlienInfo.setText(alienId);
-                        btnShowInfo.doClick();
+                      
 
                     }
 

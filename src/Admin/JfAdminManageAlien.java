@@ -713,7 +713,8 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
         int loops = 0;
 
         if (Validation.validationTxt(txtfAlienInputChange, lblMessageInput, "Ange aliennamn eller id")) {
-            if (txtfNameInput.getText().isEmpty() && txtfPhoneInput.getText().isEmpty()
+            if (txtfNameInput.getText().isEmpty() 
+                    && txtfPhoneInput.getText().isEmpty()
                     && txtfPwInput.getText().isEmpty()
                     && cbListLocations.getSelectedItem().equals("-----")
                     && cbListAgents.getSelectedItem().equals("-----")
@@ -772,8 +773,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                                 }
                             }
                         }
-                        txtfShowAlienInput.setText(alienId);
-                        btnShowInfo.doClick();
+                       
                     }
 
                 } catch (InfException ex) {

@@ -40,7 +40,7 @@ public class ValidationRace {
                 ras = "Boglodite";
             } else if (alienWorm != null) {
                 ras = "Worm";
-            } else if (ras.equals("")) {
+            } else if (ras.equals("")){
                 ras = "<Oidentifierad>";
             }
 
