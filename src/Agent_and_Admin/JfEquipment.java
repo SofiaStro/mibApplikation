@@ -119,11 +119,9 @@ public class JfEquipment extends javax.swing.JFrame {
         cbWeapons = new javax.swing.JComboBox<>();
         cbComms = new javax.swing.JComboBox<>();
         cbTech = new javax.swing.JComboBox<>();
-        cbVehicle = new javax.swing.JComboBox<>();
         lblWeapon = new javax.swing.JLabel();
         lblCommunication = new javax.swing.JLabel();
         lblTech = new javax.swing.JLabel();
-        lblVehicle = new javax.swing.JLabel();
         lblMessage = new javax.swing.JLabel();
         lblYourEquipment = new javax.swing.JLabel();
 
@@ -168,8 +166,6 @@ public class JfEquipment extends javax.swing.JFrame {
 
         cbTech.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
 
-        cbVehicle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----" }));
-
         lblWeapon.setForeground(new java.awt.Color(255, 255, 255));
         lblWeapon.setText("Vapen");
 
@@ -178,9 +174,6 @@ public class JfEquipment extends javax.swing.JFrame {
 
         lblTech.setForeground(new java.awt.Color(255, 255, 255));
         lblTech.setText("Teknik");
-
-        lblVehicle.setForeground(new java.awt.Color(255, 255, 255));
-        lblVehicle.setText("Fordon");
 
         lblMessage.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblMessage.setForeground(new java.awt.Color(255, 50, 50));
@@ -209,11 +202,9 @@ public class JfEquipment extends javax.swing.JFrame {
                                             .addComponent(cbWeapons, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(cbComms, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(cbTech, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cbVehicle, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(lblWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lblTech, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblCommunication, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(lblCommunication, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(lblYourEquipment)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
@@ -245,11 +236,7 @@ public class JfEquipment extends javax.swing.JFrame {
                         .addComponent(lblTech)
                         .addGap(2, 2, 2)
                         .addComponent(cbTech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(cbVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                         .addComponent(btnAdd))
                     .addComponent(jScrollPane1))
                 .addGap(28, 28, 28)
@@ -341,7 +328,6 @@ public class JfEquipment extends javax.swing.JFrame {
     private javax.swing.JButton btnMenu;
     private javax.swing.JComboBox<String> cbComms;
     private javax.swing.JComboBox<String> cbTech;
-    private javax.swing.JComboBox<String> cbVehicle;
     private javax.swing.JComboBox<String> cbWeapons;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -349,7 +335,6 @@ public class JfEquipment extends javax.swing.JFrame {
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblTech;
-    private javax.swing.JLabel lblVehicle;
     private javax.swing.JLabel lblWeapon;
     private javax.swing.JLabel lblYourEquipment;
     private javax.swing.JTextArea txtaMyEquipment;

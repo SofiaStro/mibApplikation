@@ -65,11 +65,9 @@
                                               <Component id="cbWeapons" alignment="0" max="32767" attributes="0"/>
                                               <Component id="cbComms" alignment="0" max="32767" attributes="0"/>
                                               <Component id="cbTech" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="cbVehicle" alignment="1" max="32767" attributes="0"/>
                                               <Component id="lblWeapon" min="-2" pref="37" max="-2" attributes="0"/>
                                               <Component id="lblTech" min="-2" pref="37" max="-2" attributes="0"/>
                                               <Component id="lblCommunication" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                              <Component id="lblVehicle" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Component id="lblYourEquipment" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -112,11 +110,7 @@
                           <Component id="lblTech" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                           <Component id="cbTech" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblVehicle" min="-2" pref="16" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          <Component id="cbVehicle" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="21" max="32767" attributes="0"/>
+                          <EmptySpace pref="68" max="32767" attributes="0"/>
                           <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
@@ -219,18 +213,6 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbVehicle">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="1">
-                <StringItem index="0" value="-----"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JLabel" name="lblWeapon">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -253,14 +235,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Teknik"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblVehicle">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Fordon"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblMessage">
