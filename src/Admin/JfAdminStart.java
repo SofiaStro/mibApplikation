@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Admin;
 
 import Admin.JfAdminManageAgent;
@@ -17,23 +12,25 @@ import java.awt.Window;
 import oru.inf.InfDB;
 
 /**
+ * Menyfönster för agenter med admin behörighet.
  *
- * @author Blazl
+ * @author Grupp 8
  */
 public class JfAdminStart extends javax.swing.JFrame {
 
     private InfDB idb;
     private String agentId;
-    private String username;
 
     /**
-     * Creates new form JfStart for admin
+     *
+     * @param idb Tar in ett databasobjekt.
+     * @param agentId agentId för agenten som loggas in.
+     * @param username Tar in namnet för agenten som loggas in.
      */
     public JfAdminStart(InfDB idb, String agentId, String username) {
         initComponents();
         this.idb = idb;
         this.agentId = agentId;
-        this.username = username;
         lblWelcome.setText("Välkommen admin " + username + "!");
 
     }
@@ -233,13 +230,16 @@ public class JfAdminStart extends javax.swing.JFrame {
     private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed
         new JfChangePw(idb, agentId).setVisible(true);
     }//GEN-LAST:event_btnChangePwActionPerformed
-
+    /**
+     * Rensar minnet på skräp som inte används och stänger sen ner alla
+     * nuvarande fönster. Därefter skapas en ny instans av login-fönstret.
+     */
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         System.gc();
-        for (Window element : Window.getWindows()){
+        for (Window element : Window.getWindows()) {
             element.dispose();
         }
-        
+
         new MainWindowLogin(idb).setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
@@ -278,7 +278,6 @@ public class JfAdminStart extends javax.swing.JFrame {
     private void btnFindAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindAreaChiefActionPerformed
         new JfAreaChief(idb).setVisible(true);
     }//GEN-LAST:event_btnFindAreaChiefActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

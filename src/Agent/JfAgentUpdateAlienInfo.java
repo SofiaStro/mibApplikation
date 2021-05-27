@@ -290,17 +290,15 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
         if (Validation.validationTxt(txtfAlienInfo, lblMessageInfo, "Ange aliennamn eller id")) {
             try {
                 String qAlienId = "SELECT alien_id FROM alien WHERE namn = '" + txtfAlienInfo.getText() + "' OR alien_id = '" + txtfAlienInfo.getText() + "'";
-                    ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
-                    String alienId = idb.fetchSingle(qAlienId);
+                ArrayList<String> alienIdList = idb.fetchColumn(qAlienId);
+                String alienId = idb.fetchSingle(qAlienId);
 
-                    for (String element : alienIdList) {
-                        loops++;
-                    }
-                    if (loops > 1) {
-                        lblMessageInfo.setText("Det finns mer än en alien med detta namn, var vänligen ange ID");
-                    }
-
-                    else if (alienId == null) {
+                for (String element : alienIdList) {
+                    loops++;
+                }
+                if (loops > 1) {
+                    lblMessageInfo.setText("Det finns mer än en alien med detta namn, var vänligen ange ID");
+                } else if (alienId == null) {
                     lblMessageInfo.setText("Alien namet finns inte registrerat");
                 } else {
                     txtaPrintAlienInfo.append("Alien id:\t" + alienId + "\n");
@@ -341,11 +339,10 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
             } catch (Exception ex) {
                 System.out.println("Random fel" + ex.getMessage());
             }
-            
+
         }
-        
-    
-        
+
+
     }//GEN-LAST:event_btnShowInfoActionPerformed
 
     private void cbListRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListRaceActionPerformed
@@ -369,7 +366,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         lblMessageInfo.setText(" ");
         lblMessageUpdate.setText(" ");
-        lblMessageUpdate.setForeground(new Color(255,50,50));
+        lblMessageUpdate.setForeground(new Color(255, 50, 50));
         int loops = 0;
 
         if (Validation.validationTxt(txtfAlienUpdate, lblMessageUpdate, "Ange aliennamn eller id")) {
@@ -418,6 +415,8 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
                                 }
                             }
                         }
+                        txtfAlienInfo.setText(alienId);
+                        btnShowInfo.doClick();
 
                     }
 
@@ -534,6 +533,22 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
         }
     }
 
+    private void setUnidentified(String alienId) {
+        String currentRace = ValidationRace.getRace(alienId);
+        try {
+            if (!currentRace.equals("<Oidentifierad>")) {
+                String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
+                idb.delete(qDelete);
+                correctValues();
+            }
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+
+    }
+
     private void setWorm(String alienId) {
         String currentRace = ValidationRace.getRace(alienId);
         try {
@@ -551,22 +566,6 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
-    }
-
-    private void setUnidentified(String alienId) {
-        String currentRace = ValidationRace.getRace(alienId);
-        try {
-            if (!currentRace.equals("<Oidentifierad>")) {
-                String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
-                idb.delete(qDelete);
-                correctValues();
-            }
-        } catch (InfException ex) {
-            System.out.println("Databasfel" + ex.getMessage());
-        } catch (Exception ex) {
-            System.out.println("Random fel" + ex.getMessage());
-        }
-
     }
 
 

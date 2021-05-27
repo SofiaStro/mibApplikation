@@ -468,12 +468,15 @@ public class JfAdminManageAgent extends javax.swing.JFrame {
                         if (!cbListAreas.getSelectedItem().equals("-----")) {
                             setAgentLocation(agentId);
                         }
+                        txtfAgentInfoInput.setText(agentId);
+                        btnShowInfo.doClick();
                     }
                 } catch (InfException ex) {
                     System.out.println("Databasfel" + ex.getMessage());
                 } catch (Exception ex) {
                     System.out.println("Random fel" + ex.getMessage());
                 }
+              
             }
         }
     }//GEN-LAST:event_btnUpdateActionPerformed

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Alien;
 
 import java.awt.Window;
@@ -12,8 +7,9 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Menyfönster för aliens.
  *
- * @author Blazl
+ * @author Grupp 8
  */
 public class JfAlienStart extends javax.swing.JFrame {
 
@@ -21,7 +17,10 @@ public class JfAlienStart extends javax.swing.JFrame {
     private String alienId;
 
     /**
-     * Creates new form MainWindow
+     *
+     * @param idb Tar in ett databasobjekt.
+     * @param alienId agentId för alien som loggas in.
+     * @param username Tar in namnet för alien som loggas in.
      */
     public JfAlienStart(InfDB idb, String alienId, String username) {
         initComponents();
@@ -110,20 +109,21 @@ public class JfAlienStart extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Rensar minnet på skräp som inte används och stänger sen ner alla
+     * nuvarande fönster. Därefter skapas en ny instans av login-fönstret.
+     */
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
-        
         System.gc();
-        for (Window element : Window.getWindows()){
+        for (Window element : Window.getWindows()) {
             element.dispose();
         }
-        
+
         new MainWindowLogin(idb).setVisible(true);
-        
+
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed
-        // TODO add your handling code here:
         new JfAlienChangePw(idb, alienId).setVisible(true);
     }//GEN-LAST:event_btnChangePwActionPerformed
     private void getAreaChief() {
@@ -144,7 +144,7 @@ public class JfAlienStart extends javax.swing.JFrame {
             lblAgentName.setText("Områdeschef: " + agentName);
             lblAgentPhone.setText("Telefon: " + agentPhone);
             lblArea.setText("Du tillhör området: " + areaName);
-            
+
         } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
         } catch (Exception ex) {
@@ -152,9 +152,6 @@ public class JfAlienStart extends javax.swing.JFrame {
         }
 
     }
- 
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;

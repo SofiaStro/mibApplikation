@@ -1,25 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mibapplikation;
 
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Validation för en aliens ras.
  *
- * @author strom
+ * @author Grup 8
  */
 public class ValidationRace {
 
     private static InfDB idb;
-    
-    public ValidationRace(InfDB idb){
+
+    public ValidationRace(InfDB idb) {
         this.idb = idb;
     }
 
+    /**
+     * Tar reda på vad för ras en alien har.
+     *
+     * @return Returnerar den angiva aliens ras som en sträng.
+     */
     public static String getRace(String alienId) {
 
         String ras = "";
@@ -35,26 +36,20 @@ public class ValidationRace {
 
             if (alienSquid != null) {
                 ras = "Squid";
-            } 
-            else if (alienBoglodite != null) {
+            } else if (alienBoglodite != null) {
                 ras = "Boglodite";
-            } 
-            else if (alienWorm != null) {
+            } else if (alienWorm != null) {
                 ras = "Worm";
-            }
-            else if(ras.equals("")){
+            } else if (ras.equals("")) {
                 ras = "<Oidentifierad>";
             }
 
-        } 
-        catch (InfException ex) {
+        } catch (InfException ex) {
             System.out.println("Databasfel" + ex.getMessage());
-        } 
-        catch (Exception ex) {
+        } catch (Exception ex) {
             System.out.println("Random fel" + ex.getMessage());
         }
         return ras;
     }
 
 }
-

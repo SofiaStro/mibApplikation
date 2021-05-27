@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mibapplikation;
 
 import Alien.JfAlienStart;
@@ -13,20 +8,20 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Login fönster som validerar en inloggning och öppnar rätt fönster för
+ * användaren.
  *
- * @author Blazl
+ * @author Grupp 8
  */
 public class MainWindowLogin extends javax.swing.JFrame {
-    
+
     private InfDB idb;
-    /**
-     * Creates new form MainWindowLogin
-     */
+
     public MainWindowLogin(InfDB idb) {
         initComponents();
         this.idb = idb;
     }
-        
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -165,10 +160,10 @@ public class MainWindowLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // Om användarnamn och lösenord stämmer och finns i databasen ska man loggas in till den sidan som finns för sin användartyp.
-        if(Validation.validationTxt(txtfUsername, lblMessage, "Ange användarnamn") 
-            && Validation.validationTxt(pwPassword, lblMessage, "Ange lösenord")){
-            try{        
+
+        if (Validation.validationTxt(txtfUsername, lblMessage, "Ange användarnamn")
+                && Validation.validationTxt(pwPassword, lblMessage, "Ange lösenord")) {
+            try {
                 String username = txtfUsername.getText();
                 char[] pwArray = pwPassword.getPassword();
                 String password = new String(pwArray);
@@ -183,24 +178,22 @@ public class MainWindowLogin extends javax.swing.JFrame {
                 String resultAlien = idb.fetchSingle(queryAlien);
 
                 if (resultAgent != null) {
-                    if(resultAdmin.equals("J")){
+                    if (resultAdmin.equals("J")) {
                         setVisible(false);
+                        //Gör om första bokstaven till versal.
                         username = WordUtils.capitalize(username);
                         new JfAdminStart(idb, resultAgent, username).setVisible(true);
-                    }
-                    else{
+                    } else {
                         setVisible(false);
                         username = WordUtils.capitalize(username);
                         new JfAgentStart(idb, resultAgent, username).setVisible(true);
-                    }                
-                }
-                else if (resultAlien != null) {
+                    }
+                } else if (resultAlien != null) {
                     setVisible(false);
-                    //Gör om första bokstaven till versal.
+
                     username = WordUtils.capitalize(username);
-                    new JfAgentStart(idb, resultAlien, username).setVisible(true);
-                } 
-                else {
+                    new JfAlienStart(idb, resultAlien, username).setVisible(true);
+                } else {
                     lblMessage.setText("Fel användarnamn eller lösenord");
                     pwPassword.setText("");
                     pwPassword.requestFocus();
@@ -209,30 +202,26 @@ public class MainWindowLogin extends javax.swing.JFrame {
                 password = "";
                 pwArray = null;
 
-            } 
-            catch (InfException ex){
+            } catch (InfException ex) {
                 System.out.println("Databasfel" + ex.getMessage());
-            }
-            catch (Exception ex){
+            } catch (Exception ex) {
                 System.out.println("Random fel" + ex.getMessage());
             }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
     /**
      * Metod för att kunna trycka på enter i lösenordsfältet.
-     * 
-     * Standard actionTrigger för JPasswordfield är att trycka på enter.
-     * När pwPassword är i fokus och enter tangenten trycks ner kallas metoden doClick().
-     * doClick() agerar som ett musklick på det objekt den kallas på.
+     *
+     * Standard actionTrigger för JPasswordfield är att trycka på enter. När
+     * pwPassword är i fokus och enter tangenten trycks ner kallas metoden
+     * doClick(). doClick() agerar som ett musklick på det objekt den kallas på.
      */
     private void pwPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwPasswordActionPerformed
-        // TODO add your handling code here:
+
         btnLogin.doClick();
     }//GEN-LAST:event_pwPasswordActionPerformed
-    
-   
-    
-        
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;

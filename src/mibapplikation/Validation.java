@@ -1,25 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mibapplikation;
 
 import java.awt.Color;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
+ * Olika typer av validationer för komponenter.
  *
- * @author Blazl
+ * @author Grupp 8
  */
 public class Validation {
-    public static void setErrorColor(JLabel message){
-        message.setForeground(new Color(255,50,50));
+
+    /**
+     * Ger en JLabel en röd färg.
+     *
+     * @param message JLabel vars textfärg ska förändras.
+     */
+    public static void setErrorColor(JLabel message) {
+        message.setForeground(new Color(255, 50, 50));
     }
 
+    /**
+     * Kollar om ett textfält är tomt.
+     */
     public static boolean validationTxt(JTextField fieldToValidate, JLabel message, String messageText) {
         boolean result = true;
         if (fieldToValidate.getText().isEmpty()) {
@@ -31,16 +35,9 @@ public class Validation {
         return result;
     }
 
-    public static boolean validationTxt(JTextField fieldToValidate, JTextArea message) {
-        boolean result = true;
-        if (fieldToValidate.getText().isEmpty()) {
-            message.setText("En eller flera rutor är tomma!");
-            result = false;
-            fieldToValidate.requestFocus();
-        }
-        return result;
-    }
-
+    /**
+     * Kollar om ett textfält har rätt format för datum(yyyy-mm-dd).
+     */
     public static boolean validationTxtDate(JTextField fieldToValidate, JLabel message) {
         boolean result = true;
         String fullDate = fieldToValidate.getText();
@@ -58,11 +55,13 @@ public class Validation {
 
             String regex = "\\d+"; //Kontrollerar att det er ett tal från 0 eller större
 
-            Boolean yearTest = year.matches(regex);
-            Boolean monthTest = month.matches(regex);
-            Boolean dayTest = day.matches(regex);
+            //matchers metoden kollar om strängen innehåller det som regex uttrycket anger
+            //och returnerar sant eller falskt.
+            Boolean yearCheck = year.matches(regex);
+            Boolean monthCheck = month.matches(regex);
+            Boolean dayCheck = day.matches(regex);
 
-            if (yearTest && monthTest && dayTest
+            if (yearCheck && monthCheck && dayCheck
                     && lineOne.equals("-") && lineTwo.equals("-")
                     && Integer.parseInt(month) >= 1 && Integer.parseInt(month) <= 12
                     && Integer.parseInt(day) >= 1 && Integer.parseInt(day) <= 31) {
@@ -76,33 +75,9 @@ public class Validation {
         return result;
     }
 
-    public static boolean validationTxtPhone(JTextField fieldToValidate, JTextArea message) {
-        boolean result = false;
-        if (fieldToValidate.getText().matches("[+() [0-9]-]+") || fieldToValidate.getText().matches("")) {
-
-            result = true;
-
-        } else {
-            message.setText("Telefonnumret har fel format!");
-            fieldToValidate.requestFocus();
-        }
-        return result;
-    }
-
-    public static boolean validationNumbers(JTextField fieldToValidate, JTextArea message, String messageText) {
-        boolean result = false;
-        if (fieldToValidate.getText().matches("[0-9]+")) {
-
-            result = true;
-
-        } else {
-            message.setText(messageText);
-            fieldToValidate.requestFocus();
-
-        }
-        return result;
-    }
-
+    /**
+     * Kollar om ett textfält enbart innehåller siffror.
+     */
     public static boolean validationNumbers(JTextField fieldToValidate, JLabel message, String messageText) {
         boolean result = false;
         if (fieldToValidate.getText().matches("[0-9]+")) {
@@ -118,12 +93,16 @@ public class Validation {
         return result;
     }
 
+    /**
+     * Kollar om ett textfält ej innehåller andra tecken än de som står i regex
+     * uttrycket.
+     */
     public static boolean validationTxtPhone(JTextField fieldToValidate, JLabel message) {
         boolean result = false;
+        //Regex uttrycket "[+() [0-9]-]+" betyder: "+" "-" "(" ")" "mellanslag" "tal 1-9"
         if (fieldToValidate.getText().matches("[+() [0-9]-]+") || fieldToValidate.getText().matches("")) {
 
             result = true;
-            
 
         } else {
             setErrorColor(message);
@@ -133,6 +112,9 @@ public class Validation {
         return result;
     }
 
+    /**
+     * Kollar om en JComboBox är tom(-----).
+     */
     public static boolean validationCb(JComboBox fieldToValidate, JLabel message, String messageText) {
         boolean result = true;
         if (fieldToValidate.getSelectedItem().equals("-----")) {
@@ -144,28 +126,10 @@ public class Validation {
         return result;
     }
 
-    public static boolean validationCb(JComboBox fieldToValidate, JTextArea message) {
-        boolean result = true;
-        if (fieldToValidate.getSelectedItem().equals("-----")) {
-            message.setText("En eller flera rutor är tomma!");
-            result = false;
-            fieldToValidate.requestFocus();
-        }
-        return result;
-    }
-
-//    public static boolean validationTxtNrOfChar(JTextField fieldToValidate, JLabel message) {
-//        boolean result = false;
-//        if (fieldToValidate.getText().length() <= 20) {
-//
-//            result = true;
-//            fieldToValidate.requestFocus();
-//
-//        } else {
-//            message.setText("För många tecken!");
-//        }
-//        return result;
-//    }
+    /**
+     * Kollar om ett textfält ej innehåller fler karaktärer än den angivna
+     * parametern maxChars.
+     */
     public static boolean validationTxtNrOfChar(JTextField fieldToValidate, JLabel message, int maxChars, String messageText) {
         boolean result = false;
         if (fieldToValidate.getText().length() <= maxChars) {

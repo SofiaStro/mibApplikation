@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Agent;
 
 import Agent_and_Admin.JfRegAlien;
@@ -15,23 +10,28 @@ import mibapplikation.MainWindowLogin;
 import oru.inf.InfDB;
 
 /**
+ * Menyfönster för agenter med standard behörighet.
  *
- * @author Blazl
+ * @author Grupp 8
+ *
  */
 public class JfAgentStart extends javax.swing.JFrame {
 
-    private  InfDB idb;
-    private  String agentId;
-  
+    private InfDB idb;
+    private String agentId;
+
     /**
-     * Creates new form MainWindow
+     *
+     * @param idb Tar in ett databasobjekt.
+     * @param agentId agentId för agenten som loggas in.
+     * @param username Tar in namnet för agenten som loggas in.
      */
     public JfAgentStart(InfDB idb, String agentId, String username) {
         initComponents();
         this.idb = idb;
         this.agentId = agentId;
         lblWelcome.setText("Välkommen " + username + "!");
-        
+
     }
 
     /**
@@ -180,49 +180,43 @@ public class JfAgentStart extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Rensar minnet på skräp som inte används och stänger sen ner alla
+     * nuvarande fönster. Därefter skapas en ny instans av login-fönstret.
+     */
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
         System.gc();
-        for (Window element : Window.getWindows()){
+        for (Window element : Window.getWindows()) {
             element.dispose();
         }
-        
+
         new MainWindowLogin(idb).setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnChangePwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePwActionPerformed
-        // TODO add your handling code here:
         new JfChangePw(idb, agentId).setVisible(true);
     }//GEN-LAST:event_btnChangePwActionPerformed
 
     private void btnEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquipmentActionPerformed
-        // TODO add your handling code here:
         new JfEquipment(idb, agentId).setVisible(true);
     }//GEN-LAST:event_btnEquipmentActionPerformed
 
     private void btnAreaChiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreaChiefActionPerformed
-        // TODO add your handling code here:
         new JfAreaChief(idb).setVisible(true);
     }//GEN-LAST:event_btnAreaChiefActionPerformed
 
     private void btnRegAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAlienActionPerformed
-        // TODO add your handling code here:
         new JfRegAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAlienActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
-       new JfAgentUpdateAlienInfo(idb).setVisible(true); 
+        new JfAgentUpdateAlienInfo(idb).setVisible(true);
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btnAlienListsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienListsActionPerformed
-        // TODO add your handling code here:
         new JfListAliens(idb).setVisible(true);
     }//GEN-LAST:event_btnAlienListsActionPerformed
 
-
-
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
