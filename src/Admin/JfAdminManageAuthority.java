@@ -316,12 +316,14 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
     }
 
     private void listAllAgentsHeadChief() {
-
+        cbListAgentsHeadChief.removeAllItems();
+        cbListAgentsHeadChief.addItem("-----");
         try {
             String query
-                    = "SELECT agent_id, namn, benamning FROM agent a\n"
-                    + "JOIN omrade o ON a.omrade = o.omrades_id\n"
-                    + "ORDER BY benamning, namn";
+                    = "SELECT a.agent_id, namn, benamning FROM agent a\n" +
+"JOIN omrade o ON a.omrade = o.omrades_id\n" +
+"JOIN kontorschef k ON a.agent_id != k.agent_id\n" +
+"ORDER BY benamning,namn";
             ArrayList<HashMap<String, String>> agentList = idb.fetchRows(query);
 
             for (HashMap<String, String> element : agentList) {
@@ -335,12 +337,16 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
     }
 
     private void listAllAgentsAreaChief() {
+        cbListAgentsArea.removeAllItems();
+        cbListAgentsArea.addItem("-----");
 
         try {
             String query
-                    = "SELECT agent_id, namn, benamning FROM agent a\n"
-                    + "JOIN omrade o ON a.omrade = o.omrades_id\n"
-                    + "ORDER BY benamning, namn";
+                    = "SELECT a.agent_id, namn, benamning FROM agent a\n" +
+"JOIN omrade o ON a.omrade = o.omrades_id\n" +
+"LEFT JOIN omradeschef oc ON oc.agent_id = a.agent_id\n" +
+"WHERE oc.agent_id IS NULL\n" +
+"ORDER BY benamning, namn";
             ArrayList<HashMap<String, String>> agentList = idb.fetchRows(query);
 
             for (HashMap<String, String> element : agentList) {
@@ -457,6 +463,7 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
                     idb.update(qUpdate);
                     lblMessageAreaChief.setForeground(new Color(50,255,50));
                     lblMessageAreaChief.setText("Områdeschefen är uppdaterad!");
+                    listAllAgentsAreaChief();
 
                 } else {
                     lblMessageAreaChief.setText("Agenten är redan chef för ett område");
@@ -492,6 +499,7 @@ public class JfAdminManageAuthority extends javax.swing.JFrame {
                     idb.update(qUpdate);
                     lblMessageHeadChief.setForeground(new Color(50,255,50));
                     lblMessageHeadChief.setText("Agenten har registrerats som kontorschef");
+                    listAllAgentsHeadChief();
                 }
 
             } catch (InfException ex) {
