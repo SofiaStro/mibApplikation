@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Agent_and_Admin;
 
 import java.time.LocalDate;
@@ -13,16 +8,14 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Panel som listar alla aliens registrerade mellan två angivna datum
  *
- * @author Blazl
+ * @author Grupp 8
  */
 public class JpListAlienDates extends javax.swing.JPanel {
-    
-    
+
     private InfDB idb;
-    /**
-     * Creates new form WindowAgentAlienDatesJP
-     */
+
     public JpListAlienDates(InfDB idb) {
         initComponents();
         this.idb = idb;
@@ -126,14 +119,18 @@ public class JpListAlienDates extends javax.swing.JPanel {
         txtaListAliens.setText("");
 
         if (Validation.validationTxt(txtfStartDate, lblMessage, "Ange ett fr.o.m. datum")
-            && Validation.validationTxt(txtfEndDate, lblMessage, "Ange ett t.o.m. datum")
-            && Validation.validationTxtDate(txtfStartDate, lblMessage)
-            && Validation.validationTxtDate(txtfEndDate, lblMessage)) {
+                && Validation.validationTxt(txtfEndDate, lblMessage, "Ange ett t.o.m. datum")
+                && Validation.validationTxtDate(txtfStartDate, lblMessage)
+                && Validation.validationTxtDate(txtfEndDate, lblMessage)) {
 
-       
+            // Använder den importerade klassen LocalDate och omvandlar de inkommande strängarna från textfälten till datum av klassen LocalDate.
             LocalDate startDate = LocalDate.parse(txtfStartDate.getText());
             LocalDate endDate = LocalDate.parse(txtfEndDate.getText());
 
+            /* Metoden .compareTo kommer från klassen LocalDate och jämför två datum med varandra. Metoden kommer att returnera en int som är 1
+             om det första angivna datumet är längre fram i tiden än det andra, en int som är 0 om de är exakt samma datum och en int som
+             är -1 om det andra angivna datumet är längre fram i tiden än det första.
+             */
             int checkDate = startDate.compareTo(endDate);
             if (checkDate > 0) {
                 lblMessage.setText("Fr.o.m. datumet är större än t.o.m. datumet");
@@ -143,21 +140,21 @@ public class JpListAlienDates extends javax.swing.JPanel {
                     ArrayList<HashMap<String, String>> alienInfo = idb.fetchRows(qAlienInfo);
 
                     txtaListAliens.append(" ID\t NAMN \n"
-                        + "-------\t-------\n");
+                            + "-------\t-------\n");
 
                     for (HashMap<String, String> element : alienInfo) {
+                        //Hämtar ut alla aliens registreringsdatum och omvandlar dessa till typen LocalDate
                         LocalDate date = LocalDate.parse(element.get("registreringsdatum"));
                         String namn = element.get("namn");
                         String id = element.get("alien_id");
-
+                        //Varje enskild aliens reg.datum jämförs mot de angivna datumen.
                         int sizeStart = date.compareTo(startDate);
                         int sizeEnd = date.compareTo(endDate);
-
+                        //En villkorssats som syftar till att plocka ut de aliens som har ett registreringsdatum mellan fr.o.m och t.o.m.
                         if (sizeStart >= 0 && sizeEnd <= 0) {
                             alienCounter++;
                             txtaListAliens.append(" " + id + "\t " + namn + "\n");
                         }
-
                     }
 
                     if (alienCounter == 0) {

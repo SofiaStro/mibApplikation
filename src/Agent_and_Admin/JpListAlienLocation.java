@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Agent_and_Admin;
 
 import java.util.ArrayList;
@@ -11,18 +6,18 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
+ * Panel som listar alla aliens på en vald plats
  *
- * @author Blazl
+ * @author Grupp 8
  */
 public class JpListAlienLocation extends javax.swing.JPanel {
-    
+
     private InfDB idb;
-    /**
-     * Creates new form WindowAgentListAlienLocationJP
-     */
+
     public JpListAlienLocation(InfDB idb) {
         initComponents();
         this.idb = idb;
+        // Metoden .setEditable(false) gör så att man endast kan "selecta" text och inte skriva i text arean.
         txtaShowAliens.setEditable(false);
         listAllLocations();
     }
@@ -86,35 +81,6 @@ public class JpListAlienLocation extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbListLocationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListLocationsActionPerformed
-
-        txtaShowAliens.setText("");
-        
-
-            try {
-
-                String query = "SELECT namn, alien_id from Alien \n"
-                + "JOIN plats ON Alien.plats = plats.plats_ID\n"
-                + "WHERE benamning =" + "'" + cbListLocations.getSelectedItem() + "'";
-
-                ArrayList<HashMap<String, String>> alienInfo = idb.fetchRows(query);
-
-                txtaShowAliens.append("ID \t NAMN \n"
-                    + "-------\t-------\n");
-
-                for (HashMap<String, String> element : alienInfo) {
-                    txtaShowAliens.append(element.get("alien_id") + "\t " + element.get("namn") + "\n");
-
-                }
-
-            } catch (InfException ex) {
-                System.out.println("Databasfel" + ex.getMessage());
-            } catch (Exception ex) {
-                System.out.println("Random fel" + ex.getMessage());
-            }
-        
-    }//GEN-LAST:event_cbListLocationsActionPerformed
-    
     private void listAllLocations() {
 
         try {
@@ -132,6 +98,34 @@ public class JpListAlienLocation extends javax.swing.JPanel {
             System.out.println("Random fel" + ex.getMessage());
         }
     }
+    private void cbListLocationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListLocationsActionPerformed
+
+        txtaShowAliens.setText("");
+
+        try {
+
+            String query = "SELECT namn, alien_id from Alien \n"
+                    + "JOIN plats ON Alien.plats = plats.plats_ID\n"
+                    + "WHERE benamning =" + "'" + cbListLocations.getSelectedItem() + "'";
+
+            ArrayList<HashMap<String, String>> alienInfo = idb.fetchRows(query);
+
+            txtaShowAliens.append("ID \t NAMN \n"
+                    + "-------\t-------\n");
+
+            for (HashMap<String, String> element : alienInfo) {
+                txtaShowAliens.append(element.get("alien_id") + "\t " + element.get("namn") + "\n");
+
+            }
+
+        } catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+
+    }//GEN-LAST:event_cbListLocationsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbListLocations;

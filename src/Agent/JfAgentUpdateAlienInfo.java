@@ -20,7 +20,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
     public JfAgentUpdateAlienInfo(InfDB idb) {
         initComponents();
         this.idb = idb;
-        //Metoden .setEditable(false) gör så att det inte går att skriva i text arean. 
+        // Metoden .setEditable(false) gör så att man endast kan "selecta" text och inte skriva i text arean.
         txtaPrintAlienInfo.setEditable(false);
         hideText();
 
@@ -545,8 +545,10 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
                                 }
                             }
                         }
-                        /**När man uppdaterat information om en vald alien 
-                        kommer information om den skrivas ut i TextArean.*/
+                        /**
+                         * När man uppdaterat information om en vald alien
+                         * kommer information om den skrivas ut i TextArean.
+                         */
                         txtfAlienInfo.setText(alienId);
                         btnShowInfo.doClick();
 

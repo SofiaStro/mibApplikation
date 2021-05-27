@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Agent_and_Admin;
 
 import java.util.ArrayList;
@@ -11,18 +6,18 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
- *
- * @author Blazl
+ * Panel som listar alla aliens för en vald ras
+ * 
+ * @author Grupp 8
  */
 public class JpListAlienRace extends javax.swing.JPanel {
     
     private InfDB idb;
-    /**
-     * Creates new form WindowAgentAlienRaceJP
-     */
+
     public JpListAlienRace(InfDB idb) {
         initComponents();
         this.idb = idb;
+        // Metoden .setEditable(false) gör så att man endast kan "selecta" text och inte skriva i text arean.
         txtaShowAliens.setEditable(false);
     }
 
