@@ -264,14 +264,14 @@ public class JfEquipment extends javax.swing.JFrame {
         //LAGGAS TILL FÖR AGENT_ID
         //KONTROLLERA VILKA BOXAR SOM ÄR VALDA
         //REGISTERA DAGEN
-        lblMessage.setForeground(new Color(255,50,50));
+        lblMessage.setForeground(new Color(255, 50, 50));
         try {
             LocalDate getDate = LocalDate.now();
             String date = getDate.toString();
             if (!Validation.validationCb(cbWeapons, lblMessage, " ")
                     && !Validation.validationCb(cbComms, lblMessage, " ")
                     && !Validation.validationCb(cbTech, lblMessage, " ")) {
-            lblMessage.setText("Du måste välja minst 1 utrustning");
+                lblMessage.setText("Du måste välja minst 1 utrustning");
             } else {
                 if (!cbWeapons.getSelectedItem().equals("-----")) {
 
@@ -303,7 +303,7 @@ public class JfEquipment extends javax.swing.JFrame {
                             + "VALUES (" + agentId + "," + utrustningsId + ",'" + date + "')";
                     idb.insert(qAddEquip);
                 }
-                lblMessage.setForeground(new Color(50,255,50));
+                lblMessage.setForeground(new Color(50, 255, 50));
                 lblMessage.setText("Utrusting har registrerats");
             }
 

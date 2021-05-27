@@ -12,11 +12,11 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class Alien {
+public class ValidationRace {
 
     private static InfDB idb;
     
-    public Alien(InfDB idb){
+    public ValidationRace(InfDB idb){
         this.idb = idb;
     }
 

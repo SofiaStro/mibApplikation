@@ -8,7 +8,6 @@ package Admin;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
-import mibapplikation.Equipment;
 import mibapplikation.Validation;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -245,6 +244,38 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     public String getEquipmentType(String equipmentId) {
+
+        String equipmentType = "";
+        try {
+            String qEquipmentWeapon = "SELECT utrustnings_id FROM vapen WHERE utrustnings_id = '" + equipmentId + "'";
+            String equipmentWeapon = idb.fetchSingle(qEquipmentWeapon);
+
+            String qEquipmentTech = "SELECT utrustnings_id FROM teknik WHERE utrustnings_id = '" + equipmentId + "'";
+            String equipmentTech = idb.fetchSingle(qEquipmentTech);
+
+            String qEquipmentComms = "SELECT utrustnings_id FROM kommunikation WHERE utrustnings_id = '" + equipmentId + "'";
+            String equipmentComms = idb.fetchSingle(qEquipmentComms);
+
+            if (equipmentWeapon != null) {
+                equipmentType = "Vapen";
+            } 
+            else if (equipmentTech != null) {
+                equipmentType = "Teknik";
+            } 
+            else if (equipmentComms != null) {
+                equipmentType = "Kommunikation";
+            }
+        } 
+        catch (InfException ex) {
+            System.out.println("Databasfel" + ex.getMessage());
+        } 
+        catch (Exception ex) {
+            System.out.println("Random fel" + ex.getMessage());
+        }
+        return equipmentType;
+    }
+     
     private void printEquipmentList() {
         txtaListEquipment.setText("");
 
@@ -253,7 +284,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
             ArrayList<HashMap<String, String>> result = idb.fetchRows(query);
 
             for (HashMap<String, String> element : result) {
-                String equipmentType = Equipment.getEquipmentType(element.get("utrustnings_id"));
+                String equipmentType = getEquipmentType(element.get("utrustnings_id"));
                 txtaListEquipment.append(" • " + element.get("benamning") + " (" + equipmentType + ")\n");
             }
         } catch (InfException ex) {
@@ -501,7 +532,7 @@ public class JfAdminEquipmentStock extends javax.swing.JFrame {
                     }
                 }
 
-                String equipmentType = Equipment.getEquipmentType(equipmentId);
+                String equipmentType = getEquipmentType(equipmentId);
                 if (equipmentType.equals("Vapen")) {
                     deleteWeaponEquipment();
                 } else if (equipmentType.equals("Teknik")) {

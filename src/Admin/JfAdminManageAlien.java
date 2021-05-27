@@ -8,7 +8,7 @@ package Admin;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
-import mibapplikation.Alien;
+import mibapplikation.ValidationRace;
 import mibapplikation.Validation;
 import org.apache.commons.lang3.StringUtils;
 import oru.inf.InfDB;
@@ -497,7 +497,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
 
     private void setBoglodite(String alienId) {
 
-        String currentRace = Alien.getRace(alienId);
+        String currentRace = ValidationRace.getRace(alienId);
         try {
             showText();
             lblRaceSpecial.setText("Ange antal boogies: ");
@@ -524,7 +524,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
     }
 
     private void setSquid(String alienId) {
-        String currentRace = Alien.getRace(alienId);
+        String currentRace = ValidationRace.getRace(alienId);
         try {
 
             showText();
@@ -552,7 +552,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
     }
 
     private void setWorm(String alienId) {
-        String currentRace = Alien.getRace(alienId);
+        String currentRace = ValidationRace.getRace(alienId);
         try {
 
             if (currentRace != "<Oidentifierad>") {
@@ -571,7 +571,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
     }
 
     private void setUnidentified(String alienId) {
-        String currentRace = Alien.getRace(alienId);
+        String currentRace = ValidationRace.getRace(alienId);
         try {
             if (currentRace != "<Oidentifierad>") {
                 String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
@@ -758,7 +758,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                         }
                         if (!cbListRace.getSelectedItem().equals("-----")) {
 
-                            String currentRace = Alien.getRace(alienId);
+                            String currentRace = ValidationRace.getRace(alienId);
 
                             if (currentRace.equals(cbListRace.getSelectedItem())) {
                                 lblMessageChange.setText("Alien är redan registrerad som den här rasen.");
@@ -804,7 +804,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                 lblMessageDelete.setText("Alien namnet eller id:t finns inte registrerat");
 
             } else {
-                String race = Alien.getRace(getAlienId());
+                String race = ValidationRace.getRace(getAlienId());
                 if (race.equals("Squid")) {
                     deleteSquid();
                 } else if (race.equals("Boglodite")) {
@@ -859,7 +859,7 @@ public class JfAdminManageAlien extends javax.swing.JFrame {
                     String alienKontakt = idb.fetchSingle(qAlienKontakt);
                     txtaPrintAlienInfo.append("Kontakt:\t" + alienKontakt + "\n");
 
-                    String ras = Alien.getRace(alienId);
+                    String ras = ValidationRace.getRace(alienId);
                     txtaPrintAlienInfo.append("Ras:\t" + ras + "\n");
 
                     String alienEgenskap = "";

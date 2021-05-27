@@ -6,7 +6,7 @@
 package Agent_and_Admin;
 
 import java.util.ArrayList;
-import mibapplikation.Alien;
+import mibapplikation.ValidationRace;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -97,7 +97,7 @@ public class JpListAlienRace extends javax.swing.JPanel {
                 + "------------\t------------\n");
 
             for(String alienId : listAlienId){
-                String race = Alien.getRace(alienId);
+                String race = ValidationRace.getRace(alienId);
                 String qAlienName = "SELECT namn FROM alien WHERE alien_id = '" + alienId + "'";
                 String alienName = idb.fetchSingle(qAlienName);
 
