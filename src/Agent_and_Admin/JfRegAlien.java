@@ -381,7 +381,7 @@ public class JfRegAlien extends javax.swing.JFrame {
 
         String raceSpecial = lblRaceSpecial.getText();
 
-        if (Validation.validationTxtPhone(txtPhone, lblMessage) //kolla om databasen får ett värde om man endast skriver mellanslag
+        if (Validation.validationTxtPhone(txtPhone, lblMessage)
                 && Validation.validationTxt(txtName, lblMessage, "Ange namn")
                 && Validation.validationCb(cbRace, lblMessage, "Ange Ras")
                 && Validation.validationCb(cbLocation, lblMessage, "Ange plats")
