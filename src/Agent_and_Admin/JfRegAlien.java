@@ -20,7 +20,7 @@ import oru.inf.InfException;
  *
  * @author strom
  */
-public class JfAgentRegAlien extends javax.swing.JFrame {
+public class JfRegAlien extends javax.swing.JFrame {
 
     
     private InfDB idb;
@@ -29,7 +29,7 @@ public class JfAgentRegAlien extends javax.swing.JFrame {
     /**
      * Creates new form WindowAlienChangePw
      */
-    public JfAgentRegAlien(InfDB idb) {
+    public JfRegAlien(InfDB idb) {
         initComponents();
         this.idb = idb;
         
@@ -44,10 +44,10 @@ public class JfAgentRegAlien extends javax.swing.JFrame {
     private void setRace() {
 
         ArrayList<String> raceList = new ArrayList<String>();
-        raceList.add("<Oidentifierad>");
         raceList.add("Boglodite");
         raceList.add("Squid");
         raceList.add("Worm");
+        raceList.add("<Oidentifierad>");
 
         for (String element : raceList) {
             cbRace.addItem(element);
@@ -377,18 +377,7 @@ public class JfAgentRegAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        //TODO: INSERT INTO alien. 
-        //1. KLAR Auto incr ID efter den högsta nuvarande
-        //2. KLAR Nuvarande datum.
-
-        //3.KLAR Ett random lösenord.
-        //4. KLAR Namn från txtField.
-        //5. KLAR Telefon från txtField.
-        //6. KLAR Plats ID, måste hämta ID genom plats namn från ComboBox.
-        //7. KLAR Ansvarig agent ID, samma sätt som ovan.
-        //8. INSERT alien ID och unik ras specifikation INTO en ras tabell beroende på val av ras.
-        // När man väljer en ras ska den unika specifikationsnamnet dyka upp 
-        // + ett textField där man kan skriva in en INT.
+       
         getAgentInChargeId();
         getLocationId();
 
@@ -422,8 +411,6 @@ public class JfAgentRegAlien extends javax.swing.JFrame {
                 String alienId = getNewAlienId();
                 String newPw = getNewPw();
 
-                //String queryTest ="INSERT INTO alien (alien_id, namn, plats, ansvarig_agent)\n" +
-                //                  "VALUES (6, " + "'" + name + "'" + ", " + "'" + getLocationId() + "'" + ", '1')";
                 String query = "INSERT INTO alien (alien_id, registreringsdatum, losenord, namn, telefon, plats, ansvarig_agent)\n"
                         + "VALUES (" + alienId + ", "
                         + "'" + getSystemDate() + "'" + ", "
@@ -445,7 +432,6 @@ public class JfAgentRegAlien extends javax.swing.JFrame {
                         + alienId + ")";
 
                 idb.insert(query);
-                //idb.insert(queryBoglodite);
 
                 switch (race) {
                     case "Squid":
@@ -490,7 +476,6 @@ public class JfAgentRegAlien extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
 
-        //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void cbRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaceActionPerformed

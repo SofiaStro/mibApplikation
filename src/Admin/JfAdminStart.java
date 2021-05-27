@@ -12,7 +12,7 @@ import Agent_and_Admin.JfAreaChief;
 import Agent_and_Admin.JfChangePw;
 import Agent_and_Admin.JfEquipment;
 import Agent_and_Admin.JfListAliens;
-import Agent_and_Admin.JfAgentRegAlien;
+import Agent_and_Admin.JfRegAlien;
 import java.awt.Window;
 import oru.inf.InfDB;
 
@@ -252,7 +252,7 @@ public class JfAdminStart extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEquipmentStoreActionPerformed
 
     private void btnRegAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAlienActionPerformed
-        new JfAgentRegAlien(idb).setVisible(true);
+        new JfRegAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAlienActionPerformed
 
     private void btnChangeAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeAgentActionPerformed

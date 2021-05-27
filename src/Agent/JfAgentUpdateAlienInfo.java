@@ -364,7 +364,6 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -489,7 +488,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
                 lblMessageUpdate.setText("Rutan för ras-specialitet är tom");
 
             } else {
-                if (currentRace != "<Oidentifierad>") {
+                if (!currentRace.equals("<Oidentifierad>")) {
                     String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                     idb.delete(qDelete);
                 }
@@ -517,7 +516,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
                 lblMessageUpdate.setText("Rutan för ras-specialitet är tom");
 
             } else {
-                if (currentRace != "<Oidentifierad>") {
+                if (!currentRace.equals("<Oidentifierad>")) {
                     String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                     idb.delete(qDelete);
                 }
@@ -539,7 +538,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
         String currentRace = Alien.getRace(alienId);
         try {
 
-            if (currentRace != "<Oidentifierad>") {
+            if (!currentRace.equals("<Oidentifierad>")) {
                 String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                 idb.delete(qDelete);
             }
@@ -557,7 +556,7 @@ public class JfAgentUpdateAlienInfo extends javax.swing.JFrame {
     private void setUnidentified(String alienId) {
         String currentRace = Alien.getRace(alienId);
         try {
-            if (currentRace != "<Oidentifierad>") {
+            if (!currentRace.equals("<Oidentifierad>")) {
                 String qDelete = "DELETE FROM " + currentRace + " WHERE alien_id = '" + alienId + "'";
                 idb.delete(qDelete);
                 correctValues();

@@ -5,16 +5,14 @@
  */
 package Agent;
 
-import Agent_and_Admin.JfAgentRegAlien;
+import Agent_and_Admin.JfRegAlien;
 import Agent_and_Admin.JfEquipment;
 import Agent_and_Admin.JfChangePw;
 import Agent_and_Admin.JfAreaChief;
 import Agent_and_Admin.JfListAliens;
 import java.awt.Window;
-import java.util.ArrayList;
 import mibapplikation.MainWindowLogin;
 import oru.inf.InfDB;
-import oru.inf.InfException;
 
 /**
  *
@@ -24,10 +22,7 @@ public class JfAgentStart extends javax.swing.JFrame {
 
     private  InfDB idb;
     private  String agentId;
-    private  String username;
-    
-    
-
+  
     /**
      * Creates new form MainWindow
      */
@@ -35,7 +30,6 @@ public class JfAgentStart extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
         this.agentId = agentId;
-        this.username = username;
         lblWelcome.setText("Välkommen " + username + "!");
         
     }
@@ -213,7 +207,7 @@ public class JfAgentStart extends javax.swing.JFrame {
 
     private void btnRegAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegAlienActionPerformed
         // TODO add your handling code here:
-        new JfAgentRegAlien(idb).setVisible(true);
+        new JfRegAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnRegAlienActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed

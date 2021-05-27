@@ -8,11 +8,8 @@ package Admin;
 import java.awt.Color;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
-import javax.swing.JComboBox;
 import mibapplikation.Validation;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.WordUtils;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -331,8 +328,6 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
                 String agentId = getNewAgentId();
                 String newPw = getNewPw();
 
-                //String queryTest ="INSERT INTO alien (alien_id, namn, plats, ansvarig_agent)\n" +
-                //                  "VALUES (6, " + "'" + name + "'" + ", " + "'" + getLocationId() + "'" + ", '1')";
                 String query = "INSERT INTO agent (agent_id, namn, telefon, anstallningsdatum, administrator, losenord, omrade)\n"
                         + "VALUES (" + agentId + ", "
                         + "'" + name + "'" + ", "
@@ -346,7 +341,7 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
 
                 idb.insert(query);
                 idb.insert(queryFieldAgent);
-                //idb.insert(queryBoglodite);
+                
 
                 lblMessage.setForeground(new Color(50,255,50));
                 lblMessage.setText("Registrering slutförd!");
@@ -375,8 +370,6 @@ public class JfAdminRegAgent extends javax.swing.JFrame {
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-
-        //dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
 

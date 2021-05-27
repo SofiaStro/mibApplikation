@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package mibapplikation;
+
+
+
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import oru.inf.InfDB;
@@ -29,12 +33,7 @@ public class Database {
         }
         
         new MainWindowLogin(idb).setVisible(true);
-        //new WindowAdminManageAlien(idb).setVisible(true);
-        
-        
-       // new WindowTemplate().setVisible(true);
-       new Equipment(idb);
-       new Alien(idb);
+       
     }
 
 }

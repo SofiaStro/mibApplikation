@@ -7,7 +7,6 @@ package Alien;
 
 import java.awt.Window;
 import java.util.HashMap;
-import mibapplikation.Database;
 import mibapplikation.MainWindowLogin;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -20,7 +19,6 @@ public class JfAlienStart extends javax.swing.JFrame {
 
     private InfDB idb;
     private String alienId;
-    private String username;
 
     /**
      * Creates new form MainWindow
@@ -29,7 +27,6 @@ public class JfAlienStart extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
         this.alienId = alienId;
-        this.username = username;
         lblWelcome.setText("Välkommen " + username + "!");
         getAreaChief();
     }
