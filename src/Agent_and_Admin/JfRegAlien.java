@@ -400,7 +400,7 @@ public class JfRegAlien extends javax.swing.JFrame {
                 && Validation.validationCb(cbAgentInCharge, lblMessage, "Ange ansvarig agent")) {
 
             if (txtRaceSpecial.isShowing() == true) {
-                if (!Validation.validationTxt(txtRaceSpecial, lblMessage, "Ange " + getRaceSpecial().substring(0, getRaceSpecial().length() - 1))
+                if (!Validation.validationTxt(txtRaceSpecial, lblMessage, "Ange " +getRaceSpecial().substring(0, getRaceSpecial().length() - 1))
                         || !Validation.validationNumbers(txtRaceSpecial, lblMessage, getRaceSpecial().substring(0, getRaceSpecial().length() - 1) + " måste vara en siffra")) {
 
                     return;
