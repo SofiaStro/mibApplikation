@@ -170,29 +170,35 @@ public class MainWindowLogin extends javax.swing.JFrame {
 
                 String queryAgent = "SELECT agent_id FROM agent WHERE namn = " + "'" + username + "'" + "AND losenord = " + "'" + password + "'";
                 String resultAgent = idb.fetchSingle(queryAgent);
+                String queryAgentPw = "SELECT losenord FROM agent WHERE agent_id = '" + resultAgent + "'";
+                String resultAgentPw = idb.fetchSingle(queryAgentPw);
 
                 String queryAdmin = "SELECT administrator FROM agent WHERE agent_id = " + "'" + resultAgent + "'";
                 String resultAdmin = idb.fetchSingle(queryAdmin);
 
                 String queryAlien = "SELECT alien_id FROM alien WHERE namn = " + "'" + username + "'" + "AND losenord = " + "'" + password + "'";
                 String resultAlien = idb.fetchSingle(queryAlien);
+                String queryAlienPw = "SELECT losenord FROM alien WHERE alien_id = '" + resultAlien + "'";
+                String resultAlienPw = idb.fetchSingle(queryAlienPw);
 
-                if (resultAgent != null) {
-                    if (resultAdmin.equals("J")) {
+                if (password.equals(resultAgentPw) || password.equals(resultAlienPw)) {
+                    if (resultAgent != null) {
+                        if (resultAdmin.equals("J")) {
+                            setVisible(false);
+                            //Gör om första bokstaven till versal.
+                            username = WordUtils.capitalize(username);
+                            new JfAdminStart(idb, resultAgent, username).setVisible(true);
+                        } else {
+                            setVisible(false);
+                            username = WordUtils.capitalize(username);
+                            new JfAgentStart(idb, resultAgent, username).setVisible(true);
+                        }
+                    } else if (resultAlien != null) {
                         setVisible(false);
-                        //Gör om första bokstaven till versal.
+
                         username = WordUtils.capitalize(username);
-                        new JfAdminStart(idb, resultAgent, username).setVisible(true);
-                    } else {
-                        setVisible(false);
-                        username = WordUtils.capitalize(username);
-                        new JfAgentStart(idb, resultAgent, username).setVisible(true);
+                        new JfAlienStart(idb, resultAlien, username).setVisible(true);
                     }
-                } else if (resultAlien != null) {
-                    setVisible(false);
-
-                    username = WordUtils.capitalize(username);
-                    new JfAlienStart(idb, resultAlien, username).setVisible(true);
                 } else {
                     lblMessage.setText("Fel användarnamn eller lösenord");
                     pwPassword.setText("");
